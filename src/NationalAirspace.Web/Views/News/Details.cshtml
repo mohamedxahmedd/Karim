@@ -1,0 +1,59 @@
+@model NationalAirspace.Application.Features.News.NewsDetailDto
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-8">
+                <article class="article">
+                    <div class="card-meta mb-3">
+                        <span><i class="bi bi-calendar3" aria-hidden="true"></i> <time datetime="@Clock.IsoDate(Model.PublishDateUtc)">@Clock.LongDate(Model.PublishDateUtc)</time></span>
+                        @if (Model.CategoryName is not null)
+                        {
+                            <a class="chip" href="@Url.Site("/news")?category=@Uri.EscapeDataString(Model.CategorySlug!)">@Model.CategoryName</a>
+                        }
+                        @if (Model.Author is not null)
+                        {
+                            <span><i class="bi bi-person" aria-hidden="true"></i> @Model.Author</span>
+                        }
+                    </div>
+                    @if (Model.Image is not null)
+                    {
+                        <div class="article-cover"><img src="@Model.Image.Url" alt="@Model.Image.Alt" /></div>
+                    }
+                    @if (Model.Summary is not null)
+                    {
+                        <p class="article-lead">@Model.Summary</p>
+                    }
+                    @if (Model.ContentHtml is not null)
+                    {
+                        <div class="rich-text">@Html.Raw(Model.ContentHtml)</div>
+                    }
+                    <hr class="my-4" />
+                    <partial name="_ShareRow" />
+                </article>
+            </div>
+            <aside class="col-lg-4">
+                @if (Model.Related.Count > 0)
+                {
+                    <div class="sidebar-card">
+                        <h2>@L["News.Related"]</h2>
+                        <ul class="sidebar-list">
+                            @foreach (var r in Model.Related)
+                            {
+                                <li>
+                                    <a href="@Url.Site("/news", r.Slug)">
+                                        <span>@r.Title<br /><small class="text-muted">@Clock.LongDate(r.PublishDateUtc)</small></span>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+                <div class="sidebar-card">
+                    <h2>@L["Nav.Announcements"]</h2>
+                    <a class="btn-link-arrow" href="@Url.Site("/announcements")">@L["Announcements.ViewAll"]</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>

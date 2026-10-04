@@ -1,0 +1,19 @@
+@model NationalAirspace.Application.Features.Home.HomeBlockDto
+@{ var center = ViewData["Center"] is true; }
+<div class="section-head-row">
+    <div class="section-head @(center ? "center" : "")">
+        @if (Model.Subtitle is not null)
+        {
+            <div class="section-kicker">@Model.Subtitle</div>
+        }
+        <h2>@Model.Title</h2>
+        @if (Model.Description is not null)
+        {
+            <p>@Model.Description</p>
+        }
+    </div>
+    @if (Model.Button is not null)
+    {
+        <a class="btn btn-outline-primary" href="@Url.Site(Model.Button.Url)">@Model.Button.Text</a>
+    }
+</div>

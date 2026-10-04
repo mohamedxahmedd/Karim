@@ -1,0 +1,38 @@
+@model IReadOnlyList<NationalAirspace.Application.Features.News.CategoryAdminItem>
+@{
+    var isNews = (string?)ViewContext.RouteData.Values["controller"] == "NewsCategories";
+    ViewData["Title"] = L[isNews ? "AdminNav.NewsCategories" : "AdminNav.ReportCategories"];
+}
+@section Actions {
+    <a class="btn btn-primary" asp-action="Create"><i class="bi bi-plus-lg" aria-hidden="true"></i> @L["Categories.Create"]</a>
+}
+<div class="admin-table-wrap">
+    @if (Model.Count == 0)
+    {
+        <partial name="_TableEmpty" />
+    }
+    else
+    {
+        <table class="table admin-table">
+            <thead><tr><th scope="col">@L["Field.Name"]</th><th scope="col">@L["Field.Slug"]</th><th scope="col">@L["Admin.Items"]</th><th scope="col">@L["Field.Status"]</th><th scope="col">@L["Admin.Order"]</th><th scope="col" class="col-actions"><span class="visually-hidden">@L["Admin.Actions"]</span></th></tr></thead>
+            <tbody>
+                @foreach (var c in Model)
+                {
+                    <tr>
+                        <td><a class="row-title" asp-action="Edit" asp-route-id="@c.Id">@Bilingual.Pick(c.NameAr, c.NameEn)</a></td>
+                        <td data-label="@L["Field.Slug"]"><code dir="ltr">@c.Slug</code></td>
+                        <td data-label="@L["Admin.Items"]">@c.ItemCount</td>
+                        <td data-label="@L["Field.Status"]"><span class="badge @(c.IsActive ? "text-bg-success" : "text-bg-secondary")">@L[c.IsActive ? "Admin.Active" : "Admin.Inactive"]</span></td>
+                        <td data-label="@L["Admin.Order"]"><partial name="_MoveButtons" model="c.Id" /></td>
+                        <td class="col-actions">
+                            <div class="row-actions">
+                                <partial name="_EditLink" model="c.Id" />
+                                <post-button asp-action="Delete" asp-route-id="@c.Id.ToString()" icon="bi-trash" title="Common.Delete" class="btn btn-sm btn-outline-danger" confirm="Admin.ConfirmDelete" />
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

@@ -1,0 +1,114 @@
+@using NationalAirspace.Web.Services
+@{
+    var lang = CultureHelper.CurrentLang;
+    var other = lang.Other();
+    var here = Context.Request.Path + Context.Request.QueryString;
+}
+<!DOCTYPE html>
+<html lang="@lang.Code()" dir="@(lang.IsRtl() ? "rtl" : "ltr")" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>@ViewData["Title"] | @L["Admin.Title"]</title>
+    <link rel="icon" href="~/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="~/apple-touch-icon.png" />
+    @if (lang.IsRtl())
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.rtl.min.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    }
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+</head>
+<body class="admin-body">
+    <a class="skip-link" href="#admin-main">@L["A11y.SkipToContent"]</a>
+    <aside class="admin-sidebar offcanvas-xl offcanvas-start" tabindex="-1" id="adminSidebar" aria-labelledby="adminSidebarLabel">
+        <div class="admin-brand">
+            <img src="~/img/logo-192.webp" alt="" width="40" height="40" />
+            <div>
+                <div class="fw-bold" id="adminSidebarLabel">@L["Admin.Title"]</div>
+                <small>@L["Admin.Subtitle"]</small>
+            </div>
+            <button type="button" class="btn-close btn-close-white ms-auto d-xl-none" data-bs-dismiss="offcanvas" data-bs-target="#adminSidebar" aria-label="@L["Common.Close"]"></button>
+        </div>
+        @await Component.InvokeAsync("AdminNav")
+    </aside>
+
+    <div class="admin-main">
+        <header class="admin-topbar">
+            <button class="btn btn-light d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#adminSidebar" aria-controls="adminSidebar" aria-label="@L["Nav.Toggle"]">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <div class="admin-topbar-title text-truncate">@ViewData["Title"]</div>
+            <div class="ms-auto d-flex align-items-center gap-2">
+                <a class="btn btn-sm btn-light" href="/@lang.Code()" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> <span class="d-none d-md-inline">@L["Admin.ViewSite"]</span></a>
+                <a class="btn btn-sm btn-light" href="/lang/@other.Code()?returnUrl=@Uri.EscapeDataString(here)"><i class="bi bi-translate" aria-hidden="true"></i> @(other == Lang.Ar ? "العربية" : "English")</a>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle" aria-hidden="true"></i> <span class="d-none d-sm-inline">@User.DisplayName()</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Account" asp-action="Profile"><i class="bi bi-person" aria-hidden="true"></i> @L["Account.Profile"]</a></li>
+                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Account" asp-action="ChangePassword"><i class="bi bi-key" aria-hidden="true"></i> @L["Account.ChangePassword"]</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                            <form method="post" asp-area="Admin" asp-controller="Account" asp-action="Logout">
+                                <button type="submit" class="dropdown-item text-danger"><i class="bi bi-box-arrow-right" aria-hidden="true"></i> @L["Account.Logout"]</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <main id="admin-main" class="admin-content" tabindex="-1">
+            <partial name="_Flash" />
+            <div class="admin-page-head">
+                <div>
+                    <h1>@ViewData["Title"]</h1>
+                    @if (ViewData["Subtitle"] is string sub)
+                    {
+                        <p>@sub</p>
+                    }
+                </div>
+                <div class="admin-page-actions">@await RenderSectionAsync("Actions", required: false)</div>
+            </div>
+            @RenderBody()
+        </main>
+    </div>
+
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header"><h2 class="modal-title h5" id="confirmModalTitle">@L["Admin.ConfirmTitle"]</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@L["Common.Close"]"></button></div>
+                <div class="modal-body" data-confirm-text></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">@L["Common.Cancel"]</button>
+                    <button type="button" class="btn btn-danger" data-confirm-ok>@L["Common.Confirm"]</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mediaPickerModal" tabindex="-1" aria-labelledby="mediaPickerTitle" aria-hidden="true" data-picker-url="@Url.Action("Picker", "Media", new { area = "Admin" })" data-empty-text="@L["Media.NoFile"]" data-error-text="@L["Common.LoadError"]">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header"><h2 class="modal-title h5" id="mediaPickerTitle">@L["Media.Library"]</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@L["Common.Close"]"></button></div>
+                <div class="modal-body" data-picker-body><div class="text-center py-5"><div class="spinner-border" role="status"></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/viz.js" asp-append-version="true"></script>
+    <script src="~/js/admin.js" asp-append-version="true" data-quill-js="@Url.Content("~/lib/quill/quill.js")" data-quill-css="@Url.Content("~/lib/quill/quill.snow.css")"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

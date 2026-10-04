@@ -1,0 +1,66 @@
+@model BarChartModel
+@{
+    const double W = 640, H = 230, Left = 40, Right = 12, Top = 16, Bottom = 28;
+    var plotW = W - Left - Right;
+    var plotH = H - Top - Bottom;
+    var rawMax = Math.Max(Model.Points.Count == 0 ? 0 : Model.Points.Max(p => p.Value), Model.Reference ?? 0);
+    // "Nice" tick step: 1/2/5 × 10^n so that four steps cover the data with ~10% headroom.
+    var rough = Math.Max(1, rawMax * 1.1 / 4);
+    var magnitude = Math.Pow(10, Math.Floor(Math.Log10(rough)));
+    var normalized = rough / magnitude;
+    var step = (int)Math.Max(1, (normalized <= 1 ? 1 : normalized <= 2 ? 2 : normalized <= 5 ? 5 : 10) * magnitude);
+    var max = step * (int)Math.Max(4, Math.Ceiling(rawMax * 1.1 / step));
+    var band = Model.Points.Count == 0 ? plotW : plotW / Model.Points.Count;
+    var barW = Math.Min(36, band * 0.62);
+    double Y(double v) => Top + plotH - v / max * plotH;
+    string Inv(double d) => d.ToString("0.##", System.Globalization.CultureInfo.InvariantCulture);
+    var ticks = Enumerable.Range(0, max / step + 1).Select(i => i * step).ToList();
+}
+<svg class="chart-svg" viewBox="0 0 @Inv(W) @Inv(H)" role="img" aria-label="@Model.AriaLabel" direction="ltr">
+    @foreach (var t in ticks)
+    {
+        <g>
+            <line class="grid" x1="@Inv(Left)" x2="@Inv(W - Right)" y1="@Inv(Y(t))" y2="@Inv(Y(t))" />
+            <text class="axis-label" x="@Inv(Left - 8)" y="@Inv(Y(t) + 4)" text-anchor="end">@t</text>
+        </g>
+    }
+    @for (var i = 0; i < Model.Points.Count; i++)
+    {
+        var p = Model.Points[i];
+        var cx = Left + band * i + band / 2;
+        var x = cx - barW / 2;
+        var y = Y(p.Value);
+        var h = Top + plotH - y;
+        var r = Math.Min(4, Math.Min(barW / 2, h));
+        var id = $"{Model.Id}-b{i}";
+        var path = $"M{Inv(x)},{Inv(Top + plotH)} V{Inv(y + r)} Q{Inv(x)},{Inv(y)} {Inv(x + r)},{Inv(y)} H{Inv(x + barW - r)} Q{Inv(x + barW)},{Inv(y)} {Inv(x + barW)},{Inv(y + r)} V{Inv(Top + plotH)} Z";
+        if (h > 0)
+        {
+            <path id="@id" class="bar" d="@path" />
+        }
+        <rect class="hit" x="@Inv(Left + band * i)" y="@Inv(Top)" width="@Inv(band)" height="@Inv(plotH)" data-tip="@p.Tip" data-mark="@id"><title>@p.Tip</title></rect>
+        if (Model.Points.Count <= 12 || i % 2 == 0)
+        {
+            <g><text class="axis-label" x="@Inv(cx)" y="@Inv(H - 8)" text-anchor="middle">@p.Label</text></g>
+        }
+    }
+    @if (Model.Reference is { } reference)
+    {
+        <g>
+            <line class="ref-line" x1="@Inv(Left)" x2="@Inv(W - Right)" y1="@Inv(Y(reference))" y2="@Inv(Y(reference))" />
+            <text class="ref-label" x="@Inv(W - Right - 4)" y="@Inv(Y(reference) - 6)" text-anchor="end">@Model.ReferenceLabel</text>
+        </g>
+    }
+</svg>
+<details class="chart-table">
+    <summary>@L["Common.ShowTable"]</summary>
+    <table class="table table-sm mb-0">
+        <thead><tr><th scope="col">@L["Chart.Category"]</th><th scope="col" class="text-end">@(Model.ValueHeader ?? L["Chart.Value"])</th></tr></thead>
+        <tbody>
+            @foreach (var p in Model.Points)
+            {
+                <tr><td>@p.Label</td><td class="text-end">@p.Value</td></tr>
+            }
+        </tbody>
+    </table>
+</details>

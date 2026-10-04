@@ -1,0 +1,25 @@
+@model HomeBlockModel
+@if (Model.Page.Statistics.Count > 0)
+{
+    <section class="section section-dark" id="statistics">
+        <div class="container container-wide">
+            @{ ViewData["Center"] = true; }
+            <partial name="_BlockHeader" model="Model.Block" view-data="ViewData" />
+            <div class="row g-4 justify-content-center">
+                @foreach (var s in Model.Page.Statistics)
+                {
+                    <div class="col-6 col-lg-3 reveal">
+                        <div class="stat">
+                            @if (s.Icon is not null)
+                            {
+                                <i class="bi @s.Icon" aria-hidden="true"></i>
+                            }
+                            <div class="stat-value">@s.Value</div>
+                            <div class="stat-label">@s.Label</div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}

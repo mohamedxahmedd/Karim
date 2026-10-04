@@ -1,0 +1,41 @@
+@model AdminFormModel<NationalAirspace.Application.Features.Pages.PageSectionInput>
+@{
+    ViewData["Title"] = Model.IsNew ? L["Pages.AddSection"] : L["Pages.EditSection"];
+    ViewData["Subtitle"] = ViewData["PageTitle"];
+}
+<form method="post" enctype="multipart/form-data" asp-action="@(Model.IsNew ? "CreateSection" : "EditSection")" asp-route-id="@Model.Input.Id" asp-route-pageId="@(Model.IsNew ? Model.Input.PageId : null)" novalidate>
+    <input type="hidden" asp-for="Input.ConcurrencyStamp" />
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <partial name="_LangTabsNav" model="false" />
+                <div class="tab-content pt-4">
+                    <div class="tab-pane fade show active" id="tab-ar" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleAr" />
+                        <field asp-for="Input.ContentAr" type="richtext" rows="8" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-en" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleEn" />
+                        <field asp-for="Input.ContentEn" type="richtext" rows="8" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="admin-card">
+                <field asp-for="Input.Layout" type="select" items="L.EnumOptions<PageSectionLayout>()" hint="Pages.LayoutHint" />
+                <field asp-for="Input.Icon" dir="ltr" placeholder="Admin.IconPlaceholder" hint="Admin.IconHint" />
+                <field asp-for="Input.Key" dir="ltr" hint="Pages.KeyHint" />
+                <field asp-for="Input.IsVisible" type="checkbox" />
+                <media-field asp-for="Input.ImageId" kind="Image" upload="SectionImageUpload" />
+            </div>
+            <div class="admin-card admin-form-submit">
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-check2" aria-hidden="true"></i> @L["Common.Save"]</button>
+                    <a class="btn btn-light" asp-action="Edit" asp-route-id="@Model.Input.PageId" asp-fragment="sections">@L["Common.Cancel"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

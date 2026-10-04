@@ -1,0 +1,16 @@
+@* Tabs for bilingual forms. Model: true to add an SEO tab. Without JS all panes are shown (see admin.css). *@
+@model bool
+<ul class="nav nav-tabs lang-tabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#tab-ar" aria-controls="tab-ar" aria-selected="true">العربية</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#tab-en" aria-controls="tab-en" aria-selected="false">English</button>
+    </li>
+    @if (Model)
+    {
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#tab-seo" aria-controls="tab-seo" aria-selected="false">@L["Admin.SeoTab"]</button>
+        </li>
+    }
+</ul>

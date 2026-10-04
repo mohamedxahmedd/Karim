@@ -1,0 +1,44 @@
+@model MediaCenterModel
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <div class="section-head-row">
+            <div class="section-head"><h2>@L["Nav.Photos"]</h2></div>
+            <a class="btn btn-outline-primary" href="@Url.Site("/media/photos")">@L["Common.ViewAll"]</a>
+        </div>
+        @if (Model.Albums.Items.Count == 0)
+        {
+            <partial name="_EmptyState" model="@("Photos.Empty")" />
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var a in Model.Albums.Items)
+                {
+                    <div class="col-md-6 col-lg-4 reveal"><partial name="_AlbumCard" model="a" /></div>
+                }
+            </div>
+        }
+    </div>
+</section>
+<section class="section section-alt">
+    <div class="container container-wide">
+        <div class="section-head-row">
+            <div class="section-head"><h2>@L["Nav.Videos"]</h2></div>
+            <a class="btn btn-outline-primary" href="@Url.Site("/media/videos")">@L["Common.ViewAll"]</a>
+        </div>
+        @if (Model.Videos.Items.Count == 0)
+        {
+            <partial name="_EmptyState" model="@("Videos.Empty")" />
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var v in Model.Videos.Items)
+                {
+                    <div class="col-md-6 col-lg-4 reveal"><partial name="_VideoCard" model="v" /></div>
+                }
+            </div>
+        }
+    </div>
+</section>

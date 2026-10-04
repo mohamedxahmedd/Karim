@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="A11y.BackToTop" xml:space="preserve"><value>Back to top</value></data>
+  <data name="A11y.SkipToContent" xml:space="preserve"><value>Skip to main content</value></data>
+  <data name="Account.Access" xml:space="preserve"><value>Access</value></data>
+  <data name="Account.AccessDenied" xml:space="preserve"><value>Access denied</value></data>
+  <data name="Account.AccessDeniedText" xml:space="preserve"><value>Your account does not have permission to open this page. Contact a system administrator if you need access.</value></data>
+  <data name="Account.ChangePassword" xml:space="preserve"><value>Change password</value></data>
+  <data name="Account.CurrentPasswordWrong" xml:space="preserve"><value>The current password is incorrect.</value></data>
+  <data name="Account.Details" xml:space="preserve"><value>Account details</value></data>
+  <data name="Account.Inactive" xml:space="preserve"><value>This account has been deactivated. Contact a system administrator.</value></data>
+  <data name="Account.InvalidLogin" xml:space="preserve"><value>Invalid email or password.</value></data>
+  <data name="Account.LockedOut" xml:space="preserve"><value>Too many failed attempts. The account is temporarily locked; try again in 15 minutes.</value></data>
+  <data name="Account.Login" xml:space="preserve"><value>Sign in</value></data>
+  <data name="Account.LoginIntro" xml:space="preserve"><value>Authorized staff only. All activity is logged.</value></data>
+  <data name="Account.LoginTitle" xml:space="preserve"><value>Sign in to the control panel</value></data>
+  <data name="Account.Logout" xml:space="preserve"><value>Sign out</value></data>
+  <data name="Account.PasswordChanged" xml:space="preserve"><value>Your password has been changed.</value></data>
+  <data name="Account.PasswordPolicy" xml:space="preserve"><value>At least 10 characters, including upper- and lower-case letters, a digit and a symbol.</value></data>
+  <data name="Account.Profile" xml:space="preserve"><value>My profile</value></data>
+  <data name="Admin.Actions" xml:space="preserve"><value>Actions</value></data>
+  <data name="Admin.Active" xml:space="preserve"><value>Active</value></data>
+  <data name="Admin.AllStatuses" xml:space="preserve"><value>All statuses</value></data>
+  <data name="Admin.Archive" xml:space="preserve"><value>Archive</value></data>
+  <data name="Admin.BackToSite" xml:space="preserve"><value>Back to website</value></data>
+  <data name="Admin.ClearFilters" xml:space="preserve"><value>Clear filters</value></data>
+  <data name="Admin.ConfirmDelete" xml:space="preserve"><value>Delete this item permanently? This cannot be undone.</value></data>
+  <data name="Admin.ConfirmTitle" xml:space="preserve"><value>Please confirm</value></data>
+  <data name="Admin.Deleted" xml:space="preserve"><value>Deleted.</value></data>
+  <data name="Admin.Files" xml:space="preserve"><value>Files</value></data>
+  <data name="Admin.Hidden" xml:space="preserve"><value>Hidden</value></data>
+  <data name="Admin.Hide" xml:space="preserve"><value>Hide</value></data>
+  <data name="Admin.IconHint" xml:space="preserve"><value>Bootstrap Icons class name, e.g. bi-airplane. Leave empty for the default icon.</value></data>
+  <data name="Admin.IconPlaceholder" xml:space="preserve"><value>bi-airplane</value></data>
+  <data name="Admin.Inactive" xml:space="preserve"><value>Inactive</value></data>
+  <data name="Admin.Items" xml:space="preserve"><value>Items</value></data>
+  <data name="Admin.LinkHint" xml:space="preserve"><value>A site path such as /about (the language prefix is added automatically) or a full https:// address.</value></data>
+  <data name="Admin.MoreActions" xml:space="preserve"><value>More actions</value></data>
+  <data name="Admin.MoveDown" xml:space="preserve"><value>Move down</value></data>
+  <data name="Admin.MoveUp" xml:space="preserve"><value>Move up</value></data>
+  <data name="Admin.NoCategory" xml:space="preserve"><value>— No category —</value></data>
+  <data name="Admin.NoItems" xml:space="preserve"><value>No items yet.</value></data>
+  <data name="Admin.Order" xml:space="preserve"><value>Order</value></data>
+  <data name="Admin.Preview" xml:space="preserve"><value>Preview</value></data>
+  <data name="Admin.Publish" xml:space="preserve"><value>Publish</value></data>
+  <data name="Admin.PublishDateHint" xml:space="preserve"><value>Cairo time. Leave empty to publish immediately; a future date schedules the item.</value></data>
+  <data name="Admin.Publishing" xml:space="preserve"><value>Publishing</value></data>
+  <data name="Admin.Reorder" xml:space="preserve"><value>Reorder</value></data>
+  <data name="Admin.SaveContinue" xml:space="preserve"><value>Save and continue editing</value></data>
+  <data name="Admin.Saved" xml:space="preserve"><value>Changes saved.</value></data>
+  <data name="Admin.Scheduled" xml:space="preserve"><value>Scheduled</value></data>
+  <data name="Admin.SearchPlaceholder" xml:space="preserve"><value>Search by title…</value></data>
+  <data name="Admin.SeoTab" xml:space="preserve"><value>URL &amp; SEO</value></data>
+  <data name="Admin.Show" xml:space="preserve"><value>Show</value></data>
+  <data name="Admin.Shown" xml:space="preserve"><value>Visible</value></data>
+  <data name="Admin.SlugHint" xml:space="preserve"><value>Leave empty to generate it from the title.</value></data>
+  <data name="Admin.Subtitle" xml:space="preserve"><value>Content management</value></data>
+  <data name="Admin.Title" xml:space="preserve"><value>Control panel</value></data>
+  <data name="Admin.Unpublish" xml:space="preserve"><value>Unpublish</value></data>
+  <data name="Admin.Updated" xml:space="preserve"><value>Last updated</value></data>
+  <data name="Admin.ViewSite" xml:space="preserve"><value>View website</value></data>
+  <data name="AdminNav.Albums" xml:space="preserve"><value>Photo albums</value></data>
+  <data name="AdminNav.Announcements" xml:space="preserve"><value>Announcements</value></data>
+  <data name="AdminNav.Audit" xml:space="preserve"><value>Audit log</value></data>
+  <data name="AdminNav.Communication" xml:space="preserve"><value>Communication</value></data>
+  <data name="AdminNav.Content" xml:space="preserve"><value>Content</value></data>
+  <data name="AdminNav.Dashboard" xml:space="preserve"><value>Dashboard</value></data>
+  <data name="AdminNav.Departments" xml:space="preserve"><value>Departments</value></data>
+  <data name="AdminNav.HeroSlides" xml:space="preserve"><value>Hero slides</value></data>
+  <data name="AdminNav.HomeSections" xml:space="preserve"><value>Homepage sections</value></data>
+  <data name="AdminNav.ImportantLinks" xml:space="preserve"><value>Important links</value></data>
+  <data name="AdminNav.Label" xml:space="preserve"><value>Control panel navigation</value></data>
+  <data name="AdminNav.Leaders" xml:space="preserve"><value>Leadership</value></data>
+  <data name="AdminNav.Legislation" xml:space="preserve"><value>Legislation</value></data>
+  <data name="AdminNav.Library" xml:space="preserve"><value>Media library</value></data>
+  <data name="AdminNav.Media" xml:space="preserve"><value>Media</value></data>
+  <data name="AdminNav.Menus" xml:space="preserve"><value>Menus</value></data>
+  <data name="AdminNav.Messages" xml:space="preserve"><value>Messages</value></data>
+  <data name="AdminNav.News" xml:space="preserve"><value>News</value></data>
+  <data name="AdminNav.NewsCategories" xml:space="preserve"><value>News categories</value></data>
+  <data name="AdminNav.Organization" xml:space="preserve"><value>Organization</value></data>
+  <data name="AdminNav.Overview" xml:space="preserve"><value>Overview</value></data>
+  <data name="AdminNav.Pages" xml:space="preserve"><value>Pages</value></data>
+  <data name="AdminNav.ReportCategories" xml:space="preserve"><value>Report categories</value></data>
+  <data name="AdminNav.Reports" xml:space="preserve"><value>Reports &amp; studies</value></data>
+  <data name="AdminNav.Services" xml:space="preserve"><value>Services</value></data>
+  <data name="AdminNav.Settings" xml:space="preserve"><value>Site settings</value></data>
+  <data name="AdminNav.Statistics" xml:space="preserve"><value>Statistics</value></data>
+  <data name="AdminNav.System" xml:space="preserve"><value>System</value></data>
+  <data name="AdminNav.Training" xml:space="preserve"><value>Training courses</value></data>
+  <data name="AdminNav.Users" xml:space="preserve"><value>Users</value></data>
+  <data name="AdminNav.Videos" xml:space="preserve"><value>Videos</value></data>
+  <data name="AdminNav.Website" xml:space="preserve"><value>Website</value></data>
+  <data name="Albums.ConfirmRemove" xml:space="preserve"><value>Remove this photo from the album? The file stays in the media library.</value></data>
+  <data name="Albums.Cover" xml:space="preserve"><value>Cover</value></data>
+  <data name="Albums.Create" xml:space="preserve"><value>New album</value></data>
+  <data name="Albums.CreatedAddPhotos" xml:space="preserve"><value>Album created. Now add its photos.</value></data>
+  <data name="Albums.Edit" xml:space="preserve"><value>Edit album</value></data>
+  <data name="Albums.ManagePhotos" xml:space="preserve"><value>Manage photos</value></data>
+  <data name="Albums.NoImages" xml:space="preserve"><value>Select at least one valid image.</value></data>
+  <data name="Albums.NoPhotos" xml:space="preserve"><value>This album has no photos yet.</value></data>
+  <data name="Albums.Photos" xml:space="preserve"><value>Photos</value></data>
+  <data name="Albums.PhotosSubtitle" xml:space="preserve"><value>{0} photo(s)</value></data>
+  <data name="Albums.RemovePhoto" xml:space="preserve"><value>Remove photo</value></data>
+  <data name="Albums.SaveCaption" xml:space="preserve"><value>Save caption</value></data>
+  <data name="Albums.SetCover" xml:space="preserve"><value>Set as cover</value></data>
+  <data name="Albums.UploadHint" xml:space="preserve"><value>Select up to 20 images (JPG, PNG, WebP or GIF, up to 5 MB each).</value></data>
+  <data name="Albums.UploadPhotos" xml:space="preserve"><value>Add photos</value></data>
+  <data name="Announcements.Active" xml:space="preserve"><value>Current announcements</value></data>
+  <data name="Announcements.Archive" xml:space="preserve"><value>Archive</value></data>
+  <data name="Announcements.ArchiveEmpty" xml:space="preserve"><value>The archive is empty.</value></data>
+  <data name="Announcements.Create" xml:space="preserve"><value>New announcement</value></data>
+  <data name="Announcements.Edit" xml:space="preserve"><value>Edit announcement</value></data>
+  <data name="Announcements.Empty" xml:space="preserve"><value>There are no current announcements.</value></data>
+  <data name="Announcements.Expired" xml:space="preserve"><value>Expired</value></data>
+  <data name="Announcements.ExpiryBeforePublish" xml:space="preserve"><value>The expiry date must be after the publication date.</value></data>
+  <data name="Announcements.ExpiryHint" xml:space="preserve"><value>Optional. After this time the announcement is hidden and archived automatically.</value></data>
+  <data name="Announcements.Important" xml:space="preserve"><value>Important</value></data>
+  <data name="Announcements.Lead" xml:space="preserve"><value>Official announcements of the Center.</value></data>
+  <data name="Announcements.NoExpiry" xml:space="preserve"><value>No expiry</value></data>
+  <data name="Announcements.ValidUntil" xml:space="preserve"><value>Valid until</value></data>
+  <data name="Announcements.ViewAll" xml:space="preserve"><value>All announcements</value></data>
+  <data name="Atfm.Disclaimer" xml:space="preserve"><value>Informational content only. This page does not provide access to operational ATFM systems or data.</value></data>
+  <data name="Atfm.ProcessKicker" xml:space="preserve"><value>Conceptual process</value></data>
+  <data name="Atfm.ProcessTitle" xml:space="preserve"><value>From traffic demand to an optimized traffic flow</value></data>
+  <data name="Audit.Action" xml:space="preserve"><value>Action</value></data>
+  <data name="Audit.AllEntities" xml:space="preserve"><value>All content types</value></data>
+  <data name="Audit.Empty" xml:space="preserve"><value>No activity recorded yet.</value></data>
+  <data name="Audit.Entity" xml:space="preserve"><value>Content type</value></data>
+  <data name="Audit.Ip" xml:space="preserve"><value>IP address</value></data>
+  <data name="Audit.SearchPlaceholder" xml:space="preserve"><value>Search user, action or summary…</value></data>
+  <data name="Audit.Subtitle" xml:space="preserve"><value>Every change made in the control panel, newest first.</value></data>
+  <data name="Audit.Summary" xml:space="preserve"><value>Details</value></data>
+  <data name="Audit.User" xml:space="preserve"><value>User</value></data>
+  <data name="Audit.When" xml:space="preserve"><value>Time</value></data>
+  <data name="Categories.Create" xml:space="preserve"><value>New category</value></data>
+  <data name="Categories.Edit" xml:space="preserve"><value>Edit category</value></data>
+  <data name="Chart.Category" xml:space="preserve"><value>Period</value></data>
+  <data name="Chart.Value" xml:space="preserve"><value>Value</value></data>
+  <data name="Common.All" xml:space="preserve"><value>All</value></data>
+  <data name="Common.AllCategories" xml:space="preserve"><value>All categories</value></data>
+  <data name="Common.AllYears" xml:space="preserve"><value>All years</value></data>
+  <data name="Common.Attachment" xml:space="preserve"><value>Attachment</value></data>
+  <data name="Common.Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Common.Close" xml:space="preserve"><value>Close</value></data>
+  <data name="Common.Confirm" xml:space="preserve"><value>Confirm</value></data>
+  <data name="Common.Copied" xml:space="preserve"><value>Copied!</value></data>
+  <data name="Common.CopyLink" xml:space="preserve"><value>Copy link</value></data>
+  <data name="Common.Delete" xml:space="preserve"><value>Delete</value></data>
+  <data name="Common.Details" xml:space="preserve"><value>Details</value></data>
+  <data name="Common.Download" xml:space="preserve"><value>Download</value></data>
+  <data name="Common.Edit" xml:space="preserve"><value>Edit</value></data>
+  <data name="Common.LastUpdated" xml:space="preserve"><value>Last updated</value></data>
+  <data name="Common.LoadError" xml:space="preserve"><value>Could not load the content. Please try again.</value></data>
+  <data name="Common.Print" xml:space="preserve"><value>Print</value></data>
+  <data name="Common.ReadMore" xml:space="preserve"><value>Read more</value></data>
+  <data name="Common.Save" xml:space="preserve"><value>Save</value></data>
+  <data name="Common.Search" xml:space="preserve"><value>Search</value></data>
+  <data name="Common.ShowTable" xml:space="preserve"><value>Show data table</value></data>
+  <data name="Common.ViewAll" xml:space="preserve"><value>View all</value></data>
+  <data name="Common.Year" xml:space="preserve"><value>Year</value></data>
+  <data name="Contact.Address" xml:space="preserve"><value>Address</value></data>
+  <data name="Contact.Details" xml:space="preserve"><value>Contact details</value></data>
+  <data name="Contact.FormLead" xml:space="preserve"><value>Fields marked * are required. We will reply as soon as possible.</value></data>
+  <data name="Contact.FormTitle" xml:space="preserve"><value>Send us a message</value></data>
+  <data name="Contact.Lead" xml:space="preserve"><value>We are glad to receive your enquiries and suggestions.</value></data>
+  <data name="Contact.Map" xml:space="preserve"><value>Location map</value></data>
+  <data name="Contact.MapPlaceholder" xml:space="preserve"><value>The location map will be added soon.</value></data>
+  <data name="Contact.Privacy" xml:space="preserve"><value>Your information is used only to respond to your message.</value></data>
+  <data name="Contact.Send" xml:space="preserve"><value>Send message</value></data>
+  <data name="Contact.SentText" xml:space="preserve"><value>Your message has been received and will be reviewed by the relevant team.</value></data>
+  <data name="Contact.SentTitle" xml:space="preserve"><value>Thank you!</value></data>
+  <data name="Contact.TooMany" xml:space="preserve"><value>You have sent several messages recently. Please try again later.</value></data>
+  <data name="Contact.WorkingHours" xml:space="preserve"><value>Working hours</value></data>
+  <data name="Dashboard.Announcements" xml:space="preserve"><value>Active announcements</value></data>
+  <data name="Dashboard.Media" xml:space="preserve"><value>Media items</value></data>
+  <data name="Dashboard.Messages" xml:space="preserve"><value>Contact messages</value></data>
+  <data name="Dashboard.MessagesPerMonth" xml:space="preserve"><value>Contact messages per month</value></data>
+  <data name="Dashboard.MessagesPerMonthHint" xml:space="preserve"><value>Messages received through the contact form in the last six months.</value></data>
+  <data name="Dashboard.NewCount" xml:space="preserve"><value>{0} new</value></data>
+  <data name="Dashboard.NewsBreakdown" xml:space="preserve"><value>{0} published · {1} drafts · {2} scheduled</value></data>
+  <data name="Dashboard.NewsPerMonth" xml:space="preserve"><value>News published per month</value></data>
+  <data name="Dashboard.NewsPerMonthHint" xml:space="preserve"><value>Published and scheduled articles by publication month, last six months.</value></data>
+  <data name="Dashboard.OfTotal" xml:space="preserve"><value>of {0} in total</value></data>
+  <data name="Dashboard.RecentActivity" xml:space="preserve"><value>Recent activity</value></data>
+  <data name="Dashboard.RecentMessages" xml:space="preserve"><value>Latest messages</value></data>
+  <data name="Dashboard.Reports" xml:space="preserve"><value>Reports &amp; studies</value></data>
+  <data name="Dashboard.Services" xml:space="preserve"><value>Services</value></data>
+  <data name="Dashboard.TotalNews" xml:space="preserve"><value>News articles</value></data>
+  <data name="Dashboard.Training" xml:space="preserve"><value>Training courses</value></data>
+  <data name="Dashboard.UnitArticles" xml:space="preserve"><value>article(s)</value></data>
+  <data name="Dashboard.UnitMessages" xml:space="preserve"><value>message(s)</value></data>
+  <data name="Dashboard.Visitors" xml:space="preserve"><value>Website visitors</value></data>
+  <data name="Dashboard.VisitorsPlaceholder" xml:space="preserve"><value>Not tracked yet; shown once a web-analytics service is connected.</value></data>
+  <data name="Dashboard.Welcome" xml:space="preserve"><value>Welcome, {0}</value></data>
+  <data name="Demo.Airport" xml:space="preserve"><value>Airport</value></data>
+  <data name="Demo.Airports" xml:space="preserve"><value>Airport flow indicators (fictional airports)</value></data>
+  <data name="Demo.Arrivals" xml:space="preserve"><value>Arrivals/h</value></data>
+  <data name="Demo.Banner" xml:space="preserve"><value>نموذج تجريبي – بيانات غير تشغيلية</value></data>
+  <data name="Demo.BannerDetail" xml:space="preserve"><value>Demonstration model — non-operational data. All values, sectors and airports are fictional and simulated.</value></data>
+  <data name="Demo.CallToAction" xml:space="preserve"><value>Explore a conceptual dashboard built from simulated, non-operational data.</value></data>
+  <data name="Demo.Capacity" xml:space="preserve"><value>Capacity</value></data>
+  <data name="Demo.Delay" xml:space="preserve"><value>Avg. delay (min)</value></data>
+  <data name="Demo.Demand" xml:space="preserve"><value>Demand</value></data>
+  <data name="Demo.Departures" xml:space="preserve"><value>Departures/h</value></data>
+  <data name="Demo.FlowLegend" xml:space="preserve"><value>Simulated traffic flow</value></data>
+  <data name="Demo.Footnote" xml:space="preserve"><value>This dashboard is a non-operational demonstration. It contains no real, live, restricted or military information and must not be used for any operational purpose.</value></data>
+  <data name="Demo.Hour" xml:space="preserve"><value>Hour</value></data>
+  <data name="Demo.Hourly" xml:space="preserve"><value>Hourly demand — last 12 hours (simulated)</value></data>
+  <data name="Demo.KpiFlights" xml:space="preserve"><value>Simulated flights (hour)</value></data>
+  <data name="Demo.KpiLoad" xml:space="preserve"><value>Average sector load</value></data>
+  <data name="Demo.KpiMeasures" xml:space="preserve"><value>Simulated flow measures</value></data>
+  <data name="Demo.KpiOnTime" xml:space="preserve"><value>Simulated punctuality</value></data>
+  <data name="Demo.Lead" xml:space="preserve"><value>A conceptual illustration of airspace and flow-management indicators.</value></data>
+  <data name="Demo.Map" xml:space="preserve"><value>Conceptual airspace overview</value></data>
+  <data name="Demo.MapAria" xml:space="preserve"><value>Conceptual map of fictional demo sectors coloured by simulated load</value></data>
+  <data name="Demo.Notifications" xml:space="preserve"><value>Notifications (simulated)</value></data>
+  <data name="Demo.Open" xml:space="preserve"><value>Open the demo dashboard</value></data>
+  <data name="Demo.SectorStatus" xml:space="preserve"><value>Sector load (demand ÷ capacity)</value></data>
+  <data name="Demo.Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Demo.Title" xml:space="preserve"><value>Airspace Demo Dashboard</value></data>
+  <data name="Demo.UpdatedAt" xml:space="preserve"><value>Updated</value></data>
+  <data name="Departments.AddChild" xml:space="preserve"><value>Add sub-department</value></data>
+  <data name="Departments.Create" xml:space="preserve"><value>New department</value></data>
+  <data name="Departments.Edit" xml:space="preserve"><value>Edit department</value></data>
+  <data name="Departments.HasChildren" xml:space="preserve"><value>Move or delete the sub-units first.</value></data>
+  <data name="Departments.InvalidParent" xml:space="preserve"><value>This parent would create a loop in the hierarchy.</value></data>
+  <data name="Departments.Subtitle" xml:space="preserve"><value>The organizational structure shown on the website. Enter only officially approved units.</value></data>
+  <data name="Departments.TopLevel" xml:space="preserve"><value>— Top level —</value></data>
+  <data name="Enum.ContactMessageStatus.New" xml:space="preserve"><value>New</value></data>
+  <data name="Enum.ContactMessageStatus.Read" xml:space="preserve"><value>Read</value></data>
+  <data name="Enum.ContactMessageStatus.Replied" xml:space="preserve"><value>Replied</value></data>
+  <data name="Enum.ContentStatus.Archived" xml:space="preserve"><value>Archived</value></data>
+  <data name="Enum.ContentStatus.Draft" xml:space="preserve"><value>Draft</value></data>
+  <data name="Enum.ContentStatus.Published" xml:space="preserve"><value>Published</value></data>
+  <data name="Enum.DemoLoadLevel.Elevated" xml:space="preserve"><value>Elevated</value></data>
+  <data name="Enum.DemoLoadLevel.High" xml:space="preserve"><value>High</value></data>
+  <data name="Enum.DemoLoadLevel.Normal" xml:space="preserve"><value>Normal</value></data>
+  <data name="Enum.HomeSectionKey.About" xml:space="preserve"><value>About the Center</value></data>
+  <data name="Enum.HomeSectionKey.Atfm" xml:space="preserve"><value>ATFM</value></data>
+  <data name="Enum.HomeSectionKey.Contact" xml:space="preserve"><value>Contact</value></data>
+  <data name="Enum.HomeSectionKey.ImportantLinks" xml:space="preserve"><value>Important links</value></data>
+  <data name="Enum.HomeSectionKey.LatestNews" xml:space="preserve"><value>Latest news</value></data>
+  <data name="Enum.HomeSectionKey.LatestReports" xml:space="preserve"><value>Latest reports</value></data>
+  <data name="Enum.HomeSectionKey.Responsibilities" xml:space="preserve"><value>Responsibilities</value></data>
+  <data name="Enum.HomeSectionKey.Services" xml:space="preserve"><value>Services</value></data>
+  <data name="Enum.HomeSectionKey.Statistics" xml:space="preserve"><value>Statistics / highlights</value></data>
+  <data name="Enum.HomeSectionKey.Training" xml:space="preserve"><value>Training</value></data>
+  <data name="Enum.HomeSectionKey.VisionMission" xml:space="preserve"><value>Vision &amp; mission</value></data>
+  <data name="Enum.LegalDocumentCategory.Decision" xml:space="preserve"><value>Decisions</value></data>
+  <data name="Enum.LegalDocumentCategory.Law" xml:space="preserve"><value>Laws</value></data>
+  <data name="Enum.LegalDocumentCategory.OfficialDocument" xml:space="preserve"><value>Official documents</value></data>
+  <data name="Enum.LegalDocumentCategory.Policy" xml:space="preserve"><value>Policies</value></data>
+  <data name="Enum.LegalDocumentCategory.Regulation" xml:space="preserve"><value>Regulations</value></data>
+  <data name="Enum.MediaKind.Document" xml:space="preserve"><value>Document</value></data>
+  <data name="Enum.MediaKind.Image" xml:space="preserve"><value>Image</value></data>
+  <data name="Enum.MenuLocation.Footer" xml:space="preserve"><value>Footer links</value></data>
+  <data name="Enum.MenuLocation.Header" xml:space="preserve"><value>Main menu</value></data>
+  <data name="Enum.PageSectionLayout.Card" xml:space="preserve"><value>Card</value></data>
+  <data name="Enum.PageSectionLayout.Highlight" xml:space="preserve"><value>Highlight</value></data>
+  <data name="Enum.PageSectionLayout.ProcessStep" xml:space="preserve"><value>Process step</value></data>
+  <data name="Enum.PageSectionLayout.Text" xml:space="preserve"><value>Text block</value></data>
+  <data name="Enum.RegistrationStatus.Closed" xml:space="preserve"><value>Registration closed</value></data>
+  <data name="Enum.RegistrationStatus.ComingSoon" xml:space="preserve"><value>Coming soon</value></data>
+  <data name="Enum.RegistrationStatus.Full" xml:space="preserve"><value>Fully booked</value></data>
+  <data name="Enum.RegistrationStatus.Open" xml:space="preserve"><value>Registration open</value></data>
+  <data name="Enum.SearchHitType.Announcement" xml:space="preserve"><value>Announcement</value></data>
+  <data name="Enum.SearchHitType.Legislation" xml:space="preserve"><value>Legislation</value></data>
+  <data name="Enum.SearchHitType.News" xml:space="preserve"><value>News</value></data>
+  <data name="Enum.SearchHitType.Page" xml:space="preserve"><value>Page</value></data>
+  <data name="Enum.SearchHitType.Report" xml:space="preserve"><value>Publication</value></data>
+  <data name="Enum.SearchHitType.Service" xml:space="preserve"><value>Service</value></data>
+  <data name="Enum.SearchHitType.Training" xml:space="preserve"><value>Training</value></data>
+  <data name="Enum.VideoProvider.External" xml:space="preserve"><value>External link</value></data>
+  <data name="Enum.VideoProvider.Vimeo" xml:space="preserve"><value>Vimeo</value></data>
+  <data name="Enum.VideoProvider.YouTube" xml:space="preserve"><value>YouTube</value></data>
+  <data name="Error.400.Text" xml:space="preserve"><value>The request could not be processed.</value></data>
+  <data name="Error.400.Title" xml:space="preserve"><value>Bad request</value></data>
+  <data name="Error.403.Text" xml:space="preserve"><value>You do not have permission to view this page.</value></data>
+  <data name="Error.403.Title" xml:space="preserve"><value>Access denied</value></data>
+  <data name="Error.404.Text" xml:space="preserve"><value>The page you are looking for does not exist or has been moved.</value></data>
+  <data name="Error.404.Title" xml:space="preserve"><value>Page not found</value></data>
+  <data name="Error.429.Text" xml:space="preserve"><value>Please wait a few minutes and try again.</value></data>
+  <data name="Error.429.Title" xml:space="preserve"><value>Too many requests</value></data>
+  <data name="Error.500.Text" xml:space="preserve"><value>An unexpected error occurred. Please try again later.</value></data>
+  <data name="Error.500.Title" xml:space="preserve"><value>Something went wrong</value></data>
+  <data name="Error.BackHome" xml:space="preserve"><value>Back to home</value></data>
+  <data name="Error.Concurrency" xml:space="preserve"><value>This item was changed by someone else while you were editing. Reload it and apply your changes again.</value></data>
+  <data name="Error.NotFound" xml:space="preserve"><value>The requested item was not found.</value></data>
+  <data name="Field.AddressAr" xml:space="preserve"><value>Address (Arabic)</value></data>
+  <data name="Field.AddressEn" xml:space="preserve"><value>Address (English)</value></data>
+  <data name="Field.AltTextAr" xml:space="preserve"><value>Alternative text (Arabic)</value></data>
+  <data name="Field.AltTextEn" xml:space="preserve"><value>Alternative text (English)</value></data>
+  <data name="Field.AttachmentId" xml:space="preserve"><value>Attachment</value></data>
+  <data name="Field.AuthorAr" xml:space="preserve"><value>Author / source (Arabic)</value></data>
+  <data name="Field.AuthorEn" xml:space="preserve"><value>Author / source (English)</value></data>
+  <data name="Field.BiographyAr" xml:space="preserve"><value>Biography (Arabic)</value></data>
+  <data name="Field.BiographyEn" xml:space="preserve"><value>Biography (English)</value></data>
+  <data name="Field.ButtonTextAr" xml:space="preserve"><value>Button text (Arabic)</value></data>
+  <data name="Field.ButtonTextEn" xml:space="preserve"><value>Button text (English)</value></data>
+  <data name="Field.ButtonUrl" xml:space="preserve"><value>Button link</value></data>
+  <data name="Field.CaptionAr" xml:space="preserve"><value>Caption (Arabic)</value></data>
+  <data name="Field.CaptionEn" xml:space="preserve"><value>Caption (English)</value></data>
+  <data name="Field.Category" xml:space="preserve"><value>Category</value></data>
+  <data name="Field.ConfirmPassword" xml:space="preserve"><value>Confirm password</value></data>
+  <data name="Field.ContentAr" xml:space="preserve"><value>Content (Arabic)</value></data>
+  <data name="Field.ContentEn" xml:space="preserve"><value>Content (English)</value></data>
+  <data name="Field.CourseImageId" xml:space="preserve"><value>Course image</value></data>
+  <data name="Field.CoverImageId" xml:space="preserve"><value>Cover image</value></data>
+  <data name="Field.CurrentPassword" xml:space="preserve"><value>Current password</value></data>
+  <data name="Field.DefaultMetaDescriptionAr" xml:space="preserve"><value>Default meta description (Arabic)</value></data>
+  <data name="Field.DefaultMetaDescriptionEn" xml:space="preserve"><value>Default meta description (English)</value></data>
+  <data name="Field.DescriptionAr" xml:space="preserve"><value>Description (Arabic)</value></data>
+  <data name="Field.DescriptionEn" xml:space="preserve"><value>Description (English)</value></data>
+  <data name="Field.DocumentFileId" xml:space="preserve"><value>Document file</value></data>
+  <data name="Field.DocumentNumber" xml:space="preserve"><value>Document number</value></data>
+  <data name="Field.DurationAr" xml:space="preserve"><value>Duration (Arabic)</value></data>
+  <data name="Field.DurationEn" xml:space="preserve"><value>Duration (English)</value></data>
+  <data name="Field.Email" xml:space="preserve"><value>Email</value></data>
+  <data name="Field.EndDate" xml:space="preserve"><value>End date</value></data>
+  <data name="Field.EventDate" xml:space="preserve"><value>Event date</value></data>
+  <data name="Field.ExpiresAtLocal" xml:space="preserve"><value>Expires at (Cairo time)</value></data>
+  <data name="Field.FacebookUrl" xml:space="preserve"><value>Facebook</value></data>
+  <data name="Field.Fax" xml:space="preserve"><value>Fax</value></data>
+  <data name="Field.FeaturedImageId" xml:space="preserve"><value>Featured image</value></data>
+  <data name="Field.FooterTextAr" xml:space="preserve"><value>Footer text (Arabic)</value></data>
+  <data name="Field.FooterTextEn" xml:space="preserve"><value>Footer text (English)</value></data>
+  <data name="Field.FullName" xml:space="preserve"><value>Full name</value></data>
+  <data name="Field.HeroImageId" xml:space="preserve"><value>Header image</value></data>
+  <data name="Field.Icon" xml:space="preserve"><value>Icon</value></data>
+  <data name="Field.ImageId" xml:space="preserve"><value>Image</value></data>
+  <data name="Field.InstagramUrl" xml:space="preserve"><value>Instagram</value></data>
+  <data name="Field.IsActive" xml:space="preserve"><value>Active</value></data>
+  <data name="Field.IsFeatured" xml:space="preserve"><value>Featured</value></data>
+  <data name="Field.IsImportant" xml:space="preserve"><value>Important</value></data>
+  <data name="Field.IsVisible" xml:space="preserve"><value>Visible</value></data>
+  <data name="Field.ItemCount" xml:space="preserve"><value>Number of items</value></data>
+  <data name="Field.Key" xml:space="preserve"><value>Key (optional)</value></data>
+  <data name="Field.Label" xml:space="preserve"><value>Label</value></data>
+  <data name="Field.LabelAr" xml:space="preserve"><value>Label (Arabic)</value></data>
+  <data name="Field.LabelEn" xml:space="preserve"><value>Label (English)</value></data>
+  <data name="Field.LastLoginAtUtc" xml:space="preserve"><value>Last sign-in</value></data>
+  <data name="Field.Latitude" xml:space="preserve"><value>Latitude</value></data>
+  <data name="Field.Layout" xml:space="preserve"><value>Layout</value></data>
+  <data name="Field.LinkedInUrl" xml:space="preserve"><value>LinkedIn</value></data>
+  <data name="Field.Location" xml:space="preserve"><value>Menu</value></data>
+  <data name="Field.LocationAr" xml:space="preserve"><value>Location (Arabic)</value></data>
+  <data name="Field.LocationEn" xml:space="preserve"><value>Location (English)</value></data>
+  <data name="Field.Longitude" xml:space="preserve"><value>Longitude</value></data>
+  <data name="Field.MapEmbedUrl" xml:space="preserve"><value>Map embed URL</value></data>
+  <data name="Field.Message" xml:space="preserve"><value>Message</value></data>
+  <data name="Field.MetaDescriptionAr" xml:space="preserve"><value>Meta description (Arabic)</value></data>
+  <data name="Field.MetaDescriptionEn" xml:space="preserve"><value>Meta description (English)</value></data>
+  <data name="Field.Name" xml:space="preserve"><value>Name</value></data>
+  <data name="Field.NameAr" xml:space="preserve"><value>Name (Arabic)</value></data>
+  <data name="Field.NameEn" xml:space="preserve"><value>Name (English)</value></data>
+  <data name="Field.NewPassword" xml:space="preserve"><value>New password</value></data>
+  <data name="Field.NewsCategoryId" xml:space="preserve"><value>Category</value></data>
+  <data name="Field.OpenInNewTab" xml:space="preserve"><value>Open in a new tab</value></data>
+  <data name="Field.Organization" xml:space="preserve"><value>Organization</value></data>
+  <data name="Field.ParentDepartmentId" xml:space="preserve"><value>Parent unit</value></data>
+  <data name="Field.ParentId" xml:space="preserve"><value>Parent item</value></data>
+  <data name="Field.Password" xml:space="preserve"><value>Password</value></data>
+  <data name="Field.PdfFileId" xml:space="preserve"><value>File (PDF/document)</value></data>
+  <data name="Field.Phone" xml:space="preserve"><value>Phone</value></data>
+  <data name="Field.PhotoId" xml:space="preserve"><value>Photo</value></data>
+  <data name="Field.PositionAr" xml:space="preserve"><value>Position (Arabic)</value></data>
+  <data name="Field.PositionEn" xml:space="preserve"><value>Position (English)</value></data>
+  <data name="Field.PrimaryButtonTextAr" xml:space="preserve"><value>Primary button text (Arabic)</value></data>
+  <data name="Field.PrimaryButtonTextEn" xml:space="preserve"><value>Primary button text (English)</value></data>
+  <data name="Field.PrimaryButtonUrl" xml:space="preserve"><value>Primary button link</value></data>
+  <data name="Field.PublicationDate" xml:space="preserve"><value>Publication date</value></data>
+  <data name="Field.PublishDateLocal" xml:space="preserve"><value>Publish at (Cairo time)</value></data>
+  <data name="Field.RegistrationStatus" xml:space="preserve"><value>Registration</value></data>
+  <data name="Field.RememberMe" xml:space="preserve"><value>Keep me signed in on this device</value></data>
+  <data name="Field.ReportCategoryId" xml:space="preserve"><value>Category</value></data>
+  <data name="Field.Role" xml:space="preserve"><value>Role</value></data>
+  <data name="Field.SecondaryButtonTextAr" xml:space="preserve"><value>Secondary button text (Arabic)</value></data>
+  <data name="Field.SecondaryButtonTextEn" xml:space="preserve"><value>Secondary button text (English)</value></data>
+  <data name="Field.SecondaryButtonUrl" xml:space="preserve"><value>Secondary button link</value></data>
+  <data name="Field.SeoTitleAr" xml:space="preserve"><value>SEO title (Arabic)</value></data>
+  <data name="Field.SeoTitleEn" xml:space="preserve"><value>SEO title (English)</value></data>
+  <data name="Field.ShortDescriptionAr" xml:space="preserve"><value>Short description (Arabic)</value></data>
+  <data name="Field.ShortDescriptionEn" xml:space="preserve"><value>Short description (English)</value></data>
+  <data name="Field.SiteNameAr" xml:space="preserve"><value>Site name (Arabic)</value></data>
+  <data name="Field.SiteNameEn" xml:space="preserve"><value>Site name (English)</value></data>
+  <data name="Field.Slug" xml:space="preserve"><value>URL slug</value></data>
+  <data name="Field.SlugAr" xml:space="preserve"><value>URL slug (Arabic)</value></data>
+  <data name="Field.SlugEn" xml:space="preserve"><value>URL slug (English)</value></data>
+  <data name="Field.StartDate" xml:space="preserve"><value>Start date</value></data>
+  <data name="Field.Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Field.Subject" xml:space="preserve"><value>Subject</value></data>
+  <data name="Field.SubtitleAr" xml:space="preserve"><value>Subtitle (Arabic)</value></data>
+  <data name="Field.SubtitleEn" xml:space="preserve"><value>Subtitle (English)</value></data>
+  <data name="Field.SummaryAr" xml:space="preserve"><value>Summary (Arabic)</value></data>
+  <data name="Field.SummaryEn" xml:space="preserve"><value>Summary (English)</value></data>
+  <data name="Field.TaglineAr" xml:space="preserve"><value>Tagline (Arabic)</value></data>
+  <data name="Field.TaglineEn" xml:space="preserve"><value>Tagline (English)</value></data>
+  <data name="Field.TargetAudienceAr" xml:space="preserve"><value>Target audience (Arabic)</value></data>
+  <data name="Field.TargetAudienceEn" xml:space="preserve"><value>Target audience (English)</value></data>
+  <data name="Field.ThumbnailId" xml:space="preserve"><value>Thumbnail (optional)</value></data>
+  <data name="Field.Title" xml:space="preserve"><value>Title</value></data>
+  <data name="Field.TitleAr" xml:space="preserve"><value>Title (Arabic)</value></data>
+  <data name="Field.TitleEn" xml:space="preserve"><value>Title (English)</value></data>
+  <data name="Field.Url" xml:space="preserve"><value>Link</value></data>
+  <data name="Field.Value" xml:space="preserve"><value>Value</value></data>
+  <data name="Field.WorkingHoursAr" xml:space="preserve"><value>Working hours (Arabic)</value></data>
+  <data name="Field.WorkingHoursEn" xml:space="preserve"><value>Working hours (English)</value></data>
+  <data name="Field.XUrl" xml:space="preserve"><value>X (Twitter)</value></data>
+  <data name="Field.YouTubeUrl" xml:space="preserve"><value>YouTube</value></data>
+  <data name="Footer.Contact" xml:space="preserve"><value>Contact information</value></data>
+  <data name="Footer.DemoNotice" xml:space="preserve"><value>Demo dashboard (non-operational data)</value></data>
+  <data name="Footer.QuickLinks" xml:space="preserve"><value>Quick links</value></data>
+  <data name="Footer.Rights" xml:space="preserve"><value>All rights reserved.</value></data>
+  <data name="HeroSlides.Create" xml:space="preserve"><value>New slide</value></data>
+  <data name="HeroSlides.Edit" xml:space="preserve"><value>Edit slide</value></data>
+  <data name="HeroSlides.ImageHint" xml:space="preserve"><value>Optional background image, ideally 1920×900 px. Without an image the default aviation background is used.</value></data>
+  <data name="HeroSlides.Links" xml:space="preserve"><value>Button links</value></data>
+  <data name="HeroSlides.Subtitle" xml:space="preserve"><value>Slides of the homepage hero carousel, in display order.</value></data>
+  <data name="Home.Highlights" xml:space="preserve"><value>Highlights</value></data>
+  <data name="Home.LegalFramework" xml:space="preserve"><value>Legal framework</value></data>
+  <data name="Home.LegalFrameworkText" xml:space="preserve"><value>Law No. 25 of 2022</value></data>
+  <data name="HomeSections.Block" xml:space="preserve"><value>Block</value></data>
+  <data name="HomeSections.Edit" xml:space="preserve"><value>Edit homepage section</value></data>
+  <data name="HomeSections.ItemCountHint" xml:space="preserve"><value>How many items this block shows (1–12).</value></data>
+  <data name="HomeSections.Subtitle" xml:space="preserve"><value>Show, hide, reorder and edit the homepage blocks.</value></data>
+  <data name="Identity.DuplicateEmail" xml:space="preserve"><value>This email address is already registered.</value></data>
+  <data name="Identity.DuplicateUserName" xml:space="preserve"><value>This email address is already registered.</value></data>
+  <data name="Identity.InvalidEmail" xml:space="preserve"><value>The email address is not valid.</value></data>
+  <data name="Identity.PasswordRequiresDigit" xml:space="preserve"><value>The password must contain a digit.</value></data>
+  <data name="Identity.PasswordRequiresLower" xml:space="preserve"><value>The password must contain a lowercase letter.</value></data>
+  <data name="Identity.PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>The password must contain a symbol.</value></data>
+  <data name="Identity.PasswordRequiresUniqueChars" xml:space="preserve"><value>The password must contain at least 4 different characters.</value></data>
+  <data name="Identity.PasswordRequiresUpper" xml:space="preserve"><value>The password must contain an uppercase letter.</value></data>
+  <data name="Identity.PasswordTooShort" xml:space="preserve"><value>The password must be at least 10 characters.</value></data>
+  <data name="ImportantLinks.Create" xml:space="preserve"><value>New link</value></data>
+  <data name="ImportantLinks.Edit" xml:space="preserve"><value>Edit link</value></data>
+  <data name="ImportantLinks.UrlHint" xml:space="preserve"><value>Full https:// address of the external site.</value></data>
+  <data name="Leaders.Create" xml:space="preserve"><value>New leader profile</value></data>
+  <data name="Leaders.Edit" xml:space="preserve"><value>Edit leader profile</value></data>
+  <data name="Leaders.PlaceholderNotice" xml:space="preserve"><value>The seeded profiles are placeholders. Replace them only with officially approved names, titles and photos.</value></data>
+  <data name="Leaders.Subtitle" xml:space="preserve"><value>Profiles shown on the Leadership page, in display order.</value></data>
+  <data name="Leadership.Biography" xml:space="preserve"><value>Biography</value></data>
+  <data name="Leadership.Empty" xml:space="preserve"><value>Leadership information will be published soon.</value></data>
+  <data name="Legislation.Create" xml:space="preserve"><value>New document</value></data>
+  <data name="Legislation.Edit" xml:space="preserve"><value>Edit document</value></data>
+  <data name="Legislation.Empty" xml:space="preserve"><value>No documents match the selected criteria.</value></data>
+  <data name="Legislation.Lead" xml:space="preserve"><value>Laws, regulations, decisions and official documents related to the Center.</value></data>
+  <data name="Legislation.NoFile" xml:space="preserve"><value>No file attached</value></data>
+  <data name="Legislation.SearchPlaceholder" xml:space="preserve"><value>Search by title or number…</value></data>
+  <data name="Media.AllKinds" xml:space="preserve"><value>All file types</value></data>
+  <data name="Media.AltHint" xml:space="preserve"><value>Describe the image for screen-reader users (not needed for documents).</value></data>
+  <data name="Media.ChooseFiles" xml:space="preserve"><value>Choose files</value></data>
+  <data name="Media.ChooseFromLibrary" xml:space="preserve"><value>Library</value></data>
+  <data name="Media.Count" xml:space="preserve"><value>{0} file(s)</value></data>
+  <data name="Media.Empty" xml:space="preserve"><value>Please choose a file.</value></data>
+  <data name="Media.FileName" xml:space="preserve"><value>File name</value></data>
+  <data name="Media.InUse" xml:space="preserve"><value>This file is used by published or draft content and cannot be deleted.</value></data>
+  <data name="Media.InUseHint" xml:space="preserve"><value>Files used by content cannot be deleted. Remove them from that content first.</value></data>
+  <data name="Media.InUseNo" xml:space="preserve"><value>Not used</value></data>
+  <data name="Media.InUseYes" xml:space="preserve"><value>Used by published or draft content</value></data>
+  <data name="Media.Kind" xml:space="preserve"><value>Type</value></data>
+  <data name="Media.Lead" xml:space="preserve"><value>Photo and video coverage of the Center's activities.</value></data>
+  <data name="Media.Library" xml:space="preserve"><value>Media library</value></data>
+  <data name="Media.Metadata" xml:space="preserve"><value>Description</value></data>
+  <data name="Media.MissingAlt" xml:space="preserve"><value>No alternative text</value></data>
+  <data name="Media.NoFile" xml:space="preserve"><value>No file selected</value></data>
+  <data name="Media.NoFilesSelected" xml:space="preserve"><value>No files were selected.</value></data>
+  <data name="Media.PickerEmpty" xml:space="preserve"><value>No matching files. Upload a file in the form instead.</value></data>
+  <data name="Media.Remove" xml:space="preserve"><value>Remove</value></data>
+  <data name="Media.SearchPlaceholder" xml:space="preserve"><value>Search by file name…</value></data>
+  <data name="Media.SignatureMismatch" xml:space="preserve"><value>The file content does not match its extension.</value></data>
+  <data name="Media.Size" xml:space="preserve"><value>Size</value></data>
+  <data name="Media.TooLarge" xml:space="preserve"><value>The file is too large. Maximum size: {0} MB.</value></data>
+  <data name="Media.TypeNotAllowed" xml:space="preserve"><value>This file type is not allowed. Allowed types: {0}</value></data>
+  <data name="Media.UnsupportedType" xml:space="preserve"><value>This file type is not allowed.</value></data>
+  <data name="Media.Upload" xml:space="preserve"><value>Upload</value></data>
+  <data name="Media.Uploaded" xml:space="preserve"><value>{0} file(s) uploaded.</value></data>
+  <data name="Media.UploadedAt" xml:space="preserve"><value>Uploaded</value></data>
+  <data name="Media.UploadHint" xml:space="preserve"><value>Allowed types: {0} — max {1} MB.</value></data>
+  <data name="Media.UploadManyHint" xml:space="preserve"><value>Up to 20 files: images (JPG, PNG, WebP, GIF – 5 MB) or documents (PDF, Word, Excel, PowerPoint – 25 MB).</value></data>
+  <data name="Media.UploadTitle" xml:space="preserve"><value>Upload files</value></data>
+  <data name="Media.Url" xml:space="preserve"><value>Public address</value></data>
+  <data name="Media.Usage" xml:space="preserve"><value>Usage</value></data>
+  <data name="Menus.AddChild" xml:space="preserve"><value>Add sub-item</value></data>
+  <data name="Menus.Create" xml:space="preserve"><value>New menu item</value></data>
+  <data name="Menus.Edit" xml:space="preserve"><value>Edit menu item</value></data>
+  <data name="Menus.InvalidParent" xml:space="preserve"><value>Select a top-level item of the same menu (two levels maximum).</value></data>
+  <data name="Menus.ParentHint" xml:space="preserve"><value>Menus have two levels; sub-items appear in a dropdown.</value></data>
+  <data name="Menus.Subtitle" xml:space="preserve"><value>Header and footer navigation of the public website.</value></data>
+  <data name="Menus.TopLevel" xml:space="preserve"><value>— Top level —</value></data>
+  <data name="Menus.UrlHint" xml:space="preserve"><value>A site path such as /news (the language prefix is added automatically), # for a dropdown parent, or a full https:// address.</value></data>
+  <data name="Messages.Empty" xml:space="preserve"><value>No messages.</value></data>
+  <data name="Messages.From" xml:space="preserve"><value>From</value></data>
+  <data name="Messages.InternalNotes" xml:space="preserve"><value>Internal notes</value></data>
+  <data name="Messages.Language" xml:space="preserve"><value>Site language</value></data>
+  <data name="Messages.MarkRead" xml:space="preserve"><value>Mark as read</value></data>
+  <data name="Messages.MarkReplied" xml:space="preserve"><value>Mark as replied</value></data>
+  <data name="Messages.MarkUnread" xml:space="preserve"><value>Mark as unread</value></data>
+  <data name="Messages.NotesHint" xml:space="preserve"><value>Visible to staff only; never sent to the sender.</value></data>
+  <data name="Messages.Open" xml:space="preserve"><value>Open</value></data>
+  <data name="Messages.ReadAt" xml:space="preserve"><value>Read at</value></data>
+  <data name="Messages.Received" xml:space="preserve"><value>Received</value></data>
+  <data name="Messages.RepliedAt" xml:space="preserve"><value>Replied at</value></data>
+  <data name="Messages.ReplyByEmail" xml:space="preserve"><value>Reply by email</value></data>
+  <data name="Messages.SearchPlaceholder" xml:space="preserve"><value>Search name, email or subject…</value></data>
+  <data name="Messages.Sender" xml:space="preserve"><value>Sender</value></data>
+  <data name="Nav.About" xml:space="preserve"><value>About the Center</value></data>
+  <data name="Nav.AirspaceManagement" xml:space="preserve"><value>Airspace Management</value></data>
+  <data name="Nav.Announcements" xml:space="preserve"><value>Announcements</value></data>
+  <data name="Nav.Breadcrumb" xml:space="preserve"><value>Breadcrumb</value></data>
+  <data name="Nav.Contact" xml:space="preserve"><value>Contact Us</value></data>
+  <data name="Nav.Home" xml:space="preserve"><value>Home</value></data>
+  <data name="Nav.Leadership" xml:space="preserve"><value>Center Leadership</value></data>
+  <data name="Nav.Legislation" xml:space="preserve"><value>Legislation &amp; Regulations</value></data>
+  <data name="Nav.Main" xml:space="preserve"><value>Main navigation</value></data>
+  <data name="Nav.MediaCenter" xml:space="preserve"><value>Media Center</value></data>
+  <data name="Nav.Menu" xml:space="preserve"><value>Menu</value></data>
+  <data name="Nav.News" xml:space="preserve"><value>News</value></data>
+  <data name="Nav.Photos" xml:space="preserve"><value>Photo Gallery</value></data>
+  <data name="Nav.Reports" xml:space="preserve"><value>Studies &amp; Reports</value></data>
+  <data name="Nav.Services" xml:space="preserve"><value>Our Services</value></data>
+  <data name="Nav.Structure" xml:space="preserve"><value>Organizational Structure</value></data>
+  <data name="Nav.Toggle" xml:space="preserve"><value>Open menu</value></data>
+  <data name="Nav.Training" xml:space="preserve"><value>Training &amp; Qualification</value></data>
+  <data name="Nav.Videos" xml:space="preserve"><value>Video Gallery</value></data>
+  <data name="News.Create" xml:space="preserve"><value>New article</value></data>
+  <data name="News.Edit" xml:space="preserve"><value>Edit article</value></data>
+  <data name="News.Empty" xml:space="preserve"><value>No news has been published yet.</value></data>
+  <data name="News.Feature" xml:space="preserve"><value>Mark as featured</value></data>
+  <data name="News.Lead" xml:space="preserve"><value>The latest news and activities of the Center.</value></data>
+  <data name="News.Related" xml:space="preserve"><value>Related news</value></data>
+  <data name="News.SearchPlaceholder" xml:space="preserve"><value>Search news…</value></data>
+  <data name="News.Unfeature" xml:space="preserve"><value>Remove from featured</value></data>
+  <data name="Pager.Label" xml:space="preserve"><value>Pagination</value></data>
+  <data name="Pager.Next" xml:space="preserve"><value>Next</value></data>
+  <data name="Pager.Previous" xml:space="preserve"><value>Previous</value></data>
+  <data name="Pages.AddSection" xml:space="preserve"><value>Add section</value></data>
+  <data name="Pages.Create" xml:space="preserve"><value>New page</value></data>
+  <data name="Pages.Custom" xml:space="preserve"><value>Custom</value></data>
+  <data name="Pages.Edit" xml:space="preserve"><value>Edit page</value></data>
+  <data name="Pages.EditSection" xml:space="preserve"><value>Edit section</value></data>
+  <data name="Pages.KeyHint" xml:space="preserve"><value>Technical key used by the homepage (vision, mission). Leave empty for ordinary sections.</value></data>
+  <data name="Pages.LayoutHint" xml:space="preserve"><value>Cards and process steps are grouped into grids/diagrams on the page.</value></data>
+  <data name="Pages.NoSections" xml:space="preserve"><value>This page has no sections.</value></data>
+  <data name="Pages.SectionKeyTaken" xml:space="preserve"><value>Another section of this page already uses this key.</value></data>
+  <data name="Pages.Sections" xml:space="preserve"><value>Sections</value></data>
+  <data name="Pages.SectionsHint" xml:space="preserve"><value>Structured blocks shown after the main content.</value></data>
+  <data name="Pages.Subtitle" xml:space="preserve"><value>System pages (About, Vision &amp; Mission, ATFM…) and custom pages.</value></data>
+  <data name="Pages.System" xml:space="preserve"><value>System page</value></data>
+  <data name="Pages.SystemNotice" xml:space="preserve"><value>This is a system page linked to a fixed website address; it cannot be deleted. Key:</value></data>
+  <data name="Pages.SystemPageDelete" xml:space="preserve"><value>Built-in pages cannot be deleted. You can unpublish them instead.</value></data>
+  <data name="Pages.Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Photos.Empty" xml:space="preserve"><value>No photo albums have been published yet.</value></data>
+  <data name="Preview.Banner" xml:space="preserve"><value>Preview — this content may not be published yet</value></data>
+  <data name="Reports.Create" xml:space="preserve"><value>New report</value></data>
+  <data name="Reports.Downloads" xml:space="preserve"><value>Downloads</value></data>
+  <data name="Reports.Edit" xml:space="preserve"><value>Edit report</value></data>
+  <data name="Reports.Empty" xml:space="preserve"><value>No publications match the selected criteria.</value></data>
+  <data name="Reports.FileRequiredHint" xml:space="preserve"><value>A PDF file is required before the report can be published.</value></data>
+  <data name="Reports.FileRequiredToPublish" xml:space="preserve"><value>A file must be attached before the publication can be published.</value></data>
+  <data name="Reports.FileSize" xml:space="preserve"><value>File size</value></data>
+  <data name="Reports.FileType" xml:space="preserve"><value>File type</value></data>
+  <data name="Reports.Lead" xml:space="preserve"><value>Studies, reports and publications issued by the Center.</value></data>
+  <data name="Reports.Metadata" xml:space="preserve"><value>Publication details</value></data>
+  <data name="Reports.NoFile" xml:space="preserve"><value>No PDF attached</value></data>
+  <data name="Reports.Publication" xml:space="preserve"><value>Publication</value></data>
+  <data name="Reports.SearchPlaceholder" xml:space="preserve"><value>Search publications…</value></data>
+  <data name="Role.Administrator" xml:space="preserve"><value>Administrator</value></data>
+  <data name="Role.Administrator.Description" xml:space="preserve"><value>All content, menus, settings, messages and the audit log; cannot manage users.</value></data>
+  <data name="Role.CommunicationsOfficer" xml:space="preserve"><value>Communications officer</value></data>
+  <data name="Role.CommunicationsOfficer.Description" xml:space="preserve"><value>Contact messages, news, announcements and media.</value></data>
+  <data name="Role.ContentEditor" xml:space="preserve"><value>Content editor</value></data>
+  <data name="Role.ContentEditor.Description" xml:space="preserve"><value>All website content and the homepage; no menus, settings, messages or users.</value></data>
+  <data name="Role.SuperAdmin" xml:space="preserve"><value>Super administrator</value></data>
+  <data name="Role.SuperAdmin.Description" xml:space="preserve"><value>Full access, including user accounts and roles.</value></data>
+  <data name="Search.Hint" xml:space="preserve"><value>Type at least two characters to search news, services, reports, training and more.</value></data>
+  <data name="Search.Label" xml:space="preserve"><value>Search the website</value></data>
+  <data name="Search.NoResults" xml:space="preserve"><value>No results matched your search.</value></data>
+  <data name="Search.Placeholder" xml:space="preserve"><value>Search the website…</value></data>
+  <data name="Search.ResultCount" xml:space="preserve"><value>{0} result(s) for “{1}”</value></data>
+  <data name="Search.Title" xml:space="preserve"><value>Search</value></data>
+  <data name="Services.Create" xml:space="preserve"><value>New service</value></data>
+  <data name="Services.Edit" xml:space="preserve"><value>Edit service</value></data>
+  <data name="Services.Empty" xml:space="preserve"><value>Services will be published soon.</value></data>
+  <data name="Services.Enquire" xml:space="preserve"><value>Enquire about this service</value></data>
+  <data name="Services.Lead" xml:space="preserve"><value>Specialized services in airspace management and air traffic.</value></data>
+  <data name="Services.Other" xml:space="preserve"><value>Other services</value></data>
+  <data name="Settings.Contact" xml:space="preserve"><value>Contact details</value></data>
+  <data name="Settings.Identity" xml:space="preserve"><value>Site identity</value></data>
+  <data name="Settings.Map" xml:space="preserve"><value>Map</value></data>
+  <data name="Settings.MapHint" xml:space="preserve"><value>Embed (iframe) address from Google Maps or OpenStreetMap. Other hosts are rejected.</value></data>
+  <data name="Settings.MapHost" xml:space="preserve"><value>The map link must be a Google Maps or OpenStreetMap embed URL.</value></data>
+  <data name="Settings.Social" xml:space="preserve"><value>Social media</value></data>
+  <data name="Settings.SocialHint" xml:space="preserve"><value>Only official accounts. Empty fields are hidden on the website.</value></data>
+  <data name="Settings.Subtitle" xml:space="preserve"><value>Contact information and site-wide texts shown in the header, footer and contact page.</value></data>
+  <data name="Site.Name" xml:space="preserve"><value>National Airspace Management Center</value></data>
+  <data name="Site.OfficialWebsite" xml:space="preserve"><value>Official website</value></data>
+  <data name="Statistics.AccuracyNotice" xml:space="preserve"><value>Publish only figures that are officially approved for release.</value></data>
+  <data name="Statistics.Create" xml:space="preserve"><value>New statistic</value></data>
+  <data name="Statistics.Edit" xml:space="preserve"><value>Edit statistic</value></data>
+  <data name="Statistics.Subtitle" xml:space="preserve"><value>Figures shown in the homepage statistics band.</value></data>
+  <data name="Statistics.ValueHint" xml:space="preserve"><value>Shown as entered, e.g. 24/7, +120 or 1.2M.</value></data>
+  <data name="Structure.Details" xml:space="preserve"><value>Units and descriptions</value></data>
+  <data name="Structure.Empty" xml:space="preserve"><value>The organizational structure will be published soon.</value></data>
+  <data name="Structure.Lead" xml:space="preserve"><value>The organizational structure of the Center.</value></data>
+  <data name="Training.Create" xml:space="preserve"><value>New course</value></data>
+  <data name="Training.Dates" xml:space="preserve"><value>Dates</value></data>
+  <data name="Training.Details" xml:space="preserve"><value>Program details</value></data>
+  <data name="Training.Duration" xml:space="preserve"><value>Duration</value></data>
+  <data name="Training.Edit" xml:space="preserve"><value>Edit course</value></data>
+  <data name="Training.Empty" xml:space="preserve"><value>No training programs are available at the moment.</value></data>
+  <data name="Training.EndBeforeStart" xml:space="preserve"><value>The end date cannot be before the start date.</value></data>
+  <data name="Training.Lead" xml:space="preserve"><value>Training and qualification programs to build specialized national capabilities.</value></data>
+  <data name="Training.Location" xml:space="preserve"><value>Location</value></data>
+  <data name="Training.Past" xml:space="preserve"><value>Past programs</value></data>
+  <data name="Training.Register" xml:space="preserve"><value>Register interest</value></data>
+  <data name="Training.SearchPlaceholder" xml:space="preserve"><value>Search programs…</value></data>
+  <data name="Training.TargetAudience" xml:space="preserve"><value>Target audience</value></data>
+  <data name="Training.Upcoming" xml:space="preserve"><value>Current &amp; upcoming</value></data>
+  <data name="Users.Activate" xml:space="preserve"><value>Activate</value></data>
+  <data name="Users.CannotModifySelf" xml:space="preserve"><value>You cannot deactivate, demote or delete your own account.</value></data>
+  <data name="Users.ConfirmDeactivate" xml:space="preserve"><value>Deactivate this account? The user is signed out within a minute.</value></data>
+  <data name="Users.Create" xml:space="preserve"><value>New user</value></data>
+  <data name="Users.Deactivate" xml:space="preserve"><value>Deactivate</value></data>
+  <data name="Users.Edit" xml:space="preserve"><value>Edit user</value></data>
+  <data name="Users.InvalidRole" xml:space="preserve"><value>Select a valid role.</value></data>
+  <data name="Users.LastSuperAdmin" xml:space="preserve"><value>At least one active super administrator must remain.</value></data>
+  <data name="Users.Locked" xml:space="preserve"><value>Locked</value></data>
+  <data name="Users.NeverLoggedIn" xml:space="preserve"><value>Never</value></data>
+  <data name="Users.PasswordRequired" xml:space="preserve"><value>A password is required for new users.</value></data>
+  <data name="Users.PasswordReset" xml:space="preserve"><value>The password has been reset. Share it with the user through a secure channel.</value></data>
+  <data name="Users.Permissions" xml:space="preserve"><value>Roles and permissions</value></data>
+  <data name="Users.ResetHint" xml:space="preserve"><value>The user's other sessions are signed out.</value></data>
+  <data name="Users.ResetPassword" xml:space="preserve"><value>Reset password</value></data>
+  <data name="Users.RoleHint" xml:space="preserve"><value>Permissions are enforced on the server for every page and action.</value></data>
+  <data name="Users.SearchPlaceholder" xml:space="preserve"><value>Search name or email…</value></data>
+  <data name="Users.SelfHint" xml:space="preserve"><value>You cannot remove your own super-administrator role or deactivate yourself.</value></data>
+  <data name="Users.Unlock" xml:space="preserve"><value>Unlock</value></data>
+  <data name="Users.You" xml:space="preserve"><value>You</value></data>
+  <data name="Val.Compare" xml:space="preserve"><value>The values do not match.</value></data>
+  <data name="Val.Email" xml:space="preserve"><value>Enter a valid email address.</value></data>
+  <data name="Val.Icon" xml:space="preserve"><value>Use a Bootstrap Icons class such as bi-airplane.</value></data>
+  <data name="Val.Invalid" xml:space="preserve"><value>The value “{0}” is not valid.</value></data>
+  <data name="Val.InvalidFor" xml:space="preserve"><value>The value “{0}” is not valid for {1}.</value></data>
+  <data name="Val.InvalidOption" xml:space="preserve"><value>The selected value is not valid.</value></data>
+  <data name="Val.MaxLength" xml:space="preserve"><value>{0} must not exceed {1} characters.</value></data>
+  <data name="Val.MinLength" xml:space="preserve"><value>{0} must be between {2} and {1} characters.</value></data>
+  <data name="Val.Number" xml:space="preserve"><value>{0} must be a number.</value></data>
+  <data name="Val.Phone" xml:space="preserve"><value>Enter a valid phone number.</value></data>
+  <data name="Val.Range" xml:space="preserve"><value>{0} must be between {1} and {2}.</value></data>
+  <data name="Val.Required" xml:space="preserve"><value>{0} is required.</value></data>
+  <data name="Val.Slug" xml:space="preserve"><value>Use lowercase letters, numbers and hyphens only.</value></data>
+  <data name="Val.SlugTaken" xml:space="preserve"><value>This URL slug is already in use.</value></data>
+  <data name="Val.Url" xml:space="preserve"><value>Enter a valid link (https://… or a site path starting with /).</value></data>
+  <data name="Videos.Create" xml:space="preserve"><value>New video</value></data>
+  <data name="Videos.Edit" xml:space="preserve"><value>Edit video</value></data>
+  <data name="Videos.Empty" xml:space="preserve"><value>No videos have been published yet.</value></data>
+  <data name="Videos.InvalidUrl" xml:space="preserve"><value>Enter a valid https video link (YouTube, Vimeo or another https URL).</value></data>
+  <data name="Videos.Open" xml:space="preserve"><value>Open video</value></data>
+  <data name="Videos.Provider" xml:space="preserve"><value>Source</value></data>
+  <data name="Videos.ThumbnailHint" xml:space="preserve"><value>Optional. YouTube videos use their own thumbnail when none is set.</value></data>
+  <data name="Videos.UrlHint" xml:space="preserve"><value>https link to YouTube, Vimeo or another video page.</value></data>
+  <data name="Videos.UrlPlaceholder" xml:space="preserve"><value>https://</value></data>
+  <data name="Videos.Watch" xml:space="preserve"><value>Watch video</value></data>
+</root>

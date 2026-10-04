@@ -1,0 +1,129 @@
+@model NationalAirspace.Application.Features.Dashboard.DashboardDto
+@{
+    ViewData["Title"] = L["AdminNav.Dashboard"];
+    ViewData["Subtitle"] = L["Dashboard.Welcome", User.DisplayName()];
+    var canMessages = ViewData["CanMessages"] is true;
+    var canAudit = ViewData["CanAudit"] is true;
+
+    string Month(string key) => DateTime.TryParseExact(key + "-01", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var d)
+        ? d.ToString("MMM yyyy", System.Globalization.CultureInfo.CurrentCulture) : key;
+    BarChartModel Chart(string id, string aria, IReadOnlyList<NationalAirspace.Application.Features.Dashboard.CountPoint> points, string unitKey) =>
+        new(id, aria, points.Select(p => new BarPoint(Month(p.Label), p.Value, $"{Month(p.Label)}: {p.Value} {L[unitKey]}")).ToList());
+    var newsChart = Chart("chart-news", L["Dashboard.NewsPerMonth"], Model.NewsPerMonth, "Dashboard.UnitArticles");
+    var messagesChart = Chart("chart-messages", L["Dashboard.MessagesPerMonth"], Model.MessagesPerMonth, "Dashboard.UnitMessages");
+
+    var kpis = new (string Key, string Icon, string Value, string? Note, string Controller)[]
+    {
+        ("Dashboard.TotalNews", "bi-newspaper", Model.TotalNews.ToString(), L["Dashboard.NewsBreakdown", Model.PublishedNews, Model.DraftNews, Model.ScheduledNews], "News"),
+        ("Dashboard.Services", "bi-grid", Model.Services.ToString(), null, "Services"),
+        ("Dashboard.Reports", "bi-file-earmark-text", Model.Reports.ToString(), null, "Reports"),
+        ("Dashboard.Training", "bi-mortarboard", Model.TrainingCourses.ToString(), null, "Training"),
+        ("Dashboard.Announcements", "bi-megaphone", Model.ActiveAnnouncements.ToString(), L["Dashboard.OfTotal", Model.Announcements], "Announcements"),
+        ("Dashboard.Media", "bi-images", Model.MediaItems.ToString(), null, "Media"),
+        ("Dashboard.Messages", "bi-envelope", Model.ContactMessages.ToString(), L["Dashboard.NewCount", Model.NewMessages], "Messages"),
+    };
+}
+<div class="kpi-grid mb-4">
+    @foreach (var k in kpis)
+    {
+        <a class="kpi-card" asp-controller="@k.Controller" asp-action="Index">
+            <span class="kpi-icon"><i class="bi @k.Icon" aria-hidden="true"></i></span>
+            <span class="kpi-label">@L[k.Key]</span>
+            <span class="kpi-value">@k.Value</span>
+            @if (k.Note is not null)
+            {
+                <span class="kpi-note">@k.Note</span>
+            }
+        </a>
+    }
+    <div class="kpi-card kpi-placeholder">
+        <span class="kpi-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
+        <span class="kpi-label">@L["Dashboard.Visitors"]</span>
+        <span class="kpi-value">@(Model.WebsiteVisitors?.ToString() ?? "—")</span>
+        <span class="kpi-note">@L["Dashboard.VisitorsPlaceholder"]</span>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-xl-6">
+        <section class="admin-card h-100" aria-labelledby="h-news-chart">
+            <h2 class="admin-card-title" id="h-news-chart">@L["Dashboard.NewsPerMonth"]</h2>
+            <p class="text-muted small">@L["Dashboard.NewsPerMonthHint"]</p>
+            <partial name="_BarChart" model="newsChart" />
+        </section>
+    </div>
+    <div class="col-xl-6">
+        <section class="admin-card h-100" aria-labelledby="h-msg-chart">
+            <h2 class="admin-card-title" id="h-msg-chart">@L["Dashboard.MessagesPerMonth"]</h2>
+            <p class="text-muted small">@L["Dashboard.MessagesPerMonthHint"]</p>
+            <partial name="_BarChart" model="messagesChart" />
+        </section>
+    </div>
+</div>
+
+<div class="row g-4">
+    @if (canMessages)
+    {
+        <div class="col-xl-6">
+            <section class="admin-card h-100" aria-labelledby="h-recent-msg">
+                <div class="d-flex align-items-center mb-3">
+                    <h2 class="admin-card-title mb-0" id="h-recent-msg">@L["Dashboard.RecentMessages"]</h2>
+                    <a class="ms-auto small" asp-controller="Messages" asp-action="Index">@L["Common.ViewAll"]</a>
+                </div>
+                @if (Model.RecentMessages.Count == 0)
+                {
+                    <p class="text-muted mb-0">@L["Messages.Empty"]</p>
+                }
+                else
+                {
+                    <ul class="list-group list-group-flush">
+                        @foreach (var m in Model.RecentMessages)
+                        {
+                            <li class="list-group-item px-0 d-flex gap-3 align-items-start">
+                                <partial name="_MessageStatus" model="m.Status" />
+                                <div class="flex-grow-1 min-w-0">
+                                    <a class="fw-semibold d-block text-truncate" asp-controller="Messages" asp-action="Details" asp-route-id="@m.Id">@m.Subject</a>
+                                    <small class="text-muted">@m.Name · @Clock.DateTimeText(m.CreatedAtUtc)</small>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+            </section>
+        </div>
+    }
+    @if (canAudit)
+    {
+        <div class="col-xl-6">
+            <section class="admin-card h-100" aria-labelledby="h-activity">
+                <div class="d-flex align-items-center mb-3">
+                    <h2 class="admin-card-title mb-0" id="h-activity">@L["Dashboard.RecentActivity"]</h2>
+                    <a class="ms-auto small" asp-controller="Audit" asp-action="Index">@L["Common.ViewAll"]</a>
+                </div>
+                @if (Model.RecentActivity.Count == 0)
+                {
+                    <p class="text-muted mb-0">@L["Audit.Empty"]</p>
+                }
+                else
+                {
+                    <ul class="activity-list">
+                        @foreach (var a in Model.RecentActivity)
+                        {
+                            <li>
+                                <span class="activity-dot" aria-hidden="true"></span>
+                                <div>
+                                    <div><strong>@a.UserName</strong> · <code>@a.Action</code> · @a.EntityType</div>
+                                    @if (!string.IsNullOrEmpty(a.Summary))
+                                    {
+                                        <div class="text-muted small text-truncate">@a.Summary</div>
+                                    }
+                                    <small class="text-muted">@Clock.DateTimeText(a.CreatedAtUtc)</small>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+            </section>
+        </div>
+    }
+</div>

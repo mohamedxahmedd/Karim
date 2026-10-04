@@ -1,0 +1,24 @@
+@model IReadOnlyList<NationalAirspace.Web.Areas.Admin.ViewComponents.AdminNavGroup>
+@{ var current = ViewData["Current"] as string; }
+<nav class="admin-nav" aria-label="@L["AdminNav.Label"]">
+    @foreach (var group in Model)
+    {
+        <div class="admin-nav-group">@L[group.TitleKey]</div>
+        <ul class="list-unstyled mb-2">
+            @foreach (var link in group.Links)
+            {
+                var active = string.Equals(current, link.Controller, StringComparison.OrdinalIgnoreCase);
+                <li>
+                    <a class="admin-nav-link @(active ? "active" : "")" asp-area="Admin" asp-controller="@link.Controller" asp-action="Index" aria-current="@(active ? "page" : null)">
+                        <i class="bi @link.Icon" aria-hidden="true"></i>
+                        <span>@L[link.TextKey]</span>
+                        @if (link.Badge is > 0)
+                        {
+                            <span class="badge rounded-pill bg-warning text-dark ms-auto">@link.Badge</span>
+                        }
+                    </a>
+                </li>
+            }
+        </ul>
+    }
+</nav>

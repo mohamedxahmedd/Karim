@@ -1,0 +1,22 @@
+@model AdminFormModel<NationalAirspace.Application.Features.News.NewsCategoryInput>
+@{ ViewData["Title"] = Model.IsNew ? L["Categories.Create"] : L["Categories.Edit"]; }
+<form method="post" asp-action="@(Model.IsNew ? "Create" : "Edit")" asp-route-id="@Model.Input.Id" novalidate>
+    <input type="hidden" asp-for="Input.ConcurrencyStamp" />
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                <div class="row">
+                    <div class="col-md-6"><field asp-for="Input.NameAr" /></div>
+                    <div class="col-md-6"><field asp-for="Input.NameEn" /></div>
+                </div>
+                <field asp-for="Input.Slug" hint="Admin.SlugHint" dir="ltr" />
+                <field asp-for="Input.IsActive" type="checkbox" />
+                <div class="admin-form-actions">
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-check2" aria-hidden="true"></i> @L["Common.Save"]</button>
+                    <a class="btn btn-light" asp-action="Index">@L["Common.Cancel"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

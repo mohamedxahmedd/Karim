@@ -1,0 +1,11 @@
+@model NationalAirspace.Application.Features.Media.MediaFileDto
+<span class="media-tile-thumb">
+    @if (Model.Url is not null)
+    {
+        <img src="@Model.Url" alt="" loading="lazy" />
+    }
+    else
+    {
+        <i class="bi @(Model.ContentType == "application/pdf" ? "bi-file-earmark-pdf" : "bi-file-earmark-text")" aria-hidden="true"></i>
+    }
+</span>

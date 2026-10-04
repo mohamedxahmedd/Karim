@@ -1,0 +1,47 @@
+@model AdminFormModel<NationalAirspace.Application.Features.Home.HomeSectionInput>
+@{
+    ViewData["Title"] = L["HomeSections.Edit"];
+    ViewData["Subtitle"] = L.Enum(Model.Input.Key);
+    var usesItems = Model.Input.Key is HomeSectionKey.Services or HomeSectionKey.LatestNews or HomeSectionKey.LatestReports or HomeSectionKey.Training;
+}
+<form method="post" enctype="multipart/form-data" asp-action="Edit" asp-route-id="@Model.Input.Id" novalidate>
+    <input type="hidden" asp-for="Input.ConcurrencyStamp" />
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <partial name="_LangTabsNav" model="false" />
+                <div class="tab-content pt-4">
+                    <div class="tab-pane fade show active" id="tab-ar" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleAr" />
+                        <field asp-for="Input.SubtitleAr" />
+                        <field asp-for="Input.DescriptionAr" type="textarea" rows="4" />
+                        <field asp-for="Input.ButtonTextAr" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-en" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleEn" />
+                        <field asp-for="Input.SubtitleEn" />
+                        <field asp-for="Input.DescriptionEn" type="textarea" rows="4" />
+                        <field asp-for="Input.ButtonTextEn" />
+                    </div>
+                </div>
+                <field asp-for="Input.ButtonUrl" dir="ltr" hint="Admin.LinkHint" />
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="admin-card">
+                <field asp-for="Input.IsVisible" type="checkbox" />
+                @if (usesItems)
+                {
+                    <field asp-for="Input.ItemCount" type="number" hint="HomeSections.ItemCountHint" />
+                }
+                else
+                {
+                    <input type="hidden" asp-for="Input.ItemCount" />
+                }
+                <media-field asp-for="Input.ImageId" kind="Image" upload="SectionImageUpload" />
+            </div>
+            <partial name="_FormActions" model="false" />
+        </div>
+    </div>
+</form>

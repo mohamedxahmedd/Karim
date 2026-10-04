@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <RootNamespace>NationalAirspace.Web</RootNamespace>
+    <UserSecretsId>namc-web-6a1f0c62-7d0e-4c55-9d8e-2f1b7b9a4e11</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NationalAirspace.Application\NationalAirspace.Application.csproj" />
+    <ProjectReference Include="..\NationalAirspace.Infrastructure\NationalAirspace.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="NationalAirspace.IntegrationTests" />
+    <Content Remove="App_Data\**" />
+    <Content Update="wwwroot\uploads\**" CopyToPublishDirectory="Never" />
+  </ItemGroup>
+</Project>

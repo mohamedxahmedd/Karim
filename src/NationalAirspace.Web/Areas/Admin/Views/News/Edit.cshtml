@@ -1,0 +1,54 @@
+@model AdminFormModel<NationalAirspace.Application.Features.News.NewsInput>
+@{ ViewData["Title"] = Model.IsNew ? L["News.Create"] : L["News.Edit"]; }
+@section Actions {
+    @if (!Model.IsNew)
+    {
+        <a class="btn btn-outline-secondary" asp-action="Preview" asp-route-id="@Model.Input.Id" target="_blank" rel="noopener"><i class="bi bi-eye" aria-hidden="true"></i> @L["Admin.Preview"]</a>
+    }
+}
+<form method="post" enctype="multipart/form-data" asp-action="@(Model.IsNew ? "Create" : "Edit")" asp-route-id="@Model.Input.Id" novalidate>
+    <input type="hidden" asp-for="Input.ConcurrencyStamp" />
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <partial name="_LangTabsNav" model="true" />
+                <div class="tab-content pt-4">
+                    <div class="tab-pane fade show active" id="tab-ar" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleAr" />
+                        <field asp-for="Input.SummaryAr" type="textarea" rows="3" />
+                        <field asp-for="Input.ContentAr" type="richtext" />
+                        <field asp-for="Input.AuthorAr" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-en" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleEn" />
+                        <field asp-for="Input.SummaryEn" type="textarea" rows="3" />
+                        <field asp-for="Input.ContentEn" type="richtext" />
+                        <field asp-for="Input.AuthorEn" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-seo" role="tabpanel" tabindex="0">
+                        <div class="row">
+                            <div class="col-md-6"><field asp-for="Input.SlugAr" hint="Admin.SlugHint" /></div>
+                            <div class="col-md-6"><field asp-for="Input.SlugEn" hint="Admin.SlugHint" /></div>
+                            <div class="col-md-6"><field asp-for="Input.SeoTitleAr" /></div>
+                            <div class="col-md-6"><field asp-for="Input.SeoTitleEn" /></div>
+                            <div class="col-md-6"><field asp-for="Input.MetaDescriptionAr" type="textarea" rows="3" /></div>
+                            <div class="col-md-6"><field asp-for="Input.MetaDescriptionEn" type="textarea" rows="3" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="admin-card">
+                <h2 class="admin-card-title">@L["Admin.Publishing"]</h2>
+                <field asp-for="Input.Status" type="select" items="L.EnumOptions<ContentStatus>()" />
+                <field asp-for="Input.PublishDateLocal" type="datetime" hint="Admin.PublishDateHint" />
+                <field asp-for="Input.IsFeatured" type="checkbox" />
+                <field asp-for="Input.NewsCategoryId" type="select" items="Model.Options" empty="Admin.NoCategory" label="Field.Category" />
+                <media-field asp-for="Input.FeaturedImageId" kind="Image" upload="FeaturedImageUpload" />
+            </div>
+            <partial name="_FormActions" model="true" />
+        </div>
+    </div>
+</form>

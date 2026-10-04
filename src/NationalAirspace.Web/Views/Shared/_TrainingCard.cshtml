@@ -1,0 +1,40 @@
+@model NationalAirspace.Application.Features.Training.TrainingCardDto
+@{
+    var chip = Model.RegistrationStatus switch
+    {
+        RegistrationStatus.Open => "success",
+        RegistrationStatus.Closed or RegistrationStatus.Full => "muted",
+        _ => "gold",
+    };
+}
+<a class="card-namc" href="@Url.Site("/training", Model.Slug)">
+    <div class="card-media">
+        @if (Model.Image is not null)
+        {
+            <img src="@Model.Image.Url" alt="@Model.Image.Alt" loading="lazy" />
+        }
+        <span class="chip @chip badge-float">@L.Enum(Model.RegistrationStatus)</span>
+    </div>
+    <div class="card-body-namc">
+        <h3 class="line-clamp-2">@Model.Title</h3>
+        <div class="card-meta">
+            @if (Model.StartDate is { } start)
+            {
+                <span><i class="bi bi-calendar-event" aria-hidden="true"></i> @start.DateOnlyText()</span>
+            }
+            @if (Model.Duration is not null)
+            {
+                <span><i class="bi bi-hourglass-split" aria-hidden="true"></i> @Model.Duration</span>
+            }
+            @if (Model.Location is not null)
+            {
+                <span><i class="bi bi-geo-alt" aria-hidden="true"></i> @Model.Location</span>
+            }
+        </div>
+        @if (Model.Summary is not null)
+        {
+            <p class="line-clamp-2">@Model.Summary</p>
+        }
+        <div class="card-foot"><span class="btn-link-arrow">@L["Common.Details"]</span></div>
+    </div>
+</a>

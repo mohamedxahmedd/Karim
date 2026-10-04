@@ -1,0 +1,23 @@
+@model HomeBlockModel
+@if (Model.Page.VisionMission.Count > 0)
+{
+    <section class="section section-tint" id="vision-mission">
+        <div class="container container-wide">
+            <partial name="_BlockHeader" model="Model.Block" />
+            <div class="row g-4">
+                @foreach (var s in Model.Page.VisionMission)
+                {
+                    <div class="col-md-6 reveal">
+                        <div class="vm-card">
+                            <h3><span class="icon-tile gold"><i class="bi @(s.Icon ?? "bi-eye")" aria-hidden="true"></i></span> @s.Title</h3>
+                            @if (s.ContentHtml is not null)
+                            {
+                                <div class="rich-text text-muted">@Html.Raw(s.ContentHtml)</div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}

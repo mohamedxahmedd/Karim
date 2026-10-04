@@ -1,0 +1,25 @@
+@model NationalAirspace.Application.Features.Reports.ReportCardDto
+<a class="card-namc" href="@Url.Site("/reports", Model.Slug)">
+    <div class="card-media">
+        @if (Model.Cover is not null)
+        {
+            <img src="@Model.Cover.Url" alt="@Model.Cover.Alt" loading="lazy" />
+        }
+        <span class="chip on-dark badge-float"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> @(Model.CategoryName ?? L["Reports.Publication"].Value)</span>
+    </div>
+    <div class="card-body-namc">
+        <div class="card-meta">
+            <span><i class="bi bi-calendar3" aria-hidden="true"></i> @Model.PublicationDate.DateOnlyText()</span>
+            @if (Model.FileSize is { } size)
+            {
+                <span><i class="bi bi-download" aria-hidden="true"></i> <span class="ltr-nums">@size.FileSize()</span></span>
+            }
+        </div>
+        <h3 class="line-clamp-2">@Model.Title</h3>
+        @if (Model.Description is not null)
+        {
+            <p class="line-clamp-2">@Model.Description</p>
+        }
+        <div class="card-foot"><span class="btn-link-arrow">@L["Common.Details"]</span></div>
+    </div>
+</a>

@@ -1,0 +1,53 @@
+@model MediaEditModel
+@{ ViewData["Title"] = Model.File.OriginalFileName; }
+@section Actions {
+    <a class="btn btn-light" asp-action="Index"><i class="bi bi-arrow-@(CultureHelper.CurrentLang.IsRtl() ? "right" : "left")" aria-hidden="true"></i> @L["AdminNav.Library"]</a>
+}
+<div class="row g-4">
+    <div class="col-lg-5">
+        <div class="admin-card">
+            @if (Model.File.Url is not null)
+            {
+                <img src="@Model.File.Url" alt="" class="img-fluid rounded mb-3" />
+            }
+            else
+            {
+                <div class="text-center py-4 mb-3 bg-light rounded"><i class="bi bi-file-earmark-text display-4 text-muted" aria-hidden="true"></i></div>
+            }
+            <dl class="admin-dl">
+                <dt>@L["Media.FileName"]</dt><dd dir="auto">@Model.File.OriginalFileName</dd>
+                <dt>@L["Media.Kind"]</dt><dd>@L.Enum(Model.File.Kind) <span class="text-muted small" dir="ltr">(@Model.File.ContentType)</span></dd>
+                <dt>@L["Media.Size"]</dt><dd>@Model.File.SizeBytes.FileSize()</dd>
+                <dt>@L["Media.UploadedAt"]</dt><dd>@Clock.DateTimeText(Model.File.CreatedAtUtc)</dd>
+                @if (Model.File.Url is not null)
+                {
+                    <dt>@L["Media.Url"]</dt><dd><code dir="ltr">@Model.File.Url</code></dd>
+                }
+                <dt>@L["Media.Usage"]</dt>
+                <dd>@(Model.InUse ? L["Media.InUseYes"] : L["Media.InUseNo"])</dd>
+            </dl>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+                <a class="btn btn-outline-primary btn-sm" asp-action="Download" asp-route-id="@Model.File.Id"><i class="bi bi-download" aria-hidden="true"></i> @L["Common.Download"]</a>
+                @if (!Model.InUse)
+                {
+                    <post-button asp-action="Delete" asp-route-id="@Model.File.Id.ToString()" text="Common.Delete" icon="bi-trash" class="btn btn-sm btn-outline-danger" confirm="Admin.ConfirmDelete" />
+                }
+            </div>
+            @if (Model.InUse)
+            {
+                <p class="form-text mb-0 mt-2">@L["Media.InUseHint"]</p>
+            }
+        </div>
+    </div>
+    <div class="col-lg-7">
+        <form method="post" asp-action="Edit" asp-route-id="@Model.File.Id" class="admin-card" novalidate>
+            <h2 class="admin-card-title">@L["Media.Metadata"]</h2>
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+            <field asp-for="Input.AltTextAr" hint="Media.AltHint" />
+            <field asp-for="Input.AltTextEn" hint="Media.AltHint" />
+            <div class="admin-form-actions">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-check2" aria-hidden="true"></i> @L["Common.Save"]</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+@model AdminListModel<NationalAirspace.Application.Features.MediaCenter.VideoAdminListItem>
+@{ ViewData["Title"] = L["AdminNav.Videos"]; }
+@section Actions {
+    <a class="btn btn-primary" asp-action="Create"><i class="bi bi-plus-lg" aria-hidden="true"></i> @L["Videos.Create"]</a>
+}
+<partial name="_ListFilter" model="Model.Filter" />
+<div class="admin-table-wrap">
+    @if (Model.Items.Items.Count == 0)
+    {
+        <partial name="_TableEmpty" />
+    }
+    else
+    {
+        <table class="table admin-table table-hover">
+            <thead><tr><th scope="col"><span class="visually-hidden">@L["Field.ThumbnailId"]</span></th><th scope="col">@L["Field.Title"]</th><th scope="col">@L["Videos.Provider"]</th><th scope="col">@L["Field.Status"]</th><th scope="col">@L["Admin.Order"]</th><th scope="col" class="col-actions"><span class="visually-hidden">@L["Admin.Actions"]</span></th></tr></thead>
+            <tbody>
+                @foreach (var x in Model.Items.Items)
+                {
+                    <tr>
+                        <td>@if (x.ThumbnailUrl is not null) { <img class="row-thumb" src="@x.ThumbnailUrl" alt="" loading="lazy" /> } else { <span class="row-thumb d-inline-flex align-items-center justify-content-center"><i class="bi bi-camera-video" aria-hidden="true"></i></span> }</td>
+                        <td>
+                            <a class="row-title" asp-action="Edit" asp-route-id="@x.Id">@Bilingual.Pick(x.TitleAr, x.TitleEn)</a>
+                            <span class="row-sub text-truncate d-block" style="max-width: 360px" dir="ltr">@x.Url</span>
+                        </td>
+                        <td data-label="@L["Videos.Provider"]">@L.Enum(x.Provider)</td>
+                        <td data-label="@L["Field.Status"]"><partial name="_StatusBadge" model="new StatusBadgeModel(x.Status)" /></td>
+                        <td data-label="@L["Admin.Order"]">@if (!Model.Filter.HasFilter) { <partial name="_MoveButtons" model="x.Id" /> } else { @x.DisplayOrder }</td>
+                        <td class="col-actions">
+                            <div class="row-actions">
+                                <partial name="_EditLink" model="x.Id" />
+                                <div class="dropdown">
+                                    <partial name="_MoreToggle" />
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="@x.Url" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> @L["Videos.Open"]</a></li>
+                                        <partial name="_StatusActions" model="new StatusActionsModel(x.Id, x.Status)" />
+                                        <partial name="_RowDelete" model="x.Id" />
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<partial name="_Pager" model="new PagerModel(Model.Items.Page, Model.Items.TotalPages, Context.Request)" />

@@ -1,0 +1,9 @@
+@model StatusBadgeModel
+@if (Model.Scheduled)
+{
+    <span class="badge text-bg-info"><i class="bi bi-clock" aria-hidden="true"></i> @L["Admin.Scheduled"]</span>
+}
+else
+{
+    <span class="badge @(Model.Status switch { ContentStatus.Published => "text-bg-success", ContentStatus.Archived => "text-bg-secondary", _ => "text-bg-warning" })">@L.Enum(Model.Status)</span>
+}

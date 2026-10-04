@@ -1,0 +1,58 @@
+@model AdminListModel<NationalAirspace.Application.Features.News.NewsAdminListItem>
+@{ ViewData["Title"] = L["AdminNav.News"]; }
+@section Actions {
+    <a class="btn btn-primary" asp-action="Create"><i class="bi bi-plus-lg" aria-hidden="true"></i> @L["News.Create"]</a>
+}
+<partial name="_ListFilter" model="Model.Filter" />
+<div class="admin-table-wrap">
+    @if (Model.Items.Items.Count == 0)
+    {
+        <partial name="_TableEmpty" />
+    }
+    else
+    {
+        <table class="table admin-table table-hover">
+            <thead>
+                <tr><th scope="col">@L["Field.Title"]</th><th scope="col">@L["Field.Status"]</th><th scope="col">@L["Field.PublishDateLocal"]</th><th scope="col">@L["Admin.Updated"]</th><th scope="col" class="col-actions"><span class="visually-hidden">@L["Admin.Actions"]</span></th></tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model.Items.Items)
+                {
+                    <tr>
+                        <td>
+                            <a class="row-title" asp-action="Edit" asp-route-id="@x.Id">@Bilingual.Pick(x.TitleAr, x.TitleEn)</a>
+                            @if (x.CategoryAr is not null || x.CategoryEn is not null)
+                            {
+                                <span class="row-sub"><i class="bi bi-tag" aria-hidden="true"></i> @Bilingual.Pick(x.CategoryAr, x.CategoryEn)</span>
+                            }
+                        </td>
+                        <td data-label="@L["Field.Status"]">
+                            <partial name="_StatusBadge" model="new StatusBadgeModel(x.Status, x.IsScheduled)" />
+                            @if (x.IsFeatured)
+                            {
+                                <span class="badge text-bg-light border"><i class="bi bi-star-fill text-warning" aria-hidden="true"></i> @L["Field.IsFeatured"]</span>
+                            }
+                        </td>
+                        <td data-label="@L["Field.PublishDateLocal"]">@(x.PublishDateUtc is { } d ? Clock.DateTimeText(d) : "—")</td>
+                        <td data-label="@L["Admin.Updated"]" class="text-muted small">@Clock.DateTimeText(x.UpdatedAtUtc)</td>
+                        <td class="col-actions">
+                            <div class="row-actions">
+                                <partial name="_EditLink" model="x.Id" />
+                                <div class="dropdown">
+                                    <partial name="_MoreToggle" />
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" asp-action="Preview" asp-route-id="@x.Id" target="_blank" rel="noopener"><i class="bi bi-eye" aria-hidden="true"></i> @L["Admin.Preview"]</a></li>
+                                        <li><post-button asp-action="Feature" asp-route-id="@x.Id.ToString()" text="@(x.IsFeatured ? "News.Unfeature" : "News.Feature")" icon="bi-star" class="dropdown-item" /></li>
+                                        <partial name="_StatusActions" model="new StatusActionsModel(x.Id, x.Status)" />
+                                        <partial name="_RowDelete" model="x.Id" />
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<partial name="_Pager" model="new PagerModel(Model.Items.Page, Model.Items.TotalPages, Context.Request)" />

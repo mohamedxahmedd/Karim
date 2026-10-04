@@ -1,0 +1,39 @@
+@model NewsListModel
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <form class="filter-bar" method="get" role="search">
+            <label class="visually-hidden" for="q">@L["Search.Label"]</label>
+            <input id="q" class="form-control" type="search" name="q" value="@Model.Query" placeholder="@L["News.SearchPlaceholder"]" maxlength="100" />
+            @if (Model.Category is not null)
+            {
+                <input type="hidden" name="category" value="@Model.Category" />
+            }
+            <button class="btn btn-primary" type="submit"><i class="bi bi-search" aria-hidden="true"></i> @L["Common.Search"]</button>
+        </form>
+        @if (Model.Categories.Count > 0)
+        {
+            <nav class="filter-pills" aria-label="@L["Field.Category"]">
+                <a href="@Url.Site("/news")" class="@(Model.Category is null ? "active" : "")">@L["Common.All"]</a>
+                @foreach (var c in Model.Categories)
+                {
+                    <a href="@Url.Site("/news")?category=@Uri.EscapeDataString(c.Slug)" class="@(Model.Category == c.Slug ? "active" : "")">@c.Name <small class="opacity-75">(@c.Count)</small></a>
+                }
+            </nav>
+        }
+        @if (Model.Items.Items.Count == 0)
+        {
+            <partial name="_EmptyState" model="@(string.IsNullOrEmpty(Model.Query) ? "News.Empty" : "Search.NoResults")" />
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var n in Model.Items.Items)
+                {
+                    <div class="col-md-6 col-lg-4 reveal"><partial name="_NewsCard" model="n" /></div>
+                }
+            </div>
+            <partial name="_Pager" model="new PagerModel(Model.Items.Page, Model.Items.TotalPages, Context.Request)" />
+        }
+    </div>
+</section>

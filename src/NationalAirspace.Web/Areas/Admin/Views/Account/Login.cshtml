@@ -1,0 +1,25 @@
+@model LoginModel
+@{
+    Layout = "_AuthLayout";
+    ViewData["Title"] = L["Account.Login"];
+}
+<h1 class="h4 mb-1">@L["Account.LoginTitle"]</h1>
+<p class="text-muted small mb-4">@L["Account.LoginIntro"]</p>
+<form method="post" asp-action="Login" asp-route-returnUrl="@ViewData["ReturnUrl"]" novalidate>
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger small" role="alert"></div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" autocomplete="username" dir="ltr" autofocus />
+        <span asp-validation-for="Email" class="invalid-feedback d-block"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control" autocomplete="current-password" dir="ltr" />
+        <span asp-validation-for="Password" class="invalid-feedback d-block"></span>
+    </div>
+    <div class="form-check mb-4">
+        <input asp-for="RememberMe" class="form-check-input" />
+        <label asp-for="RememberMe" class="form-check-label"></label>
+    </div>
+    <button type="submit" class="btn btn-primary w-100 py-2"><i class="bi bi-box-arrow-in-right" aria-hidden="true"></i> @L["Account.Login"]</button>
+</form>

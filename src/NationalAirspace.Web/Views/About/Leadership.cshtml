@@ -1,0 +1,41 @@
+@model IReadOnlyList<NationalAirspace.Application.Features.Leadership.LeaderDto>
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        @if (Model.Count == 0)
+        {
+            <partial name="_EmptyState" model="@("Leadership.Empty")" />
+        }
+        else
+        {
+            <div class="row g-4 justify-content-center">
+                @foreach (var leader in Model)
+                {
+                    <div class="col-sm-6 col-lg-4 reveal">
+                        <div class="card-namc leader-card">
+                            <div class="leader-photo">
+                                @if (leader.Photo is not null)
+                                {
+                                    <img src="@leader.Photo.Url" alt="@leader.Photo.Alt" loading="lazy" />
+                                }
+                                else
+                                {
+                                    <i class="bi bi-person" aria-hidden="true"></i>
+                                }
+                            </div>
+                            <h2 class="h5 mb-1">@leader.Name</h2>
+                            <div class="position">@leader.Position</div>
+                            @if (leader.BiographyHtml is not null)
+                            {
+                                <details class="mt-3 text-start">
+                                    <summary class="small fw-600 text-center">@L["Leadership.Biography"]</summary>
+                                    <div class="rich-text small text-muted mt-2">@Html.Raw(leader.BiographyHtml)</div>
+                                </details>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</section>

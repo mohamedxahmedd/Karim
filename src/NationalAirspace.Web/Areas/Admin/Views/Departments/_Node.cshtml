@@ -1,0 +1,28 @@
+@model NationalAirspace.Application.Features.Departments.DepartmentAdminNode
+<li>
+    <div class="tree-row">
+        <span class="tree-title">@Bilingual.Pick(Model.NameAr, Model.NameEn)</span>
+        <partial name="_StatusBadge" model="new StatusBadgeModel(Model.Status)" />
+        <partial name="_MoveButtons" model="Model.Id" />
+        <div class="row-actions">
+            <a class="btn btn-sm btn-outline-secondary" asp-action="Create" asp-route-parentId="@Model.Id" title="@L["Departments.AddChild"]" aria-label="@L["Departments.AddChild"]"><i class="bi bi-diagram-2" aria-hidden="true"></i></a>
+            <partial name="_EditLink" model="Model.Id" />
+            <div class="dropdown">
+                <partial name="_MoreToggle" />
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <partial name="_StatusActions" model="new StatusActionsModel(Model.Id, Model.Status)" />
+                    <partial name="_RowDelete" model="Model.Id" />
+                </ul>
+            </div>
+        </div>
+    </div>
+    @if (Model.Children.Count > 0)
+    {
+        <ul class="tree">
+            @foreach (var child in Model.Children)
+            {
+                <partial name="_Node" model="child" />
+            }
+        </ul>
+    }
+</li>

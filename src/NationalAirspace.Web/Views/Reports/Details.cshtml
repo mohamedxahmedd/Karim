@@ -1,0 +1,48 @@
+@model NationalAirspace.Application.Features.Reports.ReportDetailDto
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-8">
+                <article class="article">
+                    @if (Model.Cover is not null)
+                    {
+                        <div class="article-cover"><img src="@Model.Cover.Url" alt="@Model.Cover.Alt" /></div>
+                    }
+                    @if (Model.Description is not null)
+                    {
+                        <div class="rich-text" style="white-space:pre-line">@Model.Description</div>
+                    }
+                    <hr class="my-4" />
+                    <partial name="_ShareRow" />
+                </article>
+            </div>
+            <aside class="col-lg-4">
+                <div class="sidebar-card">
+                    <h2>@L["Reports.Metadata"]</h2>
+                    <table class="meta-table">
+                        <tr><th scope="row">@L["Field.PublicationDate"]</th><td>@Model.PublicationDate.DateOnlyText()</td></tr>
+                        @if (Model.CategoryName is not null)
+                        {
+                            <tr><th scope="row">@L["Field.Category"]</th><td><a href="@Url.Site("/reports")?category=@Uri.EscapeDataString(Model.CategorySlug!)">@Model.CategoryName</a></td></tr>
+                        }
+                        @if (Model.FileType is not null)
+                        {
+                            <tr><th scope="row">@L["Reports.FileType"]</th><td>@Model.FileType</td></tr>
+                        }
+                        @if (Model.FileSize is { } size)
+                        {
+                            <tr><th scope="row">@L["Reports.FileSize"]</th><td class="ltr-nums">@size.FileSize()</td></tr>
+                        }
+                    </table>
+                    @if (Model.FileName is not null)
+                    {
+                        <a class="btn btn-primary w-100 mt-3" href="@Url.Site($"/reports/{Uri.EscapeDataString(Model.Slugs.For(CultureHelper.CurrentLang))}/download")">
+                            <i class="bi bi-download" aria-hidden="true"></i> @L["Common.Download"]
+                        </a>
+                    }
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,38 @@
+@model HomeBlockModel
+@{ var b = Model.Block; }
+<section class="section section-alt" id="about">
+    <div class="container container-wide">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 reveal">
+                @if (b.Subtitle is not null)
+                {
+                    <div class="section-kicker">@b.Subtitle</div>
+                }
+                <h2 class="mb-3">@b.Title</h2>
+                @if (b.Description is not null)
+                {
+                    <p class="fs-5 text-muted">@b.Description</p>
+                }
+                @if (b.Button is not null)
+                {
+                    <a class="btn btn-primary mt-2" href="@Url.Site(b.Button.Url)">@b.Button.Text</a>
+                }
+            </div>
+            <div class="col-lg-6 reveal">
+                <div class="about-visual">
+                    @if (b.Image is not null)
+                    {
+                        <img src="@b.Image.Url" alt="@b.Image.Alt" loading="lazy" />
+                    }
+                    <div class="about-stamp">
+                        <img src="~/img/logo-192.webp" alt="" width="42" height="42" loading="lazy" />
+                        <div>
+                            <div class="fw-bold">@L["Home.LegalFramework"]</div>
+                            <small class="opacity-75">@L["Home.LegalFrameworkText"]</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

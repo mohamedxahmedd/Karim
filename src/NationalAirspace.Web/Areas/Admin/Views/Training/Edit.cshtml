@@ -1,0 +1,49 @@
+@model AdminFormModel<NationalAirspace.Application.Features.Training.TrainingInput>
+@{ ViewData["Title"] = Model.IsNew ? L["Training.Create"] : L["Training.Edit"]; }
+<form method="post" enctype="multipart/form-data" asp-action="@(Model.IsNew ? "Create" : "Edit")" asp-route-id="@Model.Input.Id" novalidate>
+    <input type="hidden" asp-for="Input.ConcurrencyStamp" />
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <partial name="_LangTabsNav" model="false" />
+                <div class="tab-content pt-4">
+                    <div class="tab-pane fade show active" id="tab-ar" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleAr" />
+                        <field asp-for="Input.DescriptionAr" type="richtext" />
+                        <div class="row">
+                            <div class="col-md-6"><field asp-for="Input.DurationAr" /></div>
+                            <div class="col-md-6"><field asp-for="Input.LocationAr" /></div>
+                        </div>
+                        <field asp-for="Input.TargetAudienceAr" type="textarea" rows="2" />
+                        <field asp-for="Input.SlugAr" hint="Admin.SlugHint" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-en" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleEn" />
+                        <field asp-for="Input.DescriptionEn" type="richtext" />
+                        <div class="row">
+                            <div class="col-md-6"><field asp-for="Input.DurationEn" /></div>
+                            <div class="col-md-6"><field asp-for="Input.LocationEn" /></div>
+                        </div>
+                        <field asp-for="Input.TargetAudienceEn" type="textarea" rows="2" />
+                        <field asp-for="Input.SlugEn" hint="Admin.SlugHint" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="admin-card">
+                <h2 class="admin-card-title">@L["Admin.Publishing"]</h2>
+                <field asp-for="Input.Status" type="select" items="L.EnumOptions<ContentStatus>()" />
+                <field asp-for="Input.RegistrationStatus" type="select" items="L.EnumOptions<RegistrationStatus>()" />
+                <div class="row">
+                    <div class="col-sm-6 col-xl-12"><field asp-for="Input.StartDate" type="date" /></div>
+                    <div class="col-sm-6 col-xl-12"><field asp-for="Input.EndDate" type="date" /></div>
+                </div>
+                <media-field asp-for="Input.CourseImageId" kind="Image" upload="CourseImageUpload" />
+                <media-field asp-for="Input.AttachmentId" kind="Document" upload="AttachmentUpload" />
+            </div>
+            <partial name="_FormActions" model="true" />
+        </div>
+    </div>
+</form>

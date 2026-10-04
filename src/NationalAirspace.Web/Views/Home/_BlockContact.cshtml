@@ -1,0 +1,26 @@
+@model HomeBlockModel
+@{ var b = Model.Block; }
+<section class="section section-alt" id="contact">
+    <div class="container container-wide">
+        <div class="vm-card d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-4 reveal">
+            <div class="d-flex gap-3 align-items-start">
+                <span class="icon-tile gold"><i class="bi bi-chat-dots" aria-hidden="true"></i></span>
+                <div>
+                    @if (b.Subtitle is not null)
+                    {
+                        <div class="section-kicker">@b.Subtitle</div>
+                    }
+                    <h2 class="h3 mb-2">@b.Title</h2>
+                    @if (b.Description is not null)
+                    {
+                        <p class="text-muted mb-0">@b.Description</p>
+                    }
+                </div>
+            </div>
+            @if (b.Button is not null)
+            {
+                <a class="btn btn-primary btn-lg flex-shrink-0" href="@Url.Site(b.Button.Url)"><i class="bi bi-send" aria-hidden="true"></i> @b.Button.Text</a>
+            }
+        </div>
+    </div>
+</section>

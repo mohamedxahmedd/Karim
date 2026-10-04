@@ -1,0 +1,22 @@
+@model NationalAirspace.Application.Features.News.NewsCardDto
+<a class="card-namc" href="@Url.Site("/news", Model.Slug)">
+    <div class="card-media">
+        @if (Model.Image is not null)
+        {
+            <img src="@Model.Image.Url" alt="@Model.Image.Alt" loading="lazy" />
+        }
+        @if (Model.CategoryName is not null)
+        {
+            <span class="chip on-dark badge-float">@Model.CategoryName</span>
+        }
+    </div>
+    <div class="card-body-namc">
+        <div class="card-meta"><span><i class="bi bi-calendar3" aria-hidden="true"></i> <time datetime="@Clock.IsoDate(Model.PublishDateUtc)">@Clock.LongDate(Model.PublishDateUtc)</time></span></div>
+        <h3 class="line-clamp-2">@Model.Title</h3>
+        @if (Model.Summary is not null)
+        {
+            <p class="line-clamp-3">@Model.Summary</p>
+        }
+        <div class="card-foot"><span class="btn-link-arrow">@L["Common.ReadMore"]</span></div>
+    </div>
+</a>

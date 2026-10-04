@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="A11y.BackToTop" xml:space="preserve"><value>العودة إلى أعلى الصفحة</value></data>
+  <data name="A11y.SkipToContent" xml:space="preserve"><value>الانتقال إلى المحتوى الرئيسي</value></data>
+  <data name="Account.Access" xml:space="preserve"><value>الصلاحيات</value></data>
+  <data name="Account.AccessDenied" xml:space="preserve"><value>غير مصرح بالدخول</value></data>
+  <data name="Account.AccessDeniedText" xml:space="preserve"><value>لا يملك حسابك صلاحية فتح هذه الصفحة. تواصل مع مسؤول النظام إذا احتجت إلى هذه الصلاحية.</value></data>
+  <data name="Account.ChangePassword" xml:space="preserve"><value>تغيير كلمة المرور</value></data>
+  <data name="Account.CurrentPasswordWrong" xml:space="preserve"><value>كلمة المرور الحالية غير صحيحة.</value></data>
+  <data name="Account.Details" xml:space="preserve"><value>بيانات الحساب</value></data>
+  <data name="Account.Inactive" xml:space="preserve"><value>تم إيقاف هذا الحساب. تواصل مع مسؤول النظام.</value></data>
+  <data name="Account.InvalidLogin" xml:space="preserve"><value>البريد الإلكتروني أو كلمة المرور غير صحيحة.</value></data>
+  <data name="Account.LockedOut" xml:space="preserve"><value>تم تجاوز عدد المحاولات المسموح به. الحساب مقفل مؤقتًا؛ حاول مرة أخرى بعد 15 دقيقة.</value></data>
+  <data name="Account.Login" xml:space="preserve"><value>تسجيل الدخول</value></data>
+  <data name="Account.LoginIntro" xml:space="preserve"><value>للموظفين المصرح لهم فقط. يتم تسجيل جميع العمليات.</value></data>
+  <data name="Account.LoginTitle" xml:space="preserve"><value>تسجيل الدخول إلى لوحة التحكم</value></data>
+  <data name="Account.Logout" xml:space="preserve"><value>تسجيل الخروج</value></data>
+  <data name="Account.PasswordChanged" xml:space="preserve"><value>تم تغيير كلمة المرور.</value></data>
+  <data name="Account.PasswordPolicy" xml:space="preserve"><value>10 أحرف على الأقل، تتضمن حروفًا كبيرة وصغيرة ورقمًا ورمزًا.</value></data>
+  <data name="Account.Profile" xml:space="preserve"><value>ملفي الشخصي</value></data>
+  <data name="Admin.Actions" xml:space="preserve"><value>الإجراءات</value></data>
+  <data name="Admin.Active" xml:space="preserve"><value>مفعّل</value></data>
+  <data name="Admin.AllStatuses" xml:space="preserve"><value>كل الحالات</value></data>
+  <data name="Admin.Archive" xml:space="preserve"><value>أرشفة</value></data>
+  <data name="Admin.BackToSite" xml:space="preserve"><value>العودة إلى الموقع</value></data>
+  <data name="Admin.ClearFilters" xml:space="preserve"><value>مسح عوامل التصفية</value></data>
+  <data name="Admin.ConfirmDelete" xml:space="preserve"><value>هل تريد حذف هذا العنصر نهائيًا؟ لا يمكن التراجع عن ذلك.</value></data>
+  <data name="Admin.ConfirmTitle" xml:space="preserve"><value>يرجى التأكيد</value></data>
+  <data name="Admin.Deleted" xml:space="preserve"><value>تم الحذف.</value></data>
+  <data name="Admin.Files" xml:space="preserve"><value>الملفات</value></data>
+  <data name="Admin.Hidden" xml:space="preserve"><value>مخفي</value></data>
+  <data name="Admin.Hide" xml:space="preserve"><value>إخفاء</value></data>
+  <data name="Admin.IconHint" xml:space="preserve"><value>اسم أيقونة من Bootstrap Icons مثل bi-airplane. اتركه فارغًا لاستخدام الأيقونة الافتراضية.</value></data>
+  <data name="Admin.IconPlaceholder" xml:space="preserve"><value>bi-airplane</value></data>
+  <data name="Admin.Inactive" xml:space="preserve"><value>غير مفعّل</value></data>
+  <data name="Admin.Items" xml:space="preserve"><value>العناصر</value></data>
+  <data name="Admin.LinkHint" xml:space="preserve"><value>مسار داخل الموقع مثل ‎/about (تُضاف بادئة اللغة تلقائيًا) أو رابط كامل يبدأ بـ https://.</value></data>
+  <data name="Admin.MoreActions" xml:space="preserve"><value>إجراءات أخرى</value></data>
+  <data name="Admin.MoveDown" xml:space="preserve"><value>نقل للأسفل</value></data>
+  <data name="Admin.MoveUp" xml:space="preserve"><value>نقل للأعلى</value></data>
+  <data name="Admin.NoCategory" xml:space="preserve"><value>— بدون تصنيف —</value></data>
+  <data name="Admin.NoItems" xml:space="preserve"><value>لا توجد عناصر بعد.</value></data>
+  <data name="Admin.Order" xml:space="preserve"><value>الترتيب</value></data>
+  <data name="Admin.Preview" xml:space="preserve"><value>معاينة</value></data>
+  <data name="Admin.Publish" xml:space="preserve"><value>نشر</value></data>
+  <data name="Admin.PublishDateHint" xml:space="preserve"><value>بتوقيت القاهرة. اتركه فارغًا للنشر فورًا؛ التاريخ المستقبلي يجدول النشر.</value></data>
+  <data name="Admin.Publishing" xml:space="preserve"><value>النشر</value></data>
+  <data name="Admin.Reorder" xml:space="preserve"><value>إعادة الترتيب</value></data>
+  <data name="Admin.SaveContinue" xml:space="preserve"><value>حفظ ومتابعة التعديل</value></data>
+  <data name="Admin.Saved" xml:space="preserve"><value>تم حفظ التغييرات.</value></data>
+  <data name="Admin.Scheduled" xml:space="preserve"><value>مجدول</value></data>
+  <data name="Admin.SearchPlaceholder" xml:space="preserve"><value>ابحث بالعنوان…</value></data>
+  <data name="Admin.SeoTab" xml:space="preserve"><value>الرابط ومحركات البحث</value></data>
+  <data name="Admin.Show" xml:space="preserve"><value>إظهار</value></data>
+  <data name="Admin.Shown" xml:space="preserve"><value>ظاهر</value></data>
+  <data name="Admin.SlugHint" xml:space="preserve"><value>اتركه فارغًا ليُنشأ تلقائيًا من العنوان.</value></data>
+  <data name="Admin.Subtitle" xml:space="preserve"><value>إدارة المحتوى</value></data>
+  <data name="Admin.Title" xml:space="preserve"><value>لوحة التحكم</value></data>
+  <data name="Admin.Unpublish" xml:space="preserve"><value>إلغاء النشر</value></data>
+  <data name="Admin.Updated" xml:space="preserve"><value>آخر تحديث</value></data>
+  <data name="Admin.ViewSite" xml:space="preserve"><value>عرض الموقع</value></data>
+  <data name="AdminNav.Albums" xml:space="preserve"><value>ألبومات الصور</value></data>
+  <data name="AdminNav.Announcements" xml:space="preserve"><value>الإعلانات</value></data>
+  <data name="AdminNav.Audit" xml:space="preserve"><value>سجل العمليات</value></data>
+  <data name="AdminNav.Communication" xml:space="preserve"><value>التواصل</value></data>
+  <data name="AdminNav.Content" xml:space="preserve"><value>المحتوى</value></data>
+  <data name="AdminNav.Dashboard" xml:space="preserve"><value>لوحة المعلومات</value></data>
+  <data name="AdminNav.Departments" xml:space="preserve"><value>الإدارات</value></data>
+  <data name="AdminNav.HeroSlides" xml:space="preserve"><value>شرائح الواجهة</value></data>
+  <data name="AdminNav.HomeSections" xml:space="preserve"><value>أقسام الصفحة الرئيسية</value></data>
+  <data name="AdminNav.ImportantLinks" xml:space="preserve"><value>روابط مهمة</value></data>
+  <data name="AdminNav.Label" xml:space="preserve"><value>تنقل لوحة التحكم</value></data>
+  <data name="AdminNav.Leaders" xml:space="preserve"><value>القيادات</value></data>
+  <data name="AdminNav.Legislation" xml:space="preserve"><value>التشريعات</value></data>
+  <data name="AdminNav.Library" xml:space="preserve"><value>مكتبة الوسائط</value></data>
+  <data name="AdminNav.Media" xml:space="preserve"><value>الوسائط</value></data>
+  <data name="AdminNav.Menus" xml:space="preserve"><value>القوائم</value></data>
+  <data name="AdminNav.Messages" xml:space="preserve"><value>الرسائل</value></data>
+  <data name="AdminNav.News" xml:space="preserve"><value>الأخبار</value></data>
+  <data name="AdminNav.NewsCategories" xml:space="preserve"><value>تصنيفات الأخبار</value></data>
+  <data name="AdminNav.Organization" xml:space="preserve"><value>الهيكل</value></data>
+  <data name="AdminNav.Overview" xml:space="preserve"><value>نظرة عامة</value></data>
+  <data name="AdminNav.Pages" xml:space="preserve"><value>الصفحات</value></data>
+  <data name="AdminNav.ReportCategories" xml:space="preserve"><value>تصنيفات التقارير</value></data>
+  <data name="AdminNav.Reports" xml:space="preserve"><value>الدراسات والتقارير</value></data>
+  <data name="AdminNav.Services" xml:space="preserve"><value>الخدمات</value></data>
+  <data name="AdminNav.Settings" xml:space="preserve"><value>إعدادات الموقع</value></data>
+  <data name="AdminNav.Statistics" xml:space="preserve"><value>الإحصائيات</value></data>
+  <data name="AdminNav.System" xml:space="preserve"><value>النظام</value></data>
+  <data name="AdminNav.Training" xml:space="preserve"><value>البرامج التدريبية</value></data>
+  <data name="AdminNav.Users" xml:space="preserve"><value>المستخدمون</value></data>
+  <data name="AdminNav.Videos" xml:space="preserve"><value>الفيديوهات</value></data>
+  <data name="AdminNav.Website" xml:space="preserve"><value>الموقع</value></data>
+  <data name="Albums.ConfirmRemove" xml:space="preserve"><value>هل تريد إزالة هذه الصورة من الألبوم؟ يبقى الملف في مكتبة الوسائط.</value></data>
+  <data name="Albums.Cover" xml:space="preserve"><value>الغلاف</value></data>
+  <data name="Albums.Create" xml:space="preserve"><value>ألبوم جديد</value></data>
+  <data name="Albums.CreatedAddPhotos" xml:space="preserve"><value>تم إنشاء الألبوم. أضف الصور الآن.</value></data>
+  <data name="Albums.Edit" xml:space="preserve"><value>تعديل الألبوم</value></data>
+  <data name="Albums.ManagePhotos" xml:space="preserve"><value>إدارة الصور</value></data>
+  <data name="Albums.NoImages" xml:space="preserve"><value>اختر صورة صالحة واحدة على الأقل.</value></data>
+  <data name="Albums.NoPhotos" xml:space="preserve"><value>لا توجد صور في هذا الألبوم بعد.</value></data>
+  <data name="Albums.Photos" xml:space="preserve"><value>الصور</value></data>
+  <data name="Albums.PhotosSubtitle" xml:space="preserve"><value>عدد الصور: {0}</value></data>
+  <data name="Albums.RemovePhoto" xml:space="preserve"><value>إزالة الصورة</value></data>
+  <data name="Albums.SaveCaption" xml:space="preserve"><value>حفظ التعليق</value></data>
+  <data name="Albums.SetCover" xml:space="preserve"><value>تعيين كغلاف</value></data>
+  <data name="Albums.UploadHint" xml:space="preserve"><value>اختر حتى 20 صورة (JPG أو PNG أو WebP أو GIF، بحد أقصى 5 ميجابايت لكل صورة).</value></data>
+  <data name="Albums.UploadPhotos" xml:space="preserve"><value>إضافة صور</value></data>
+  <data name="Announcements.Active" xml:space="preserve"><value>الإعلانات الحالية</value></data>
+  <data name="Announcements.Archive" xml:space="preserve"><value>الأرشيف</value></data>
+  <data name="Announcements.ArchiveEmpty" xml:space="preserve"><value>الأرشيف فارغ.</value></data>
+  <data name="Announcements.Create" xml:space="preserve"><value>إعلان جديد</value></data>
+  <data name="Announcements.Edit" xml:space="preserve"><value>تعديل الإعلان</value></data>
+  <data name="Announcements.Empty" xml:space="preserve"><value>لا توجد إعلانات حالية.</value></data>
+  <data name="Announcements.Expired" xml:space="preserve"><value>منتهي</value></data>
+  <data name="Announcements.ExpiryBeforePublish" xml:space="preserve"><value>يجب أن يكون تاريخ الانتهاء بعد تاريخ النشر.</value></data>
+  <data name="Announcements.ExpiryHint" xml:space="preserve"><value>اختياري. بعد هذا الموعد يُخفى الإعلان ويُؤرشف تلقائيًا.</value></data>
+  <data name="Announcements.Important" xml:space="preserve"><value>مهم</value></data>
+  <data name="Announcements.Lead" xml:space="preserve"><value>الإعلانات الرسمية الصادرة عن المركز.</value></data>
+  <data name="Announcements.NoExpiry" xml:space="preserve"><value>بدون انتهاء</value></data>
+  <data name="Announcements.ValidUntil" xml:space="preserve"><value>ساري حتى</value></data>
+  <data name="Announcements.ViewAll" xml:space="preserve"><value>جميع الإعلانات</value></data>
+  <data name="Atfm.Disclaimer" xml:space="preserve"><value>محتوى تعريفي فقط، ولا تتيح هذه الصفحة الوصول إلى أنظمة أو بيانات تشغيلية لإدارة تدفق الحركة الجوية.</value></data>
+  <data name="Atfm.ProcessKicker" xml:space="preserve"><value>منهجية تصورية</value></data>
+  <data name="Atfm.ProcessTitle" xml:space="preserve"><value>من الطلب على الحركة الجوية إلى تدفق محسَّن</value></data>
+  <data name="Audit.Action" xml:space="preserve"><value>العملية</value></data>
+  <data name="Audit.AllEntities" xml:space="preserve"><value>كل أنواع المحتوى</value></data>
+  <data name="Audit.Empty" xml:space="preserve"><value>لا توجد عمليات مسجلة بعد.</value></data>
+  <data name="Audit.Entity" xml:space="preserve"><value>نوع المحتوى</value></data>
+  <data name="Audit.Ip" xml:space="preserve"><value>عنوان IP</value></data>
+  <data name="Audit.SearchPlaceholder" xml:space="preserve"><value>ابحث بالمستخدم أو العملية أو الوصف…</value></data>
+  <data name="Audit.Subtitle" xml:space="preserve"><value>كل التغييرات التي تمت في لوحة التحكم، الأحدث أولًا.</value></data>
+  <data name="Audit.Summary" xml:space="preserve"><value>التفاصيل</value></data>
+  <data name="Audit.User" xml:space="preserve"><value>المستخدم</value></data>
+  <data name="Audit.When" xml:space="preserve"><value>الوقت</value></data>
+  <data name="Categories.Create" xml:space="preserve"><value>تصنيف جديد</value></data>
+  <data name="Categories.Edit" xml:space="preserve"><value>تعديل التصنيف</value></data>
+  <data name="Chart.Category" xml:space="preserve"><value>الفترة</value></data>
+  <data name="Chart.Value" xml:space="preserve"><value>القيمة</value></data>
+  <data name="Common.All" xml:space="preserve"><value>الكل</value></data>
+  <data name="Common.AllCategories" xml:space="preserve"><value>كل التصنيفات</value></data>
+  <data name="Common.AllYears" xml:space="preserve"><value>كل السنوات</value></data>
+  <data name="Common.Attachment" xml:space="preserve"><value>المرفق</value></data>
+  <data name="Common.Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Common.Close" xml:space="preserve"><value>إغلاق</value></data>
+  <data name="Common.Confirm" xml:space="preserve"><value>تأكيد</value></data>
+  <data name="Common.Copied" xml:space="preserve"><value>تم النسخ!</value></data>
+  <data name="Common.CopyLink" xml:space="preserve"><value>نسخ الرابط</value></data>
+  <data name="Common.Delete" xml:space="preserve"><value>حذف</value></data>
+  <data name="Common.Details" xml:space="preserve"><value>التفاصيل</value></data>
+  <data name="Common.Download" xml:space="preserve"><value>تحميل</value></data>
+  <data name="Common.Edit" xml:space="preserve"><value>تعديل</value></data>
+  <data name="Common.LastUpdated" xml:space="preserve"><value>آخر تحديث</value></data>
+  <data name="Common.LoadError" xml:space="preserve"><value>تعذر تحميل المحتوى. يرجى المحاولة مرة أخرى.</value></data>
+  <data name="Common.Print" xml:space="preserve"><value>طباعة</value></data>
+  <data name="Common.ReadMore" xml:space="preserve"><value>اقرأ المزيد</value></data>
+  <data name="Common.Save" xml:space="preserve"><value>حفظ</value></data>
+  <data name="Common.Search" xml:space="preserve"><value>بحث</value></data>
+  <data name="Common.ShowTable" xml:space="preserve"><value>عرض جدول البيانات</value></data>
+  <data name="Common.ViewAll" xml:space="preserve"><value>عرض الكل</value></data>
+  <data name="Common.Year" xml:space="preserve"><value>السنة</value></data>
+  <data name="Contact.Address" xml:space="preserve"><value>العنوان</value></data>
+  <data name="Contact.Details" xml:space="preserve"><value>بيانات التواصل</value></data>
+  <data name="Contact.FormLead" xml:space="preserve"><value>الحقول المميزة بـ * مطلوبة، وسنقوم بالرد في أقرب وقت ممكن.</value></data>
+  <data name="Contact.FormTitle" xml:space="preserve"><value>أرسل لنا رسالة</value></data>
+  <data name="Contact.Lead" xml:space="preserve"><value>يسعدنا استقبال استفساراتكم ومقترحاتكم.</value></data>
+  <data name="Contact.Map" xml:space="preserve"><value>خريطة الموقع</value></data>
+  <data name="Contact.MapPlaceholder" xml:space="preserve"><value>ستتم إضافة خريطة الموقع قريبًا.</value></data>
+  <data name="Contact.Privacy" xml:space="preserve"><value>تُستخدم بياناتك فقط للرد على رسالتك.</value></data>
+  <data name="Contact.Send" xml:space="preserve"><value>إرسال الرسالة</value></data>
+  <data name="Contact.SentText" xml:space="preserve"><value>تم استلام رسالتك وسيتم مراجعتها من الفريق المختص.</value></data>
+  <data name="Contact.SentTitle" xml:space="preserve"><value>شكرًا لك!</value></data>
+  <data name="Contact.TooMany" xml:space="preserve"><value>لقد أرسلت عدة رسائل مؤخرًا، يرجى المحاولة لاحقًا.</value></data>
+  <data name="Contact.WorkingHours" xml:space="preserve"><value>مواعيد العمل</value></data>
+  <data name="Dashboard.Announcements" xml:space="preserve"><value>الإعلانات السارية</value></data>
+  <data name="Dashboard.Media" xml:space="preserve"><value>عناصر الوسائط</value></data>
+  <data name="Dashboard.Messages" xml:space="preserve"><value>رسائل التواصل</value></data>
+  <data name="Dashboard.MessagesPerMonth" xml:space="preserve"><value>رسائل التواصل شهريًا</value></data>
+  <data name="Dashboard.MessagesPerMonthHint" xml:space="preserve"><value>الرسائل الواردة عبر نموذج التواصل خلال الأشهر الستة الأخيرة.</value></data>
+  <data name="Dashboard.NewCount" xml:space="preserve"><value>{0} جديدة</value></data>
+  <data name="Dashboard.NewsBreakdown" xml:space="preserve"><value>{0} منشور · {1} مسودة · {2} مجدول</value></data>
+  <data name="Dashboard.NewsPerMonth" xml:space="preserve"><value>الأخبار المنشورة شهريًا</value></data>
+  <data name="Dashboard.NewsPerMonthHint" xml:space="preserve"><value>الأخبار المنشورة والمجدولة حسب شهر النشر خلال الأشهر الستة الأخيرة.</value></data>
+  <data name="Dashboard.OfTotal" xml:space="preserve"><value>من إجمالي {0}</value></data>
+  <data name="Dashboard.RecentActivity" xml:space="preserve"><value>أحدث العمليات</value></data>
+  <data name="Dashboard.RecentMessages" xml:space="preserve"><value>أحدث الرسائل</value></data>
+  <data name="Dashboard.Reports" xml:space="preserve"><value>الدراسات والتقارير</value></data>
+  <data name="Dashboard.Services" xml:space="preserve"><value>الخدمات</value></data>
+  <data name="Dashboard.TotalNews" xml:space="preserve"><value>الأخبار</value></data>
+  <data name="Dashboard.Training" xml:space="preserve"><value>البرامج التدريبية</value></data>
+  <data name="Dashboard.UnitArticles" xml:space="preserve"><value>خبر</value></data>
+  <data name="Dashboard.UnitMessages" xml:space="preserve"><value>رسالة</value></data>
+  <data name="Dashboard.Visitors" xml:space="preserve"><value>زوار الموقع</value></data>
+  <data name="Dashboard.VisitorsPlaceholder" xml:space="preserve"><value>غير متاح حاليًا؛ يظهر عند ربط خدمة لتحليلات الموقع.</value></data>
+  <data name="Dashboard.Welcome" xml:space="preserve"><value>مرحبًا، {0}</value></data>
+  <data name="Demo.Airport" xml:space="preserve"><value>المطار</value></data>
+  <data name="Demo.Airports" xml:space="preserve"><value>مؤشرات تدفق المطارات (مطارات افتراضية)</value></data>
+  <data name="Demo.Arrivals" xml:space="preserve"><value>الوصول/ساعة</value></data>
+  <data name="Demo.Banner" xml:space="preserve"><value>نموذج تجريبي – بيانات غير تشغيلية</value></data>
+  <data name="Demo.BannerDetail" xml:space="preserve"><value>جميع القيم والقطاعات والمطارات المعروضة افتراضية ومحاكاة لأغراض العرض فقط.</value></data>
+  <data name="Demo.CallToAction" xml:space="preserve"><value>استكشف لوحة تصورية مبنية على بيانات محاكاة غير تشغيلية.</value></data>
+  <data name="Demo.Capacity" xml:space="preserve"><value>السعة</value></data>
+  <data name="Demo.Delay" xml:space="preserve"><value>متوسط التأخير (دقيقة)</value></data>
+  <data name="Demo.Demand" xml:space="preserve"><value>الطلب</value></data>
+  <data name="Demo.Departures" xml:space="preserve"><value>المغادرة/ساعة</value></data>
+  <data name="Demo.FlowLegend" xml:space="preserve"><value>تدفق حركة محاكى</value></data>
+  <data name="Demo.Footnote" xml:space="preserve"><value>هذه اللوحة نموذج توضيحي غير تشغيلي، ولا تحتوي على أي معلومات حقيقية أو حية أو مقيدة أو عسكرية، ولا يجوز استخدامها لأي غرض تشغيلي.</value></data>
+  <data name="Demo.Hour" xml:space="preserve"><value>الساعة</value></data>
+  <data name="Demo.Hourly" xml:space="preserve"><value>الطلب كل ساعة — آخر ١٢ ساعة (محاكاة)</value></data>
+  <data name="Demo.KpiFlights" xml:space="preserve"><value>رحلات محاكاة (الساعة)</value></data>
+  <data name="Demo.KpiLoad" xml:space="preserve"><value>متوسط حمل القطاعات</value></data>
+  <data name="Demo.KpiMeasures" xml:space="preserve"><value>إجراءات تنظيم افتراضية</value></data>
+  <data name="Demo.KpiOnTime" xml:space="preserve"><value>الانضباط الزمني (محاكاة)</value></data>
+  <data name="Demo.Lead" xml:space="preserve"><value>توضيح تصوري لمؤشرات إدارة المجال الجوي وتدفق الحركة.</value></data>
+  <data name="Demo.Map" xml:space="preserve"><value>نظرة تصورية على المجال الجوي</value></data>
+  <data name="Demo.MapAria" xml:space="preserve"><value>خريطة تصورية لقطاعات تجريبية افتراضية ملونة حسب الحمل المحاكى</value></data>
+  <data name="Demo.Notifications" xml:space="preserve"><value>تنبيهات (محاكاة)</value></data>
+  <data name="Demo.Open" xml:space="preserve"><value>فتح لوحة العرض التوضيحية</value></data>
+  <data name="Demo.SectorStatus" xml:space="preserve"><value>حمل القطاعات (الطلب ÷ السعة)</value></data>
+  <data name="Demo.Status" xml:space="preserve"><value>الحالة</value></data>
+  <data name="Demo.Title" xml:space="preserve"><value>لوحة العرض التوضيحية للمجال الجوي</value></data>
+  <data name="Demo.UpdatedAt" xml:space="preserve"><value>تحديث</value></data>
+  <data name="Departments.AddChild" xml:space="preserve"><value>إضافة إدارة فرعية</value></data>
+  <data name="Departments.Create" xml:space="preserve"><value>إدارة جديدة</value></data>
+  <data name="Departments.Edit" xml:space="preserve"><value>تعديل الإدارة</value></data>
+  <data name="Departments.HasChildren" xml:space="preserve"><value>انقل الوحدات الفرعية أو احذفها أولًا.</value></data>
+  <data name="Departments.InvalidParent" xml:space="preserve"><value>اختيار هذا الأصل يُنشئ حلقة في التسلسل الهرمي.</value></data>
+  <data name="Departments.Subtitle" xml:space="preserve"><value>الهيكل التنظيمي المعروض على الموقع. أدخل الوحدات المعتمدة رسميًا فقط.</value></data>
+  <data name="Departments.TopLevel" xml:space="preserve"><value>— مستوى أعلى —</value></data>
+  <data name="Enum.ContactMessageStatus.New" xml:space="preserve"><value>جديدة</value></data>
+  <data name="Enum.ContactMessageStatus.Read" xml:space="preserve"><value>مقروءة</value></data>
+  <data name="Enum.ContactMessageStatus.Replied" xml:space="preserve"><value>تم الرد</value></data>
+  <data name="Enum.ContentStatus.Archived" xml:space="preserve"><value>مؤرشف</value></data>
+  <data name="Enum.ContentStatus.Draft" xml:space="preserve"><value>مسودة</value></data>
+  <data name="Enum.ContentStatus.Published" xml:space="preserve"><value>منشور</value></data>
+  <data name="Enum.DemoLoadLevel.Elevated" xml:space="preserve"><value>مرتفع</value></data>
+  <data name="Enum.DemoLoadLevel.High" xml:space="preserve"><value>مرتفع جدًا</value></data>
+  <data name="Enum.DemoLoadLevel.Normal" xml:space="preserve"><value>طبيعي</value></data>
+  <data name="Enum.HomeSectionKey.About" xml:space="preserve"><value>عن المركز</value></data>
+  <data name="Enum.HomeSectionKey.Atfm" xml:space="preserve"><value>إدارة تدفق الحركة الجوية</value></data>
+  <data name="Enum.HomeSectionKey.Contact" xml:space="preserve"><value>التواصل</value></data>
+  <data name="Enum.HomeSectionKey.ImportantLinks" xml:space="preserve"><value>روابط مهمة</value></data>
+  <data name="Enum.HomeSectionKey.LatestNews" xml:space="preserve"><value>أحدث الأخبار</value></data>
+  <data name="Enum.HomeSectionKey.LatestReports" xml:space="preserve"><value>أحدث التقارير</value></data>
+  <data name="Enum.HomeSectionKey.Responsibilities" xml:space="preserve"><value>الاختصاصات</value></data>
+  <data name="Enum.HomeSectionKey.Services" xml:space="preserve"><value>الخدمات</value></data>
+  <data name="Enum.HomeSectionKey.Statistics" xml:space="preserve"><value>الإحصاءات والمؤشرات</value></data>
+  <data name="Enum.HomeSectionKey.Training" xml:space="preserve"><value>التدريب</value></data>
+  <data name="Enum.HomeSectionKey.VisionMission" xml:space="preserve"><value>الرؤية والرسالة</value></data>
+  <data name="Enum.LegalDocumentCategory.Decision" xml:space="preserve"><value>قرارات</value></data>
+  <data name="Enum.LegalDocumentCategory.Law" xml:space="preserve"><value>قوانين</value></data>
+  <data name="Enum.LegalDocumentCategory.OfficialDocument" xml:space="preserve"><value>وثائق رسمية</value></data>
+  <data name="Enum.LegalDocumentCategory.Policy" xml:space="preserve"><value>سياسات</value></data>
+  <data name="Enum.LegalDocumentCategory.Regulation" xml:space="preserve"><value>لوائح</value></data>
+  <data name="Enum.MediaKind.Document" xml:space="preserve"><value>مستند</value></data>
+  <data name="Enum.MediaKind.Image" xml:space="preserve"><value>صورة</value></data>
+  <data name="Enum.MenuLocation.Footer" xml:space="preserve"><value>روابط التذييل</value></data>
+  <data name="Enum.MenuLocation.Header" xml:space="preserve"><value>القائمة الرئيسية</value></data>
+  <data name="Enum.PageSectionLayout.Card" xml:space="preserve"><value>بطاقة</value></data>
+  <data name="Enum.PageSectionLayout.Highlight" xml:space="preserve"><value>إبراز</value></data>
+  <data name="Enum.PageSectionLayout.ProcessStep" xml:space="preserve"><value>مرحلة في مخطط</value></data>
+  <data name="Enum.PageSectionLayout.Text" xml:space="preserve"><value>فقرة نصية</value></data>
+  <data name="Enum.RegistrationStatus.Closed" xml:space="preserve"><value>التسجيل مغلق</value></data>
+  <data name="Enum.RegistrationStatus.ComingSoon" xml:space="preserve"><value>قريبًا</value></data>
+  <data name="Enum.RegistrationStatus.Full" xml:space="preserve"><value>مكتمل العدد</value></data>
+  <data name="Enum.RegistrationStatus.Open" xml:space="preserve"><value>التسجيل متاح</value></data>
+  <data name="Enum.SearchHitType.Announcement" xml:space="preserve"><value>إعلان</value></data>
+  <data name="Enum.SearchHitType.Legislation" xml:space="preserve"><value>تشريع</value></data>
+  <data name="Enum.SearchHitType.News" xml:space="preserve"><value>خبر</value></data>
+  <data name="Enum.SearchHitType.Page" xml:space="preserve"><value>صفحة</value></data>
+  <data name="Enum.SearchHitType.Report" xml:space="preserve"><value>إصدار</value></data>
+  <data name="Enum.SearchHitType.Service" xml:space="preserve"><value>خدمة</value></data>
+  <data name="Enum.SearchHitType.Training" xml:space="preserve"><value>تدريب</value></data>
+  <data name="Enum.VideoProvider.External" xml:space="preserve"><value>رابط خارجي</value></data>
+  <data name="Enum.VideoProvider.Vimeo" xml:space="preserve"><value>فيميو</value></data>
+  <data name="Enum.VideoProvider.YouTube" xml:space="preserve"><value>يوتيوب</value></data>
+  <data name="Error.400.Text" xml:space="preserve"><value>تعذّر معالجة الطلب.</value></data>
+  <data name="Error.400.Title" xml:space="preserve"><value>طلب غير صالح</value></data>
+  <data name="Error.403.Text" xml:space="preserve"><value>ليست لديك صلاحية لعرض هذه الصفحة.</value></data>
+  <data name="Error.403.Title" xml:space="preserve"><value>غير مسموح بالوصول</value></data>
+  <data name="Error.404.Text" xml:space="preserve"><value>الصفحة التي تبحث عنها غير موجودة أو تم نقلها.</value></data>
+  <data name="Error.404.Title" xml:space="preserve"><value>الصفحة غير موجودة</value></data>
+  <data name="Error.429.Text" xml:space="preserve"><value>يرجى الانتظار بضع دقائق ثم المحاولة مرة أخرى.</value></data>
+  <data name="Error.429.Title" xml:space="preserve"><value>طلبات كثيرة جدًا</value></data>
+  <data name="Error.500.Text" xml:space="preserve"><value>حدث خطأ غير متوقع، يرجى المحاولة لاحقًا.</value></data>
+  <data name="Error.500.Title" xml:space="preserve"><value>حدث خطأ غير متوقع</value></data>
+  <data name="Error.BackHome" xml:space="preserve"><value>العودة إلى الرئيسية</value></data>
+  <data name="Error.Concurrency" xml:space="preserve"><value>تم تعديل هذا العنصر من مستخدم آخر أثناء تحريرك. أعد تحميله ثم أعد تطبيق تعديلاتك.</value></data>
+  <data name="Error.NotFound" xml:space="preserve"><value>العنصر المطلوب غير موجود.</value></data>
+  <data name="Field.AddressAr" xml:space="preserve"><value>العنوان (عربي)</value></data>
+  <data name="Field.AddressEn" xml:space="preserve"><value>العنوان (إنجليزي)</value></data>
+  <data name="Field.AltTextAr" xml:space="preserve"><value>النص البديل (عربي)</value></data>
+  <data name="Field.AltTextEn" xml:space="preserve"><value>النص البديل (إنجليزي)</value></data>
+  <data name="Field.AttachmentId" xml:space="preserve"><value>المرفق</value></data>
+  <data name="Field.AuthorAr" xml:space="preserve"><value>الكاتب / المصدر (عربي)</value></data>
+  <data name="Field.AuthorEn" xml:space="preserve"><value>الكاتب / المصدر (إنجليزي)</value></data>
+  <data name="Field.BiographyAr" xml:space="preserve"><value>السيرة الذاتية (عربي)</value></data>
+  <data name="Field.BiographyEn" xml:space="preserve"><value>السيرة الذاتية (إنجليزي)</value></data>
+  <data name="Field.ButtonTextAr" xml:space="preserve"><value>نص الزر (عربي)</value></data>
+  <data name="Field.ButtonTextEn" xml:space="preserve"><value>نص الزر (إنجليزي)</value></data>
+  <data name="Field.ButtonUrl" xml:space="preserve"><value>رابط الزر</value></data>
+  <data name="Field.CaptionAr" xml:space="preserve"><value>التعليق (عربي)</value></data>
+  <data name="Field.CaptionEn" xml:space="preserve"><value>التعليق (إنجليزي)</value></data>
+  <data name="Field.Category" xml:space="preserve"><value>التصنيف</value></data>
+  <data name="Field.ConfirmPassword" xml:space="preserve"><value>تأكيد كلمة المرور</value></data>
+  <data name="Field.ContentAr" xml:space="preserve"><value>المحتوى (عربي)</value></data>
+  <data name="Field.ContentEn" xml:space="preserve"><value>المحتوى (إنجليزي)</value></data>
+  <data name="Field.CourseImageId" xml:space="preserve"><value>صورة البرنامج</value></data>
+  <data name="Field.CoverImageId" xml:space="preserve"><value>صورة الغلاف</value></data>
+  <data name="Field.CurrentPassword" xml:space="preserve"><value>كلمة المرور الحالية</value></data>
+  <data name="Field.DefaultMetaDescriptionAr" xml:space="preserve"><value>الوصف الافتراضي لمحركات البحث (عربي)</value></data>
+  <data name="Field.DefaultMetaDescriptionEn" xml:space="preserve"><value>الوصف الافتراضي لمحركات البحث (إنجليزي)</value></data>
+  <data name="Field.DescriptionAr" xml:space="preserve"><value>الوصف (عربي)</value></data>
+  <data name="Field.DescriptionEn" xml:space="preserve"><value>الوصف (إنجليزي)</value></data>
+  <data name="Field.DocumentFileId" xml:space="preserve"><value>ملف الوثيقة</value></data>
+  <data name="Field.DocumentNumber" xml:space="preserve"><value>رقم الوثيقة</value></data>
+  <data name="Field.DurationAr" xml:space="preserve"><value>المدة (عربي)</value></data>
+  <data name="Field.DurationEn" xml:space="preserve"><value>المدة (إنجليزي)</value></data>
+  <data name="Field.Email" xml:space="preserve"><value>البريد الإلكتروني</value></data>
+  <data name="Field.EndDate" xml:space="preserve"><value>تاريخ الانتهاء</value></data>
+  <data name="Field.EventDate" xml:space="preserve"><value>تاريخ الفعالية</value></data>
+  <data name="Field.ExpiresAtLocal" xml:space="preserve"><value>تاريخ الانتهاء (بتوقيت القاهرة)</value></data>
+  <data name="Field.FacebookUrl" xml:space="preserve"><value>فيسبوك</value></data>
+  <data name="Field.Fax" xml:space="preserve"><value>الفاكس</value></data>
+  <data name="Field.FeaturedImageId" xml:space="preserve"><value>الصورة الرئيسية</value></data>
+  <data name="Field.FooterTextAr" xml:space="preserve"><value>نص التذييل (عربي)</value></data>
+  <data name="Field.FooterTextEn" xml:space="preserve"><value>نص التذييل (إنجليزي)</value></data>
+  <data name="Field.FullName" xml:space="preserve"><value>الاسم الكامل</value></data>
+  <data name="Field.HeroImageId" xml:space="preserve"><value>صورة الترويسة</value></data>
+  <data name="Field.Icon" xml:space="preserve"><value>الأيقونة</value></data>
+  <data name="Field.ImageId" xml:space="preserve"><value>الصورة</value></data>
+  <data name="Field.InstagramUrl" xml:space="preserve"><value>إنستغرام</value></data>
+  <data name="Field.IsActive" xml:space="preserve"><value>مفعّل</value></data>
+  <data name="Field.IsFeatured" xml:space="preserve"><value>مميز</value></data>
+  <data name="Field.IsImportant" xml:space="preserve"><value>مهم</value></data>
+  <data name="Field.IsVisible" xml:space="preserve"><value>ظاهر</value></data>
+  <data name="Field.ItemCount" xml:space="preserve"><value>عدد العناصر</value></data>
+  <data name="Field.Key" xml:space="preserve"><value>المفتاح (اختياري)</value></data>
+  <data name="Field.Label" xml:space="preserve"><value>التسمية</value></data>
+  <data name="Field.LabelAr" xml:space="preserve"><value>التسمية (عربي)</value></data>
+  <data name="Field.LabelEn" xml:space="preserve"><value>التسمية (إنجليزي)</value></data>
+  <data name="Field.LastLoginAtUtc" xml:space="preserve"><value>آخر دخول</value></data>
+  <data name="Field.Latitude" xml:space="preserve"><value>خط العرض</value></data>
+  <data name="Field.Layout" xml:space="preserve"><value>طريقة العرض</value></data>
+  <data name="Field.LinkedInUrl" xml:space="preserve"><value>لينكدإن</value></data>
+  <data name="Field.Location" xml:space="preserve"><value>القائمة</value></data>
+  <data name="Field.LocationAr" xml:space="preserve"><value>المكان (عربي)</value></data>
+  <data name="Field.LocationEn" xml:space="preserve"><value>المكان (إنجليزي)</value></data>
+  <data name="Field.Longitude" xml:space="preserve"><value>خط الطول</value></data>
+  <data name="Field.MapEmbedUrl" xml:space="preserve"><value>رابط تضمين الخريطة</value></data>
+  <data name="Field.Message" xml:space="preserve"><value>الرسالة</value></data>
+  <data name="Field.MetaDescriptionAr" xml:space="preserve"><value>الوصف لمحركات البحث (عربي)</value></data>
+  <data name="Field.MetaDescriptionEn" xml:space="preserve"><value>الوصف لمحركات البحث (إنجليزي)</value></data>
+  <data name="Field.Name" xml:space="preserve"><value>الاسم</value></data>
+  <data name="Field.NameAr" xml:space="preserve"><value>الاسم (عربي)</value></data>
+  <data name="Field.NameEn" xml:space="preserve"><value>الاسم (إنجليزي)</value></data>
+  <data name="Field.NewPassword" xml:space="preserve"><value>كلمة المرور الجديدة</value></data>
+  <data name="Field.NewsCategoryId" xml:space="preserve"><value>التصنيف</value></data>
+  <data name="Field.OpenInNewTab" xml:space="preserve"><value>فتح في تبويب جديد</value></data>
+  <data name="Field.Organization" xml:space="preserve"><value>الجهة</value></data>
+  <data name="Field.ParentDepartmentId" xml:space="preserve"><value>الوحدة الأعلى</value></data>
+  <data name="Field.ParentId" xml:space="preserve"><value>العنصر الرئيسي</value></data>
+  <data name="Field.Password" xml:space="preserve"><value>كلمة المرور</value></data>
+  <data name="Field.PdfFileId" xml:space="preserve"><value>الملف (PDF/مستند)</value></data>
+  <data name="Field.Phone" xml:space="preserve"><value>الهاتف</value></data>
+  <data name="Field.PhotoId" xml:space="preserve"><value>الصورة الشخصية</value></data>
+  <data name="Field.PositionAr" xml:space="preserve"><value>المنصب (عربي)</value></data>
+  <data name="Field.PositionEn" xml:space="preserve"><value>المنصب (إنجليزي)</value></data>
+  <data name="Field.PrimaryButtonTextAr" xml:space="preserve"><value>نص الزر الرئيسي (عربي)</value></data>
+  <data name="Field.PrimaryButtonTextEn" xml:space="preserve"><value>نص الزر الرئيسي (إنجليزي)</value></data>
+  <data name="Field.PrimaryButtonUrl" xml:space="preserve"><value>رابط الزر الرئيسي</value></data>
+  <data name="Field.PublicationDate" xml:space="preserve"><value>تاريخ النشر</value></data>
+  <data name="Field.PublishDateLocal" xml:space="preserve"><value>موعد النشر (بتوقيت القاهرة)</value></data>
+  <data name="Field.RegistrationStatus" xml:space="preserve"><value>التسجيل</value></data>
+  <data name="Field.RememberMe" xml:space="preserve"><value>تذكرني على هذا الجهاز</value></data>
+  <data name="Field.ReportCategoryId" xml:space="preserve"><value>التصنيف</value></data>
+  <data name="Field.Role" xml:space="preserve"><value>الدور</value></data>
+  <data name="Field.SecondaryButtonTextAr" xml:space="preserve"><value>نص الزر الثانوي (عربي)</value></data>
+  <data name="Field.SecondaryButtonTextEn" xml:space="preserve"><value>نص الزر الثانوي (إنجليزي)</value></data>
+  <data name="Field.SecondaryButtonUrl" xml:space="preserve"><value>رابط الزر الثانوي</value></data>
+  <data name="Field.SeoTitleAr" xml:space="preserve"><value>عنوان محركات البحث (عربي)</value></data>
+  <data name="Field.SeoTitleEn" xml:space="preserve"><value>عنوان محركات البحث (إنجليزي)</value></data>
+  <data name="Field.ShortDescriptionAr" xml:space="preserve"><value>وصف مختصر (عربي)</value></data>
+  <data name="Field.ShortDescriptionEn" xml:space="preserve"><value>وصف مختصر (إنجليزي)</value></data>
+  <data name="Field.SiteNameAr" xml:space="preserve"><value>اسم الموقع (عربي)</value></data>
+  <data name="Field.SiteNameEn" xml:space="preserve"><value>اسم الموقع (إنجليزي)</value></data>
+  <data name="Field.Slug" xml:space="preserve"><value>المعرّف في الرابط</value></data>
+  <data name="Field.SlugAr" xml:space="preserve"><value>المعرّف في الرابط (عربي)</value></data>
+  <data name="Field.SlugEn" xml:space="preserve"><value>المعرّف في الرابط (إنجليزي)</value></data>
+  <data name="Field.StartDate" xml:space="preserve"><value>تاريخ البدء</value></data>
+  <data name="Field.Status" xml:space="preserve"><value>الحالة</value></data>
+  <data name="Field.Subject" xml:space="preserve"><value>الموضوع</value></data>
+  <data name="Field.SubtitleAr" xml:space="preserve"><value>العنوان الفرعي (عربي)</value></data>
+  <data name="Field.SubtitleEn" xml:space="preserve"><value>العنوان الفرعي (إنجليزي)</value></data>
+  <data name="Field.SummaryAr" xml:space="preserve"><value>الملخص (عربي)</value></data>
+  <data name="Field.SummaryEn" xml:space="preserve"><value>الملخص (إنجليزي)</value></data>
+  <data name="Field.TaglineAr" xml:space="preserve"><value>الشعار النصي (عربي)</value></data>
+  <data name="Field.TaglineEn" xml:space="preserve"><value>الشعار النصي (إنجليزي)</value></data>
+  <data name="Field.TargetAudienceAr" xml:space="preserve"><value>الفئة المستهدفة (عربي)</value></data>
+  <data name="Field.TargetAudienceEn" xml:space="preserve"><value>الفئة المستهدفة (إنجليزي)</value></data>
+  <data name="Field.ThumbnailId" xml:space="preserve"><value>الصورة المصغرة (اختياري)</value></data>
+  <data name="Field.Title" xml:space="preserve"><value>العنوان</value></data>
+  <data name="Field.TitleAr" xml:space="preserve"><value>العنوان (عربي)</value></data>
+  <data name="Field.TitleEn" xml:space="preserve"><value>العنوان (إنجليزي)</value></data>
+  <data name="Field.Url" xml:space="preserve"><value>الرابط</value></data>
+  <data name="Field.Value" xml:space="preserve"><value>القيمة</value></data>
+  <data name="Field.WorkingHoursAr" xml:space="preserve"><value>مواعيد العمل (عربي)</value></data>
+  <data name="Field.WorkingHoursEn" xml:space="preserve"><value>مواعيد العمل (إنجليزي)</value></data>
+  <data name="Field.XUrl" xml:space="preserve"><value>إكس (تويتر)</value></data>
+  <data name="Field.YouTubeUrl" xml:space="preserve"><value>يوتيوب</value></data>
+  <data name="Footer.Contact" xml:space="preserve"><value>بيانات التواصل</value></data>
+  <data name="Footer.DemoNotice" xml:space="preserve"><value>لوحة العرض التوضيحية (بيانات غير تشغيلية)</value></data>
+  <data name="Footer.QuickLinks" xml:space="preserve"><value>روابط سريعة</value></data>
+  <data name="Footer.Rights" xml:space="preserve"><value>جميع الحقوق محفوظة.</value></data>
+  <data name="HeroSlides.Create" xml:space="preserve"><value>شريحة جديدة</value></data>
+  <data name="HeroSlides.Edit" xml:space="preserve"><value>تعديل الشريحة</value></data>
+  <data name="HeroSlides.ImageHint" xml:space="preserve"><value>صورة خلفية اختيارية، ويفضل أن تكون بمقاس 1920×900 بكسل. بدون صورة تُستخدم الخلفية الافتراضية.</value></data>
+  <data name="HeroSlides.Links" xml:space="preserve"><value>روابط الأزرار</value></data>
+  <data name="HeroSlides.Subtitle" xml:space="preserve"><value>شرائح واجهة الصفحة الرئيسية بترتيب العرض.</value></data>
+  <data name="Home.Highlights" xml:space="preserve"><value>أبرز المحتوى</value></data>
+  <data name="Home.LegalFramework" xml:space="preserve"><value>الإطار القانوني</value></data>
+  <data name="Home.LegalFrameworkText" xml:space="preserve"><value>القانون رقم ٢٥ لسنة ٢٠٢٢</value></data>
+  <data name="HomeSections.Block" xml:space="preserve"><value>القسم</value></data>
+  <data name="HomeSections.Edit" xml:space="preserve"><value>تعديل قسم الصفحة الرئيسية</value></data>
+  <data name="HomeSections.ItemCountHint" xml:space="preserve"><value>عدد العناصر التي يعرضها هذا القسم (1–12).</value></data>
+  <data name="HomeSections.Subtitle" xml:space="preserve"><value>إظهار أقسام الصفحة الرئيسية وإخفاؤها وترتيبها وتعديلها.</value></data>
+  <data name="Identity.DuplicateEmail" xml:space="preserve"><value>البريد الإلكتروني مسجل بالفعل.</value></data>
+  <data name="Identity.DuplicateUserName" xml:space="preserve"><value>البريد الإلكتروني مسجل بالفعل.</value></data>
+  <data name="Identity.InvalidEmail" xml:space="preserve"><value>البريد الإلكتروني غير صالح.</value></data>
+  <data name="Identity.PasswordRequiresDigit" xml:space="preserve"><value>يجب أن تحتوي كلمة المرور على رقم.</value></data>
+  <data name="Identity.PasswordRequiresLower" xml:space="preserve"><value>يجب أن تحتوي كلمة المرور على حرف صغير.</value></data>
+  <data name="Identity.PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>يجب أن تحتوي كلمة المرور على رمز.</value></data>
+  <data name="Identity.PasswordRequiresUniqueChars" xml:space="preserve"><value>يجب أن تحتوي كلمة المرور على ٤ أحرف مختلفة على الأقل.</value></data>
+  <data name="Identity.PasswordRequiresUpper" xml:space="preserve"><value>يجب أن تحتوي كلمة المرور على حرف كبير.</value></data>
+  <data name="Identity.PasswordTooShort" xml:space="preserve"><value>يجب ألا تقل كلمة المرور عن ١٠ أحرف.</value></data>
+  <data name="ImportantLinks.Create" xml:space="preserve"><value>رابط جديد</value></data>
+  <data name="ImportantLinks.Edit" xml:space="preserve"><value>تعديل الرابط</value></data>
+  <data name="ImportantLinks.UrlHint" xml:space="preserve"><value>رابط كامل يبدأ بـ https:// للموقع الخارجي.</value></data>
+  <data name="Leaders.Create" xml:space="preserve"><value>إضافة قيادة</value></data>
+  <data name="Leaders.Edit" xml:space="preserve"><value>تعديل بيانات القيادة</value></data>
+  <data name="Leaders.PlaceholderNotice" xml:space="preserve"><value>البيانات المضافة مبدئيًا هي بيانات مؤقتة. استبدلها فقط بالأسماء والمسميات والصور المعتمدة رسميًا.</value></data>
+  <data name="Leaders.Subtitle" xml:space="preserve"><value>البيانات المعروضة في صفحة القيادات بترتيب العرض.</value></data>
+  <data name="Leadership.Biography" xml:space="preserve"><value>السيرة الذاتية</value></data>
+  <data name="Leadership.Empty" xml:space="preserve"><value>سيتم نشر بيانات القيادات قريبًا.</value></data>
+  <data name="Legislation.Create" xml:space="preserve"><value>وثيقة جديدة</value></data>
+  <data name="Legislation.Edit" xml:space="preserve"><value>تعديل الوثيقة</value></data>
+  <data name="Legislation.Empty" xml:space="preserve"><value>لا توجد وثائق مطابقة للمعايير المحددة.</value></data>
+  <data name="Legislation.Lead" xml:space="preserve"><value>القوانين واللوائح والقرارات والوثائق الرسمية ذات الصلة بالمركز.</value></data>
+  <data name="Legislation.NoFile" xml:space="preserve"><value>لا يوجد ملف مرفق</value></data>
+  <data name="Legislation.SearchPlaceholder" xml:space="preserve"><value>ابحث بالعنوان أو الرقم…</value></data>
+  <data name="Media.AllKinds" xml:space="preserve"><value>كل أنواع الملفات</value></data>
+  <data name="Media.AltHint" xml:space="preserve"><value>صف الصورة لمستخدمي قارئات الشاشة (غير مطلوب للمستندات).</value></data>
+  <data name="Media.ChooseFiles" xml:space="preserve"><value>اختر الملفات</value></data>
+  <data name="Media.ChooseFromLibrary" xml:space="preserve"><value>المكتبة</value></data>
+  <data name="Media.Count" xml:space="preserve"><value>عدد الملفات: {0}</value></data>
+  <data name="Media.Empty" xml:space="preserve"><value>يرجى اختيار ملف.</value></data>
+  <data name="Media.FileName" xml:space="preserve"><value>اسم الملف</value></data>
+  <data name="Media.InUse" xml:space="preserve"><value>هذا الملف مستخدم في محتوى منشور أو مسودة ولا يمكن حذفه.</value></data>
+  <data name="Media.InUseHint" xml:space="preserve"><value>لا يمكن حذف الملفات المستخدمة في المحتوى. أزلها من ذلك المحتوى أولًا.</value></data>
+  <data name="Media.InUseNo" xml:space="preserve"><value>غير مستخدم</value></data>
+  <data name="Media.InUseYes" xml:space="preserve"><value>مستخدم في محتوى منشور أو مسودة</value></data>
+  <data name="Media.Kind" xml:space="preserve"><value>النوع</value></data>
+  <data name="Media.Lead" xml:space="preserve"><value>التغطية المصورة والمرئية لأنشطة المركز.</value></data>
+  <data name="Media.Library" xml:space="preserve"><value>مكتبة الوسائط</value></data>
+  <data name="Media.Metadata" xml:space="preserve"><value>الوصف</value></data>
+  <data name="Media.MissingAlt" xml:space="preserve"><value>بدون نص بديل</value></data>
+  <data name="Media.NoFile" xml:space="preserve"><value>لا يوجد ملف</value></data>
+  <data name="Media.NoFilesSelected" xml:space="preserve"><value>لم يتم اختيار أي ملفات.</value></data>
+  <data name="Media.PickerEmpty" xml:space="preserve"><value>لا توجد ملفات مطابقة. يمكنك رفع ملف من النموذج مباشرة.</value></data>
+  <data name="Media.Remove" xml:space="preserve"><value>إزالة</value></data>
+  <data name="Media.SearchPlaceholder" xml:space="preserve"><value>ابحث باسم الملف…</value></data>
+  <data name="Media.SignatureMismatch" xml:space="preserve"><value>محتوى الملف لا يطابق امتداده.</value></data>
+  <data name="Media.Size" xml:space="preserve"><value>الحجم</value></data>
+  <data name="Media.TooLarge" xml:space="preserve"><value>حجم الملف كبير جدًا. الحد الأقصى: {0} ميجابايت.</value></data>
+  <data name="Media.TypeNotAllowed" xml:space="preserve"><value>نوع الملف غير مسموح به. الأنواع المسموح بها: {0}</value></data>
+  <data name="Media.UnsupportedType" xml:space="preserve"><value>نوع الملف غير مسموح به.</value></data>
+  <data name="Media.Upload" xml:space="preserve"><value>رفع</value></data>
+  <data name="Media.Uploaded" xml:space="preserve"><value>تم رفع {0} ملف.</value></data>
+  <data name="Media.UploadedAt" xml:space="preserve"><value>تاريخ الرفع</value></data>
+  <data name="Media.UploadHint" xml:space="preserve"><value>الأنواع المسموح بها: {0} — الحد الأقصى {1} ميجابايت.</value></data>
+  <data name="Media.UploadManyHint" xml:space="preserve"><value>حتى 20 ملفًا: صور (JPG وPNG وWebP وGIF – 5 ميجابايت) أو مستندات (PDF وWord وExcel وPowerPoint – 25 ميجابايت).</value></data>
+  <data name="Media.UploadTitle" xml:space="preserve"><value>رفع ملفات</value></data>
+  <data name="Media.Url" xml:space="preserve"><value>الرابط العام</value></data>
+  <data name="Media.Usage" xml:space="preserve"><value>الاستخدام</value></data>
+  <data name="Menus.AddChild" xml:space="preserve"><value>إضافة عنصر فرعي</value></data>
+  <data name="Menus.Create" xml:space="preserve"><value>عنصر قائمة جديد</value></data>
+  <data name="Menus.Edit" xml:space="preserve"><value>تعديل عنصر القائمة</value></data>
+  <data name="Menus.InvalidParent" xml:space="preserve"><value>اختر عنصرًا رئيسيًا من نفس القائمة (مستويان كحد أقصى).</value></data>
+  <data name="Menus.ParentHint" xml:space="preserve"><value>القوائم من مستويين؛ تظهر العناصر الفرعية في قائمة منسدلة.</value></data>
+  <data name="Menus.Subtitle" xml:space="preserve"><value>روابط التنقل في رأس الموقع وتذييله.</value></data>
+  <data name="Menus.TopLevel" xml:space="preserve"><value>— مستوى أعلى —</value></data>
+  <data name="Menus.UrlHint" xml:space="preserve"><value>مسار داخل الموقع مثل ‎/news (تُضاف بادئة اللغة تلقائيًا)، أو # لعنصر رئيسي بقائمة منسدلة، أو رابط كامل يبدأ بـ https://.</value></data>
+  <data name="Messages.Empty" xml:space="preserve"><value>لا توجد رسائل.</value></data>
+  <data name="Messages.From" xml:space="preserve"><value>المرسل</value></data>
+  <data name="Messages.InternalNotes" xml:space="preserve"><value>ملاحظات داخلية</value></data>
+  <data name="Messages.Language" xml:space="preserve"><value>لغة الموقع</value></data>
+  <data name="Messages.MarkRead" xml:space="preserve"><value>تعليم كمقروءة</value></data>
+  <data name="Messages.MarkReplied" xml:space="preserve"><value>تعليم كتم الرد</value></data>
+  <data name="Messages.MarkUnread" xml:space="preserve"><value>تعليم كغير مقروءة</value></data>
+  <data name="Messages.NotesHint" xml:space="preserve"><value>تظهر للموظفين فقط ولا تُرسل إلى المرسل.</value></data>
+  <data name="Messages.Open" xml:space="preserve"><value>فتح</value></data>
+  <data name="Messages.ReadAt" xml:space="preserve"><value>تاريخ القراءة</value></data>
+  <data name="Messages.Received" xml:space="preserve"><value>تاريخ الاستلام</value></data>
+  <data name="Messages.RepliedAt" xml:space="preserve"><value>تاريخ الرد</value></data>
+  <data name="Messages.ReplyByEmail" xml:space="preserve"><value>الرد بالبريد الإلكتروني</value></data>
+  <data name="Messages.SearchPlaceholder" xml:space="preserve"><value>ابحث بالاسم أو البريد أو الموضوع…</value></data>
+  <data name="Messages.Sender" xml:space="preserve"><value>بيانات المرسل</value></data>
+  <data name="Nav.About" xml:space="preserve"><value>عن المركز</value></data>
+  <data name="Nav.AirspaceManagement" xml:space="preserve"><value>إدارة المجال الجوي</value></data>
+  <data name="Nav.Announcements" xml:space="preserve"><value>الإعلانات</value></data>
+  <data name="Nav.Breadcrumb" xml:space="preserve"><value>مسار التنقل</value></data>
+  <data name="Nav.Contact" xml:space="preserve"><value>تواصل معنا</value></data>
+  <data name="Nav.Home" xml:space="preserve"><value>الرئيسية</value></data>
+  <data name="Nav.Leadership" xml:space="preserve"><value>قيادات المركز</value></data>
+  <data name="Nav.Legislation" xml:space="preserve"><value>التشريعات واللوائح</value></data>
+  <data name="Nav.Main" xml:space="preserve"><value>القائمة الرئيسية</value></data>
+  <data name="Nav.MediaCenter" xml:space="preserve"><value>المركز الإعلامي</value></data>
+  <data name="Nav.Menu" xml:space="preserve"><value>القائمة</value></data>
+  <data name="Nav.News" xml:space="preserve"><value>الأخبار</value></data>
+  <data name="Nav.Photos" xml:space="preserve"><value>معرض الصور</value></data>
+  <data name="Nav.Reports" xml:space="preserve"><value>الدراسات والتقارير</value></data>
+  <data name="Nav.Services" xml:space="preserve"><value>خدماتنا</value></data>
+  <data name="Nav.Structure" xml:space="preserve"><value>الهيكل التنظيمي</value></data>
+  <data name="Nav.Toggle" xml:space="preserve"><value>فتح القائمة</value></data>
+  <data name="Nav.Training" xml:space="preserve"><value>التدريب والتأهيل</value></data>
+  <data name="Nav.Videos" xml:space="preserve"><value>معرض الفيديو</value></data>
+  <data name="News.Create" xml:space="preserve"><value>خبر جديد</value></data>
+  <data name="News.Edit" xml:space="preserve"><value>تعديل الخبر</value></data>
+  <data name="News.Empty" xml:space="preserve"><value>لم يتم نشر أخبار بعد.</value></data>
+  <data name="News.Feature" xml:space="preserve"><value>تمييز الخبر</value></data>
+  <data name="News.Lead" xml:space="preserve"><value>آخر أخبار المركز وأنشطته.</value></data>
+  <data name="News.Related" xml:space="preserve"><value>أخبار ذات صلة</value></data>
+  <data name="News.SearchPlaceholder" xml:space="preserve"><value>ابحث في الأخبار…</value></data>
+  <data name="News.Unfeature" xml:space="preserve"><value>إلغاء التمييز</value></data>
+  <data name="Pager.Label" xml:space="preserve"><value>ترقيم الصفحات</value></data>
+  <data name="Pager.Next" xml:space="preserve"><value>التالي</value></data>
+  <data name="Pager.Previous" xml:space="preserve"><value>السابق</value></data>
+  <data name="Pages.AddSection" xml:space="preserve"><value>إضافة قسم</value></data>
+  <data name="Pages.Create" xml:space="preserve"><value>صفحة جديدة</value></data>
+  <data name="Pages.Custom" xml:space="preserve"><value>مخصصة</value></data>
+  <data name="Pages.Edit" xml:space="preserve"><value>تعديل الصفحة</value></data>
+  <data name="Pages.EditSection" xml:space="preserve"><value>تعديل القسم</value></data>
+  <data name="Pages.KeyHint" xml:space="preserve"><value>مفتاح تقني تستخدمه الصفحة الرئيسية (vision, mission). اتركه فارغًا للأقسام العادية.</value></data>
+  <data name="Pages.LayoutHint" xml:space="preserve"><value>تُجمع البطاقات وخطوات العمل في شبكات أو مخططات داخل الصفحة.</value></data>
+  <data name="Pages.NoSections" xml:space="preserve"><value>لا توجد أقسام في هذه الصفحة.</value></data>
+  <data name="Pages.SectionKeyTaken" xml:space="preserve"><value>هذا المفتاح مستخدم في قسم آخر من نفس الصفحة.</value></data>
+  <data name="Pages.Sections" xml:space="preserve"><value>الأقسام</value></data>
+  <data name="Pages.SectionsHint" xml:space="preserve"><value>أجزاء منظمة تظهر بعد المحتوى الرئيسي.</value></data>
+  <data name="Pages.Subtitle" xml:space="preserve"><value>صفحات النظام (عن المركز، الرؤية والرسالة، إدارة تدفق الحركة الجوية…) والصفحات المخصصة.</value></data>
+  <data name="Pages.System" xml:space="preserve"><value>صفحة نظام</value></data>
+  <data name="Pages.SystemNotice" xml:space="preserve"><value>هذه صفحة نظام مرتبطة برابط ثابت في الموقع ولا يمكن حذفها. المفتاح:</value></data>
+  <data name="Pages.SystemPageDelete" xml:space="preserve"><value>لا يمكن حذف الصفحات الأساسية، ويمكنك إلغاء نشرها بدلًا من ذلك.</value></data>
+  <data name="Pages.Type" xml:space="preserve"><value>النوع</value></data>
+  <data name="Photos.Empty" xml:space="preserve"><value>لم يتم نشر ألبومات صور بعد.</value></data>
+  <data name="Preview.Banner" xml:space="preserve"><value>معاينة — قد لا يكون هذا المحتوى منشورًا بعد</value></data>
+  <data name="Reports.Create" xml:space="preserve"><value>تقرير جديد</value></data>
+  <data name="Reports.Downloads" xml:space="preserve"><value>مرات التحميل</value></data>
+  <data name="Reports.Edit" xml:space="preserve"><value>تعديل التقرير</value></data>
+  <data name="Reports.Empty" xml:space="preserve"><value>لا توجد إصدارات مطابقة للمعايير المحددة.</value></data>
+  <data name="Reports.FileRequiredHint" xml:space="preserve"><value>يلزم إرفاق ملف PDF قبل نشر التقرير.</value></data>
+  <data name="Reports.FileRequiredToPublish" xml:space="preserve"><value>يجب إرفاق ملف قبل نشر الإصدار.</value></data>
+  <data name="Reports.FileSize" xml:space="preserve"><value>حجم الملف</value></data>
+  <data name="Reports.FileType" xml:space="preserve"><value>نوع الملف</value></data>
+  <data name="Reports.Lead" xml:space="preserve"><value>الدراسات والتقارير والإصدارات الصادرة عن المركز.</value></data>
+  <data name="Reports.Metadata" xml:space="preserve"><value>بيانات الإصدار</value></data>
+  <data name="Reports.NoFile" xml:space="preserve"><value>لا يوجد ملف PDF</value></data>
+  <data name="Reports.Publication" xml:space="preserve"><value>إصدار</value></data>
+  <data name="Reports.SearchPlaceholder" xml:space="preserve"><value>ابحث في الإصدارات…</value></data>
+  <data name="Role.Administrator" xml:space="preserve"><value>مسؤول</value></data>
+  <data name="Role.Administrator.Description" xml:space="preserve"><value>كل المحتوى والقوائم والإعدادات والرسائل وسجل العمليات؛ دون إدارة المستخدمين.</value></data>
+  <data name="Role.CommunicationsOfficer" xml:space="preserve"><value>مسؤول التواصل</value></data>
+  <data name="Role.CommunicationsOfficer.Description" xml:space="preserve"><value>رسائل التواصل والأخبار والإعلانات والوسائط.</value></data>
+  <data name="Role.ContentEditor" xml:space="preserve"><value>محرر محتوى</value></data>
+  <data name="Role.ContentEditor.Description" xml:space="preserve"><value>كل محتوى الموقع والصفحة الرئيسية؛ دون القوائم والإعدادات والرسائل والمستخدمين.</value></data>
+  <data name="Role.SuperAdmin" xml:space="preserve"><value>مسؤول عام</value></data>
+  <data name="Role.SuperAdmin.Description" xml:space="preserve"><value>صلاحيات كاملة تشمل حسابات المستخدمين والأدوار.</value></data>
+  <data name="Search.Hint" xml:space="preserve"><value>اكتب حرفين على الأقل للبحث في الأخبار والخدمات والتقارير والتدريب وغيرها.</value></data>
+  <data name="Search.Label" xml:space="preserve"><value>البحث في الموقع</value></data>
+  <data name="Search.NoResults" xml:space="preserve"><value>لا توجد نتائج مطابقة لبحثك.</value></data>
+  <data name="Search.Placeholder" xml:space="preserve"><value>ابحث في الموقع…</value></data>
+  <data name="Search.ResultCount" xml:space="preserve"><value>{0} نتيجة للبحث عن «{1}»</value></data>
+  <data name="Search.Title" xml:space="preserve"><value>البحث</value></data>
+  <data name="Services.Create" xml:space="preserve"><value>خدمة جديدة</value></data>
+  <data name="Services.Edit" xml:space="preserve"><value>تعديل الخدمة</value></data>
+  <data name="Services.Empty" xml:space="preserve"><value>سيتم نشر الخدمات قريبًا.</value></data>
+  <data name="Services.Enquire" xml:space="preserve"><value>استفسر عن هذه الخدمة</value></data>
+  <data name="Services.Lead" xml:space="preserve"><value>خدمات متخصصة في مجالات إدارة المجال الجوي والحركة الجوية.</value></data>
+  <data name="Services.Other" xml:space="preserve"><value>خدمات أخرى</value></data>
+  <data name="Settings.Contact" xml:space="preserve"><value>بيانات التواصل</value></data>
+  <data name="Settings.Identity" xml:space="preserve"><value>هوية الموقع</value></data>
+  <data name="Settings.Map" xml:space="preserve"><value>الخريطة</value></data>
+  <data name="Settings.MapHint" xml:space="preserve"><value>رابط التضمين (iframe) من خرائط Google أو OpenStreetMap. تُرفض الروابط من مواقع أخرى.</value></data>
+  <data name="Settings.MapHost" xml:space="preserve"><value>يجب أن يكون رابط الخريطة رابط تضمين من خرائط Google أو OpenStreetMap.</value></data>
+  <data name="Settings.Social" xml:space="preserve"><value>وسائل التواصل الاجتماعي</value></data>
+  <data name="Settings.SocialHint" xml:space="preserve"><value>الحسابات الرسمية فقط. الحقول الفارغة لا تظهر على الموقع.</value></data>
+  <data name="Settings.Subtitle" xml:space="preserve"><value>بيانات التواصل والنصوص العامة المعروضة في رأس الموقع وتذييله وصفحة التواصل.</value></data>
+  <data name="Site.Name" xml:space="preserve"><value>المركز القومي لإدارة المجال الجوي</value></data>
+  <data name="Site.OfficialWebsite" xml:space="preserve"><value>الموقع الرسمي</value></data>
+  <data name="Statistics.AccuracyNotice" xml:space="preserve"><value>انشر فقط الأرقام المعتمدة رسميًا للنشر.</value></data>
+  <data name="Statistics.Create" xml:space="preserve"><value>إحصائية جديدة</value></data>
+  <data name="Statistics.Edit" xml:space="preserve"><value>تعديل الإحصائية</value></data>
+  <data name="Statistics.Subtitle" xml:space="preserve"><value>الأرقام المعروضة في شريط الإحصائيات بالصفحة الرئيسية.</value></data>
+  <data name="Statistics.ValueHint" xml:space="preserve"><value>يُعرض كما هو مكتوب، مثل 24/7 أو ‎+120.</value></data>
+  <data name="Structure.Details" xml:space="preserve"><value>الوحدات والتوصيف</value></data>
+  <data name="Structure.Empty" xml:space="preserve"><value>سيتم نشر الهيكل التنظيمي قريبًا.</value></data>
+  <data name="Structure.Lead" xml:space="preserve"><value>الهيكل التنظيمي للمركز.</value></data>
+  <data name="Training.Create" xml:space="preserve"><value>برنامج جديد</value></data>
+  <data name="Training.Dates" xml:space="preserve"><value>المواعيد</value></data>
+  <data name="Training.Details" xml:space="preserve"><value>بيانات البرنامج</value></data>
+  <data name="Training.Duration" xml:space="preserve"><value>المدة</value></data>
+  <data name="Training.Edit" xml:space="preserve"><value>تعديل البرنامج</value></data>
+  <data name="Training.Empty" xml:space="preserve"><value>لا توجد برامج تدريبية متاحة حاليًا.</value></data>
+  <data name="Training.EndBeforeStart" xml:space="preserve"><value>لا يمكن أن يكون تاريخ الانتهاء قبل تاريخ البدء.</value></data>
+  <data name="Training.Lead" xml:space="preserve"><value>برامج التدريب والتأهيل لبناء القدرات الوطنية المتخصصة.</value></data>
+  <data name="Training.Location" xml:space="preserve"><value>المكان</value></data>
+  <data name="Training.Past" xml:space="preserve"><value>البرامج السابقة</value></data>
+  <data name="Training.Register" xml:space="preserve"><value>سجّل اهتمامك</value></data>
+  <data name="Training.SearchPlaceholder" xml:space="preserve"><value>ابحث في البرامج…</value></data>
+  <data name="Training.TargetAudience" xml:space="preserve"><value>الفئة المستهدفة</value></data>
+  <data name="Training.Upcoming" xml:space="preserve"><value>الحالية والقادمة</value></data>
+  <data name="Users.Activate" xml:space="preserve"><value>تفعيل</value></data>
+  <data name="Users.CannotModifySelf" xml:space="preserve"><value>لا يمكنك تعطيل حسابك أو تغيير دوره أو حذفه.</value></data>
+  <data name="Users.ConfirmDeactivate" xml:space="preserve"><value>هل تريد إيقاف هذا الحساب؟ سيتم تسجيل خروج المستخدم خلال دقيقة.</value></data>
+  <data name="Users.Create" xml:space="preserve"><value>مستخدم جديد</value></data>
+  <data name="Users.Deactivate" xml:space="preserve"><value>إيقاف</value></data>
+  <data name="Users.Edit" xml:space="preserve"><value>تعديل المستخدم</value></data>
+  <data name="Users.InvalidRole" xml:space="preserve"><value>اختر دورًا صالحًا.</value></data>
+  <data name="Users.LastSuperAdmin" xml:space="preserve"><value>يجب أن يبقى مدير عام نشط واحد على الأقل.</value></data>
+  <data name="Users.Locked" xml:space="preserve"><value>مقفل</value></data>
+  <data name="Users.NeverLoggedIn" xml:space="preserve"><value>لم يسجل الدخول</value></data>
+  <data name="Users.PasswordRequired" xml:space="preserve"><value>كلمة المرور مطلوبة للمستخدم الجديد.</value></data>
+  <data name="Users.PasswordReset" xml:space="preserve"><value>تمت إعادة تعيين كلمة المرور. أبلغ المستخدم بها عبر وسيلة آمنة.</value></data>
+  <data name="Users.Permissions" xml:space="preserve"><value>الأدوار والصلاحيات</value></data>
+  <data name="Users.ResetHint" xml:space="preserve"><value>سيتم تسجيل خروج المستخدم من جلساته الأخرى.</value></data>
+  <data name="Users.ResetPassword" xml:space="preserve"><value>إعادة تعيين كلمة المرور</value></data>
+  <data name="Users.RoleHint" xml:space="preserve"><value>تُطبق الصلاحيات على الخادم لكل صفحة وإجراء.</value></data>
+  <data name="Users.SearchPlaceholder" xml:space="preserve"><value>ابحث بالاسم أو البريد…</value></data>
+  <data name="Users.SelfHint" xml:space="preserve"><value>لا يمكنك إزالة دور المسؤول العام عن نفسك أو إيقاف حسابك.</value></data>
+  <data name="Users.Unlock" xml:space="preserve"><value>إلغاء القفل</value></data>
+  <data name="Users.You" xml:space="preserve"><value>أنت</value></data>
+  <data name="Val.Compare" xml:space="preserve"><value>القيمتان غير متطابقتين.</value></data>
+  <data name="Val.Email" xml:space="preserve"><value>أدخل بريدًا إلكترونيًا صحيحًا.</value></data>
+  <data name="Val.Icon" xml:space="preserve"><value>استخدم اسم أيقونة من Bootstrap Icons مثل bi-airplane.</value></data>
+  <data name="Val.Invalid" xml:space="preserve"><value>القيمة «{0}» غير صالحة.</value></data>
+  <data name="Val.InvalidFor" xml:space="preserve"><value>القيمة «{0}» غير صالحة لحقل «{1}».</value></data>
+  <data name="Val.InvalidOption" xml:space="preserve"><value>القيمة المختارة غير صالحة.</value></data>
+  <data name="Val.MaxLength" xml:space="preserve"><value>يجب ألا يتجاوز «{0}» {1} حرفًا.</value></data>
+  <data name="Val.MinLength" xml:space="preserve"><value>يجب أن يكون طول «{0}» بين {2} و{1} حرفًا.</value></data>
+  <data name="Val.Number" xml:space="preserve"><value>يجب أن تكون قيمة «{0}» رقمًا.</value></data>
+  <data name="Val.Phone" xml:space="preserve"><value>أدخل رقم هاتف صحيحًا.</value></data>
+  <data name="Val.Range" xml:space="preserve"><value>يجب أن تكون قيمة «{0}» بين {1} و{2}.</value></data>
+  <data name="Val.Required" xml:space="preserve"><value>حقل «{0}» مطلوب.</value></data>
+  <data name="Val.Slug" xml:space="preserve"><value>استخدم الحروف الصغيرة والأرقام والشرطات فقط.</value></data>
+  <data name="Val.SlugTaken" xml:space="preserve"><value>هذا المعرّف مستخدم بالفعل.</value></data>
+  <data name="Val.Url" xml:space="preserve"><value>أدخل رابطًا صحيحًا (https://… أو مسارًا داخليًا يبدأ بـ /).</value></data>
+  <data name="Videos.Create" xml:space="preserve"><value>فيديو جديد</value></data>
+  <data name="Videos.Edit" xml:space="preserve"><value>تعديل الفيديو</value></data>
+  <data name="Videos.Empty" xml:space="preserve"><value>لم يتم نشر مقاطع فيديو بعد.</value></data>
+  <data name="Videos.InvalidUrl" xml:space="preserve"><value>أدخل رابط فيديو صحيحًا يبدأ بـ https (يوتيوب أو فيميو أو رابط آخر).</value></data>
+  <data name="Videos.Open" xml:space="preserve"><value>فتح الفيديو</value></data>
+  <data name="Videos.Provider" xml:space="preserve"><value>المصدر</value></data>
+  <data name="Videos.ThumbnailHint" xml:space="preserve"><value>اختياري. تُستخدم الصورة المصغرة من YouTube تلقائيًا إذا لم تُحدد صورة.</value></data>
+  <data name="Videos.UrlHint" xml:space="preserve"><value>رابط https لفيديو على YouTube أو Vimeo أو صفحة فيديو أخرى.</value></data>
+  <data name="Videos.UrlPlaceholder" xml:space="preserve"><value>https://</value></data>
+  <data name="Videos.Watch" xml:space="preserve"><value>مشاهدة الفيديو</value></data>
+</root>

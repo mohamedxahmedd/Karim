@@ -1,0 +1,49 @@
+@model ListPageModel<NationalAirspace.Application.Features.Announcements.AnnouncementDto>
+@{ var archive = Model.Tab == "archive"; }
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <nav class="filter-pills" aria-label="@L["Nav.Announcements"]">
+            <a href="@Url.Site("/announcements")" class="@(archive ? "" : "active")"><i class="bi bi-megaphone" aria-hidden="true"></i> @L["Announcements.Active"]</a>
+            <a href="@Url.Site("/announcements")?tab=archive" class="@(archive ? "active" : "")"><i class="bi bi-archive" aria-hidden="true"></i> @L["Announcements.Archive"]</a>
+        </nav>
+        @if (Model.Items.Items.Count == 0)
+        {
+            <partial name="_EmptyState" model="@(archive ? "Announcements.ArchiveEmpty" : "Announcements.Empty")" />
+        }
+        else
+        {
+            foreach (var a in Model.Items.Items)
+            {
+                <article class="doc-item reveal">
+                    <span class="icon-tile @(a.IsImportant && !a.IsExpired ? "gold" : "")"><i class="bi @(a.IsImportant ? "bi-exclamation-diamond" : "bi-megaphone")" aria-hidden="true"></i></span>
+                    <div class="flex-grow-1">
+                        <div class="card-meta mb-1">
+                            <span><i class="bi bi-calendar3" aria-hidden="true"></i> @Clock.LongDate(a.PublishDateUtc)</span>
+                            @if (a.IsImportant && !a.IsExpired)
+                            {
+                                <span class="chip gold">@L["Announcements.Important"]</span>
+                            }
+                            @if (a.IsExpired)
+                            {
+                                <span class="chip muted">@L["Announcements.Expired"]</span>
+                            }
+                            else if (a.ExpiresAtUtc is { } exp)
+                            {
+                                <span><i class="bi bi-hourglass-split" aria-hidden="true"></i> @L["Announcements.ValidUntil"] @Clock.LongDate(exp)</span>
+                            }
+                        </div>
+                        <h2><a href="@Url.Site($"/announcements/{a.Id}")">@a.Title</a></h2>
+                    </div>
+                    @if (a.AttachmentName is not null)
+                    {
+                        <div class="doc-actions">
+                            <a class="btn btn-outline-primary btn-sm" href="@Url.Site($"/announcements/{a.Id}/attachment")"><i class="bi bi-paperclip" aria-hidden="true"></i> @L["Common.Attachment"]</a>
+                        </div>
+                    }
+                </article>
+            }
+            <partial name="_Pager" model="new PagerModel(Model.Items.Page, Model.Items.TotalPages, Context.Request)" />
+        }
+    </div>
+</section>

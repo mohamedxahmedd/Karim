@@ -1,0 +1,19 @@
+@model HomeBlockModel
+<section class="section" id="reports">
+    <div class="container container-wide">
+        <partial name="_BlockHeader" model="Model.Block" />
+        @if (Model.Page.Reports.Count == 0)
+        {
+            <partial name="_EmptyState" model="@("Reports.Empty")" />
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var r in Model.Page.Reports)
+                {
+                    <div class="col-md-6 col-lg-4 reveal"><partial name="_ReportCard" model="r" /></div>
+                }
+            </div>
+        }
+    </div>
+</section>

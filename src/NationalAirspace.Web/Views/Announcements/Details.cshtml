@@ -1,0 +1,40 @@
+@model NationalAirspace.Application.Features.Announcements.AnnouncementDto
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <article class="article">
+            <div class="card-meta mb-3">
+                <span><i class="bi bi-calendar3" aria-hidden="true"></i> @Clock.LongDate(Model.PublishDateUtc)</span>
+                @if (Model.IsImportant && !Model.IsExpired)
+                {
+                    <span class="chip gold">@L["Announcements.Important"]</span>
+                }
+                @if (Model.IsExpired)
+                {
+                    <span class="chip muted">@L["Announcements.Expired"]</span>
+                }
+                else if (Model.ExpiresAtUtc is { } exp)
+                {
+                    <span><i class="bi bi-hourglass-split" aria-hidden="true"></i> @L["Announcements.ValidUntil"] @Clock.LongDate(exp)</span>
+                }
+            </div>
+            @if (Model.ContentHtml is not null)
+            {
+                <div class="rich-text">@Html.Raw(Model.ContentHtml)</div>
+            }
+            @if (Model.AttachmentName is not null)
+            {
+                <div class="doc-item mt-4">
+                    <span class="icon-tile"><i class="bi bi-paperclip" aria-hidden="true"></i></span>
+                    <div class="flex-grow-1"><h2>@Model.AttachmentName</h2><p class="ltr-nums">@Model.AttachmentSize?.FileSize()</p></div>
+                    <div class="doc-actions"><a class="btn btn-primary" href="@Url.Site($"/announcements/{Model.Id}/attachment")"><i class="bi bi-download" aria-hidden="true"></i> @L["Common.Download"]</a></div>
+                </div>
+            }
+            <hr class="my-4" />
+            <div class="d-flex justify-content-between flex-wrap gap-2">
+                <a class="btn-link-arrow" href="@Url.Site("/announcements")">@L["Announcements.ViewAll"]</a>
+                <partial name="_ShareRow" />
+            </div>
+        </article>
+    </div>
+</section>

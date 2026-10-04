@@ -1,0 +1,29 @@
+@model NationalAirspace.Application.Features.MediaCenter.VideoDto
+<div class="card-namc">
+    @if (Model.EmbedUrl is not null)
+    {
+        <div class="video-frame">
+            <iframe src="@Model.EmbedUrl" title="@Model.Title" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+    }
+    else
+    {
+        <a class="card-media video-thumb" href="@Model.Url" target="_blank" rel="noopener noreferrer" aria-label="@Model.Title">
+            @if (Model.ThumbnailUrl is not null)
+            {
+                <img src="@Model.ThumbnailUrl" alt="" loading="lazy" />
+            }
+        </a>
+    }
+    <div class="card-body-namc">
+        <h3 class="line-clamp-2">@Model.Title</h3>
+        @if (Model.Description is not null)
+        {
+            <p class="line-clamp-3">@Model.Description</p>
+        }
+        @if (Model.EmbedUrl is null)
+        {
+            <div class="card-foot"><a class="btn-link-arrow" href="@Model.Url" target="_blank" rel="noopener noreferrer">@L["Videos.Watch"]</a></div>
+        }
+    </div>
+</div>

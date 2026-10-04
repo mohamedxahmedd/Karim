@@ -1,0 +1,61 @@
+@model NationalAirspace.Web.ViewComponents.FooterModel
+@{ var site = Model.Site; }
+<footer class="site-footer">
+    <div class="container container-wide">
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-4">
+                <div class="footer-brand">
+                    <img src="~/img/logo-192.webp" alt="" width="52" height="52" loading="lazy" />
+                    <span>@site.SiteName</span>
+                </div>
+                @if (!string.IsNullOrEmpty(site.FooterText))
+                {
+                    <p class="mb-0">@site.FooterText</p>
+                }
+                @if (site.Social.Count > 0)
+                {
+                    <div class="social">
+                        @foreach (var s in site.Social)
+                        {
+                            <a href="@s.Url" target="_blank" rel="noopener noreferrer" aria-label="@s.Network"><i class="bi @s.Icon" aria-hidden="true"></i></a>
+                        }
+                    </div>
+                }
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <h2>@L["Footer.QuickLinks"]</h2>
+                <ul class="footer-links">
+                    @foreach (var link in Model.Links)
+                    {
+                        <li><a href="@link.Href" target="@(link.NewTab ? "_blank" : null)" rel="@(link.External ? "noopener noreferrer" : null)">@link.Title</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <h2>@L["Footer.Contact"]</h2>
+                <ul class="footer-contact">
+                    @if (!string.IsNullOrEmpty(site.Address))
+                    {
+                        <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>@site.Address</span></li>
+                    }
+                    @if (!string.IsNullOrEmpty(site.Phone))
+                    {
+                        <li><i class="bi bi-telephone" aria-hidden="true"></i><a href="tel:@site.Phone.Replace(" ", "")" class="ltr-nums">@site.Phone</a></li>
+                    }
+                    @if (!string.IsNullOrEmpty(site.Email))
+                    {
+                        <li><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:@site.Email">@site.Email</a></li>
+                    }
+                    @if (!string.IsNullOrEmpty(site.WorkingHours))
+                    {
+                        <li><i class="bi bi-clock" aria-hidden="true"></i><span>@site.WorkingHours</span></li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© @Clock.ToSiteTime(Clock.UtcNow).Year @site.SiteName. @L["Footer.Rights"]</span>
+            <span><a href="@Url.Site("/airspace-demo")">@L["Footer.DemoNotice"]</a></span>
+        </div>
+    </div>
+</footer>

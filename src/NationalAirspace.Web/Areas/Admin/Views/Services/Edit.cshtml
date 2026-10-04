@@ -1,0 +1,44 @@
+@model AdminFormModel<NationalAirspace.Application.Features.Services.ServiceInput>
+@{ ViewData["Title"] = Model.IsNew ? L["Services.Create"] : L["Services.Edit"]; }
+<form method="post" enctype="multipart/form-data" asp-action="@(Model.IsNew ? "Create" : "Edit")" asp-route-id="@Model.Input.Id" novalidate>
+    <input type="hidden" asp-for="Input.ConcurrencyStamp" />
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <partial name="_LangTabsNav" model="true" />
+                <div class="tab-content pt-4">
+                    <div class="tab-pane fade show active" id="tab-ar" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleAr" />
+                        <field asp-for="Input.ShortDescriptionAr" type="textarea" rows="3" />
+                        <field asp-for="Input.ContentAr" type="richtext" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-en" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleEn" />
+                        <field asp-for="Input.ShortDescriptionEn" type="textarea" rows="3" />
+                        <field asp-for="Input.ContentEn" type="richtext" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-seo" role="tabpanel" tabindex="0">
+                        <div class="row">
+                            <div class="col-md-6"><field asp-for="Input.SlugAr" hint="Admin.SlugHint" /></div>
+                            <div class="col-md-6"><field asp-for="Input.SlugEn" hint="Admin.SlugHint" /></div>
+                            <div class="col-md-6"><field asp-for="Input.SeoTitleAr" /></div>
+                            <div class="col-md-6"><field asp-for="Input.SeoTitleEn" /></div>
+                            <div class="col-md-6"><field asp-for="Input.MetaDescriptionAr" type="textarea" rows="3" /></div>
+                            <div class="col-md-6"><field asp-for="Input.MetaDescriptionEn" type="textarea" rows="3" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="admin-card">
+                <h2 class="admin-card-title">@L["Admin.Publishing"]</h2>
+                <field asp-for="Input.Status" type="select" items="L.EnumOptions<ContentStatus>()" />
+                <field asp-for="Input.Icon" dir="ltr" placeholder="Admin.IconPlaceholder" hint="Admin.IconHint" />
+                <media-field asp-for="Input.CoverImageId" kind="Image" upload="CoverImageUpload" />
+            </div>
+            <partial name="_FormActions" model="true" />
+        </div>
+    </div>
+</form>

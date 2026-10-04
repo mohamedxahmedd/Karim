@@ -1,0 +1,35 @@
+@model NationalAirspace.Application.Features.Menus.MenuAdminItem
+<li>
+    <div class="tree-row">
+        <span class="tree-title">
+            @Bilingual.Pick(Model.TitleAr, Model.TitleEn)
+            @if (Model.OpenInNewTab) { <i class="bi bi-box-arrow-up-right small text-muted" aria-label="@L["Field.OpenInNewTab"]"></i> }
+            <span class="tree-meta" dir="ltr">@Model.Url</span>
+        </span>
+        <partial name="_ActiveBadge" model="Model.IsVisible" />
+        <partial name="_MoveButtons" model="Model.Id" />
+        <div class="row-actions">
+            @if (Model.ParentId is null)
+            {
+                <a class="btn btn-sm btn-outline-secondary" asp-action="Create" asp-route-location="@ViewData["Location"]" asp-route-parentId="@Model.Id" title="@L["Menus.AddChild"]" aria-label="@L["Menus.AddChild"]"><i class="bi bi-plus-lg" aria-hidden="true"></i></a>
+            }
+            <partial name="_EditLink" model="Model.Id" />
+            <div class="dropdown">
+                <partial name="_MoreToggle" />
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><post-button asp-action="Toggle" asp-route-id="@Model.Id.ToString()" text="@(Model.IsVisible ? "Admin.Hide" : "Admin.Show")" icon="@(Model.IsVisible ? "bi-eye-slash" : "bi-eye")" class="dropdown-item" /></li>
+                    <partial name="_RowDelete" model="Model.Id" />
+                </ul>
+            </div>
+        </div>
+    </div>
+    @if (Model.Children.Count > 0)
+    {
+        <ul class="tree">
+            @foreach (var child in Model.Children)
+            {
+                <partial name="_Node" model="child" />
+            }
+        </ul>
+    }
+</li>

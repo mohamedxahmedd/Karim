@@ -1,0 +1,17 @@
+@{
+    Layout = "_AuthLayout";
+    ViewData["Title"] = L["Account.AccessDenied"];
+}
+<div class="text-center">
+    <i class="bi bi-shield-lock display-5 text-danger" aria-hidden="true"></i>
+    <h1 class="h4 mt-3">@L["Account.AccessDenied"]</h1>
+    <p class="text-muted">@L["Account.AccessDeniedText"]</p>
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <a class="btn btn-primary" asp-controller="Dashboard" asp-action="Index">@L["AdminNav.Dashboard"]</a>
+    }
+    else
+    {
+        <a class="btn btn-primary" asp-action="Login">@L["Account.Login"]</a>
+    }
+</div>

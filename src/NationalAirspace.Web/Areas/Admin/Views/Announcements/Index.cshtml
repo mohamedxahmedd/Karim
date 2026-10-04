@@ -1,0 +1,51 @@
+@model AdminListModel<NationalAirspace.Application.Features.Announcements.AnnouncementAdminListItem>
+@{ ViewData["Title"] = L["AdminNav.Announcements"]; }
+@section Actions {
+    <a class="btn btn-primary" asp-action="Create"><i class="bi bi-plus-lg" aria-hidden="true"></i> @L["Announcements.Create"]</a>
+}
+<partial name="_ListFilter" model="Model.Filter" />
+<div class="admin-table-wrap">
+    @if (Model.Items.Items.Count == 0)
+    {
+        <partial name="_TableEmpty" />
+    }
+    else
+    {
+        <table class="table admin-table table-hover">
+            <thead><tr><th scope="col">@L["Field.Title"]</th><th scope="col">@L["Field.Status"]</th><th scope="col">@L["Field.PublishDateLocal"]</th><th scope="col">@L["Field.ExpiresAtLocal"]</th><th scope="col" class="col-actions"><span class="visually-hidden">@L["Admin.Actions"]</span></th></tr></thead>
+            <tbody>
+                @foreach (var x in Model.Items.Items)
+                {
+                    <tr>
+                        <td>
+                            <a class="row-title" asp-action="Edit" asp-route-id="@x.Id">@Bilingual.Pick(x.TitleAr, x.TitleEn)</a>
+                            <span class="row-sub">
+                                @if (x.IsImportant) { <span class="text-danger"><i class="bi bi-exclamation-circle-fill" aria-hidden="true"></i> @L["Field.IsImportant"]</span> }
+                                @if (x.HasAttachment) { <span class="ms-2"><i class="bi bi-paperclip" aria-hidden="true"></i> @L["Common.Attachment"]</span> }
+                            </span>
+                        </td>
+                        <td data-label="@L["Field.Status"]">
+                            <partial name="_StatusBadge" model="new StatusBadgeModel(x.Status, x.IsScheduled)" />
+                            @if (x.IsExpired) { <span class="badge text-bg-dark"><i class="bi bi-hourglass-bottom" aria-hidden="true"></i> @L["Announcements.Expired"]</span> }
+                        </td>
+                        <td data-label="@L["Field.PublishDateLocal"]">@(x.PublishDateUtc is { } d ? Clock.DateTimeText(d) : "—")</td>
+                        <td data-label="@L["Field.ExpiresAtLocal"]">@(x.ExpiresAtUtc is { } e ? Clock.DateTimeText(e) : L["Announcements.NoExpiry"])</td>
+                        <td class="col-actions">
+                            <div class="row-actions">
+                                <partial name="_EditLink" model="x.Id" />
+                                <div class="dropdown">
+                                    <partial name="_MoreToggle" />
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <partial name="_StatusActions" model="new StatusActionsModel(x.Id, x.Status)" />
+                                        <partial name="_RowDelete" model="x.Id" />
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<partial name="_Pager" model="new PagerModel(Model.Items.Page, Model.Items.TotalPages, Context.Request)" />

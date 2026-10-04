@@ -1,0 +1,60 @@
+@model ListPageModel<NationalAirspace.Application.Features.Legislation.LegalDocumentDto>
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <form class="filter-bar" method="get" role="search">
+            <label class="visually-hidden" for="q">@L["Search.Label"]</label>
+            <input id="q" class="form-control" type="search" name="q" value="@Model.Query" placeholder="@L["Legislation.SearchPlaceholder"]" maxlength="100" />
+            <label class="visually-hidden" for="category">@L["Field.Category"]</label>
+            <select id="category" class="form-select" name="category" data-autosubmit>
+                <option value="">@L["Common.AllCategories"]</option>
+                @foreach (var c in Enum.GetValues<LegalDocumentCategory>())
+                {
+                    <option value="@c" selected="@(Model.Category == c.ToString())">@L.Enum(c)</option>
+                }
+            </select>
+            <button class="btn btn-primary" type="submit"><i class="bi bi-search" aria-hidden="true"></i> @L["Common.Search"]</button>
+        </form>
+        @if (Model.Items.Items.Count == 0)
+        {
+            <partial name="_EmptyState" model="@("Legislation.Empty")" />
+        }
+        else
+        {
+            foreach (var d in Model.Items.Items)
+            {
+                <article class="doc-item reveal">
+                    <span class="icon-tile gold"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
+                    <div class="flex-grow-1">
+                        <div class="card-meta mb-1">
+                            <span class="chip">@L.Enum(d.Category)</span>
+                            @if (d.DocumentNumber is not null)
+                            {
+                                <span><i class="bi bi-hash" aria-hidden="true"></i> <span class="ltr-nums">@d.DocumentNumber</span></span>
+                            }
+                            <span><i class="bi bi-calendar3" aria-hidden="true"></i> @d.PublicationDate.DateOnlyText()</span>
+                        </div>
+                        <h2>@d.Title</h2>
+                        @if (d.Description is not null)
+                        {
+                            <p>@d.Description</p>
+                        }
+                    </div>
+                    @if (d.FileName is not null)
+                    {
+                        <div class="doc-actions">
+                            <a class="btn btn-outline-primary" href="@Url.Site($"/about/legislation/{d.Id}/download")">
+                                <i class="bi bi-download" aria-hidden="true"></i> @L["Common.Download"]
+                                @if (d.FileSize is { } size)
+                                {
+                                    <small class="ltr-nums">(@size.FileSize())</small>
+                                }
+                            </a>
+                        </div>
+                    }
+                </article>
+            }
+            <partial name="_Pager" model="new PagerModel(Model.Items.Page, Model.Items.TotalPages, Context.Request)" />
+        }
+    </div>
+</section>

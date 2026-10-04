@@ -1,0 +1,25 @@
+@model AdminFormModel<NationalAirspace.Application.Features.Menus.MenuItemInput>
+@{ ViewData["Title"] = Model.IsNew ? L["Menus.Create"] : L["Menus.Edit"]; }
+<form method="post" asp-action="@(Model.IsNew ? "Create" : "Edit")" asp-route-id="@Model.Input.Id" novalidate>
+    <input type="hidden" asp-for="Input.ConcurrencyStamp" />
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                <div class="row">
+                    <div class="col-md-6"><field asp-for="Input.Location" type="select" items="L.EnumOptions<MenuLocation>()" /></div>
+                    <div class="col-md-6"><field asp-for="Input.ParentId" type="select" items="Model.Options" empty="Menus.TopLevel" hint="Menus.ParentHint" /></div>
+                    <div class="col-md-6"><field asp-for="Input.TitleAr" /></div>
+                    <div class="col-md-6"><field asp-for="Input.TitleEn" /></div>
+                </div>
+                <field asp-for="Input.Url" dir="ltr" hint="Menus.UrlHint" />
+                <field asp-for="Input.OpenInNewTab" type="checkbox" />
+                <field asp-for="Input.IsVisible" type="checkbox" />
+                <div class="admin-form-actions">
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-check2" aria-hidden="true"></i> @L["Common.Save"]</button>
+                    <a class="btn btn-light" asp-action="Index" asp-route-location="@Model.Input.Location">@L["Common.Cancel"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

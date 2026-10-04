@@ -1,0 +1,44 @@
+@model IReadOnlyList<NationalAirspace.Web.ViewComponents.NavItem>
+<nav class="navbar navbar-expand-xl main-nav" aria-label="@L["Nav.Main"]">
+    <div class="container container-wide">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="mainNav" aria-labelledby="mainNavLabel">
+            <div class="offcanvas-header">
+                <span class="offcanvas-title text-white fw-bold" id="mainNavLabel">@L["Nav.Menu"]</span>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="@L["Common.Close"]"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form class="d-xl-none mb-3" role="search" method="get" action="@Url.Site("/search")">
+                    <label class="visually-hidden" for="nav-search">@L["Search.Label"]</label>
+                    <input id="nav-search" class="form-control" type="search" name="q" placeholder="@L["Search.Placeholder"]" maxlength="100" />
+                </form>
+                <ul class="navbar-nav">
+                    @foreach (var item in Model)
+                    {
+                        if (item.Children.Count == 0)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link @(item.Active ? "active" : "")" href="@item.Href" @(item.Active ? "aria-current=page" : "")
+                                   target="@(item.NewTab ? "_blank" : null)" rel="@(item.External ? "noopener noreferrer" : null)">@item.Title</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle @(item.Active ? "active" : "")" href="@item.Href" role="button" data-bs-toggle="dropdown" aria-expanded="false">@item.Title</a>
+                                <ul class="dropdown-menu">
+                                    @foreach (var child in item.Children)
+                                    {
+                                        <li>
+                                            <a class="dropdown-item @(child.Active ? "active" : "")" href="@child.Href" @(child.Active ? "aria-current=page" : "")
+                                               target="@(child.NewTab ? "_blank" : null)" rel="@(child.External ? "noopener noreferrer" : null)">@child.Title</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

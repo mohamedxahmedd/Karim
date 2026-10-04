@@ -1,0 +1,4 @@
+namespace NationalAirspace.Web.Localization;
+
+/// <summary>Marker type for the shared UI string resources (Resources/SharedResource*.resx).</summary>
+public sealed class SharedResource;

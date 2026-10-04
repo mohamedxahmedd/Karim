@@ -1,0 +1,2 @@
+@model bool
+<span class="badge @(Model ? "text-bg-success" : "text-bg-secondary")"><i class="bi @(Model ? "bi-eye" : "bi-eye-slash")" aria-hidden="true"></i> @L[Model ? "Admin.Shown" : "Admin.Hidden"]</span>

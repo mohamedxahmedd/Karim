@@ -1,0 +1,36 @@
+@model IReadOnlyList<NationalAirspace.Application.Features.Departments.DepartmentNodeDto>
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        @if (Model.Count == 0)
+        {
+            <partial name="_EmptyState" model="@("Structure.Empty")" />
+        }
+        else
+        {
+            <div class="article d-none d-lg-block mb-4">
+                <ul class="org-tree" aria-label="@L["Nav.Structure"]">
+                    @foreach (var node in Model)
+                    {
+                        <partial name="_OrgNode" model="node" />
+                    }
+                </ul>
+            </div>
+            <div class="d-lg-none">
+                <ul class="org-list">
+                    @foreach (var node in Model)
+                    {
+                        <partial name="_OrgListNode" model="node" />
+                    }
+                </ul>
+            </div>
+            <h2 class="h4 mt-5 mb-3 d-none d-lg-block">@L["Structure.Details"]</h2>
+            <ul class="org-list d-none d-lg-block">
+                @foreach (var node in Model)
+                {
+                    <partial name="_OrgListNode" model="node" />
+                }
+            </ul>
+        }
+    </div>
+</section>

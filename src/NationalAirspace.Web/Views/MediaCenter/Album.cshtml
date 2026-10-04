@@ -1,0 +1,37 @@
+@model NationalAirspace.Application.Features.MediaCenter.AlbumDetailDto
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        @if (Model.EventDate is { } d)
+        {
+            <p class="card-meta mb-3"><span><i class="bi bi-calendar3" aria-hidden="true"></i> @d.DateOnlyText()</span></p>
+        }
+        <div class="gallery-grid">
+            @foreach (var p in Model.Photos)
+            {
+                <figure class="m-0">
+                    <a href="@p.Url" data-lightbox data-caption="@p.Caption">
+                        <img src="@p.Url" alt="@p.Alt" loading="lazy" />
+                        @if (p.Caption is not null)
+                        {
+                            <figcaption>@p.Caption</figcaption>
+                        }
+                    </a>
+                </figure>
+            }
+        </div>
+    </div>
+</section>
+<div class="modal fade lightbox" id="lightbox" tabindex="-1" aria-label="@Model.Title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="d-flex justify-content-end mb-2"><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="@L["Common.Close"]"></button></div>
+            <img src="" alt="" />
+            <div class="caption"></div>
+            <div class="d-flex justify-content-center gap-2 mt-3">
+                <button type="button" class="btn btn-outline-light btn-sm" data-step="-1" aria-label="@L["Pager.Previous"]"><i class="bi bi-chevron-@(CultureHelper.CurrentLang == Lang.Ar ? "right" : "left")" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-light btn-sm" data-step="1" aria-label="@L["Pager.Next"]"><i class="bi bi-chevron-@(CultureHelper.CurrentLang == Lang.Ar ? "left" : "right")" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+</div>

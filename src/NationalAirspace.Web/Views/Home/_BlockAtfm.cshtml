@@ -1,0 +1,39 @@
+@model HomeBlockModel
+@{ var b = Model.Block; }
+<section class="section section-dark" id="atfm">
+    <div class="container container-wide">
+        <div class="section-head-row">
+            <div class="section-head">
+                @if (b.Subtitle is not null)
+                {
+                    <div class="section-kicker">@b.Subtitle</div>
+                }
+                <h2>@b.Title</h2>
+                @if (b.Description is not null)
+                {
+                    <p>@b.Description</p>
+                }
+            </div>
+            @if (b.Button is not null)
+            {
+                <a class="btn btn-gold" href="@Url.Site(b.Button.Url)">@b.Button.Text</a>
+            }
+        </div>
+        @if (Model.Page.AtfmSteps.Count > 0)
+        {
+            <div class="process reveal" style="--steps:@Model.Page.AtfmSteps.Count">
+                @foreach (var s in Model.Page.AtfmSteps)
+                {
+                    <div class="process-step">
+                        <span class="icon-tile dark"><i class="bi @(s.Icon ?? "bi-arrow-repeat")" aria-hidden="true"></i></span>
+                        <h3>@s.Title</h3>
+                        @if (s.ContentHtml is not null)
+                        {
+                            <div class="rich-text">@Html.Raw(s.ContentHtml)</div>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</section>

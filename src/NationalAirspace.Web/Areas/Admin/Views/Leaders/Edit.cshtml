@@ -1,0 +1,33 @@
+@model AdminFormModel<NationalAirspace.Application.Features.Leadership.LeaderInput>
+@{ ViewData["Title"] = Model.IsNew ? L["Leaders.Create"] : L["Leaders.Edit"]; }
+<form method="post" enctype="multipart/form-data" asp-action="@(Model.IsNew ? "Create" : "Edit")" asp-route-id="@Model.Input.Id" novalidate>
+    <input type="hidden" asp-for="Input.ConcurrencyStamp" />
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <partial name="_LangTabsNav" model="false" />
+                <div class="tab-content pt-4">
+                    <div class="tab-pane fade show active" id="tab-ar" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.NameAr" />
+                        <field asp-for="Input.PositionAr" />
+                        <field asp-for="Input.BiographyAr" type="richtext" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-en" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.NameEn" />
+                        <field asp-for="Input.PositionEn" />
+                        <field asp-for="Input.BiographyEn" type="richtext" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="admin-card">
+                <h2 class="admin-card-title">@L["Admin.Publishing"]</h2>
+                <field asp-for="Input.IsActive" type="checkbox" />
+                <media-field asp-for="Input.PhotoId" kind="Image" upload="PhotoUpload" />
+            </div>
+            <partial name="_FormActions" model="true" />
+        </div>
+    </div>
+</form>

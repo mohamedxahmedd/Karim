@@ -1,0 +1,12 @@
+@* Model: true to offer "save and continue editing". *@
+@model bool
+<div class="admin-card admin-form-submit">
+    <div class="d-grid gap-2">
+        <button type="submit" name="next" value="index" class="btn btn-primary"><i class="bi bi-check2" aria-hidden="true"></i> @L["Common.Save"]</button>
+        @if (Model)
+        {
+            <button type="submit" name="next" value="edit" class="btn btn-outline-primary"><i class="bi bi-check2-all" aria-hidden="true"></i> @L["Admin.SaveContinue"]</button>
+        }
+        <a class="btn btn-light" asp-action="Index">@L["Common.Cancel"]</a>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+@model NationalAirspace.Application.Features.MediaCenter.AlbumCardDto
+<a class="card-namc" href="@Url.Site($"/media/photos/{Model.Id}")">
+    <div class="card-media">
+        @if (Model.Cover is not null)
+        {
+            <img src="@Model.Cover.Url" alt="@Model.Cover.Alt" loading="lazy" />
+        }
+        <span class="chip on-dark badge-float"><i class="bi bi-images" aria-hidden="true"></i> @Model.PhotoCount</span>
+    </div>
+    <div class="card-body-namc">
+        @if (Model.EventDate is { } d)
+        {
+            <div class="card-meta"><span><i class="bi bi-calendar3" aria-hidden="true"></i> @d.DateOnlyText()</span></div>
+        }
+        <h3 class="line-clamp-2">@Model.Title</h3>
+        @if (Model.Description is not null)
+        {
+            <p class="line-clamp-2">@Model.Description</p>
+        }
+    </div>
+</a>

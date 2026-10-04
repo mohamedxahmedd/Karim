@@ -1,0 +1,25 @@
+@model HomeBlockModel
+@if (Model.Page.Links.Count > 0)
+{
+    <section class="section" id="links">
+        <div class="container container-wide">
+            <partial name="_BlockHeader" model="Model.Block" />
+            <div class="row g-3">
+                @foreach (var l in Model.Page.Links)
+                {
+                    var external = UrlExtensions.IsExternal(l.Url);
+                    <div class="col-sm-6 col-lg-3 reveal">
+                        <a class="link-tile" href="@Url.Site(l.Url)" target="@(external ? "_blank" : null)" rel="@(external ? "noopener noreferrer" : null)">
+                            <span class="icon-tile"><i class="bi @(l.Icon ?? "bi-link-45deg")" aria-hidden="true"></i></span>
+                            <span>@l.Title</span>
+                            @if (external)
+                            {
+                                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+                            }
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}

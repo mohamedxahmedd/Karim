@@ -1,0 +1,89 @@
+@model ContactPageModel
+@{ var site = Model.Site!; }
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-7">
+                <div class="article">
+                    <h2 class="h4 mb-1">@L["Contact.FormTitle"]</h2>
+                    <p class="text-muted">@L["Contact.FormLead"]</p>
+                    @if (Model.Sent)
+                    {
+                        <div class="alert alert-success d-flex gap-2 align-items-start" role="status">
+                            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                            <div><strong>@L["Contact.SentTitle"]</strong><br />@L["Contact.SentText"]</div>
+                        </div>
+                    }
+                    <form method="post" action="@Url.Site("/contact")" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        <div class="row">
+                            <div class="col-md-6"><field asp-for="Input.Name" dir="auto" /></div>
+                            <div class="col-md-6"><field asp-for="Input.Email" type="email" dir="ltr" /></div>
+                            <div class="col-md-6"><field asp-for="Input.Phone" type="tel" dir="ltr" /></div>
+                            <div class="col-md-6"><field asp-for="Input.Organization" dir="auto" /></div>
+                            <div class="col-12"><field asp-for="Input.Subject" dir="auto" /></div>
+                            <div class="col-12"><field asp-for="Input.Message" type="textarea" rows="6" dir="auto" /></div>
+                        </div>
+                        <div class="hp-field" aria-hidden="true">
+                            <label for="Website">Website</label>
+                            <input type="text" id="Website" name="Website" tabindex="-1" autocomplete="off" />
+                        </div>
+                        <input type="hidden" name="FormToken" value="@Model.FormToken" />
+                        <p class="small text-muted"><i class="bi bi-shield-lock" aria-hidden="true"></i> @L["Contact.Privacy"]</p>
+                        <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-send" aria-hidden="true"></i> @L["Contact.Send"]</button>
+                    </form>
+                </div>
+            </div>
+            <aside class="col-lg-5">
+                <div class="sidebar-card">
+                    <h2>@L["Contact.Details"]</h2>
+                    @if (site.Address is not null)
+                    {
+                        <div class="contact-card"><span class="icon-tile"><i class="bi bi-geo-alt" aria-hidden="true"></i></span><div><h3>@L["Contact.Address"]</h3><p>@site.Address</p></div></div>
+                    }
+                    @if (site.Phone is not null)
+                    {
+                        <div class="contact-card"><span class="icon-tile"><i class="bi bi-telephone" aria-hidden="true"></i></span><div><h3>@L["Field.Phone"]</h3><a class="ltr-nums" href="tel:@site.Phone.Replace(" ", "")">@site.Phone</a></div></div>
+                    }
+                    @if (site.Fax is not null)
+                    {
+                        <div class="contact-card"><span class="icon-tile"><i class="bi bi-printer" aria-hidden="true"></i></span><div><h3>@L["Field.Fax"]</h3><p class="ltr-nums">@site.Fax</p></div></div>
+                    }
+                    @if (site.Email is not null)
+                    {
+                        <div class="contact-card"><span class="icon-tile"><i class="bi bi-envelope" aria-hidden="true"></i></span><div><h3>@L["Field.Email"]</h3><a href="mailto:@site.Email">@site.Email</a></div></div>
+                    }
+                    @if (site.WorkingHours is not null)
+                    {
+                        <div class="contact-card"><span class="icon-tile"><i class="bi bi-clock" aria-hidden="true"></i></span><div><h3>@L["Contact.WorkingHours"]</h3><p>@site.WorkingHours</p></div></div>
+                    }
+                    @if (site.Social.Count > 0)
+                    {
+                        <div class="social mt-4">
+                            @foreach (var s in site.Social)
+                            {
+                                <a class="btn btn-outline-primary btn-sm" href="@s.Url" target="_blank" rel="noopener noreferrer" aria-label="@s.Network"><i class="bi @s.Icon" aria-hidden="true"></i></a>
+                            }
+                        </div>
+                    }
+                </div>
+                <div class="map-frame mt-4">
+                    @if (site.MapEmbedUrl is not null)
+                    {
+                        <iframe src="@site.MapEmbedUrl" title="@L["Contact.Map"]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    }
+                    else
+                    {
+                        <div class="map-placeholder"><div><i class="bi bi-map fs-2 d-block mb-2" aria-hidden="true"></i>@L["Contact.MapPlaceholder"]</div></div>
+                    }
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

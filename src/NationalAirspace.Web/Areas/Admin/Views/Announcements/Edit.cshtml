@@ -1,0 +1,34 @@
+@model AdminFormModel<NationalAirspace.Application.Features.Announcements.AnnouncementInput>
+@{ ViewData["Title"] = Model.IsNew ? L["Announcements.Create"] : L["Announcements.Edit"]; }
+<form method="post" enctype="multipart/form-data" asp-action="@(Model.IsNew ? "Create" : "Edit")" asp-route-id="@Model.Input.Id" novalidate>
+    <input type="hidden" asp-for="Input.ConcurrencyStamp" />
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <partial name="_LangTabsNav" model="false" />
+                <div class="tab-content pt-4">
+                    <div class="tab-pane fade show active" id="tab-ar" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleAr" />
+                        <field asp-for="Input.ContentAr" type="richtext" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-en" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleEn" />
+                        <field asp-for="Input.ContentEn" type="richtext" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="admin-card">
+                <h2 class="admin-card-title">@L["Admin.Publishing"]</h2>
+                <field asp-for="Input.Status" type="select" items="L.EnumOptions<ContentStatus>()" />
+                <field asp-for="Input.PublishDateLocal" type="datetime" hint="Admin.PublishDateHint" />
+                <field asp-for="Input.ExpiresAtLocal" type="datetime" hint="Announcements.ExpiryHint" />
+                <field asp-for="Input.IsImportant" type="checkbox" />
+                <media-field asp-for="Input.AttachmentId" kind="Document" upload="AttachmentUpload" />
+            </div>
+            <partial name="_FormActions" model="true" />
+        </div>
+    </div>
+</form>

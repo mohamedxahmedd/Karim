@@ -1,0 +1,46 @@
+@{
+    var lang = CultureHelper.CurrentLang;
+    var other = lang.Other();
+    var here = Context.Request.Path + Context.Request.QueryString;
+}
+<!DOCTYPE html>
+<html lang="@lang.Code()" dir="@(lang.IsRtl() ? "rtl" : "ltr")">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>@ViewData["Title"] | @L["Admin.Title"]</title>
+    <link rel="icon" href="~/favicon-32.png" type="image/png" sizes="32x32" />
+    @if (lang.IsRtl())
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.rtl.min.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    }
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+</head>
+<body class="auth-body">
+    <main class="auth-shell">
+        <div class="auth-card">
+            <div class="auth-brand">
+                <img src="~/img/logo-192.webp" alt="" width="84" height="84" />
+                <div class="fw-bold fs-5">@L["Site.Name"]</div>
+                <div class="text-muted small">@L["Admin.Title"]</div>
+            </div>
+            @RenderBody()
+        </div>
+        <div class="auth-foot">
+            <a href="/@lang.Code()"><i class="bi bi-arrow-@(lang.IsRtl() ? "right" : "left")" aria-hidden="true"></i> @L["Admin.BackToSite"]</a>
+            <span aria-hidden="true">·</span>
+            <a href="/lang/@other.Code()?returnUrl=@Uri.EscapeDataString(here)">@(other == Lang.Ar ? "العربية" : "English")</a>
+        </div>
+    </main>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

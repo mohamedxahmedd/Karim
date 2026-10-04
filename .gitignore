@@ -1,0 +1,22 @@
+bin/
+obj/
+.vs/
+.vscode/
+.idea/
+*.user
+*.db
+*.db-shm
+*.db-wal
+TestResults/
+src/NationalAirspace.Web/App_Data/
+src/NationalAirspace.Web/wwwroot/uploads/
+.DS_Store
+
+# Deployment profiles contain credentials
+*.publishSettings
+*.pubxml.user
+Properties/PublishProfiles/*.pubxml
+
+# Deployment secrets and build output
+deploy/monsterasp.secrets.json
+artifacts/

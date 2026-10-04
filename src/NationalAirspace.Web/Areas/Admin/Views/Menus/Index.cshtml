@@ -1,0 +1,28 @@
+@model IReadOnlyList<NationalAirspace.Application.Features.Menus.MenuAdminItem>
+@{
+    ViewData["Title"] = L["AdminNav.Menus"];
+    ViewData["Subtitle"] = L["Menus.Subtitle"];
+    var location = (MenuLocation)ViewData["Location"]!;
+}
+@section Actions {
+    <a class="btn btn-primary" asp-action="Create" asp-route-location="@location"><i class="bi bi-plus-lg" aria-hidden="true"></i> @L["Menus.Create"]</a>
+}
+<ul class="nav nav-pills mb-3">
+    @foreach (var loc in Enum.GetValues<MenuLocation>())
+    {
+        <li class="nav-item"><a class="nav-link @(loc == location ? "active" : "")" asp-action="Index" asp-route-location="@loc" aria-current="@(loc == location ? "page" : null)">@L.Enum(loc)</a></li>
+    }
+</ul>
+@if (Model.Count == 0)
+{
+    <div class="admin-table-wrap"><partial name="_TableEmpty" /></div>
+}
+else
+{
+    <ul class="tree">
+        @foreach (var item in Model)
+        {
+            <partial name="_Node" model="item" />
+        }
+    </ul>
+}

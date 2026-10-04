@@ -1,0 +1,19 @@
+@model HomeBlockModel
+<section class="section section-alt" id="training">
+    <div class="container container-wide">
+        <partial name="_BlockHeader" model="Model.Block" />
+        @if (Model.Page.Training.Count == 0)
+        {
+            <partial name="_EmptyState" model="@("Training.Empty")" />
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var t in Model.Page.Training)
+                {
+                    <div class="col-md-6 col-lg-4 reveal"><partial name="_TrainingCard" model="t" /></div>
+                }
+            </div>
+        }
+    </div>
+</section>

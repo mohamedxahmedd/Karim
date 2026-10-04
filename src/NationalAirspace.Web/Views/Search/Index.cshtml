@@ -1,0 +1,62 @@
+@using NationalAirspace.Application.Features.Search
+@model SearchModel
+@{
+    string UrlFor(SearchHit h) => h.Type switch
+    {
+        SearchHitType.News => Url.Site("/news", h.Key),
+        SearchHitType.Service => Url.Site("/services", h.Key),
+        SearchHitType.Report => Url.Site("/reports", h.Key),
+        SearchHitType.Training => Url.Site("/training", h.Key),
+        SearchHitType.Announcement => Url.Site($"/announcements/{h.Key}"),
+        SearchHitType.Legislation => Url.Site("/about/legislation") + "?q=" + Uri.EscapeDataString(h.Title),
+        SearchHitType.Page when h.Key.StartsWith('@') => h.Key[1..] switch
+        {
+            "about" => Url.Site("/about"),
+            "vision-mission" => Url.Site("/about/vision-mission"),
+            "responsibilities" => Url.Site("/about/responsibilities"),
+            var other => Url.Site("/" + other),
+        },
+        _ => Url.Site("/pages", h.Key),
+    };
+}
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <form class="filter-bar" method="get" role="search">
+            <label class="visually-hidden" for="q">@L["Search.Label"]</label>
+            <input id="q" class="form-control" type="search" name="q" value="@Model.Query" placeholder="@L["Search.Placeholder"]" maxlength="100" autofocus />
+            <button class="btn btn-primary" type="submit"><i class="bi bi-search" aria-hidden="true"></i> @L["Common.Search"]</button>
+        </form>
+        @if (string.IsNullOrEmpty(Model.Query) || Model.Query.Length < 2)
+        {
+            <partial name="_EmptyState" model="@("Search.Hint")" />
+        }
+        else if (Model.Hits.Count == 0)
+        {
+            <partial name="_EmptyState" model="@("Search.NoResults")" />
+        }
+        else
+        {
+            <p class="text-muted">@string.Format(L["Search.ResultCount"].Value, Model.Hits.Count, Model.Query)</p>
+            foreach (var h in Model.Hits)
+            {
+                <article class="doc-item">
+                    <span class="icon-tile"><i class="bi @(h.Type switch { SearchHitType.News => "bi-newspaper", SearchHitType.Service => "bi-grid", SearchHitType.Report => "bi-file-earmark-text", SearchHitType.Training => "bi-mortarboard", SearchHitType.Announcement => "bi-megaphone", SearchHitType.Legislation => "bi-journal-text", _ => "bi-file-earmark" })" aria-hidden="true"></i></span>
+                    <div>
+                        <div class="card-meta mb-1"><span class="chip">@L.Enum(h.Type)</span>
+                            @if (h.Date is { } d)
+                            {
+                                <span>@Clock.LongDate(d)</span>
+                            }
+                        </div>
+                        <h2><a href="@UrlFor(h)">@h.Title</a></h2>
+                        @if (h.Snippet is not null)
+                        {
+                            <p class="line-clamp-2">@h.Snippet</p>
+                        }
+                    </div>
+                </article>
+            }
+        }
+    </div>
+</section>

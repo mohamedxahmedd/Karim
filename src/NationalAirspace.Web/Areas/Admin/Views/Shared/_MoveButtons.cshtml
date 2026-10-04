@@ -1,0 +1,5 @@
+@model Guid
+<div class="btn-group btn-group-sm" role="group" aria-label="@L["Admin.Reorder"]">
+    <post-button asp-action="Move" asp-route-id="@Model.ToString()" asp-route-direction="-1" icon="bi-arrow-up" title="Admin.MoveUp" class="btn btn-sm btn-outline-secondary" />
+    <post-button asp-action="Move" asp-route-id="@Model.ToString()" asp-route-direction="1" icon="bi-arrow-down" title="Admin.MoveDown" class="btn btn-sm btn-outline-secondary" />
+</div>

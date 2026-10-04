@@ -1,0 +1,56 @@
+@model NationalAirspace.Application.Features.Training.TrainingDetailDto
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-8">
+                <article class="article">
+                    @if (Model.Image is not null)
+                    {
+                        <div class="article-cover"><img src="@Model.Image.Url" alt="@Model.Image.Alt" /></div>
+                    }
+                    @if (Model.DescriptionHtml is not null)
+                    {
+                        <div class="rich-text">@Html.Raw(Model.DescriptionHtml)</div>
+                    }
+                </article>
+            </div>
+            <aside class="col-lg-4">
+                <div class="sidebar-card">
+                    <h2>@L["Training.Details"]</h2>
+                    <table class="meta-table">
+                        <tr><th scope="row">@L["Field.RegistrationStatus"]</th><td>@L.Enum(Model.RegistrationStatus)</td></tr>
+                        @if (Model.StartDate is { } s)
+                        {
+                            <tr><th scope="row">@L["Field.StartDate"]</th><td>@s.DateOnlyText()</td></tr>
+                        }
+                        @if (Model.EndDate is { } e)
+                        {
+                            <tr><th scope="row">@L["Field.EndDate"]</th><td>@e.DateOnlyText()</td></tr>
+                        }
+                        @if (Model.Duration is not null)
+                        {
+                            <tr><th scope="row">@L["Training.Duration"]</th><td>@Model.Duration</td></tr>
+                        }
+                        @if (Model.Location is not null)
+                        {
+                            <tr><th scope="row">@L["Training.Location"]</th><td>@Model.Location</td></tr>
+                        }
+                        @if (Model.TargetAudience is not null)
+                        {
+                            <tr><th scope="row">@L["Training.TargetAudience"]</th><td>@Model.TargetAudience</td></tr>
+                        }
+                    </table>
+                    @if (Model.AttachmentName is not null)
+                    {
+                        <a class="btn btn-outline-primary w-100 mt-3" href="@Url.Site($"/training/{Uri.EscapeDataString(Model.Slugs.For(CultureHelper.CurrentLang))}/attachment")"><i class="bi bi-paperclip" aria-hidden="true"></i> @L["Common.Attachment"]</a>
+                    }
+                    @if (Model.RegistrationStatus == RegistrationStatus.Open)
+                    {
+                        <a class="btn btn-primary w-100 mt-2" href="@Url.Site("/contact")"><i class="bi bi-pencil-square" aria-hidden="true"></i> @L["Training.Register"]</a>
+                    }
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>

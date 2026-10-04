@@ -1,0 +1,127 @@
+@using NationalAirspace.Application.Features.Settings
+@inject SettingsService Settings
+@{
+    var lang = CultureHelper.CurrentLang;
+    var code = lang.Code();
+    var other = lang.Other();
+    var site = await Settings.GetSiteInfoAsync(lang);
+    var title = ViewData["Title"] as string;
+    var fullTitle = string.IsNullOrEmpty(title) ? site.SiteName : $"{title} | {site.SiteName}";
+    var description = ViewData["MetaDescription"] as string ?? site.DefaultMetaDescription ?? site.Tagline;
+    var path = Context.Request.Path.Value ?? "/";
+    var altPath = ViewData["AlternatePath"] as string ?? CultureHelper.SwitchPath(path, other.Code()) + Context.Request.QueryString;
+    var selfUrl = $"{Context.Request.Scheme}://{Context.Request.Host}{path}";
+    var altUrl = $"{Context.Request.Scheme}://{Context.Request.Host}{altPath}";
+    var pageImage = ViewData["OgImage"] as string;
+    var ogImage = pageImage ?? Url.Content("~/img/logo-512.png");
+}
+<!DOCTYPE html>
+<html lang="@code" dir="@(lang.IsRtl() ? "rtl" : "ltr")" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@fullTitle</title>
+    @if (!string.IsNullOrEmpty(description))
+    {
+        <meta name="description" content="@description" />
+    }
+    <meta name="theme-color" content="#0a2647" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="@site.SiteName" />
+    <meta property="og:title" content="@(title ?? site.SiteName)" />
+    @if (!string.IsNullOrEmpty(description))
+    {
+        <meta property="og:description" content="@description" />
+    }
+    <meta property="og:url" content="@selfUrl" />
+    <meta property="og:locale" content="@(lang == Lang.Ar ? "ar_EG" : "en_US")" />
+    @if (!string.IsNullOrEmpty(ogImage))
+    {
+        <meta property="og:image" content="@($"{Context.Request.Scheme}://{Context.Request.Host}{ogImage}")" />
+    }
+    <meta name="twitter:card" content="@(pageImage is null ? "summary" : "summary_large_image")" />
+    @if (ViewData["NoIndex"] is true)
+    {
+        <meta name="robots" content="noindex" />
+    }
+    <link rel="canonical" href="@selfUrl" />
+    <link rel="alternate" hreflang="@code" href="@selfUrl" />
+    <link rel="alternate" hreflang="@other.Code()" href="@altUrl" />
+    <link rel="icon" href="~/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="~/apple-touch-icon.png" />
+    <link rel="preload" href="~/lib/fonts/plex-arabic-400.woff2" as="font" type="font/woff2" crossorigin />
+    @if (lang.IsRtl())
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.rtl.min.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    }
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @await RenderSectionAsync("Head", required: false)
+</head>
+<body class="lang-@code">
+    <a class="skip-link" href="#main">@L["A11y.SkipToContent"]</a>
+    @if (ViewData["IsPreview"] is true)
+    {
+        <div class="preview-banner"><i class="bi bi-eye"></i> @L["Preview.Banner"]</div>
+    }
+
+    <header class="site-header">
+        <div class="topbar">
+            <div class="container container-wide">
+                <div class="topbar-info">
+                    <span class="hide-xs"><i class="bi bi-shield-check" aria-hidden="true"></i> @L["Site.OfficialWebsite"]</span>
+                    @if (!string.IsNullOrEmpty(site.Phone))
+                    {
+                        <a href="tel:@site.Phone.Replace(" ", "")" class="hide-xs"><i class="bi bi-telephone" aria-hidden="true"></i> <span class="ltr-nums">@site.Phone</span></a>
+                    }
+                    @if (!string.IsNullOrEmpty(site.Email))
+                    {
+                        <a href="mailto:@site.Email"><i class="bi bi-envelope" aria-hidden="true"></i> @site.Email</a>
+                    }
+                </div>
+                <a class="lang-switch" href="/lang/@other.Code()?returnUrl=@Uri.EscapeDataString(altPath)" hreflang="@other.Code()" lang="@other.Code()">
+                    <i class="bi bi-translate" aria-hidden="true"></i> @(other == Lang.Ar ? "العربية" : "English")
+                </a>
+            </div>
+        </div>
+
+        <div class="brandbar">
+            <div class="container container-wide">
+                <a class="brand" href="@Url.Site("/")">
+                    <img src="~/img/logo-192.webp" alt="" width="58" height="58" />
+                    <span>
+                        <span class="brand-name">@site.SiteName</span>
+                        <span class="brand-sub">@(lang == Lang.Ar ? "National Airspace Management Center" : "المركز القومي لإدارة المجال الجوي")</span>
+                    </span>
+                </a>
+                <form class="brand-search d-none d-lg-block" role="search" method="get" action="@Url.Site("/search")">
+                    <i class="bi bi-search" aria-hidden="true"></i>
+                    <label class="visually-hidden" for="site-search">@L["Search.Label"]</label>
+                    <input id="site-search" class="form-control" type="search" name="q" placeholder="@L["Search.Placeholder"]" maxlength="100" />
+                </form>
+                <button class="nav-toggler d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNav" aria-controls="mainNav" aria-label="@L["Nav.Toggle"]">
+                    <i class="bi bi-list" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        @await Component.InvokeAsync("HeaderMenu")
+    </header>
+
+    <main id="main" tabindex="-1">
+        @RenderBody()
+    </main>
+
+    @await Component.InvokeAsync("Footer", new { site })
+
+    <button type="button" class="back-to-top" aria-label="@L["A11y.BackToTop"]"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
+
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

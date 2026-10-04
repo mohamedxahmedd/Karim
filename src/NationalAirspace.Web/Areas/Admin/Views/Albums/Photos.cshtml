@@ -1,0 +1,66 @@
+@model AlbumPhotosModel
+@using NationalAirspace.Application.Features.Media
+@{
+    ViewData["Title"] = Bilingual.Pick(Model.Album.TitleAr, Model.Album.TitleEn);
+    ViewData["Subtitle"] = L["Albums.PhotosSubtitle", Model.Photos.Count];
+}
+@section Actions {
+    <a class="btn btn-light" asp-action="Edit" asp-route-id="@Model.Album.Id"><i class="bi bi-pencil" aria-hidden="true"></i> @L["Albums.Edit"]</a>
+    <a class="btn btn-light" asp-action="Index">@L["AdminNav.Albums"]</a>
+}
+<div class="admin-card mb-4">
+    <h2 class="admin-card-title">@L["Albums.UploadPhotos"]</h2>
+    <form method="post" asp-action="UploadPhotos" asp-route-id="@Model.Album.Id" enctype="multipart/form-data" class="d-flex flex-wrap gap-2 align-items-start">
+        <div class="flex-grow-1" style="min-width: 240px">
+            <label class="visually-hidden" for="files">@L["Media.ChooseFiles"]</label>
+            <input class="form-control" type="file" id="files" name="files" multiple accept="@FileSignatures.AcceptAttribute(MediaKind.Image)" required />
+            <div class="form-text">@L["Albums.UploadHint"]</div>
+        </div>
+        <button class="btn btn-primary" type="submit"><i class="bi bi-cloud-upload" aria-hidden="true"></i> @L["Media.Upload"]</button>
+    </form>
+</div>
+@if (Model.Photos.Count == 0)
+{
+    <div class="admin-table-wrap"><div class="admin-empty"><i class="bi bi-images" aria-hidden="true"></i>@L["Albums.NoPhotos"]</div></div>
+}
+else
+{
+    <div class="photo-grid">
+        @for (var i = 0; i < Model.Photos.Count; i++)
+        {
+            var p = Model.Photos[i];
+            <div class="photo-card @(p.IsCover ? "is-cover" : "")">
+                <img src="@p.Url" alt="" loading="lazy" />
+                <div class="photo-body">
+                    <div class="d-flex flex-wrap gap-1 align-items-center mb-2">
+                        @if (p.IsCover)
+                        {
+                            <span class="badge text-bg-warning"><i class="bi bi-star-fill" aria-hidden="true"></i> @L["Albums.Cover"]</span>
+                        }
+                        else
+                        {
+                            <post-button asp-action="Cover" asp-route-photoId="@p.Id.ToString()" text="Albums.SetCover" icon="bi-star" class="btn btn-sm btn-outline-warning" return-here="false" />
+                        }
+                        <span class="ms-auto"></span>
+                        @if (i > 0)
+                        {
+                            <post-button asp-action="MovePhoto" asp-route-photoId="@p.Id.ToString()" asp-route-direction="-1" icon="@(CultureHelper.CurrentLang.IsRtl() ? "bi-arrow-right" : "bi-arrow-left")" title="Admin.MoveUp" return-here="false" />
+                        }
+                        @if (i < Model.Photos.Count - 1)
+                        {
+                            <post-button asp-action="MovePhoto" asp-route-photoId="@p.Id.ToString()" asp-route-direction="1" icon="@(CultureHelper.CurrentLang.IsRtl() ? "bi-arrow-left" : "bi-arrow-right")" title="Admin.MoveDown" return-here="false" />
+                        }
+                        <post-button asp-action="RemovePhoto" asp-route-photoId="@p.Id.ToString()" icon="bi-trash" title="Albums.RemovePhoto" class="btn btn-sm btn-outline-danger" confirm="Albums.ConfirmRemove" return-here="false" />
+                    </div>
+                    <form method="post" asp-action="Caption" asp-route-photoId="@p.Id">
+                        <label class="form-label small mb-1" for="cap-ar-@i">@L["Field.CaptionAr"]</label>
+                        <input class="form-control form-control-sm mb-2" id="cap-ar-@i" name="Caption.CaptionAr" value="@p.CaptionAr" dir="rtl" lang="ar" maxlength="300" />
+                        <label class="form-label small mb-1" for="cap-en-@i">@L["Field.CaptionEn"]</label>
+                        <input class="form-control form-control-sm mb-2" id="cap-en-@i" name="Caption.CaptionEn" value="@p.CaptionEn" dir="ltr" lang="en" maxlength="300" />
+                        <button class="btn btn-sm btn-outline-primary w-100" type="submit">@L["Albums.SaveCaption"]</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,34 @@
+@model ListPageModel<NationalAirspace.Application.Features.Training.TrainingCardDto>
+@{ var past = Model.Tab == "past"; }
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <nav class="filter-pills" aria-label="@L["Nav.Training"]">
+            <a href="@Url.Site("/training")" class="@(past ? "" : "active")">@L["Training.Upcoming"]</a>
+            <a href="@Url.Site("/training")?tab=past" class="@(past ? "active" : "")">@L["Training.Past"]</a>
+        </nav>
+        <form class="filter-bar" method="get" role="search">
+            @if (past)
+            {
+                <input type="hidden" name="tab" value="past" />
+            }
+            <label class="visually-hidden" for="q">@L["Search.Label"]</label>
+            <input id="q" class="form-control" type="search" name="q" value="@Model.Query" placeholder="@L["Training.SearchPlaceholder"]" maxlength="100" />
+            <button class="btn btn-primary" type="submit"><i class="bi bi-search" aria-hidden="true"></i> @L["Common.Search"]</button>
+        </form>
+        @if (Model.Items.Items.Count == 0)
+        {
+            <partial name="_EmptyState" model="@("Training.Empty")" />
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var t in Model.Items.Items)
+                {
+                    <div class="col-md-6 col-lg-4 reveal"><partial name="_TrainingCard" model="t" /></div>
+                }
+            </div>
+            <partial name="_Pager" model="new PagerModel(Model.Items.Page, Model.Items.TotalPages, Context.Request)" />
+        }
+    </div>
+</section>

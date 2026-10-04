@@ -1,0 +1,100 @@
+@model AdminFormModel<NationalAirspace.Application.Features.Pages.PageInput>
+@using NationalAirspace.Application.Features.Pages
+@{
+    ViewData["Title"] = Model.IsNew ? L["Pages.Create"] : L["Pages.Edit"];
+    var sections = ViewData["Sections"] as IReadOnlyList<PageSectionAdminItem> ?? [];
+}
+@section Actions {
+    @if (!Model.IsNew)
+    {
+        <a class="btn btn-outline-secondary" asp-action="Preview" asp-route-id="@Model.Input.Id" target="_blank" rel="noopener"><i class="bi bi-eye" aria-hidden="true"></i> @L["Admin.Preview"]</a>
+    }
+}
+@if (Model.Input.SystemKey is not null)
+{
+    <div class="alert alert-light border d-flex gap-2"><i class="bi bi-lock" aria-hidden="true"></i><div>@L["Pages.SystemNotice"] <code dir="ltr">@Model.Input.SystemKey</code></div></div>
+}
+<form method="post" enctype="multipart/form-data" asp-action="@(Model.IsNew ? "Create" : "Edit")" asp-route-id="@Model.Input.Id" novalidate>
+    <input type="hidden" asp-for="Input.ConcurrencyStamp" />
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <partial name="_LangTabsNav" model="true" />
+                <div class="tab-content pt-4">
+                    <div class="tab-pane fade show active" id="tab-ar" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleAr" />
+                        <field asp-for="Input.SummaryAr" type="textarea" rows="3" />
+                        <field asp-for="Input.ContentAr" type="richtext" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-en" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleEn" />
+                        <field asp-for="Input.SummaryEn" type="textarea" rows="3" />
+                        <field asp-for="Input.ContentEn" type="richtext" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-seo" role="tabpanel" tabindex="0">
+                        <div class="row">
+                            @if (Model.Input.SystemKey is null)
+                            {
+                                <div class="col-md-6"><field asp-for="Input.SlugAr" hint="Admin.SlugHint" /></div>
+                                <div class="col-md-6"><field asp-for="Input.SlugEn" hint="Admin.SlugHint" /></div>
+                            }
+                            <div class="col-md-6"><field asp-for="Input.SeoTitleAr" /></div>
+                            <div class="col-md-6"><field asp-for="Input.SeoTitleEn" /></div>
+                            <div class="col-md-6"><field asp-for="Input.MetaDescriptionAr" type="textarea" rows="3" /></div>
+                            <div class="col-md-6"><field asp-for="Input.MetaDescriptionEn" type="textarea" rows="3" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="admin-card">
+                <h2 class="admin-card-title">@L["Admin.Publishing"]</h2>
+                <field asp-for="Input.Status" type="select" items="L.EnumOptions<ContentStatus>()" />
+                <media-field asp-for="Input.HeroImageId" kind="Image" upload="HeroImageUpload" />
+            </div>
+            <partial name="_FormActions" model="true" />
+        </div>
+    </div>
+</form>
+
+@if (!Model.IsNew)
+{
+    <section class="admin-card mt-4" id="sections" aria-labelledby="h-sections">
+        <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+            <div>
+                <h2 class="admin-card-title mb-0" id="h-sections">@L["Pages.Sections"]</h2>
+                <small class="text-muted">@L["Pages.SectionsHint"]</small>
+            </div>
+            <a class="btn btn-outline-primary ms-auto" asp-action="CreateSection" asp-route-pageId="@Model.Input.Id"><i class="bi bi-plus-lg" aria-hidden="true"></i> @L["Pages.AddSection"]</a>
+        </div>
+        @if (sections.Count == 0)
+        {
+            <p class="text-muted mb-0">@L["Pages.NoSections"]</p>
+        }
+        else
+        {
+            <ul class="tree">
+                @foreach (var s in sections)
+                {
+                    <li>
+                        <div class="tree-row">
+                            <span class="tree-title">@Bilingual.Pick(s.TitleAr, s.TitleEn)<span class="tree-meta">@L.Enum(s.Layout)@(s.Key is null ? "" : " · " + s.Key)</span></span>
+                            <partial name="_ActiveBadge" model="s.IsVisible" />
+                            <div class="btn-group btn-group-sm" role="group" aria-label="@L["Admin.Reorder"]">
+                                <post-button asp-action="MoveSection" asp-route-id="@s.Id.ToString()" asp-route-direction="-1" icon="bi-arrow-up" title="Admin.MoveUp" />
+                                <post-button asp-action="MoveSection" asp-route-id="@s.Id.ToString()" asp-route-direction="1" icon="bi-arrow-down" title="Admin.MoveDown" />
+                            </div>
+                            <div class="row-actions">
+                                <a class="btn btn-sm btn-outline-primary" asp-action="EditSection" asp-route-id="@s.Id"><i class="bi bi-pencil" aria-hidden="true"></i> <span class="d-none d-lg-inline">@L["Common.Edit"]</span></a>
+                                <post-button asp-action="ToggleSection" asp-route-id="@s.Id.ToString()" icon="@(s.IsVisible ? "bi-eye-slash" : "bi-eye")" title="@(s.IsVisible ? "Admin.Hide" : "Admin.Show")" />
+                                <post-button asp-action="DeleteSection" asp-route-id="@s.Id.ToString()" icon="bi-trash" title="Common.Delete" class="btn btn-sm btn-outline-danger" confirm="Admin.ConfirmDelete" />
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        }
+    </section>
+}

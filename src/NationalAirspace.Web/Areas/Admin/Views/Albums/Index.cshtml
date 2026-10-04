@@ -1,0 +1,47 @@
+@model AdminListModel<NationalAirspace.Application.Features.MediaCenter.AlbumAdminListItem>
+@{ ViewData["Title"] = L["AdminNav.Albums"]; }
+@section Actions {
+    <a class="btn btn-primary" asp-action="Create"><i class="bi bi-plus-lg" aria-hidden="true"></i> @L["Albums.Create"]</a>
+}
+<partial name="_ListFilter" model="Model.Filter" />
+<div class="admin-table-wrap">
+    @if (Model.Items.Items.Count == 0)
+    {
+        <partial name="_TableEmpty" />
+    }
+    else
+    {
+        <table class="table admin-table table-hover">
+            <thead><tr><th scope="col"><span class="visually-hidden">@L["Field.CoverImageId"]</span></th><th scope="col">@L["Field.Title"]</th><th scope="col">@L["Field.Status"]</th><th scope="col">@L["Albums.Photos"]</th><th scope="col">@L["Admin.Order"]</th><th scope="col" class="col-actions"><span class="visually-hidden">@L["Admin.Actions"]</span></th></tr></thead>
+            <tbody>
+                @foreach (var x in Model.Items.Items)
+                {
+                    <tr>
+                        <td>@if (x.CoverUrl is not null) { <img class="row-thumb" src="@x.CoverUrl" alt="" loading="lazy" /> } else { <span class="row-thumb d-inline-block"></span> }</td>
+                        <td>
+                            <a class="row-title" asp-action="Photos" asp-route-id="@x.Id">@Bilingual.Pick(x.TitleAr, x.TitleEn)</a>
+                            @if (x.EventDate is { } d) { <span class="row-sub">@d.DateOnlyText()</span> }
+                        </td>
+                        <td data-label="@L["Field.Status"]"><partial name="_StatusBadge" model="new StatusBadgeModel(x.Status)" /></td>
+                        <td data-label="@L["Albums.Photos"]">@x.PhotoCount</td>
+                        <td data-label="@L["Admin.Order"]">@if (!Model.Filter.HasFilter) { <partial name="_MoveButtons" model="x.Id" /> } else { @x.DisplayOrder }</td>
+                        <td class="col-actions">
+                            <div class="row-actions">
+                                <a class="btn btn-sm btn-outline-primary" asp-action="Photos" asp-route-id="@x.Id"><i class="bi bi-images" aria-hidden="true"></i> <span class="d-none d-lg-inline">@L["Albums.Photos"]</span></a>
+                                <div class="dropdown">
+                                    <partial name="_MoreToggle" />
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" asp-action="Edit" asp-route-id="@x.Id"><i class="bi bi-pencil" aria-hidden="true"></i> @L["Common.Edit"]</a></li>
+                                        <partial name="_StatusActions" model="new StatusActionsModel(x.Id, x.Status)" />
+                                        <partial name="_RowDelete" model="x.Id" />
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<partial name="_Pager" model="new PagerModel(Model.Items.Page, Model.Items.TotalPages, Context.Request)" />

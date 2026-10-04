@@ -1,0 +1,51 @@
+@model AdminFormModel<NationalAirspace.Application.Features.Users.UserEditInput>
+@{
+    ViewData["Title"] = Model.IsNew ? L["Users.Create"] : L["Users.Edit"];
+    var isSelf = ViewData["IsSelf"] is true;
+}
+<form method="post" asp-action="@(Model.IsNew ? "Create" : "Edit")" asp-route-id="@Model.Input.Id" novalidate>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                <div class="row">
+                    <div class="col-md-6"><field asp-for="Input.FullName" /></div>
+                    <div class="col-md-6"><field asp-for="Input.Email" type="email" dir="ltr" /></div>
+                </div>
+                <field asp-for="Input.Role" type="select" items="Model.Options" hint="Users.RoleHint" />
+                @if (isSelf)
+                {
+                    <p class="form-text">@L["Users.SelfHint"]</p>
+                }
+                <field asp-for="Input.IsActive" type="checkbox" />
+                @if (Model.IsNew)
+                {
+                    <div class="row">
+                        <div class="col-md-6"><field asp-for="Input.Password" type="password" hint="Account.PasswordPolicy" /></div>
+                        <div class="col-md-6"><field asp-for="Input.ConfirmPassword" type="password" /></div>
+                    </div>
+                }
+                <div class="admin-form-actions">
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-check2" aria-hidden="true"></i> @L["Common.Save"]</button>
+                    <a class="btn btn-light" asp-action="Index">@L["Common.Cancel"]</a>
+                    @if (!Model.IsNew)
+                    {
+                        <a class="btn btn-outline-secondary ms-auto" asp-action="ResetPassword" asp-route-id="@Model.Input.Id"><i class="bi bi-key" aria-hidden="true"></i> @L["Users.ResetPassword"]</a>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="admin-card">
+                <h2 class="admin-card-title">@L["Users.Permissions"]</h2>
+                <dl class="mb-0 small">
+                    @foreach (var role in NationalAirspace.Application.Common.Security.Roles.All)
+                    {
+                        <dt>@L["Role." + role]</dt>
+                        <dd class="text-muted">@L["Role." + role + ".Description"]</dd>
+                    }
+                </dl>
+            </div>
+        </div>
+    </div>
+</form>

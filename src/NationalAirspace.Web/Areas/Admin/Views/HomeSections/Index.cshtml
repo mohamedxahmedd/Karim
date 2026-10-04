@@ -1,0 +1,24 @@
+@model IReadOnlyList<NationalAirspace.Application.Features.Home.HomeSectionAdminItem>
+@{ ViewData["Title"] = L["AdminNav.HomeSections"]; ViewData["Subtitle"] = L["HomeSections.Subtitle"]; }
+<div class="admin-table-wrap">
+    <table class="table admin-table">
+        <thead><tr><th scope="col">@L["HomeSections.Block"]</th><th scope="col">@L["Field.Title"]</th><th scope="col">@L["Field.Status"]</th><th scope="col">@L["Admin.Order"]</th><th scope="col" class="col-actions"><span class="visually-hidden">@L["Admin.Actions"]</span></th></tr></thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td><span class="fw-semibold">@L.Enum(x.Key)</span></td>
+                    <td data-label="@L["Field.Title"]"><a class="row-title fw-normal" asp-action="Edit" asp-route-id="@x.Id">@Bilingual.Pick(x.TitleAr, x.TitleEn)</a></td>
+                    <td data-label="@L["Field.Status"]"><partial name="_ActiveBadge" model="x.IsVisible" /></td>
+                    <td data-label="@L["Admin.Order"]"><partial name="_MoveButtons" model="x.Id" /></td>
+                    <td class="col-actions">
+                        <div class="row-actions">
+                            <partial name="_EditLink" model="x.Id" />
+                            <post-button asp-action="Toggle" asp-route-id="@x.Id.ToString()" icon="@(x.IsVisible ? "bi-eye-slash" : "bi-eye")" title="@(x.IsVisible ? "Admin.Hide" : "Admin.Show")" />
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

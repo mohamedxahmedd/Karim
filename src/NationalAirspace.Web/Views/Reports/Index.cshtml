@@ -1,0 +1,41 @@
+@model ReportListModel
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <form class="filter-bar" method="get" role="search">
+            <label class="visually-hidden" for="q">@L["Search.Label"]</label>
+            <input id="q" class="form-control" type="search" name="q" value="@Model.Query" placeholder="@L["Reports.SearchPlaceholder"]" maxlength="100" />
+            <label class="visually-hidden" for="category">@L["Field.Category"]</label>
+            <select id="category" class="form-select" name="category" data-autosubmit>
+                <option value="">@L["Common.AllCategories"]</option>
+                @foreach (var c in Model.Categories)
+                {
+                    <option value="@c.Slug" selected="@(Model.Category == c.Slug)">@c.Name (@c.Count)</option>
+                }
+            </select>
+            <label class="visually-hidden" for="year">@L["Common.Year"]</label>
+            <select id="year" class="form-select" name="year" data-autosubmit>
+                <option value="">@L["Common.AllYears"]</option>
+                @foreach (var y in Model.Years)
+                {
+                    <option value="@y" selected="@(Model.Year == y)">@y</option>
+                }
+            </select>
+            <button class="btn btn-primary" type="submit"><i class="bi bi-search" aria-hidden="true"></i> @L["Common.Search"]</button>
+        </form>
+        @if (Model.Items.Items.Count == 0)
+        {
+            <partial name="_EmptyState" model="@("Reports.Empty")" />
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var r in Model.Items.Items)
+                {
+                    <div class="col-md-6 col-lg-4 reveal"><partial name="_ReportCard" model="r" /></div>
+                }
+            </div>
+            <partial name="_Pager" model="new PagerModel(Model.Items.Page, Model.Items.TotalPages, Context.Request)" />
+        }
+    </div>
+</section>

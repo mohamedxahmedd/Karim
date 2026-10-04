@@ -1,0 +1,20 @@
+@model PagedResult<NationalAirspace.Application.Features.MediaCenter.VideoDto>
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        @if (Model.Items.Count == 0)
+        {
+            <partial name="_EmptyState" model="@("Videos.Empty")" />
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var v in Model.Items)
+                {
+                    <div class="col-md-6 col-lg-4 reveal"><partial name="_VideoCard" model="v" /></div>
+                }
+            </div>
+            <partial name="_Pager" model="new PagerModel(Model.Page, Model.TotalPages, Context.Request)" />
+        }
+    </div>
+</section>

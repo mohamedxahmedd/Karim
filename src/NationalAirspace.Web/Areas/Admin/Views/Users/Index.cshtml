@@ -1,0 +1,62 @@
+@model PagedResult<NationalAirspace.Application.Features.Users.UserListItemDto>
+@{
+    ViewData["Title"] = L["AdminNav.Users"];
+    var me = User.Id();
+}
+@section Actions {
+    <a class="btn btn-primary" asp-action="Create"><i class="bi bi-person-plus" aria-hidden="true"></i> @L["Users.Create"]</a>
+}
+<form class="admin-filter" method="get" role="search">
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-search" aria-hidden="true"></i></span>
+        <input class="form-control" type="search" name="search" value="@ViewData["Search"]" placeholder="@L["Users.SearchPlaceholder"]" aria-label="@L["Common.Search"]" maxlength="100" />
+    </div>
+    <button class="btn btn-primary" type="submit">@L["Common.Search"]</button>
+</form>
+<div class="admin-table-wrap">
+    @if (Model.Items.Count == 0)
+    {
+        <partial name="_TableEmpty" />
+    }
+    else
+    {
+        <table class="table admin-table">
+            <thead><tr><th scope="col">@L["Field.FullName"]</th><th scope="col">@L["Field.Role"]</th><th scope="col">@L["Field.Status"]</th><th scope="col">@L["Field.LastLoginAtUtc"]</th><th scope="col" class="col-actions"><span class="visually-hidden">@L["Admin.Actions"]</span></th></tr></thead>
+            <tbody>
+                @foreach (var u in Model.Items)
+                {
+                    <tr>
+                        <td><a class="row-title" asp-action="Edit" asp-route-id="@u.Id">@u.FullName</a>@if (u.Id == me) { <span class="badge text-bg-light border ms-1">@L["Users.You"]</span> }<span class="row-sub" dir="ltr">@u.Email</span></td>
+                        <td data-label="@L["Field.Role"]">@(u.Role is null ? "—" : L["Role." + u.Role])</td>
+                        <td data-label="@L["Field.Status"]">
+                            <span class="badge @(u.IsActive ? "text-bg-success" : "text-bg-secondary")">@L[u.IsActive ? "Admin.Active" : "Admin.Inactive"]</span>
+                            @if (u.IsLockedOut) { <span class="badge text-bg-danger"><i class="bi bi-lock-fill" aria-hidden="true"></i> @L["Users.Locked"]</span> }
+                        </td>
+                        <td data-label="@L["Field.LastLoginAtUtc"]" class="small">@(u.LastLoginAtUtc is { } last ? Clock.DateTimeText(last) : L["Users.NeverLoggedIn"])</td>
+                        <td class="col-actions">
+                            <div class="row-actions">
+                                <partial name="_EditLink" model="u.Id" />
+                                <div class="dropdown">
+                                    <partial name="_MoreToggle" />
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" asp-action="ResetPassword" asp-route-id="@u.Id"><i class="bi bi-key" aria-hidden="true"></i> @L["Users.ResetPassword"]</a></li>
+                                        @if (u.IsLockedOut)
+                                        {
+                                            <li><post-button asp-action="Unlock" asp-route-id="@u.Id.ToString()" text="Users.Unlock" icon="bi-unlock" class="dropdown-item" /></li>
+                                        }
+                                        @if (u.Id != me)
+                                        {
+                                            <li><post-button asp-action="Activate" asp-route-id="@u.Id.ToString()" asp-route-active="@(!u.IsActive ? "true" : "false")" text="@(u.IsActive ? "Users.Deactivate" : "Users.Activate")" icon="@(u.IsActive ? "bi-person-slash" : "bi-person-check")" class="dropdown-item" confirm="@(u.IsActive ? "Users.ConfirmDeactivate" : null)" /></li>
+                                            <partial name="_RowDelete" model="u.Id" />
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<partial name="_Pager" model="new PagerModel(Model.Page, Model.TotalPages, Context.Request)" />

@@ -1,0 +1,47 @@
+@model PagedResult<NationalAirspace.Application.Features.Audit.AuditLogItem>
+@{
+    ViewData["Title"] = L["AdminNav.Audit"];
+    ViewData["Subtitle"] = L["Audit.Subtitle"];
+    var types = ViewData["EntityTypes"] as IReadOnlyList<string> ?? [];
+    var entityType = ViewData["EntityType"] as string;
+}
+<form class="admin-filter" method="get" role="search">
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-search" aria-hidden="true"></i></span>
+        <input class="form-control" type="search" name="search" value="@ViewData["Search"]" placeholder="@L["Audit.SearchPlaceholder"]" aria-label="@L["Common.Search"]" maxlength="100" />
+    </div>
+    <select class="form-select" name="entityType" aria-label="@L["Audit.Entity"]" data-autosubmit>
+        <option value="">@L["Audit.AllEntities"]</option>
+        @foreach (var t in types)
+        {
+            <option value="@t" selected="@(t == entityType)">@t</option>
+        }
+    </select>
+    <button class="btn btn-primary" type="submit">@L["Common.Search"]</button>
+</form>
+<div class="admin-table-wrap">
+    @if (Model.Items.Count == 0)
+    {
+        <div class="admin-empty"><i class="bi bi-clock-history" aria-hidden="true"></i>@L["Audit.Empty"]</div>
+    }
+    else
+    {
+        <table class="table admin-table table-sm">
+            <thead><tr><th scope="col">@L["Audit.When"]</th><th scope="col">@L["Audit.User"]</th><th scope="col">@L["Audit.Action"]</th><th scope="col">@L["Audit.Entity"]</th><th scope="col">@L["Audit.Summary"]</th><th scope="col">@L["Audit.Ip"]</th></tr></thead>
+            <tbody>
+                @foreach (var a in Model.Items)
+                {
+                    <tr>
+                        <td class="small text-nowrap">@Clock.DateTimeText(a.CreatedAtUtc)</td>
+                        <td data-label="@L["Audit.User"]" dir="ltr" class="text-start">@a.UserName</td>
+                        <td data-label="@L["Audit.Action"]"><code>@a.Action</code></td>
+                        <td data-label="@L["Audit.Entity"]">@a.EntityType</td>
+                        <td data-label="@L["Audit.Summary"]" class="small" dir="auto">@a.Summary</td>
+                        <td data-label="@L["Audit.Ip"]" class="small text-muted" dir="ltr">@a.IpAddress</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<partial name="_Pager" model="new PagerModel(Model.Page, Model.TotalPages, Context.Request)" />

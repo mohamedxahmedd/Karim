@@ -1,0 +1,57 @@
+@model NationalAirspace.Application.Features.Settings.SettingsInput
+@{ ViewData["Title"] = L["AdminNav.Settings"]; ViewData["Subtitle"] = L["Settings.Subtitle"]; }
+<form method="post" novalidate>
+    <input type="hidden" asp-for="ConcurrencyStamp" />
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <section class="admin-card">
+                <h2 class="admin-card-title">@L["Settings.Identity"]</h2>
+                <div class="row">
+                    <div class="col-md-6"><field asp-for="SiteNameAr" /></div>
+                    <div class="col-md-6"><field asp-for="SiteNameEn" /></div>
+                    <div class="col-md-6"><field asp-for="TaglineAr" /></div>
+                    <div class="col-md-6"><field asp-for="TaglineEn" /></div>
+                    <div class="col-md-6"><field asp-for="FooterTextAr" type="textarea" rows="3" /></div>
+                    <div class="col-md-6"><field asp-for="FooterTextEn" type="textarea" rows="3" /></div>
+                    <div class="col-md-6"><field asp-for="DefaultMetaDescriptionAr" type="textarea" rows="3" /></div>
+                    <div class="col-md-6"><field asp-for="DefaultMetaDescriptionEn" type="textarea" rows="3" /></div>
+                </div>
+            </section>
+            <section class="admin-card">
+                <h2 class="admin-card-title">@L["Settings.Contact"]</h2>
+                <div class="row">
+                    <div class="col-md-6"><field asp-for="AddressAr" type="textarea" rows="2" /></div>
+                    <div class="col-md-6"><field asp-for="AddressEn" type="textarea" rows="2" /></div>
+                    <div class="col-md-4"><field asp-for="Phone" type="tel" dir="ltr" /></div>
+                    <div class="col-md-4"><field asp-for="Fax" type="tel" dir="ltr" /></div>
+                    <div class="col-md-4"><field asp-for="Email" type="email" dir="ltr" /></div>
+                    <div class="col-md-6"><field asp-for="WorkingHoursAr" /></div>
+                    <div class="col-md-6"><field asp-for="WorkingHoursEn" /></div>
+                </div>
+            </section>
+            <section class="admin-card">
+                <h2 class="admin-card-title">@L["Settings.Map"]</h2>
+                <field asp-for="MapEmbedUrl" type="url" dir="ltr" hint="Settings.MapHint" />
+                <div class="row">
+                    <div class="col-md-6"><field asp-for="Latitude" type="number" dir="ltr" /></div>
+                    <div class="col-md-6"><field asp-for="Longitude" type="number" dir="ltr" /></div>
+                </div>
+            </section>
+        </div>
+        <div class="col-xl-4">
+            <section class="admin-card">
+                <h2 class="admin-card-title">@L["Settings.Social"]</h2>
+                <field asp-for="FacebookUrl" type="url" dir="ltr" />
+                <field asp-for="XUrl" type="url" dir="ltr" />
+                <field asp-for="LinkedInUrl" type="url" dir="ltr" />
+                <field asp-for="YouTubeUrl" type="url" dir="ltr" />
+                <field asp-for="InstagramUrl" type="url" dir="ltr" />
+                <p class="form-text mb-0">@L["Settings.SocialHint"]</p>
+            </section>
+            <div class="admin-card admin-form-submit">
+                <button type="submit" class="btn btn-primary w-100"><i class="bi bi-check2" aria-hidden="true"></i> @L["Common.Save"]</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,30 @@
+@* Inner-page banner with breadcrumb. Uses ViewData["Title"], ViewData["Lead"] and ViewData["Breadcrumbs"]. *@
+@{
+    var crumbs = ViewData["Breadcrumbs"] as (string Text, string? Url)[] ?? [];
+    var lead = ViewData["Lead"] as string;
+}
+<section class="page-hero">
+    <div class="container container-wide">
+        <nav aria-label="@L["Nav.Breadcrumb"]">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Site("/")">@L["Nav.Home"]</a></li>
+                @foreach (var c in crumbs)
+                {
+                    if (c.Url is null)
+                    {
+                        <li class="breadcrumb-item active" aria-current="page">@c.Text</li>
+                    }
+                    else
+                    {
+                        <li class="breadcrumb-item"><a href="@c.Url">@c.Text</a></li>
+                    }
+                }
+            </ol>
+        </nav>
+        <h1>@ViewData["Title"]</h1>
+        @if (!string.IsNullOrEmpty(lead))
+        {
+            <p>@lead</p>
+        }
+    </div>
+</section>

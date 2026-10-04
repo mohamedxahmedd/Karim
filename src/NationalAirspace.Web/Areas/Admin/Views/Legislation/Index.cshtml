@@ -1,0 +1,75 @@
+@model AdminListModel<NationalAirspace.Application.Features.Legislation.LegalDocumentAdminListItem>
+@{
+    ViewData["Title"] = L["AdminNav.Legislation"];
+    var category = ViewData["Category"] as LegalDocumentCategory?;
+}
+@section Actions {
+    <a class="btn btn-primary" asp-action="Create"><i class="bi bi-plus-lg" aria-hidden="true"></i> @L["Legislation.Create"]</a>
+}
+<form class="admin-filter" method="get" role="search">
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-search" aria-hidden="true"></i></span>
+        <input class="form-control" type="search" name="search" value="@Model.Filter.Search" placeholder="@L["Admin.SearchPlaceholder"]" aria-label="@L["Common.Search"]" maxlength="100" />
+    </div>
+    <select class="form-select" name="status" aria-label="@L["Field.Status"]" data-autosubmit>
+        <option value="">@L["Admin.AllStatuses"]</option>
+        @foreach (var s in Enum.GetValues<ContentStatus>())
+        {
+            <option value="@s" selected="@(Model.Filter.Status == s)">@L.Enum(s)</option>
+        }
+    </select>
+    <select class="form-select" name="category" aria-label="@L["Field.Category"]" data-autosubmit>
+        <option value="">@L["Common.AllCategories"]</option>
+        @foreach (var c in Enum.GetValues<LegalDocumentCategory>())
+        {
+            <option value="@c" selected="@(category == c)">@L.Enum(c)</option>
+        }
+    </select>
+    <button class="btn btn-primary" type="submit">@L["Common.Search"]</button>
+    @if (Model.Filter.HasFilter || category is not null)
+    {
+        <a class="btn btn-link" href="?">@L["Admin.ClearFilters"]</a>
+    }
+</form>
+<div class="admin-table-wrap">
+    @if (Model.Items.Items.Count == 0)
+    {
+        <partial name="_TableEmpty" />
+    }
+    else
+    {
+        <table class="table admin-table table-hover">
+            <thead><tr><th scope="col">@L["Field.Title"]</th><th scope="col">@L["Field.Category"]</th><th scope="col">@L["Field.Status"]</th><th scope="col">@L["Field.PublicationDate"]</th><th scope="col" class="col-actions"><span class="visually-hidden">@L["Admin.Actions"]</span></th></tr></thead>
+            <tbody>
+                @foreach (var x in Model.Items.Items)
+                {
+                    <tr>
+                        <td>
+                            <a class="row-title" asp-action="Edit" asp-route-id="@x.Id">@Bilingual.Pick(x.TitleAr, x.TitleEn)</a>
+                            <span class="row-sub">
+                                @if (!string.IsNullOrEmpty(x.DocumentNumber)) { <span>@x.DocumentNumber</span> }
+                                @if (!x.HasFile) { <span class="ms-2"><i class="bi bi-file-earmark-x" aria-hidden="true"></i> @L["Legislation.NoFile"]</span> }
+                            </span>
+                        </td>
+                        <td data-label="@L["Field.Category"]">@L.Enum(x.Category)</td>
+                        <td data-label="@L["Field.Status"]"><partial name="_StatusBadge" model="new StatusBadgeModel(x.Status)" /></td>
+                        <td data-label="@L["Field.PublicationDate"]">@x.PublicationDate.DateOnlyText()</td>
+                        <td class="col-actions">
+                            <div class="row-actions">
+                                <partial name="_EditLink" model="x.Id" />
+                                <div class="dropdown">
+                                    <partial name="_MoreToggle" />
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <partial name="_StatusActions" model="new StatusActionsModel(x.Id, x.Status)" />
+                                        <partial name="_RowDelete" model="x.Id" />
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<partial name="_Pager" model="new PagerModel(Model.Items.Page, Model.Items.TotalPages, Context.Request)" />

@@ -1,0 +1,49 @@
+@model AdminFormModel<NationalAirspace.Application.Features.Reports.ReportInput>
+@{ ViewData["Title"] = Model.IsNew ? L["Reports.Create"] : L["Reports.Edit"]; }
+<form method="post" enctype="multipart/form-data" asp-action="@(Model.IsNew ? "Create" : "Edit")" asp-route-id="@Model.Input.Id" novalidate>
+    <input type="hidden" asp-for="Input.ConcurrencyStamp" />
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <partial name="_LangTabsNav" model="true" />
+                <div class="tab-content pt-4">
+                    <div class="tab-pane fade show active" id="tab-ar" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleAr" />
+                        <field asp-for="Input.DescriptionAr" type="textarea" rows="5" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-en" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleEn" />
+                        <field asp-for="Input.DescriptionEn" type="textarea" rows="5" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-seo" role="tabpanel" tabindex="0">
+                        <div class="row">
+                            <div class="col-md-6"><field asp-for="Input.SlugAr" hint="Admin.SlugHint" /></div>
+                            <div class="col-md-6"><field asp-for="Input.SlugEn" hint="Admin.SlugHint" /></div>
+                            <div class="col-md-6"><field asp-for="Input.SeoTitleAr" /></div>
+                            <div class="col-md-6"><field asp-for="Input.SeoTitleEn" /></div>
+                            <div class="col-md-6"><field asp-for="Input.MetaDescriptionAr" type="textarea" rows="3" /></div>
+                            <div class="col-md-6"><field asp-for="Input.MetaDescriptionEn" type="textarea" rows="3" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="admin-card">
+                <h2 class="admin-card-title">@L["Admin.Files"]</h2>
+                <div class="row">
+                    <div class="col-md-6"><media-field asp-for="Input.PdfFileId" kind="Document" upload="PdfUpload" /></div>
+                    <div class="col-md-6"><media-field asp-for="Input.CoverImageId" kind="Image" upload="CoverImageUpload" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="admin-card">
+                <h2 class="admin-card-title">@L["Admin.Publishing"]</h2>
+                <field asp-for="Input.Status" type="select" items="L.EnumOptions<ContentStatus>()" hint="Reports.FileRequiredHint" />
+                <field asp-for="Input.PublicationDate" type="date" />
+                <field asp-for="Input.ReportCategoryId" type="select" items="Model.Options" empty="Admin.NoCategory" label="Field.Category" />
+            </div>
+            <partial name="_FormActions" model="true" />
+        </div>
+    </div>
+</form>

@@ -1,0 +1,80 @@
+@model NationalAirspace.Application.Features.Home.HomePageDto
+@{
+    ViewData["Title"] = null;
+}
+@if (Model.Slides.Count > 0)
+{
+    <section class="hero" aria-label="@L["Home.Highlights"]">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="@(Model.Slides.Count > 1 ? "carousel" : "false")">
+            @if (Model.Slides.Count > 1)
+            {
+                <div class="carousel-indicators">
+                    @for (var i = 0; i < Model.Slides.Count; i++)
+                    {
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")" aria-current="@(i == 0 ? "true" : null)" aria-label="@(i + 1)"></button>
+                    }
+                </div>
+            }
+            <div class="carousel-inner">
+                @for (var i = 0; i < Model.Slides.Count; i++)
+                {
+                    var slide = Model.Slides[i];
+                    <div class="carousel-item @(i == 0 ? "active" : "")">
+                        <div class="hero-slide">
+                            <div class="hero-bg @(slide.Image is not null ? "has-image" : "")">
+                                @if (slide.Image is not null)
+                                {
+                                    <img src="@slide.Image.Url" alt="" fetchpriority="@(i == 0 ? "high" : "low")" />
+                                }
+                            </div>
+                            <div class="container container-wide">
+                                <div class="hero-content">
+                                    @if (slide.Subtitle is not null)
+                                    {
+                                        <div class="hero-kicker">@slide.Subtitle</div>
+                                    }
+                                    @if (i == 0)
+                                    {
+                                        <h1>@slide.Title</h1>
+                                    }
+                                    else
+                                    {
+                                        <h2 class="hero-title">@slide.Title</h2>
+                                    }
+                                    @if (slide.Description is not null)
+                                    {
+                                        <p>@slide.Description</p>
+                                    }
+                                    <div class="hero-actions">
+                                        @if (slide.Primary is not null)
+                                        {
+                                            <a class="btn btn-gold btn-lg" href="@Url.Site(slide.Primary.Url)">@slide.Primary.Text</a>
+                                        }
+                                        @if (slide.Secondary is not null)
+                                        {
+                                            <a class="btn btn-outline-light btn-lg" href="@Url.Site(slide.Secondary.Url)">@slide.Secondary.Text</a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            @if (Model.Slides.Count > 1)
+            {
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">@L["Pager.Previous"]</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">@L["Pager.Next"]</span>
+                </button>
+            }
+        </div>
+    </section>
+}
+
+@foreach (var block in Model.Blocks)
+{
+    <partial name="_Block@(block.Key)" model="new HomeBlockModel(block, Model)" />
+}

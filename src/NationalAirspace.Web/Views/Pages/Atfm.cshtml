@@ -1,0 +1,45 @@
+@using NationalAirspace.Application.Features.Pages
+@model PageDto
+@{
+    var intro = Model.Sections.Where(s => s.Layout is PageSectionLayout.Text or PageSectionLayout.Highlight).ToList();
+    var cards = Model.Sections.Where(s => s.Layout == PageSectionLayout.Card).ToList();
+    var steps = Model.Sections.Where(s => s.Layout == PageSectionLayout.ProcessStep).ToList();
+}
+<partial name="_PageHero" />
+<section class="section">
+    <div class="container container-wide">
+        <div class="demo-banner mb-4" role="note"><i class="bi bi-info-circle" aria-hidden="true"></i> @L["Atfm.Disclaimer"]</div>
+        <partial name="_Sections" model="intro" />
+        @if (cards.Count > 0)
+        {
+            <partial name="_Sections" model="cards" />
+        }
+    </div>
+</section>
+@if (steps.Count > 0)
+{
+    <section class="section section-dark">
+        <div class="container container-wide">
+            <div class="section-head center">
+                <div class="section-kicker">@L["Atfm.ProcessKicker"]</div>
+                <h2>@L["Atfm.ProcessTitle"]</h2>
+            </div>
+            <div class="process reveal" style="--steps:@steps.Count">
+                @foreach (var s in steps)
+                {
+                    <div class="process-step">
+                        <span class="icon-tile dark"><i class="bi @(s.Icon ?? "bi-arrow-repeat")" aria-hidden="true"></i></span>
+                        <h3>@s.Title</h3>
+                        @if (s.ContentHtml is not null)
+                        {
+                            <div class="rich-text">@Html.Raw(s.ContentHtml)</div>
+                        }
+                    </div>
+                }
+            </div>
+            <div class="text-center mt-5">
+                <a class="btn btn-gold" href="@Url.Site("/airspace-demo")"><i class="bi bi-display" aria-hidden="true"></i> @L["Demo.Open"]</a>
+            </div>
+        </div>
+    </section>
+}

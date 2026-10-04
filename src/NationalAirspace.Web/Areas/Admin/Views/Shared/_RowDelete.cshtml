@@ -1,0 +1,3 @@
+@model Guid
+<li><hr class="dropdown-divider" /></li>
+<li><post-button asp-action="Delete" asp-route-id="@Model.ToString()" text="Common.Delete" icon="bi-trash" class="dropdown-item text-danger" confirm="Admin.ConfirmDelete" /></li>

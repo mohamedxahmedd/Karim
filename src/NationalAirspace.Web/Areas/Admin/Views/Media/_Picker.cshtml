@@ -1,0 +1,44 @@
+@model PagedResult<NationalAirspace.Application.Features.Media.MediaFileDto>
+@{
+    var kind = (MediaKind)ViewData["Kind"]!;
+}
+<form class="admin-filter" method="get" asp-action="Picker" data-picker-search role="search">
+    <input type="hidden" name="kind" value="@kind" />
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-search" aria-hidden="true"></i></span>
+        <input class="form-control" type="search" name="search" value="@ViewData["Search"]" placeholder="@L["Media.SearchPlaceholder"]" aria-label="@L["Common.Search"]" maxlength="100" />
+    </div>
+    <button class="btn btn-primary" type="submit">@L["Common.Search"]</button>
+</form>
+@if (Model.Items.Count == 0)
+{
+    <p class="text-muted text-center py-4 mb-0">@L["Media.PickerEmpty"]</p>
+}
+else
+{
+    <div class="media-grid">
+        @foreach (var m in Model.Items)
+        {
+            <button type="button" class="media-pick-tile" data-media-id="@m.Id" data-media-url="@m.Url" data-media-name="@m.OriginalFileName">
+                <partial name="_MediaThumb" model="m" />
+                <span class="media-tile-body"><span class="name" dir="auto">@m.OriginalFileName</span><span class="text-muted">@m.SizeBytes.FileSize()</span></span>
+            </button>
+        }
+    </div>
+    @if (Model.TotalPages > 1)
+    {
+        <nav class="d-flex justify-content-between align-items-center mt-3" aria-label="@L["Pager.Label"]">
+            @if (Model.HasPrevious)
+            {
+                <a class="btn btn-sm btn-light" asp-action="Picker" asp-route-kind="@kind" asp-route-search="@ViewData["Search"]" asp-route-page="@(Model.Page - 1)">@L["Pager.Previous"]</a>
+            }
+            else { <span></span> }
+            <span class="small text-muted">@Model.Page / @Model.TotalPages</span>
+            @if (Model.HasNext)
+            {
+                <a class="btn btn-sm btn-light" asp-action="Picker" asp-route-kind="@kind" asp-route-search="@ViewData["Search"]" asp-route-page="@(Model.Page + 1)">@L["Pager.Next"]</a>
+            }
+            else { <span></span> }
+        </nav>
+    }
+}

@@ -1,0 +1,33 @@
+@* GET filter bar: search, status and optional category. *@
+@model ListFilterModel
+<form class="admin-filter" method="get" role="search">
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-search" aria-hidden="true"></i></span>
+        <input class="form-control" type="search" name="search" value="@Model.Search" placeholder="@L["Admin.SearchPlaceholder"]" aria-label="@L["Common.Search"]" maxlength="100" />
+    </div>
+    @if (Model.ShowStatus)
+    {
+        <select class="form-select" name="status" aria-label="@L["Field.Status"]" data-autosubmit>
+            <option value="">@L["Admin.AllStatuses"]</option>
+            @foreach (var s in Enum.GetValues<ContentStatus>())
+            {
+                <option value="@s" selected="@(Model.Status == s)">@L.Enum(s)</option>
+            }
+        </select>
+    }
+    @if (Model.Categories is { Count: > 0 })
+    {
+        <select class="form-select" name="categoryId" aria-label="@L["Field.Category"]" data-autosubmit>
+            <option value="">@L["Common.AllCategories"]</option>
+            @foreach (var c in Model.Categories)
+            {
+                <option value="@c.Value" selected="@(c.Selected)">@c.Text</option>
+            }
+        </select>
+    }
+    <button class="btn btn-primary" type="submit">@L["Common.Search"]</button>
+    @if (Model.HasFilter)
+    {
+        <a class="btn btn-link" href="?">@L["Admin.ClearFilters"]</a>
+    }
+</form>

@@ -1,0 +1,71 @@
+@model PagedResult<NationalAirspace.Application.Features.Contact.ContactMessageListItem>
+@{
+    ViewData["Title"] = L["AdminNav.Messages"];
+    var status = ViewData["Status"] as ContactMessageStatus?;
+    var search = ViewData["Search"] as string;
+}
+<form class="admin-filter" method="get" role="search">
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-search" aria-hidden="true"></i></span>
+        <input class="form-control" type="search" name="search" value="@search" placeholder="@L["Messages.SearchPlaceholder"]" aria-label="@L["Common.Search"]" maxlength="100" />
+    </div>
+    <select class="form-select" name="status" aria-label="@L["Field.Status"]" data-autosubmit>
+        <option value="">@L["Admin.AllStatuses"]</option>
+        @foreach (var s in Enum.GetValues<ContactMessageStatus>())
+        {
+            <option value="@s" selected="@(status == s)">@L.Enum(s)</option>
+        }
+    </select>
+    <button class="btn btn-primary" type="submit">@L["Common.Search"]</button>
+    @if (!string.IsNullOrEmpty(search) || status is not null)
+    {
+        <a class="btn btn-link" href="?">@L["Admin.ClearFilters"]</a>
+    }
+</form>
+<div class="admin-table-wrap">
+    @if (Model.Items.Count == 0)
+    {
+        <div class="admin-empty"><i class="bi bi-envelope-open" aria-hidden="true"></i>@L["Messages.Empty"]</div>
+    }
+    else
+    {
+        <table class="table admin-table table-hover">
+            <thead><tr><th scope="col">@L["Field.Subject"]</th><th scope="col">@L["Messages.From"]</th><th scope="col">@L["Field.Status"]</th><th scope="col">@L["Messages.Received"]</th><th scope="col" class="col-actions"><span class="visually-hidden">@L["Admin.Actions"]</span></th></tr></thead>
+            <tbody>
+                @foreach (var m in Model.Items)
+                {
+                    <tr class="@(m.Status == ContactMessageStatus.New ? "fw-semibold" : "")">
+                        <td><a class="row-title" asp-action="Details" asp-route-id="@m.Id">@m.Subject</a></td>
+                        <td data-label="@L["Messages.From"]">@m.Name<span class="row-sub fw-normal" dir="ltr">@m.Email</span></td>
+                        <td data-label="@L["Field.Status"]"><partial name="_MessageStatus" model="m.Status" /></td>
+                        <td data-label="@L["Messages.Received"]" class="small fw-normal">@Clock.DateTimeText(m.CreatedAtUtc)</td>
+                        <td class="col-actions">
+                            <div class="row-actions">
+                                <a class="btn btn-sm btn-outline-primary" asp-action="Details" asp-route-id="@m.Id"><i class="bi bi-envelope-open" aria-hidden="true"></i> <span class="d-none d-lg-inline">@L["Messages.Open"]</span></a>
+                                <div class="dropdown">
+                                    <partial name="_MoreToggle" />
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        @if (m.Status != ContactMessageStatus.Read)
+                                        {
+                                            <li><post-button asp-action="Status" asp-route-id="@m.Id.ToString()" asp-route-status="Read" text="Messages.MarkRead" icon="bi-envelope-open" class="dropdown-item" /></li>
+                                        }
+                                        @if (m.Status != ContactMessageStatus.Replied)
+                                        {
+                                            <li><post-button asp-action="Status" asp-route-id="@m.Id.ToString()" asp-route-status="Replied" text="Messages.MarkReplied" icon="bi-reply" class="dropdown-item" /></li>
+                                        }
+                                        @if (m.Status != ContactMessageStatus.New)
+                                        {
+                                            <li><post-button asp-action="Status" asp-route-id="@m.Id.ToString()" asp-route-status="New" text="Messages.MarkUnread" icon="bi-envelope" class="dropdown-item" /></li>
+                                        }
+                                        <partial name="_RowDelete" model="m.Id" />
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<partial name="_Pager" model="new PagerModel(Model.Page, Model.TotalPages, Context.Request)" />

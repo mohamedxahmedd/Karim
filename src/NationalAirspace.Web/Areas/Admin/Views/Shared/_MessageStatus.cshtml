@@ -1,0 +1,10 @@
+@model ContactMessageStatus
+@{
+    var (css, icon) = Model switch
+    {
+        ContactMessageStatus.New => ("text-bg-warning", "bi-envelope-fill"),
+        ContactMessageStatus.Read => ("text-bg-light border", "bi-envelope-open"),
+        _ => ("text-bg-success", "bi-reply-fill"),
+    };
+}
+<span class="badge @css"><i class="bi @icon" aria-hidden="true"></i> @L.Enum(Model)</span>

@@ -1,0 +1,37 @@
+@model AdminFormModel<NationalAirspace.Application.Features.MediaCenter.AlbumInput>
+@{ ViewData["Title"] = Model.IsNew ? L["Albums.Create"] : L["Albums.Edit"]; }
+@section Actions {
+    @if (!Model.IsNew)
+    {
+        <a class="btn btn-outline-primary" asp-action="Photos" asp-route-id="@Model.Input.Id"><i class="bi bi-images" aria-hidden="true"></i> @L["Albums.ManagePhotos"]</a>
+    }
+}
+<form method="post" asp-action="@(Model.IsNew ? "Create" : "Edit")" asp-route-id="@Model.Input.Id" novalidate>
+    <input type="hidden" asp-for="Input.ConcurrencyStamp" />
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <div class="admin-card">
+                <partial name="_LangTabsNav" model="false" />
+                <div class="tab-content pt-4">
+                    <div class="tab-pane fade show active" id="tab-ar" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleAr" />
+                        <field asp-for="Input.DescriptionAr" type="textarea" rows="4" />
+                    </div>
+                    <div class="tab-pane fade" id="tab-en" role="tabpanel" tabindex="0">
+                        <field asp-for="Input.TitleEn" />
+                        <field asp-for="Input.DescriptionEn" type="textarea" rows="4" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="admin-card">
+                <h2 class="admin-card-title">@L["Admin.Publishing"]</h2>
+                <field asp-for="Input.Status" type="select" items="L.EnumOptions<ContentStatus>()" />
+                <field asp-for="Input.EventDate" type="date" />
+            </div>
+            <partial name="_FormActions" model="!Model.IsNew" />
+        </div>
+    </div>
+</form>

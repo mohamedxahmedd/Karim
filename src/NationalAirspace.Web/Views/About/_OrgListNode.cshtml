@@ -1,0 +1,18 @@
+@model NationalAirspace.Application.Features.Departments.DepartmentNodeDto
+<li>
+    <div class="org-node">@Model.Name
+        @if (Model.Description is not null)
+        {
+            <small>@Model.Description</small>
+        }
+    </div>
+    @if (Model.Children.Count > 0)
+    {
+        <ul>
+            @foreach (var child in Model.Children)
+            {
+                <partial name="_OrgListNode" model="child" />
+            }
+        </ul>
+    }
+</li>

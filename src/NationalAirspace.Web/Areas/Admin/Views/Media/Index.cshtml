@@ -1,0 +1,59 @@
+@model PagedResult<NationalAirspace.Application.Features.Media.MediaFileDto>
+@using NationalAirspace.Application.Features.Media
+@{
+    ViewData["Title"] = L["AdminNav.Library"];
+    var kind = ViewData["Kind"] as MediaKind?;
+    var accept = FileSignatures.AcceptAttribute(MediaKind.Image) + "," + FileSignatures.AcceptAttribute(MediaKind.Document);
+}
+<div class="admin-card mb-4">
+    <h2 class="admin-card-title">@L["Media.UploadTitle"]</h2>
+    <form method="post" asp-action="Upload" enctype="multipart/form-data" class="d-flex flex-wrap gap-2 align-items-start">
+        <div class="flex-grow-1" style="min-width: 240px">
+            <label class="visually-hidden" for="files">@L["Media.ChooseFiles"]</label>
+            <input class="form-control" type="file" id="files" name="files" multiple accept="@accept" required />
+            <div class="form-text">@L["Media.UploadManyHint"]</div>
+        </div>
+        <button class="btn btn-primary" type="submit"><i class="bi bi-cloud-upload" aria-hidden="true"></i> @L["Media.Upload"]</button>
+    </form>
+</div>
+
+<form class="admin-filter" method="get" role="search">
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-search" aria-hidden="true"></i></span>
+        <input class="form-control" type="search" name="search" value="@ViewData["Search"]" placeholder="@L["Media.SearchPlaceholder"]" aria-label="@L["Common.Search"]" maxlength="100" />
+    </div>
+    <select class="form-select" name="kind" aria-label="@L["Media.Kind"]" data-autosubmit>
+        <option value="">@L["Media.AllKinds"]</option>
+        @foreach (var k in Enum.GetValues<MediaKind>())
+        {
+            <option value="@k" selected="@(kind == k)">@L.Enum(k)</option>
+        }
+    </select>
+    <button class="btn btn-primary" type="submit">@L["Common.Search"]</button>
+</form>
+
+@if (Model.Items.Count == 0)
+{
+    <div class="admin-table-wrap"><partial name="_TableEmpty" /></div>
+}
+else
+{
+    <p class="text-muted small">@L["Media.Count", Model.TotalCount]</p>
+    <div class="media-grid">
+        @foreach (var m in Model.Items)
+        {
+            <div class="media-tile">
+                <a asp-action="Edit" asp-route-id="@m.Id" class="text-decoration-none" aria-label="@m.OriginalFileName"><partial name="_MediaThumb" model="m" /></a>
+                <div class="media-tile-body">
+                    <span class="name" title="@m.OriginalFileName" dir="auto">@m.OriginalFileName</span>
+                    <span class="text-muted">@m.SizeBytes.FileSize() · @L.Enum(m.Kind)</span>
+                    @if (m.Kind == MediaKind.Image && string.IsNullOrEmpty(m.AltTextAr) && string.IsNullOrEmpty(m.AltTextEn))
+                    {
+                        <span class="d-block text-warning-emphasis"><i class="bi bi-exclamation-circle" aria-hidden="true"></i> @L["Media.MissingAlt"]</span>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}
+<partial name="_Pager" model="new PagerModel(Model.Page, Model.TotalPages, Context.Request)" />

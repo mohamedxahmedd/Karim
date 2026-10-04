@@ -1,0 +1,14 @@
+@* Publish / unpublish / archive menu items for a list row. *@
+@model StatusActionsModel
+@if (Model.Status != ContentStatus.Published)
+{
+    <li><post-button asp-action="Status" asp-route-id="@Model.Id.ToString()" asp-route-status="Published" text="Admin.Publish" icon="bi-check2-circle" class="dropdown-item" /></li>
+}
+@if (Model.Status == ContentStatus.Published)
+{
+    <li><post-button asp-action="Status" asp-route-id="@Model.Id.ToString()" asp-route-status="Draft" text="Admin.Unpublish" icon="bi-eye-slash" class="dropdown-item" /></li>
+}
+@if (Model.Status != ContentStatus.Archived)
+{
+    <li><post-button asp-action="Status" asp-route-id="@Model.Id.ToString()" asp-route-status="Archived" text="Admin.Archive" icon="bi-archive" class="dropdown-item" /></li>
+}

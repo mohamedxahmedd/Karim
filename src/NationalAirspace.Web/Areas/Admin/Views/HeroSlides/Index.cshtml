@@ -1,0 +1,40 @@
+@model IReadOnlyList<NationalAirspace.Application.Features.Home.HeroSlideAdminItem>
+@{ ViewData["Title"] = L["AdminNav.HeroSlides"]; ViewData["Subtitle"] = L["HeroSlides.Subtitle"]; }
+@section Actions {
+    <a class="btn btn-primary" asp-action="Create"><i class="bi bi-plus-lg" aria-hidden="true"></i> @L["HeroSlides.Create"]</a>
+}
+<div class="admin-table-wrap">
+    @if (Model.Count == 0)
+    {
+        <partial name="_TableEmpty" />
+    }
+    else
+    {
+        <table class="table admin-table">
+            <thead><tr><th scope="col"><span class="visually-hidden">@L["Field.ImageId"]</span></th><th scope="col">@L["Field.Title"]</th><th scope="col">@L["Field.Status"]</th><th scope="col">@L["Admin.Order"]</th><th scope="col" class="col-actions"><span class="visually-hidden">@L["Admin.Actions"]</span></th></tr></thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@if (x.ImageUrl is not null) { <img class="row-thumb" src="@x.ImageUrl" alt="" loading="lazy" /> } else { <span class="row-thumb d-inline-flex align-items-center justify-content-center"><i class="bi bi-easel" aria-hidden="true"></i></span> }</td>
+                        <td><a class="row-title" asp-action="Edit" asp-route-id="@x.Id">@Bilingual.Pick(x.TitleAr, x.TitleEn)</a></td>
+                        <td data-label="@L["Field.Status"]"><partial name="_ActiveBadge" model="x.IsActive" /></td>
+                        <td data-label="@L["Admin.Order"]"><partial name="_MoveButtons" model="x.Id" /></td>
+                        <td class="col-actions">
+                            <div class="row-actions">
+                                <partial name="_EditLink" model="x.Id" />
+                                <div class="dropdown">
+                                    <partial name="_MoreToggle" />
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><post-button asp-action="Toggle" asp-route-id="@x.Id.ToString()" text="@(x.IsActive ? "Admin.Hide" : "Admin.Show")" icon="@(x.IsActive ? "bi-eye-slash" : "bi-eye")" class="dropdown-item" /></li>
+                                        <partial name="_RowDelete" model="x.Id" />
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
