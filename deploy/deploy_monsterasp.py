@@ -106,7 +106,13 @@ def upload(secrets_, dry_run):
             print(f"  uploaded {min(i + batch, len(files))}/{len(files)}")
     finally:
         if not failed:
-            _curl(secrets_, [f"url = {_q(base_url + REMOTE_ROOT + '/')}", f"quote = {_q('DELE ' + REMOTE_ROOT + '/app_offline.htm')}"], ["--list-only", "-o", os.devnull])
+            # Retry: if this delete fails the whole site stays on the maintenance page.
+            for attempt in range(3):
+                if _curl(secrets_, [f"url = {_q(base_url + REMOTE_ROOT + '/')}", f"quote = {_q('DELE ' + REMOTE_ROOT + '/app_offline.htm')}"], ["--list-only", "-o", os.devnull]) == 0:
+                    break
+                time.sleep(5)
+            else:
+                sys.exit("files uploaded but app_offline.htm could not be removed; delete it over FTP to bring the site back")
     if failed:
         sys.exit("deploy incomplete: app_offline.htm left in place so visitors see the maintenance page; rerun the deploy")
 

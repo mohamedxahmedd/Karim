@@ -11,11 +11,11 @@
                     @if (Model.Sent)
                     {
                         <div class="alert alert-success d-flex gap-2 align-items-start" role="status">
-                            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                            <i class="ph-light ph-check-circle" aria-hidden="true"></i>
                             <div><strong>@L["Contact.SentTitle"]</strong><br />@L["Contact.SentText"]</div>
                         </div>
                     }
-                    <form method="post" action="@Url.Site("/contact")" novalidate>
+                    <form method="post" action="@Url.Site("/contact")" asp-antiforgery="true" novalidate>
                         <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
                         <div class="row">
                             <div class="col-md-6"><field asp-for="Input.Name" dir="auto" /></div>
@@ -30,8 +30,8 @@
                             <input type="text" id="Website" name="Website" tabindex="-1" autocomplete="off" />
                         </div>
                         <input type="hidden" name="FormToken" value="@Model.FormToken" />
-                        <p class="small text-muted"><i class="bi bi-shield-lock" aria-hidden="true"></i> @L["Contact.Privacy"]</p>
-                        <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-send" aria-hidden="true"></i> @L["Contact.Send"]</button>
+                        <p class="small text-muted"><i class="ph-light ph-lock-simple" aria-hidden="true"></i> @L["Contact.Privacy"]</p>
+                        <button type="submit" class="btn btn-primary btn-lg"><i class="ph-light ph-paper-plane-tilt" aria-hidden="true"></i> @L["Contact.Send"]</button>
                     </form>
                 </div>
             </div>
@@ -40,30 +40,30 @@
                     <h2>@L["Contact.Details"]</h2>
                     @if (site.Address is not null)
                     {
-                        <div class="contact-card"><span class="icon-tile"><i class="bi bi-geo-alt" aria-hidden="true"></i></span><div><h3>@L["Contact.Address"]</h3><p>@site.Address</p></div></div>
+                        <div class="contact-card"><span class="icon-tile"><i class="ph-light ph-map-pin" aria-hidden="true"></i></span><div><h3>@L["Contact.Address"]</h3><p>@site.Address</p></div></div>
                     }
                     @if (site.Phone is not null)
                     {
-                        <div class="contact-card"><span class="icon-tile"><i class="bi bi-telephone" aria-hidden="true"></i></span><div><h3>@L["Field.Phone"]</h3><a class="ltr-nums" href="tel:@site.Phone.Replace(" ", "")">@site.Phone</a></div></div>
+                        <div class="contact-card"><span class="icon-tile"><i class="ph-light ph-phone" aria-hidden="true"></i></span><div><h3>@L["Field.Phone"]</h3><a class="ltr-nums" href="tel:@site.Phone.Replace(" ", "")">@site.Phone</a></div></div>
                     }
                     @if (site.Fax is not null)
                     {
-                        <div class="contact-card"><span class="icon-tile"><i class="bi bi-printer" aria-hidden="true"></i></span><div><h3>@L["Field.Fax"]</h3><p class="ltr-nums">@site.Fax</p></div></div>
+                        <div class="contact-card"><span class="icon-tile"><i class="ph-light ph-printer" aria-hidden="true"></i></span><div><h3>@L["Field.Fax"]</h3><p class="ltr-nums">@site.Fax</p></div></div>
                     }
                     @if (site.Email is not null)
                     {
-                        <div class="contact-card"><span class="icon-tile"><i class="bi bi-envelope" aria-hidden="true"></i></span><div><h3>@L["Field.Email"]</h3><a href="mailto:@site.Email">@site.Email</a></div></div>
+                        <div class="contact-card"><span class="icon-tile"><i class="ph-light ph-envelope-simple" aria-hidden="true"></i></span><div><h3>@L["Field.Email"]</h3><a href="mailto:@site.Email">@site.Email</a></div></div>
                     }
                     @if (site.WorkingHours is not null)
                     {
-                        <div class="contact-card"><span class="icon-tile"><i class="bi bi-clock" aria-hidden="true"></i></span><div><h3>@L["Contact.WorkingHours"]</h3><p>@site.WorkingHours</p></div></div>
+                        <div class="contact-card"><span class="icon-tile"><i class="ph-light ph-clock" aria-hidden="true"></i></span><div><h3>@L["Contact.WorkingHours"]</h3><p>@site.WorkingHours</p></div></div>
                     }
                     @if (site.Social.Count > 0)
                     {
                         <div class="social mt-4">
                             @foreach (var s in site.Social)
                             {
-                                <a class="btn btn-outline-primary btn-sm" href="@s.Url" target="_blank" rel="noopener noreferrer" aria-label="@s.Network"><i class="bi @s.Icon" aria-hidden="true"></i></a>
+                                <a class="btn btn-outline-primary btn-sm" href="@s.Url" target="_blank" rel="noopener noreferrer" aria-label="@s.Network"><i class="ph-light @s.Icon" aria-hidden="true"></i></a>
                             }
                         </div>
                     }
@@ -75,7 +75,7 @@
                     }
                     else
                     {
-                        <div class="map-placeholder"><div><i class="bi bi-map fs-2 d-block mb-2" aria-hidden="true"></i>@L["Contact.MapPlaceholder"]</div></div>
+                        <div class="map-placeholder"><div><i class="ph-light ph-map-trifold fs-2 d-block mb-2" aria-hidden="true"></i>@L["Contact.MapPlaceholder"]</div></div>
                     }
                 </div>
             </aside>

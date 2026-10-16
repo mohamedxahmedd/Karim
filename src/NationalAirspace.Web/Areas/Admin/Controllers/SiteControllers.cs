@@ -346,6 +346,37 @@ public sealed class MenusController(MenuService menus) : AdminControllerBase
     }
 }
 
+/// <summary>Footer texts in one place; also lists the footer menu links for users allowed to manage menus.</summary>
+[Authorize(Policy = Permissions.Settings)]
+public sealed class FooterController(SettingsService settings, MenuService menus, IAuthorizationService authorization) : AdminControllerBase
+{
+    [HttpGet]
+    public async Task<IActionResult> Index() => await Form(await settings.GetFooterForEditAsync(Ct));
+
+    [HttpPost]
+    public async Task<IActionResult> Index(FooterSettingsInput input)
+    {
+        if (ModelState.IsValid)
+        {
+            var result = await settings.UpdateFooterAsync(input, Ct);
+            if (result.Succeeded)
+            {
+                Success();
+                return RedirectToAction(nameof(Index));
+            }
+            ModelState.AddResultErrors(result, L, prefix: string.Empty);
+        }
+        return await Form(input);
+    }
+
+    private async Task<IActionResult> Form(FooterSettingsInput input)
+    {
+        if ((await authorization.AuthorizeAsync(User, Permissions.Menus)).Succeeded)
+            ViewData["FooterLinks"] = await menus.GetTreeAsync(MenuLocation.Footer, Ct);
+        return View(input);
+    }
+}
+
 [Authorize(Policy = Permissions.Settings)]
 public sealed class SettingsController(SettingsService settings) : AdminControllerBase
 {

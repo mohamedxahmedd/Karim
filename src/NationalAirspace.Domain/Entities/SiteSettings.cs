@@ -29,6 +29,14 @@ public class SiteSettings : AuditableEntity
     public string? InstagramUrl { get; set; }
     public string? FooterTextAr { get; set; }
     public string? FooterTextEn { get; set; }
+    /// <summary>Footer column headings; empty falls back to the built-in localized defaults.</summary>
+    public string? FooterLinksTitleAr { get; set; }
+    public string? FooterLinksTitleEn { get; set; }
+    public string? FooterContactTitleAr { get; set; }
+    public string? FooterContactTitleEn { get; set; }
+    /// <summary>Text after "© {year}" in the footer bar; empty falls back to "{site name}. All rights reserved."</summary>
+    public string? FooterCopyrightAr { get; set; }
+    public string? FooterCopyrightEn { get; set; }
     public string? DefaultMetaDescriptionAr { get; set; }
     public string? DefaultMetaDescriptionEn { get; set; }
 }

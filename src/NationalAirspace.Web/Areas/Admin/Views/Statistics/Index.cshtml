@@ -16,7 +16,7 @@
                 @foreach (var x in Model)
                 {
                     <tr>
-                        <td><i class="bi @(x.Icon ?? "bi-bar-chart") text-primary me-1" aria-hidden="true"></i> <span class="fw-bold" dir="ltr">@x.Value</span></td>
+                        <td><i class="ph-light @(x.Icon ?? "ph-chart-bar") text-primary me-1" aria-hidden="true"></i> <span class="fw-bold" dir="ltr">@x.Value</span></td>
                         <td data-label="@L["Field.Label"]"><a class="row-title fw-normal" asp-action="Edit" asp-route-id="@x.Id">@Bilingual.Pick(x.LabelAr, x.LabelEn)</a></td>
                         <td data-label="@L["Field.Status"]"><partial name="_ActiveBadge" model="x.IsActive" /></td>
                         <td data-label="@L["Admin.Order"]"><partial name="_MoveButtons" model="x.Id" /></td>

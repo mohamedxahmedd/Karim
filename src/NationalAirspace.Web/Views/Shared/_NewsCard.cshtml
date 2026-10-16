@@ -11,7 +11,7 @@
         }
     </div>
     <div class="card-body-namc">
-        <div class="card-meta"><span><i class="bi bi-calendar3" aria-hidden="true"></i> <time datetime="@Clock.IsoDate(Model.PublishDateUtc)">@Clock.LongDate(Model.PublishDateUtc)</time></span></div>
+        <div class="card-meta"><span><i class="ph-light ph-calendar-blank" aria-hidden="true"></i> <time datetime="@Clock.IsoDate(Model.PublishDateUtc)">@Clock.LongDate(Model.PublishDateUtc)</time></span></div>
         <h3 class="line-clamp-2">@Model.Title</h3>
         @if (Model.Summary is not null)
         {

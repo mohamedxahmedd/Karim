@@ -14,7 +14,7 @@ public class ServiceInput
     [StringLength(1000, ErrorMessage = V.MaxLength)] public string? ShortDescriptionEn { get; set; }
     public string? ContentAr { get; set; }
     public string? ContentEn { get; set; }
-    [StringLength(64, ErrorMessage = V.MaxLength), RegularExpression("^bi-[a-z0-9-]+$", ErrorMessage = "Val.Icon")] public string? Icon { get; set; }
+    [StringLength(64, ErrorMessage = V.MaxLength), IconName] public string? Icon { get; set; }
     public Guid? CoverImageId { get; set; }
     public ContentStatus Status { get; set; } = ContentStatus.Draft;
     [Slug, StringLength(150, ErrorMessage = V.MaxLength)] public string? SlugAr { get; set; }

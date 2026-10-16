@@ -9,6 +9,7 @@ using NationalAirspace.Application.Features.Training;
 using NationalAirspace.Domain.Entities;
 using NationalAirspace.Domain.Enums;
 
+
 namespace NationalAirspace.Application.Features.Home;
 
 /// <summary>Builds the homepage from its admin-managed blocks; only visible blocks load their data.</summary>

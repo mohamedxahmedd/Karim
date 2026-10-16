@@ -2,6 +2,16 @@
 @{
     ViewData["Title"] = null;
 }
+@section Head {
+    <script src="~/js/anim-boot.js" asp-append-version="true"></script>
+}
+@section Scripts {
+    <script src="~/lib/gsap/gsap.min.js"></script>
+    <script src="~/lib/gsap/ScrollTrigger.min.js"></script>
+    <script src="~/lib/gsap/SplitText.min.js"></script>
+    <script src="~/lib/gsap/MotionPathPlugin.min.js"></script>
+    <script src="~/js/home.js" asp-append-version="true"></script>
+}
 @if (Model.Slides.Count > 0)
 {
     <section class="hero" aria-label="@L["Home.Highlights"]">
@@ -21,10 +31,14 @@
                     var slide = Model.Slides[i];
                     <div class="carousel-item @(i == 0 ? "active" : "")">
                         <div class="hero-slide">
-                            <div class="hero-bg @(slide.Image is not null ? "has-image" : "")">
+                            <div class="hero-bg @(slide.Image is not null ? "has-image" : "has-radar")">
                                 @if (slide.Image is not null)
                                 {
                                     <img src="@slide.Image.Url" alt="" fetchpriority="@(i == 0 ? "high" : "low")" />
+                                }
+                                else
+                                {
+                                    <partial name="_HeroRadar" model="i" />
                                 }
                             </div>
                             <div class="container container-wide">

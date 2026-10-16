@@ -16,19 +16,6 @@
             </div>
         }
         <partial name="_Sections" model="Model.Sections" />
-        @if (ViewData["ShowDemoLink"] is true)
-        {
-            <div class="vm-card d-flex flex-column flex-md-row gap-3 align-items-md-center justify-content-between reveal">
-                <div class="d-flex gap-3 align-items-start">
-                    <span class="icon-tile gold"><i class="bi bi-display" aria-hidden="true"></i></span>
-                    <div>
-                        <h2 class="h5 mb-1">@L["Demo.Title"]</h2>
-                        <p class="text-muted mb-0">@L["Demo.CallToAction"]</p>
-                    </div>
-                </div>
-                <a class="btn btn-primary flex-shrink-0" href="@Url.Site("/airspace-demo")">@L["Demo.Open"]</a>
-            </div>
-        }
-        <p class="text-muted small mt-4 mb-0"><i class="bi bi-clock-history" aria-hidden="true"></i> @L["Common.LastUpdated"]: @Clock.LongDate(Model.UpdatedAtUtc)</p>
+        <p class="text-muted small mt-4 mb-0"><i class="ph-light ph-clock-counter-clockwise" aria-hidden="true"></i> @L["Common.LastUpdated"]: @Clock.LongDate(Model.UpdatedAtUtc)</p>
     </div>
 </section>

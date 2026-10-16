@@ -8,7 +8,7 @@
 <partial name="_PageHero" />
 <section class="section">
     <div class="container container-wide">
-        <div class="demo-banner mb-4" role="note"><i class="bi bi-info-circle" aria-hidden="true"></i> @L["Atfm.Disclaimer"]</div>
+        <div class="demo-banner mb-4" role="note"><i class="ph-light ph-info" aria-hidden="true"></i> @L["Atfm.Disclaimer"]</div>
         <partial name="_Sections" model="intro" />
         @if (cards.Count > 0)
         {
@@ -28,7 +28,7 @@
                 @foreach (var s in steps)
                 {
                     <div class="process-step">
-                        <span class="icon-tile dark"><i class="bi @(s.Icon ?? "bi-arrow-repeat")" aria-hidden="true"></i></span>
+                        <span class="icon-tile dark"><i class="ph-light @(s.Icon ?? "ph-arrows-clockwise")" aria-hidden="true"></i></span>
                         <h3>@s.Title</h3>
                         @if (s.ContentHtml is not null)
                         {
@@ -36,9 +36,6 @@
                         }
                     </div>
                 }
-            </div>
-            <div class="text-center mt-5">
-                <a class="btn btn-gold" href="@Url.Site("/airspace-demo")"><i class="bi bi-display" aria-hidden="true"></i> @L["Demo.Open"]</a>
             </div>
         </div>
     </section>

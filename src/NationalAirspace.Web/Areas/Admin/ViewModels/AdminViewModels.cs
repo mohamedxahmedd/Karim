@@ -40,3 +40,8 @@ public sealed class MediaEditModel(NationalAirspace.Application.Features.Media.M
 public sealed record AlbumPhotosModel(
     NationalAirspace.Application.Features.MediaCenter.AlbumInput Album,
     IReadOnlyList<NationalAirspace.Application.Features.MediaCenter.AlbumPhotoAdminItem> Photos);
+
+/// <summary>Icon picker shown under an icon text field (the field stays the source of truth and works without JavaScript).</summary>
+public sealed record IconPickerModel(string? Value, string InputId = "Input_Icon");
+
+/// <summary>Mini map of the demo grid: which cells hold which sector (the edited one is highlighted).</summary>

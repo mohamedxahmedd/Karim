@@ -20,7 +20,7 @@
                 {
                     <div class="col-md-6 col-lg-@(group.Items.Count % 3 == 0 || group.Items.Count > 4 ? "4" : "6") reveal">
                         <div class="card-namc feature-card" id="@s.Key">
-                            <span class="icon-tile"><i class="bi @(s.Icon ?? "bi-check2-circle")" aria-hidden="true"></i></span>
+                            <span class="icon-tile"><i class="ph-light @(s.Icon ?? "ph-check-circle")" aria-hidden="true"></i></span>
                             <h2 class="h5 mb-0">@s.Title</h2>
                             @if (s.ContentHtml is not null)
                             {
@@ -36,7 +36,7 @@
                 @foreach (var s in group.Items)
                 {
                     <div class="process-step">
-                        <span class="icon-tile gold"><i class="bi @(s.Icon ?? "bi-arrow-repeat")" aria-hidden="true"></i></span>
+                        <span class="icon-tile gold"><i class="ph-light @(s.Icon ?? "ph-arrows-clockwise")" aria-hidden="true"></i></span>
                         <h3>@s.Title</h3>
                         @if (s.ContentHtml is not null)
                         {
@@ -56,7 +56,7 @@
                             <h2 class="h4 d-flex align-items-center gap-2">
                                 @if (s.Icon is not null)
                                 {
-                                    <span class="icon-tile @(highlight ? "gold" : "")"><i class="bi @s.Icon" aria-hidden="true"></i></span>
+                                    <span class="icon-tile @(highlight ? "gold" : "")"><i class="ph-light @s.Icon" aria-hidden="true"></i></span>
                                 }
                                 @s.Title
                             </h2>

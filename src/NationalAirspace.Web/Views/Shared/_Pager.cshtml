@@ -5,7 +5,7 @@
         <ul class="pagination justify-content-center flex-wrap">
             <li class="page-item @(Model.Page <= 1 ? "disabled" : "")">
                 <a class="page-link" href="@(Model.Page <= 1 ? "#" : Model.UrlFor(Model.Page - 1))" aria-label="@L["Pager.Previous"]" rel="prev">
-                    <i class="bi bi-chevron-@(CultureHelper.CurrentLang == Lang.Ar ? "right" : "left")" aria-hidden="true"></i>
+                    <i class="ph-light ph-caret-@(CultureHelper.CurrentLang == Lang.Ar ? "right" : "left")" aria-hidden="true"></i>
                 </a>
             </li>
             @foreach (var p in Model.Window())
@@ -23,7 +23,7 @@
             }
             <li class="page-item @(Model.Page >= Model.TotalPages ? "disabled" : "")">
                 <a class="page-link" href="@(Model.Page >= Model.TotalPages ? "#" : Model.UrlFor(Model.Page + 1))" aria-label="@L["Pager.Next"]" rel="next">
-                    <i class="bi bi-chevron-@(CultureHelper.CurrentLang == Lang.Ar ? "left" : "right")" aria-hidden="true"></i>
+                    <i class="ph-light ph-caret-@(CultureHelper.CurrentLang == Lang.Ar ? "left" : "right")" aria-hidden="true"></i>
                 </a>
             </li>
         </ul>

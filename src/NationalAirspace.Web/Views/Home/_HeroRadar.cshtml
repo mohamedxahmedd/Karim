@@ -1,0 +1,41 @@
+@model int
+@* Live version of img/hero-pattern.svg: the same radar, split into parts that home.js animates. *@
+@{ var id = $"radar{Model}"; }
+<svg class="hero-radar" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <defs>
+        <linearGradient id="@(id)-sweep" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#9cc3ee" stop-opacity="0" />
+            <stop offset="1" stop-color="#9cc3ee" stop-opacity=".16" />
+        </linearGradient>
+    </defs>
+    <g class="radar-grid" fill="none" stroke="#9cc3ee" stroke-opacity=".14">
+        <circle class="radar-ring" cx="1180" cy="400" r="120" />
+        <circle class="radar-ring" cx="1180" cy="400" r="240" />
+        <circle class="radar-ring" cx="1180" cy="400" r="360" />
+        <circle class="radar-ring" cx="1180" cy="400" r="480" />
+        <circle class="radar-ring" cx="1180" cy="400" r="600" />
+        <path class="radar-axis" d="M1180 -200V1000M580 400H1780" />
+    </g>
+    <g class="radar-sweep">
+        <path d="M1180 400 L1780 400 A600 600 0 0 0 1704 107 Z" fill="url(#@(id)-sweep)" />
+        <path d="M1180 400 L1780 400" stroke="#9cc3ee" stroke-opacity=".35" />
+    </g>
+    <g class="radar-routes" fill="none" stroke="#cfa94f" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="6 10">
+        <path id="@(id)-route-1" d="M-40 640 C 320 520, 700 300, 1180 400" />
+        <path id="@(id)-route-2" d="M200 860 C 520 640, 900 560, 1180 400" />
+        <path id="@(id)-route-3" d="M1180 400 C 1340 300, 1460 160, 1660 120" />
+    </g>
+    <g class="radar-blips" fill="#cfa94f" fill-opacity=".7">
+        <circle class="radar-blip" cx="760" cy="350" r="3" />
+        <circle class="radar-blip" cx="520" cy="700" r="3" />
+        <circle class="radar-blip" cx="1440" cy="210" r="3" />
+    </g>
+    <circle class="radar-ping" cx="1180" cy="400" r="5" fill="none" stroke="#cfa94f" stroke-opacity=".8" />
+    <circle class="radar-center" cx="1180" cy="400" r="5" fill="#cfa94f" />
+    @* Aircraft markers; each one flies its route (data-route) and is hidden until animated. *@
+    <g class="radar-aircraft" fill="#e8d6a6">
+        <path data-route="#@(id)-route-1" d="M8 0 L-6 -5 L-3 0 L-6 5 Z" opacity="0" />
+        <path data-route="#@(id)-route-2" d="M8 0 L-6 -5 L-3 0 L-6 5 Z" opacity="0" />
+        <path data-route="#@(id)-route-3" d="M8 0 L-6 -5 L-3 0 L-6 5 Z" opacity="0" />
+    </g>
+</svg>

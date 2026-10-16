@@ -36,6 +36,7 @@
                 <h2 class="admin-card-title">@L["Admin.Publishing"]</h2>
                 <field asp-for="Input.Status" type="select" items="L.EnumOptions<ContentStatus>()" />
                 <field asp-for="Input.Icon" dir="ltr" placeholder="Admin.IconPlaceholder" hint="Admin.IconHint" />
+                <partial name="_IconPicker" model="new IconPickerModel(Model.Input.Icon)" />
                 <media-field asp-for="Input.CoverImageId" kind="Image" upload="CoverImageUpload" />
             </div>
             <partial name="_FormActions" model="true" />

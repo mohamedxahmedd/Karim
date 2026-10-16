@@ -61,6 +61,13 @@ public sealed class HttpsUrlAttribute : ValidationAttribute
     public override bool IsValid(object? value) => InputValidator.IsHttpsUrl(value as string);
 }
 
+/// <summary>Accepts empty or a Phosphor icon class name such as "ph-airplane-tilt".</summary>
+[AttributeUsage(AttributeTargets.Property)]
+public sealed class IconNameAttribute : RegularExpressionAttribute
+{
+    public IconNameAttribute() : base(IconCatalog.Pattern) => ErrorMessage = "Val.Icon";
+}
+
 /// <summary>Accepts empty or a valid slug.</summary>
 [AttributeUsage(AttributeTargets.Property)]
 public sealed class SlugAttribute : ValidationAttribute

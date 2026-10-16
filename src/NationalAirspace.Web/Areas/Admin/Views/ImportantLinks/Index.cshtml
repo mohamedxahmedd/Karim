@@ -17,7 +17,7 @@
                 {
                     <tr>
                         <td>
-                            <i class="bi @(x.Icon ?? "bi-link-45deg") text-primary me-1" aria-hidden="true"></i> <a class="row-title" asp-action="Edit" asp-route-id="@x.Id">@Bilingual.Pick(x.TitleAr, x.TitleEn)</a>
+                            <i class="ph-light @(x.Icon ?? "ph-link-simple") text-primary me-1" aria-hidden="true"></i> <a class="row-title" asp-action="Edit" asp-route-id="@x.Id">@Bilingual.Pick(x.TitleAr, x.TitleEn)</a>
                             <span class="row-sub" dir="ltr">@x.Url</span>
                         </td>
                         <td data-label="@L["Field.Status"]"><partial name="_ActiveBadge" model="x.IsActive" /></td>

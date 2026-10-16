@@ -34,8 +34,11 @@
   <data name="Admin.Files" xml:space="preserve"><value>الملفات</value></data>
   <data name="Admin.Hidden" xml:space="preserve"><value>مخفي</value></data>
   <data name="Admin.Hide" xml:space="preserve"><value>إخفاء</value></data>
-  <data name="Admin.IconHint" xml:space="preserve"><value>اسم أيقونة من Bootstrap Icons مثل bi-airplane. اتركه فارغًا لاستخدام الأيقونة الافتراضية.</value></data>
-  <data name="Admin.IconPlaceholder" xml:space="preserve"><value>bi-airplane</value></data>
+  <data name="Admin.IconChoose" xml:space="preserve"><value>اختيار أيقونة</value></data>
+  <data name="Admin.IconHint" xml:space="preserve"><value>اختر من القائمة بالأسفل، أو اكتب اسم أي أيقونة من Phosphor مثل ph-airplane-tilt. اتركه فارغًا لاستخدام الأيقونة الافتراضية.</value></data>
+  <data name="Admin.IconPlaceholder" xml:space="preserve"><value>ph-airplane-tilt</value></data>
+  <data name="Admin.IconSearch" xml:space="preserve"><value>ابحث عن أيقونة…</value></data>
+  <data name="Admin.IconUseDefault" xml:space="preserve"><value>استخدام الأيقونة الافتراضية</value></data>
   <data name="Admin.Inactive" xml:space="preserve"><value>غير مفعّل</value></data>
   <data name="Admin.Items" xml:space="preserve"><value>العناصر</value></data>
   <data name="Admin.LinkHint" xml:space="preserve"><value>مسار داخل الموقع مثل ‎/about (تُضاف بادئة اللغة تلقائيًا) أو رابط كامل يبدأ بـ https://.</value></data>
@@ -70,6 +73,7 @@
   <data name="AdminNav.Content" xml:space="preserve"><value>المحتوى</value></data>
   <data name="AdminNav.Dashboard" xml:space="preserve"><value>لوحة المعلومات</value></data>
   <data name="AdminNav.Departments" xml:space="preserve"><value>الإدارات</value></data>
+  <data name="AdminNav.Footer" xml:space="preserve"><value>تذييل الموقع (الفوتر)</value></data>
   <data name="AdminNav.HeroSlides" xml:space="preserve"><value>شرائح الواجهة</value></data>
   <data name="AdminNav.HomeSections" xml:space="preserve"><value>أقسام الصفحة الرئيسية</value></data>
   <data name="AdminNav.ImportantLinks" xml:space="preserve"><value>روابط مهمة</value></data>
@@ -197,33 +201,6 @@
   <data name="Dashboard.Visitors" xml:space="preserve"><value>زوار الموقع</value></data>
   <data name="Dashboard.VisitorsPlaceholder" xml:space="preserve"><value>غير متاح حاليًا؛ يظهر عند ربط خدمة لتحليلات الموقع.</value></data>
   <data name="Dashboard.Welcome" xml:space="preserve"><value>مرحبًا، {0}</value></data>
-  <data name="Demo.Airport" xml:space="preserve"><value>المطار</value></data>
-  <data name="Demo.Airports" xml:space="preserve"><value>مؤشرات تدفق المطارات (مطارات افتراضية)</value></data>
-  <data name="Demo.Arrivals" xml:space="preserve"><value>الوصول/ساعة</value></data>
-  <data name="Demo.Banner" xml:space="preserve"><value>نموذج تجريبي – بيانات غير تشغيلية</value></data>
-  <data name="Demo.BannerDetail" xml:space="preserve"><value>جميع القيم والقطاعات والمطارات المعروضة افتراضية ومحاكاة لأغراض العرض فقط.</value></data>
-  <data name="Demo.CallToAction" xml:space="preserve"><value>استكشف لوحة تصورية مبنية على بيانات محاكاة غير تشغيلية.</value></data>
-  <data name="Demo.Capacity" xml:space="preserve"><value>السعة</value></data>
-  <data name="Demo.Delay" xml:space="preserve"><value>متوسط التأخير (دقيقة)</value></data>
-  <data name="Demo.Demand" xml:space="preserve"><value>الطلب</value></data>
-  <data name="Demo.Departures" xml:space="preserve"><value>المغادرة/ساعة</value></data>
-  <data name="Demo.FlowLegend" xml:space="preserve"><value>تدفق حركة محاكى</value></data>
-  <data name="Demo.Footnote" xml:space="preserve"><value>هذه اللوحة نموذج توضيحي غير تشغيلي، ولا تحتوي على أي معلومات حقيقية أو حية أو مقيدة أو عسكرية، ولا يجوز استخدامها لأي غرض تشغيلي.</value></data>
-  <data name="Demo.Hour" xml:space="preserve"><value>الساعة</value></data>
-  <data name="Demo.Hourly" xml:space="preserve"><value>الطلب كل ساعة — آخر ١٢ ساعة (محاكاة)</value></data>
-  <data name="Demo.KpiFlights" xml:space="preserve"><value>رحلات محاكاة (الساعة)</value></data>
-  <data name="Demo.KpiLoad" xml:space="preserve"><value>متوسط حمل القطاعات</value></data>
-  <data name="Demo.KpiMeasures" xml:space="preserve"><value>إجراءات تنظيم افتراضية</value></data>
-  <data name="Demo.KpiOnTime" xml:space="preserve"><value>الانضباط الزمني (محاكاة)</value></data>
-  <data name="Demo.Lead" xml:space="preserve"><value>توضيح تصوري لمؤشرات إدارة المجال الجوي وتدفق الحركة.</value></data>
-  <data name="Demo.Map" xml:space="preserve"><value>نظرة تصورية على المجال الجوي</value></data>
-  <data name="Demo.MapAria" xml:space="preserve"><value>خريطة تصورية لقطاعات تجريبية افتراضية ملونة حسب الحمل المحاكى</value></data>
-  <data name="Demo.Notifications" xml:space="preserve"><value>تنبيهات (محاكاة)</value></data>
-  <data name="Demo.Open" xml:space="preserve"><value>فتح لوحة العرض التوضيحية</value></data>
-  <data name="Demo.SectorStatus" xml:space="preserve"><value>حمل القطاعات (الطلب ÷ السعة)</value></data>
-  <data name="Demo.Status" xml:space="preserve"><value>الحالة</value></data>
-  <data name="Demo.Title" xml:space="preserve"><value>لوحة العرض التوضيحية للمجال الجوي</value></data>
-  <data name="Demo.UpdatedAt" xml:space="preserve"><value>تحديث</value></data>
   <data name="Departments.AddChild" xml:space="preserve"><value>إضافة إدارة فرعية</value></data>
   <data name="Departments.Create" xml:space="preserve"><value>إدارة جديدة</value></data>
   <data name="Departments.Edit" xml:space="preserve"><value>تعديل الإدارة</value></data>
@@ -237,9 +214,6 @@
   <data name="Enum.ContentStatus.Archived" xml:space="preserve"><value>مؤرشف</value></data>
   <data name="Enum.ContentStatus.Draft" xml:space="preserve"><value>مسودة</value></data>
   <data name="Enum.ContentStatus.Published" xml:space="preserve"><value>منشور</value></data>
-  <data name="Enum.DemoLoadLevel.Elevated" xml:space="preserve"><value>مرتفع</value></data>
-  <data name="Enum.DemoLoadLevel.High" xml:space="preserve"><value>مرتفع جدًا</value></data>
-  <data name="Enum.DemoLoadLevel.Normal" xml:space="preserve"><value>طبيعي</value></data>
   <data name="Enum.HomeSectionKey.About" xml:space="preserve"><value>عن المركز</value></data>
   <data name="Enum.HomeSectionKey.Atfm" xml:space="preserve"><value>إدارة تدفق الحركة الجوية</value></data>
   <data name="Enum.HomeSectionKey.Contact" xml:space="preserve"><value>التواصل</value></data>
@@ -327,6 +301,12 @@
   <data name="Field.FacebookUrl" xml:space="preserve"><value>فيسبوك</value></data>
   <data name="Field.Fax" xml:space="preserve"><value>الفاكس</value></data>
   <data name="Field.FeaturedImageId" xml:space="preserve"><value>الصورة الرئيسية</value></data>
+  <data name="Field.FooterContactTitleAr" xml:space="preserve"><value>عنوان عمود التواصل (عربي)</value></data>
+  <data name="Field.FooterContactTitleEn" xml:space="preserve"><value>عنوان عمود التواصل (إنجليزي)</value></data>
+  <data name="Field.FooterCopyrightAr" xml:space="preserve"><value>نص حقوق النشر (عربي)</value></data>
+  <data name="Field.FooterCopyrightEn" xml:space="preserve"><value>نص حقوق النشر (إنجليزي)</value></data>
+  <data name="Field.FooterLinksTitleAr" xml:space="preserve"><value>عنوان عمود الروابط (عربي)</value></data>
+  <data name="Field.FooterLinksTitleEn" xml:space="preserve"><value>عنوان عمود الروابط (إنجليزي)</value></data>
   <data name="Field.FooterTextAr" xml:space="preserve"><value>نص التذييل (عربي)</value></data>
   <data name="Field.FooterTextEn" xml:space="preserve"><value>نص التذييل (إنجليزي)</value></data>
   <data name="Field.FullName" xml:space="preserve"><value>الاسم الكامل</value></data>
@@ -340,6 +320,7 @@
   <data name="Field.IsVisible" xml:space="preserve"><value>ظاهر</value></data>
   <data name="Field.ItemCount" xml:space="preserve"><value>عدد العناصر</value></data>
   <data name="Field.Key" xml:space="preserve"><value>المفتاح (اختياري)</value></data>
+  <data name="Field.Kind" xml:space="preserve"><value>النوع</value></data>
   <data name="Field.Label" xml:space="preserve"><value>التسمية</value></data>
   <data name="Field.LabelAr" xml:space="preserve"><value>التسمية (عربي)</value></data>
   <data name="Field.LabelEn" xml:space="preserve"><value>التسمية (إنجليزي)</value></data>
@@ -412,8 +393,18 @@
   <data name="Field.WorkingHoursEn" xml:space="preserve"><value>مواعيد العمل (إنجليزي)</value></data>
   <data name="Field.XUrl" xml:space="preserve"><value>إكس (تويتر)</value></data>
   <data name="Field.YouTubeUrl" xml:space="preserve"><value>يوتيوب</value></data>
+  <data name="Footer.Admin.About" xml:space="preserve"><value>النبذة التعريفية</value></data>
+  <data name="Footer.Admin.Bottom" xml:space="preserve"><value>الشريط السفلي</value></data>
+  <data name="Footer.Admin.ContactSocial" xml:space="preserve"><value>بيانات التواصل ووسائل التواصل الاجتماعي</value></data>
+  <data name="Footer.Admin.ContactSocialHint" xml:space="preserve"><value>العنوان والهاتف والبريد الإلكتروني ومواعيد العمل وحسابات التواصل الاجتماعي مشتركة مع صفحة اتصل بنا، وتُعدَّل من إعدادات الموقع.</value></data>
+  <data name="Footer.Admin.CopyrightHint" xml:space="preserve"><value>يظهر بعد «© السنة». إذا تُرك فارغًا: «اسم الموقع. جميع الحقوق محفوظة.»</value></data>
+  <data name="Footer.Admin.DefaultsHint" xml:space="preserve"><value>اترك الحقل فارغًا لاستخدام النص الافتراضي.</value></data>
+  <data name="Footer.Admin.Headings" xml:space="preserve"><value>عناوين الأعمدة</value></data>
+  <data name="Footer.Admin.Links" xml:space="preserve"><value>الروابط السريعة</value></data>
+  <data name="Footer.Admin.ManageLinks" xml:space="preserve"><value>إدارة روابط التذييل</value></data>
+  <data name="Footer.Admin.NoLinks" xml:space="preserve"><value>لا توجد روابط في التذييل بعد.</value></data>
+  <data name="Footer.Admin.Subtitle" xml:space="preserve"><value>النصوص والعناوين والروابط التي تظهر أسفل كل صفحات الموقع العام.</value></data>
   <data name="Footer.Contact" xml:space="preserve"><value>بيانات التواصل</value></data>
-  <data name="Footer.DemoNotice" xml:space="preserve"><value>لوحة العرض التوضيحية (بيانات غير تشغيلية)</value></data>
   <data name="Footer.QuickLinks" xml:space="preserve"><value>روابط سريعة</value></data>
   <data name="Footer.Rights" xml:space="preserve"><value>جميع الحقوق محفوظة.</value></data>
   <data name="HeroSlides.Create" xml:space="preserve"><value>شريحة جديدة</value></data>
@@ -489,6 +480,7 @@
   <data name="Menus.AddChild" xml:space="preserve"><value>إضافة عنصر فرعي</value></data>
   <data name="Menus.Create" xml:space="preserve"><value>عنصر قائمة جديد</value></data>
   <data name="Menus.Edit" xml:space="preserve"><value>تعديل عنصر القائمة</value></data>
+  <data name="Menus.FooterNotice" xml:space="preserve"><value>عناوين التذييل والنبذة والشريط السفلي تُعدَّل من صفحة</value></data>
   <data name="Menus.InvalidParent" xml:space="preserve"><value>اختر عنصرًا رئيسيًا من نفس القائمة (مستويان كحد أقصى).</value></data>
   <data name="Menus.ParentHint" xml:space="preserve"><value>القوائم من مستويين؛ تظهر العناصر الفرعية في قائمة منسدلة.</value></data>
   <data name="Menus.Subtitle" xml:space="preserve"><value>روابط التنقل في رأس الموقع وتذييله.</value></data>
@@ -643,8 +635,9 @@
   <data name="Users.Unlock" xml:space="preserve"><value>إلغاء القفل</value></data>
   <data name="Users.You" xml:space="preserve"><value>أنت</value></data>
   <data name="Val.Compare" xml:space="preserve"><value>القيمتان غير متطابقتين.</value></data>
+  <data name="Val.DemoCode" xml:space="preserve"><value>استخدم حروفًا لاتينية وأرقامًا وشرطات فقط.</value></data>
   <data name="Val.Email" xml:space="preserve"><value>أدخل بريدًا إلكترونيًا صحيحًا.</value></data>
-  <data name="Val.Icon" xml:space="preserve"><value>استخدم اسم أيقونة من Bootstrap Icons مثل bi-airplane.</value></data>
+  <data name="Val.Icon" xml:space="preserve"><value>استخدم اسم أيقونة من Phosphor مثل ph-airplane-tilt.</value></data>
   <data name="Val.Invalid" xml:space="preserve"><value>القيمة «{0}» غير صالحة.</value></data>
   <data name="Val.InvalidFor" xml:space="preserve"><value>القيمة «{0}» غير صالحة لحقل «{1}».</value></data>
   <data name="Val.InvalidOption" xml:space="preserve"><value>القيمة المختارة غير صالحة.</value></data>

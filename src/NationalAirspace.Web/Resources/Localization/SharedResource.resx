@@ -34,8 +34,11 @@
   <data name="Admin.Files" xml:space="preserve"><value>Files</value></data>
   <data name="Admin.Hidden" xml:space="preserve"><value>Hidden</value></data>
   <data name="Admin.Hide" xml:space="preserve"><value>Hide</value></data>
-  <data name="Admin.IconHint" xml:space="preserve"><value>Bootstrap Icons class name, e.g. bi-airplane. Leave empty for the default icon.</value></data>
-  <data name="Admin.IconPlaceholder" xml:space="preserve"><value>bi-airplane</value></data>
+  <data name="Admin.IconChoose" xml:space="preserve"><value>Choose an icon</value></data>
+  <data name="Admin.IconHint" xml:space="preserve"><value>Pick from the list below, or type any Phosphor icon name such as ph-airplane-tilt. Leave empty for the default icon.</value></data>
+  <data name="Admin.IconPlaceholder" xml:space="preserve"><value>ph-airplane-tilt</value></data>
+  <data name="Admin.IconSearch" xml:space="preserve"><value>Search icons…</value></data>
+  <data name="Admin.IconUseDefault" xml:space="preserve"><value>Use the default icon</value></data>
   <data name="Admin.Inactive" xml:space="preserve"><value>Inactive</value></data>
   <data name="Admin.Items" xml:space="preserve"><value>Items</value></data>
   <data name="Admin.LinkHint" xml:space="preserve"><value>A site path such as /about (the language prefix is added automatically) or a full https:// address.</value></data>
@@ -70,6 +73,7 @@
   <data name="AdminNav.Content" xml:space="preserve"><value>Content</value></data>
   <data name="AdminNav.Dashboard" xml:space="preserve"><value>Dashboard</value></data>
   <data name="AdminNav.Departments" xml:space="preserve"><value>Departments</value></data>
+  <data name="AdminNav.Footer" xml:space="preserve"><value>Footer</value></data>
   <data name="AdminNav.HeroSlides" xml:space="preserve"><value>Hero slides</value></data>
   <data name="AdminNav.HomeSections" xml:space="preserve"><value>Homepage sections</value></data>
   <data name="AdminNav.ImportantLinks" xml:space="preserve"><value>Important links</value></data>
@@ -197,33 +201,6 @@
   <data name="Dashboard.Visitors" xml:space="preserve"><value>Website visitors</value></data>
   <data name="Dashboard.VisitorsPlaceholder" xml:space="preserve"><value>Not tracked yet; shown once a web-analytics service is connected.</value></data>
   <data name="Dashboard.Welcome" xml:space="preserve"><value>Welcome, {0}</value></data>
-  <data name="Demo.Airport" xml:space="preserve"><value>Airport</value></data>
-  <data name="Demo.Airports" xml:space="preserve"><value>Airport flow indicators (fictional airports)</value></data>
-  <data name="Demo.Arrivals" xml:space="preserve"><value>Arrivals/h</value></data>
-  <data name="Demo.Banner" xml:space="preserve"><value>نموذج تجريبي – بيانات غير تشغيلية</value></data>
-  <data name="Demo.BannerDetail" xml:space="preserve"><value>Demonstration model — non-operational data. All values, sectors and airports are fictional and simulated.</value></data>
-  <data name="Demo.CallToAction" xml:space="preserve"><value>Explore a conceptual dashboard built from simulated, non-operational data.</value></data>
-  <data name="Demo.Capacity" xml:space="preserve"><value>Capacity</value></data>
-  <data name="Demo.Delay" xml:space="preserve"><value>Avg. delay (min)</value></data>
-  <data name="Demo.Demand" xml:space="preserve"><value>Demand</value></data>
-  <data name="Demo.Departures" xml:space="preserve"><value>Departures/h</value></data>
-  <data name="Demo.FlowLegend" xml:space="preserve"><value>Simulated traffic flow</value></data>
-  <data name="Demo.Footnote" xml:space="preserve"><value>This dashboard is a non-operational demonstration. It contains no real, live, restricted or military information and must not be used for any operational purpose.</value></data>
-  <data name="Demo.Hour" xml:space="preserve"><value>Hour</value></data>
-  <data name="Demo.Hourly" xml:space="preserve"><value>Hourly demand — last 12 hours (simulated)</value></data>
-  <data name="Demo.KpiFlights" xml:space="preserve"><value>Simulated flights (hour)</value></data>
-  <data name="Demo.KpiLoad" xml:space="preserve"><value>Average sector load</value></data>
-  <data name="Demo.KpiMeasures" xml:space="preserve"><value>Simulated flow measures</value></data>
-  <data name="Demo.KpiOnTime" xml:space="preserve"><value>Simulated punctuality</value></data>
-  <data name="Demo.Lead" xml:space="preserve"><value>A conceptual illustration of airspace and flow-management indicators.</value></data>
-  <data name="Demo.Map" xml:space="preserve"><value>Conceptual airspace overview</value></data>
-  <data name="Demo.MapAria" xml:space="preserve"><value>Conceptual map of fictional demo sectors coloured by simulated load</value></data>
-  <data name="Demo.Notifications" xml:space="preserve"><value>Notifications (simulated)</value></data>
-  <data name="Demo.Open" xml:space="preserve"><value>Open the demo dashboard</value></data>
-  <data name="Demo.SectorStatus" xml:space="preserve"><value>Sector load (demand ÷ capacity)</value></data>
-  <data name="Demo.Status" xml:space="preserve"><value>Status</value></data>
-  <data name="Demo.Title" xml:space="preserve"><value>Airspace Demo Dashboard</value></data>
-  <data name="Demo.UpdatedAt" xml:space="preserve"><value>Updated</value></data>
   <data name="Departments.AddChild" xml:space="preserve"><value>Add sub-department</value></data>
   <data name="Departments.Create" xml:space="preserve"><value>New department</value></data>
   <data name="Departments.Edit" xml:space="preserve"><value>Edit department</value></data>
@@ -237,9 +214,6 @@
   <data name="Enum.ContentStatus.Archived" xml:space="preserve"><value>Archived</value></data>
   <data name="Enum.ContentStatus.Draft" xml:space="preserve"><value>Draft</value></data>
   <data name="Enum.ContentStatus.Published" xml:space="preserve"><value>Published</value></data>
-  <data name="Enum.DemoLoadLevel.Elevated" xml:space="preserve"><value>Elevated</value></data>
-  <data name="Enum.DemoLoadLevel.High" xml:space="preserve"><value>High</value></data>
-  <data name="Enum.DemoLoadLevel.Normal" xml:space="preserve"><value>Normal</value></data>
   <data name="Enum.HomeSectionKey.About" xml:space="preserve"><value>About the Center</value></data>
   <data name="Enum.HomeSectionKey.Atfm" xml:space="preserve"><value>ATFM</value></data>
   <data name="Enum.HomeSectionKey.Contact" xml:space="preserve"><value>Contact</value></data>
@@ -327,6 +301,12 @@
   <data name="Field.FacebookUrl" xml:space="preserve"><value>Facebook</value></data>
   <data name="Field.Fax" xml:space="preserve"><value>Fax</value></data>
   <data name="Field.FeaturedImageId" xml:space="preserve"><value>Featured image</value></data>
+  <data name="Field.FooterContactTitleAr" xml:space="preserve"><value>Contact column heading (Arabic)</value></data>
+  <data name="Field.FooterContactTitleEn" xml:space="preserve"><value>Contact column heading (English)</value></data>
+  <data name="Field.FooterCopyrightAr" xml:space="preserve"><value>Copyright text (Arabic)</value></data>
+  <data name="Field.FooterCopyrightEn" xml:space="preserve"><value>Copyright text (English)</value></data>
+  <data name="Field.FooterLinksTitleAr" xml:space="preserve"><value>Links column heading (Arabic)</value></data>
+  <data name="Field.FooterLinksTitleEn" xml:space="preserve"><value>Links column heading (English)</value></data>
   <data name="Field.FooterTextAr" xml:space="preserve"><value>Footer text (Arabic)</value></data>
   <data name="Field.FooterTextEn" xml:space="preserve"><value>Footer text (English)</value></data>
   <data name="Field.FullName" xml:space="preserve"><value>Full name</value></data>
@@ -340,6 +320,7 @@
   <data name="Field.IsVisible" xml:space="preserve"><value>Visible</value></data>
   <data name="Field.ItemCount" xml:space="preserve"><value>Number of items</value></data>
   <data name="Field.Key" xml:space="preserve"><value>Key (optional)</value></data>
+  <data name="Field.Kind" xml:space="preserve"><value>Type</value></data>
   <data name="Field.Label" xml:space="preserve"><value>Label</value></data>
   <data name="Field.LabelAr" xml:space="preserve"><value>Label (Arabic)</value></data>
   <data name="Field.LabelEn" xml:space="preserve"><value>Label (English)</value></data>
@@ -412,8 +393,18 @@
   <data name="Field.WorkingHoursEn" xml:space="preserve"><value>Working hours (English)</value></data>
   <data name="Field.XUrl" xml:space="preserve"><value>X (Twitter)</value></data>
   <data name="Field.YouTubeUrl" xml:space="preserve"><value>YouTube</value></data>
+  <data name="Footer.Admin.About" xml:space="preserve"><value>About text</value></data>
+  <data name="Footer.Admin.Bottom" xml:space="preserve"><value>Bottom bar</value></data>
+  <data name="Footer.Admin.ContactSocial" xml:space="preserve"><value>Contact details &amp; social media</value></data>
+  <data name="Footer.Admin.ContactSocialHint" xml:space="preserve"><value>Address, phone, e-mail, working hours and social accounts are shared with the contact page and edited in Site settings.</value></data>
+  <data name="Footer.Admin.CopyrightHint" xml:space="preserve"><value>Shown after “© year”. Empty: “Site name. All rights reserved.”</value></data>
+  <data name="Footer.Admin.DefaultsHint" xml:space="preserve"><value>Leave a field empty to use the default text.</value></data>
+  <data name="Footer.Admin.Headings" xml:space="preserve"><value>Column headings</value></data>
+  <data name="Footer.Admin.Links" xml:space="preserve"><value>Quick links</value></data>
+  <data name="Footer.Admin.ManageLinks" xml:space="preserve"><value>Manage footer links</value></data>
+  <data name="Footer.Admin.NoLinks" xml:space="preserve"><value>No footer links yet.</value></data>
+  <data name="Footer.Admin.Subtitle" xml:space="preserve"><value>Texts, headings and links shown at the bottom of every page of the public website.</value></data>
   <data name="Footer.Contact" xml:space="preserve"><value>Contact information</value></data>
-  <data name="Footer.DemoNotice" xml:space="preserve"><value>Demo dashboard (non-operational data)</value></data>
   <data name="Footer.QuickLinks" xml:space="preserve"><value>Quick links</value></data>
   <data name="Footer.Rights" xml:space="preserve"><value>All rights reserved.</value></data>
   <data name="HeroSlides.Create" xml:space="preserve"><value>New slide</value></data>
@@ -489,6 +480,7 @@
   <data name="Menus.AddChild" xml:space="preserve"><value>Add sub-item</value></data>
   <data name="Menus.Create" xml:space="preserve"><value>New menu item</value></data>
   <data name="Menus.Edit" xml:space="preserve"><value>Edit menu item</value></data>
+  <data name="Menus.FooterNotice" xml:space="preserve"><value>The footer headings, about text and bottom bar are edited on the</value></data>
   <data name="Menus.InvalidParent" xml:space="preserve"><value>Select a top-level item of the same menu (two levels maximum).</value></data>
   <data name="Menus.ParentHint" xml:space="preserve"><value>Menus have two levels; sub-items appear in a dropdown.</value></data>
   <data name="Menus.Subtitle" xml:space="preserve"><value>Header and footer navigation of the public website.</value></data>
@@ -643,8 +635,9 @@
   <data name="Users.Unlock" xml:space="preserve"><value>Unlock</value></data>
   <data name="Users.You" xml:space="preserve"><value>You</value></data>
   <data name="Val.Compare" xml:space="preserve"><value>The values do not match.</value></data>
+  <data name="Val.DemoCode" xml:space="preserve"><value>Use Latin letters, digits and hyphens only.</value></data>
   <data name="Val.Email" xml:space="preserve"><value>Enter a valid email address.</value></data>
-  <data name="Val.Icon" xml:space="preserve"><value>Use a Bootstrap Icons class such as bi-airplane.</value></data>
+  <data name="Val.Icon" xml:space="preserve"><value>Use a Phosphor icon name such as ph-airplane-tilt.</value></data>
   <data name="Val.Invalid" xml:space="preserve"><value>The value “{0}” is not valid.</value></data>
   <data name="Val.InvalidFor" xml:space="preserve"><value>The value “{0}” is not valid for {1}.</value></data>
   <data name="Val.InvalidOption" xml:space="preserve"><value>The selected value is not valid.</value></data>

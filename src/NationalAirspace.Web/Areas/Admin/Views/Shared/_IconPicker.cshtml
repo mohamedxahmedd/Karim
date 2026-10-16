@@ -1,0 +1,20 @@
+@model IconPickerModel
+<details class="icon-picker" data-icon-picker="@Model.InputId">
+    <summary>
+        <span class="icon-picker-preview"><i class="ph-light @(Model.Value ?? "ph-squares-four")" data-icon-preview aria-hidden="true"></i></span>
+        <span>@L["Admin.IconChoose"]</span>
+    </summary>
+    <div class="icon-picker-body">
+        <input type="search" class="form-control form-control-sm" placeholder="@L["Admin.IconSearch"]" aria-label="@L["Admin.IconSearch"]" data-icon-search />
+        <div class="icon-picker-grid" role="listbox" aria-label="@L["Admin.IconChoose"]">
+            @foreach (var icon in IconCatalog.All)
+            {
+                <button type="button" class="icon-picker-item" role="option" aria-selected="@(icon.Name == Model.Value ? "true" : "false")"
+                        data-icon="@icon.Name" data-keywords="@icon.Keywords @icon.Name" title="@icon.Name">
+                    <i class="ph-light @icon.Name" aria-hidden="true"></i>
+                </button>
+            }
+        </div>
+        <button type="button" class="btn btn-sm btn-link px-0" data-icon-clear>@L["Admin.IconUseDefault"]</button>
+    </div>
+</details>

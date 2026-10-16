@@ -4,7 +4,6 @@ using NationalAirspace.Application.Features.Announcements;
 using NationalAirspace.Application.Features.Audit;
 using NationalAirspace.Application.Features.Contact;
 using NationalAirspace.Application.Features.Dashboard;
-using NationalAirspace.Application.Features.DemoAirspace;
 using NationalAirspace.Application.Features.Departments;
 using NationalAirspace.Application.Features.Home;
 using NationalAirspace.Application.Features.Leadership;
@@ -67,7 +66,6 @@ public static class DependencyInjection
         services.AddScoped<HomePublicService>();
         services.AddScoped<ContactService>();
         services.AddScoped<SiteSearchService>();
-        services.AddScoped<DemoAirspaceService>();
         return services;
     }
 }

@@ -58,7 +58,7 @@
     {
         <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     }
-    <link rel="stylesheet" href="~/lib/bootstrap-icons/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/lib/phosphor/phosphor-light.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     @await RenderSectionAsync("Head", required: false)
 </head>
@@ -66,25 +66,25 @@
     <a class="skip-link" href="#main">@L["A11y.SkipToContent"]</a>
     @if (ViewData["IsPreview"] is true)
     {
-        <div class="preview-banner"><i class="bi bi-eye"></i> @L["Preview.Banner"]</div>
+        <div class="preview-banner"><i class="ph-light ph-eye"></i> @L["Preview.Banner"]</div>
     }
 
     <header class="site-header">
         <div class="topbar">
             <div class="container container-wide">
                 <div class="topbar-info">
-                    <span class="hide-xs"><i class="bi bi-shield-check" aria-hidden="true"></i> @L["Site.OfficialWebsite"]</span>
+                    <span class="hide-xs"><i class="ph-light ph-shield-check" aria-hidden="true"></i> @L["Site.OfficialWebsite"]</span>
                     @if (!string.IsNullOrEmpty(site.Phone))
                     {
-                        <a href="tel:@site.Phone.Replace(" ", "")" class="hide-xs"><i class="bi bi-telephone" aria-hidden="true"></i> <span class="ltr-nums">@site.Phone</span></a>
+                        <a href="tel:@site.Phone.Replace(" ", "")" class="hide-xs"><i class="ph-light ph-phone" aria-hidden="true"></i> <span class="ltr-nums">@site.Phone</span></a>
                     }
                     @if (!string.IsNullOrEmpty(site.Email))
                     {
-                        <a href="mailto:@site.Email"><i class="bi bi-envelope" aria-hidden="true"></i> @site.Email</a>
+                        <a href="mailto:@site.Email"><i class="ph-light ph-envelope-simple" aria-hidden="true"></i> @site.Email</a>
                     }
                 </div>
                 <a class="lang-switch" href="/lang/@other.Code()?returnUrl=@Uri.EscapeDataString(altPath)" hreflang="@other.Code()" lang="@other.Code()">
-                    <i class="bi bi-translate" aria-hidden="true"></i> @(other == Lang.Ar ? "العربية" : "English")
+                    <i class="ph-light ph-translate" aria-hidden="true"></i> @(other == Lang.Ar ? "العربية" : "English")
                 </a>
             </div>
         </div>
@@ -99,12 +99,12 @@
                     </span>
                 </a>
                 <form class="brand-search d-none d-lg-block" role="search" method="get" action="@Url.Site("/search")">
-                    <i class="bi bi-search" aria-hidden="true"></i>
+                    <i class="ph-light ph-magnifying-glass" aria-hidden="true"></i>
                     <label class="visually-hidden" for="site-search">@L["Search.Label"]</label>
                     <input id="site-search" class="form-control" type="search" name="q" placeholder="@L["Search.Placeholder"]" maxlength="100" />
                 </form>
                 <button class="nav-toggler d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNav" aria-controls="mainNav" aria-label="@L["Nav.Toggle"]">
-                    <i class="bi bi-list" aria-hidden="true"></i>
+                    <i class="ph-light ph-list" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
@@ -118,7 +118,7 @@
 
     @await Component.InvokeAsync("Footer", new { site })
 
-    <button type="button" class="back-to-top" aria-label="@L["A11y.BackToTop"]"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
+    <button type="button" class="back-to-top" aria-label="@L["A11y.BackToTop"]"><i class="ph-light ph-arrow-up" aria-hidden="true"></i></button>
 
     <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

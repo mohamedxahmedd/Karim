@@ -14,7 +14,7 @@
             }
             <label class="visually-hidden" for="q">@L["Search.Label"]</label>
             <input id="q" class="form-control" type="search" name="q" value="@Model.Query" placeholder="@L["Training.SearchPlaceholder"]" maxlength="100" />
-            <button class="btn btn-primary" type="submit"><i class="bi bi-search" aria-hidden="true"></i> @L["Common.Search"]</button>
+            <button class="btn btn-primary" type="submit"><i class="ph-light ph-magnifying-glass" aria-hidden="true"></i> @L["Common.Search"]</button>
         </form>
         @if (Model.Items.Items.Count == 0)
         {

@@ -43,11 +43,11 @@
                     </table>
                     @if (Model.AttachmentName is not null)
                     {
-                        <a class="btn btn-outline-primary w-100 mt-3" href="@Url.Site($"/training/{Uri.EscapeDataString(Model.Slugs.For(CultureHelper.CurrentLang))}/attachment")"><i class="bi bi-paperclip" aria-hidden="true"></i> @L["Common.Attachment"]</a>
+                        <a class="btn btn-outline-primary w-100 mt-3" href="@Url.Site($"/training/{Uri.EscapeDataString(Model.Slugs.For(CultureHelper.CurrentLang))}/attachment")"><i class="ph-light ph-paperclip" aria-hidden="true"></i> @L["Common.Attachment"]</a>
                     }
                     @if (Model.RegistrationStatus == RegistrationStatus.Open)
                     {
-                        <a class="btn btn-primary w-100 mt-2" href="@Url.Site("/contact")"><i class="bi bi-pencil-square" aria-hidden="true"></i> @L["Training.Register"]</a>
+                        <a class="btn btn-primary w-100 mt-2" href="@Url.Site("/contact")"><i class="ph-light ph-pencil-simple-line" aria-hidden="true"></i> @L["Training.Register"]</a>
                     }
                 </div>
             </aside>

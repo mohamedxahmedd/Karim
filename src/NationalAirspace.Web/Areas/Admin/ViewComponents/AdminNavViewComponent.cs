@@ -21,6 +21,7 @@ public sealed class AdminNavViewComponent(IAuthorizationService authorization, C
             new("ImportantLinks", "AdminNav.ImportantLinks", "bi-link-45deg", Permissions.Homepage),
             new("Pages", "AdminNav.Pages", "bi-file-earmark-richtext", Permissions.Pages),
             new("Menus", "AdminNav.Menus", "bi-menu-button-wide", Permissions.Menus),
+            new("Footer", "AdminNav.Footer", "bi-layout-text-window-reverse", Permissions.Settings),
         ]),
         new("AdminNav.Content", [
             new("Services", "AdminNav.Services", "bi-grid", Permissions.Services),

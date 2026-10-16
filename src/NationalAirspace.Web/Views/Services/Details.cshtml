@@ -10,7 +10,7 @@
                         <div class="article-cover"><img src="@Model.Image.Url" alt="@Model.Image.Alt" /></div>
                     }
                     <div class="d-flex align-items-center gap-3 mb-3">
-                        <span class="icon-tile"><i class="bi @(Model.Icon ?? "bi-grid")" aria-hidden="true"></i></span>
+                        <span class="icon-tile"><i class="ph-light @(Model.Icon ?? "ph-squares-four")" aria-hidden="true"></i></span>
                         <h2 class="h4 mb-0">@Model.Title</h2>
                     </div>
                     @if (Model.ContentHtml is not null)
@@ -18,7 +18,7 @@
                         <div class="rich-text">@Html.Raw(Model.ContentHtml)</div>
                     }
                     <hr class="my-4" />
-                    <a class="btn btn-primary" href="@Url.Site("/contact")"><i class="bi bi-chat-dots" aria-hidden="true"></i> @L["Services.Enquire"]</a>
+                    <a class="btn btn-primary" href="@Url.Site("/contact")"><i class="ph-light ph-chat-circle-dots" aria-hidden="true"></i> @L["Services.Enquire"]</a>
                 </article>
             </div>
             <aside class="col-lg-4">
@@ -27,7 +27,7 @@
                     <ul class="sidebar-list">
                         @foreach (var o in Model.Others)
                         {
-                            <li><a href="@Url.Site("/services", o.Slug)"><span><i class="bi @(o.Icon ?? "bi-grid") text-gold" aria-hidden="true"></i> @o.Title</span></a></li>
+                            <li><a href="@Url.Site("/services", o.Slug)"><span><i class="ph-light @(o.Icon ?? "ph-squares-four") text-gold" aria-hidden="true"></i> @o.Title</span></a></li>
                         }
                     </ul>
                 </div>

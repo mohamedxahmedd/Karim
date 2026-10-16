@@ -146,4 +146,31 @@
       loadPicker(url.toString());
     });
   }
+
+  // ---- icon picker: fills the icon text field, which stays editable by hand ----
+  document.querySelectorAll("[data-icon-picker]").forEach(function (picker) {
+    var input = document.getElementById(picker.getAttribute("data-icon-picker"));
+    if (!input) return;
+    var preview = picker.querySelector("[data-icon-preview]");
+    var items = Array.prototype.slice.call(picker.querySelectorAll("[data-icon]"));
+    var fallback = "ph-squares-four";
+    function sync() {
+      var value = input.value.trim();
+      preview.className = "ph-light " + (/^ph-[a-z0-9-]+$/.test(value) ? value : fallback);
+      items.forEach(function (b) { b.setAttribute("aria-selected", b.getAttribute("data-icon") === value ? "true" : "false"); });
+    }
+    items.forEach(function (b) {
+      b.addEventListener("click", function () { input.value = b.getAttribute("data-icon"); input.dispatchEvent(new Event("change", { bubbles: true })); sync(); });
+    });
+    picker.querySelector("[data-icon-clear]").addEventListener("click", function () { input.value = ""; sync(); });
+    picker.querySelector("[data-icon-search]").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") e.preventDefault();
+    });
+    picker.querySelector("[data-icon-search]").addEventListener("input", function (e) {
+      var q = e.target.value.trim().toLowerCase();
+      items.forEach(function (b) { b.hidden = q !== "" && b.getAttribute("data-keywords").toLowerCase().indexOf(q) === -1; });
+    });
+    input.addEventListener("input", sync);
+    sync();
+  });
 })();

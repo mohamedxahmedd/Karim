@@ -4,7 +4,7 @@
     <div class="container container-wide">
         @if (Model.EventDate is { } d)
         {
-            <p class="card-meta mb-3"><span><i class="bi bi-calendar3" aria-hidden="true"></i> @d.DateOnlyText()</span></p>
+            <p class="card-meta mb-3"><span><i class="ph-light ph-calendar-blank" aria-hidden="true"></i> @d.DateOnlyText()</span></p>
         }
         <div class="gallery-grid">
             @foreach (var p in Model.Photos)
@@ -29,8 +29,8 @@
             <img src="" alt="" />
             <div class="caption"></div>
             <div class="d-flex justify-content-center gap-2 mt-3">
-                <button type="button" class="btn btn-outline-light btn-sm" data-step="-1" aria-label="@L["Pager.Previous"]"><i class="bi bi-chevron-@(CultureHelper.CurrentLang == Lang.Ar ? "right" : "left")" aria-hidden="true"></i></button>
-                <button type="button" class="btn btn-outline-light btn-sm" data-step="1" aria-label="@L["Pager.Next"]"><i class="bi bi-chevron-@(CultureHelper.CurrentLang == Lang.Ar ? "left" : "right")" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-light btn-sm" data-step="-1" aria-label="@L["Pager.Previous"]"><i class="ph-light ph-caret-@(CultureHelper.CurrentLang == Lang.Ar ? "right" : "left")" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-outline-light btn-sm" data-step="1" aria-label="@L["Pager.Next"]"><i class="ph-light ph-caret-@(CultureHelper.CurrentLang == Lang.Ar ? "left" : "right")" aria-hidden="true"></i></button>
             </div>
         </div>
     </div>

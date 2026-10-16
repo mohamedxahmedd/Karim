@@ -158,3 +158,14 @@ button.media-pick-tile:hover, button.media-pick-tile:focus-visible { border-colo
 .no-js .tab-content > .tab-pane + .tab-pane { border-top: 1px solid var(--namc-border); margin-top: 1rem; padding-top: 1rem; }
 .no-js .row-actions [data-bs-toggle="dropdown"] { display: none; }
 .no-js .row-actions .dropdown-menu { position: static; display: block; border: 0; box-shadow: none; padding: 0; min-width: 0; }
+
+/* ---------- icon picker ---------- */
+.icon-picker { margin: -.5rem 0 1rem; border: 1px solid var(--namc-border); border-radius: var(--namc-radius-sm); }
+.icon-picker > summary { display: flex; align-items: center; gap: .65rem; padding: .5rem .75rem; cursor: pointer; font-size: .9rem; font-weight: 600; color: var(--namc-navy-700); list-style: none; }
+.icon-picker > summary::-webkit-details-marker { display: none; }
+.icon-picker-preview { font-size: 1.6rem; line-height: 1; color: var(--namc-navy-700); }
+.icon-picker-body { padding: 0 .75rem .5rem; }
+.icon-picker-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)); gap: .25rem; max-height: 236px; overflow-y: auto; margin-top: .5rem; }
+.icon-picker-item { display: grid; place-items: center; aspect-ratio: 1; border: 1px solid transparent; border-radius: 8px; background: none; font-size: 1.45rem; color: var(--namc-ink); }
+.icon-picker-item:hover { border-color: var(--namc-border); background: var(--namc-sky-50); }
+.icon-picker-item[aria-selected="true"] { border-color: var(--namc-gold-400); color: var(--namc-gold-600); background: var(--namc-gold-100); }

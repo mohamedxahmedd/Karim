@@ -38,7 +38,7 @@
                     @if (Model.FileName is not null)
                     {
                         <a class="btn btn-primary w-100 mt-3" href="@Url.Site($"/reports/{Uri.EscapeDataString(Model.Slugs.For(CultureHelper.CurrentLang))}/download")">
-                            <i class="bi bi-download" aria-hidden="true"></i> @L["Common.Download"]
+                            <i class="ph-light ph-download-simple" aria-hidden="true"></i> @L["Common.Download"]
                         </a>
                     }
                 </div>

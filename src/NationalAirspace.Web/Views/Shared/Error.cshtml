@@ -5,11 +5,11 @@
 <section class="section">
     <div class="container container-wide">
         <div class="empty-state py-5">
-            <i class="bi @(Model == 404 ? "bi-compass" : Model == 429 ? "bi-hourglass-split" : "bi-exclamation-octagon")" aria-hidden="true"></i>
+            <i class="ph-light @(Model == 404 ? "ph-compass" : Model == 429 ? "ph-hourglass-medium" : "ph-warning-octagon")" aria-hidden="true"></i>
             <p class="display-6 fw-bold text-dark mb-2">@Model</p>
             <h1 class="h3">@L[$"Error.{Model}.Title"]</h1>
             <p class="text-muted">@L[$"Error.{Model}.Text"]</p>
-            <a class="btn btn-primary mt-2" href="@Url.Site("/")"><i class="bi bi-house" aria-hidden="true"></i> @L["Error.BackHome"]</a>
+            <a class="btn btn-primary mt-2" href="@Url.Site("/")"><i class="ph-light ph-house" aria-hidden="true"></i> @L["Error.BackHome"]</a>
         </div>
     </div>
 </section>

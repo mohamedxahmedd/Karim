@@ -22,7 +22,6 @@ public sealed class SettingsService(AdminServiceDependencies deps, ContentCache 
             WorkingHoursAr = s.WorkingHoursAr, WorkingHoursEn = s.WorkingHoursEn, MapEmbedUrl = s.MapEmbedUrl,
             Latitude = s.Latitude, Longitude = s.Longitude, FacebookUrl = s.FacebookUrl, XUrl = s.XUrl,
             LinkedInUrl = s.LinkedInUrl, YouTubeUrl = s.YouTubeUrl, InstagramUrl = s.InstagramUrl,
-            FooterTextAr = s.FooterTextAr, FooterTextEn = s.FooterTextEn,
             DefaultMetaDescriptionAr = s.DefaultMetaDescriptionAr, DefaultMetaDescriptionEn = s.DefaultMetaDescriptionEn,
         };
     }
@@ -56,11 +55,41 @@ public sealed class SettingsService(AdminServiceDependencies deps, ContentCache 
         s.LinkedInUrl = Clean(input.LinkedInUrl);
         s.YouTubeUrl = Clean(input.YouTubeUrl);
         s.InstagramUrl = Clean(input.InstagramUrl);
-        s.FooterTextAr = Clean(input.FooterTextAr);
-        s.FooterTextEn = Clean(input.FooterTextEn);
         s.DefaultMetaDescriptionAr = Clean(input.DefaultMetaDescriptionAr);
         s.DefaultMetaDescriptionEn = Clean(input.DefaultMetaDescriptionEn);
         Audit("Update", s.Id, null);
+        return await CommitAsync(ct);
+    }
+
+    public async Task<FooterSettingsInput> GetFooterForEditAsync(CancellationToken ct = default)
+    {
+        var s = await GetOrCreateAsync(ct);
+        return new FooterSettingsInput
+        {
+            ConcurrencyStamp = s.ConcurrencyStamp,
+            FooterTextAr = s.FooterTextAr, FooterTextEn = s.FooterTextEn,
+            FooterLinksTitleAr = s.FooterLinksTitleAr, FooterLinksTitleEn = s.FooterLinksTitleEn,
+            FooterContactTitleAr = s.FooterContactTitleAr, FooterContactTitleEn = s.FooterContactTitleEn,
+            FooterCopyrightAr = s.FooterCopyrightAr, FooterCopyrightEn = s.FooterCopyrightEn,
+        };
+    }
+
+    public async Task<Result> UpdateFooterAsync(FooterSettingsInput input, CancellationToken ct = default)
+    {
+        var errors = InputValidator.Validate(input);
+        if (errors.Count > 0) return Result.Failure(errors);
+
+        var s = await GetOrCreateAsync(ct);
+        ExpectStamp(s, input.ConcurrencyStamp);
+        s.FooterTextAr = Clean(input.FooterTextAr);
+        s.FooterTextEn = Clean(input.FooterTextEn);
+        s.FooterLinksTitleAr = Clean(input.FooterLinksTitleAr);
+        s.FooterLinksTitleEn = Clean(input.FooterLinksTitleEn);
+        s.FooterContactTitleAr = Clean(input.FooterContactTitleAr);
+        s.FooterContactTitleEn = Clean(input.FooterContactTitleEn);
+        s.FooterCopyrightAr = Clean(input.FooterCopyrightAr);
+        s.FooterCopyrightEn = Clean(input.FooterCopyrightEn);
+        Audit("UpdateFooter", s.Id, null);
         return await CommitAsync(ct);
     }
 
@@ -70,15 +99,20 @@ public sealed class SettingsService(AdminServiceDependencies deps, ContentCache 
             var s = await Db.SiteSettings.AsNoTracking().FirstOrDefaultAsync(ct) ?? new SiteSettings();
             var social = new List<SocialLink>();
             void Add(string network, string? url, string icon) { if (!string.IsNullOrWhiteSpace(url)) social.Add(new SocialLink(network, url, icon)); }
-            Add("Facebook", s.FacebookUrl, "bi-facebook");
-            Add("X", s.XUrl, "bi-twitter-x");
-            Add("LinkedIn", s.LinkedInUrl, "bi-linkedin");
-            Add("YouTube", s.YouTubeUrl, "bi-youtube");
-            Add("Instagram", s.InstagramUrl, "bi-instagram");
+            Add("Facebook", s.FacebookUrl, "ph-facebook-logo");
+            Add("X", s.XUrl, "ph-x-logo");
+            Add("LinkedIn", s.LinkedInUrl, "ph-linkedin-logo");
+            Add("YouTube", s.YouTubeUrl, "ph-youtube-logo");
+            Add("Instagram", s.InstagramUrl, "ph-instagram-logo");
+            // Overrides apply to their own language only; an empty one keeps the localized built-in default.
+            string? Own(string? ar, string? en) => lang == Lang.Ar ? ar : en;
+            var footer = new FooterInfo(
+                lang.PickOrNull(s.FooterTextAr, s.FooterTextEn), Own(s.FooterLinksTitleAr, s.FooterLinksTitleEn),
+                Own(s.FooterContactTitleAr, s.FooterContactTitleEn), Own(s.FooterCopyrightAr, s.FooterCopyrightEn));
             return new SiteInfoDto(
                 lang.Pick(s.SiteNameAr, s.SiteNameEn), lang.PickOrNull(s.TaglineAr, s.TaglineEn), lang.PickOrNull(s.AddressAr, s.AddressEn),
                 s.Phone, s.Fax, s.Email, lang.PickOrNull(s.WorkingHoursAr, s.WorkingHoursEn), s.MapEmbedUrl, s.Latitude, s.Longitude,
-                social, lang.PickOrNull(s.FooterTextAr, s.FooterTextEn), lang.PickOrNull(s.DefaultMetaDescriptionAr, s.DefaultMetaDescriptionEn));
+                social, footer, lang.PickOrNull(s.DefaultMetaDescriptionAr, s.DefaultMetaDescriptionEn));
         });
 
     private async Task<SiteSettings> GetOrCreateAsync(CancellationToken ct)

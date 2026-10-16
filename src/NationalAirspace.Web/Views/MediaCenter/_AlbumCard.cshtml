@@ -5,12 +5,12 @@
         {
             <img src="@Model.Cover.Url" alt="@Model.Cover.Alt" loading="lazy" />
         }
-        <span class="chip on-dark badge-float"><i class="bi bi-images" aria-hidden="true"></i> @Model.PhotoCount</span>
+        <span class="chip on-dark badge-float"><i class="ph-light ph-images" aria-hidden="true"></i> @Model.PhotoCount</span>
     </div>
     <div class="card-body-namc">
         @if (Model.EventDate is { } d)
         {
-            <div class="card-meta"><span><i class="bi bi-calendar3" aria-hidden="true"></i> @d.DateOnlyText()</span></div>
+            <div class="card-meta"><span><i class="ph-light ph-calendar-blank" aria-hidden="true"></i> @d.DateOnlyText()</span></div>
         }
         <h3 class="line-clamp-2">@Model.Title</h3>
         @if (Model.Description is not null)

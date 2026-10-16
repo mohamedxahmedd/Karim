@@ -1,0 +1,92 @@
+namespace NationalAirspace.Application.Common;
+
+/// <summary>An icon the dashboard offers in its picker; <see cref="Keywords"/> holds Arabic and English search terms.</summary>
+public sealed record IconOption(string Name, string Keywords);
+
+/// <summary>
+/// Curated Phosphor (Light) icons for content items. Stored values are Phosphor class names ("ph-airplane-tilt");
+/// any other valid Phosphor name is accepted too, the catalog only drives the picker.
+/// </summary>
+public static class IconCatalog
+{
+    public const string Pattern = "^ph-[a-z0-9-]+$";
+
+    public static readonly IReadOnlyList<IconOption> All =
+    [
+        new("ph-airplane-tilt", "طائرة طيران plane aviation"),
+        new("ph-airplane-takeoff", "إقلاع مطار takeoff departure airport"),
+        new("ph-airplane-landing", "هبوط مطار landing arrival airport"),
+        new("ph-airplane-in-flight", "رحلة طيران flight"),
+        new("ph-airplane", "طائرة plane"),
+        new("ph-paper-plane-tilt", "إرسال send"),
+        new("ph-compass", "بوصلة ملاحة compass navigation"),
+        new("ph-navigation-arrow", "ملاحة اتجاه navigation direction"),
+        new("ph-path", "مسار تدفق route path flow"),
+        new("ph-flow-arrow", "تدفق حركة flow traffic"),
+        new("ph-arrows-left-right", "تبادل حركة exchange traffic"),
+        new("ph-arrows-clockwise", "دورة تكرار cycle process"),
+        new("ph-shuffle", "تحسين توزيع optimize distribute"),
+        new("ph-polygon", "مجال قطاع تصميم airspace sector design"),
+        new("ph-intersect", "تقاطع قطاعات sectors overlap"),
+        new("ph-map-trifold", "خريطة map planning"),
+        new("ph-map-pin", "موقع location"),
+        new("ph-globe-hemisphere-east", "العالم دولي world international"),
+        new("ph-globe", "عالمي global"),
+        new("ph-cell-tower", "برج رادار radar tower surveillance"),
+        new("ph-broadcast", "بث اتصالات broadcast communication"),
+        new("ph-wind", "رياح طقس wind weather"),
+        new("ph-cloud-sun", "طقس أرصاد weather meteorology"),
+        new("ph-gauge", "سعة مؤشر capacity gauge"),
+        new("ph-lightning", "كفاءة سرعة efficiency speed"),
+        new("ph-timer", "زمن timer delay"),
+        new("ph-clock", "ساعة وقت time"),
+        new("ph-calendar-check", "موعد جدول schedule"),
+        new("ph-target", "هدف رسالة target mission"),
+        new("ph-eye", "رؤية vision"),
+        new("ph-flag", "أهداف علم goals flag"),
+        new("ph-strategy", "استراتيجية خطة strategy plan"),
+        new("ph-lightbulb", "فكرة ابتكار idea innovation"),
+        new("ph-medal", "فوائد تميز benefits award"),
+        new("ph-seal-check", "اعتماد جودة certified quality"),
+        new("ph-shield-check", "سلامة أمان safety security"),
+        new("ph-lock-simple", "حماية protection"),
+        new("ph-warning", "تنبيه warning alert"),
+        new("ph-scales", "قانون عدالة law justice"),
+        new("ph-gavel", "تشريع قانون legislation"),
+        new("ph-book-open-text", "تشريعات كتاب regulations book"),
+        new("ph-books", "مكتبة مراجع library references"),
+        new("ph-file-text", "مستند ملف document"),
+        new("ph-file-pdf", "تقرير report pdf"),
+        new("ph-clipboard-text", "تحليل بيانات analysis"),
+        new("ph-newspaper", "أخبار news"),
+        new("ph-megaphone", "إعلانات announcements"),
+        new("ph-buildings", "مبنى مؤسسة building institution"),
+        new("ph-bank", "وزارة حكومة ministry government"),
+        new("ph-tree-structure", "هيكل تنظيمي organization structure"),
+        new("ph-users-three", "فريق جهات تنسيق team stakeholders coordination"),
+        new("ph-handshake", "شراكة تعاون partnership cooperation"),
+        new("ph-user", "شخص person"),
+        new("ph-identification-card", "هوية identity"),
+        new("ph-graduation-cap", "تدريب تعليم training education"),
+        new("ph-chalkboard-teacher", "محاضرة تدريب lecture course"),
+        new("ph-certificate", "شهادة certificate"),
+        new("ph-chart-line-up", "دراسات نمو studies growth"),
+        new("ph-chart-bar", "إحصاءات statistics"),
+        new("ph-trend-up", "تطوير تحسن development improvement"),
+        new("ph-database", "بيانات data"),
+        new("ph-info", "معلومات information"),
+        new("ph-question", "سؤال question"),
+        new("ph-laptop", "رقمي حاسب digital computer"),
+        new("ph-monitor", "شاشة عرض screen display"),
+        new("ph-gear-six", "خدمات إعدادات services settings"),
+        new("ph-sliders-horizontal", "إدارة تحكم management control"),
+        new("ph-wrench", "صيانة دعم maintenance support"),
+        new("ph-chat-centered-text", "استشارات consulting"),
+        new("ph-chat-circle-dots", "تواصل محادثة contact chat"),
+        new("ph-phone", "هاتف phone"),
+        new("ph-envelope-simple", "بريد email"),
+        new("ph-link-simple", "رابط link"),
+        new("ph-squares-four", "خدمات شبكة services grid"),
+        new("ph-check-circle", "تم إنجاز done check"),
+    ];
+}

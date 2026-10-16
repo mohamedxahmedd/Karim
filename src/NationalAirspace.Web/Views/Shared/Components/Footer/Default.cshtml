@@ -1,5 +1,5 @@
 @model NationalAirspace.Web.ViewComponents.FooterModel
-@{ var site = Model.Site; }
+@{ var site = Model.Site; var footer = site.Footer; }
 <footer class="site-footer">
     <div class="container container-wide">
         <div class="row g-4 g-lg-5">
@@ -8,22 +8,22 @@
                     <img src="~/img/logo-192.webp" alt="" width="52" height="52" loading="lazy" />
                     <span>@site.SiteName</span>
                 </div>
-                @if (!string.IsNullOrEmpty(site.FooterText))
+                @if (!string.IsNullOrEmpty(footer.Text))
                 {
-                    <p class="mb-0">@site.FooterText</p>
+                    <p class="mb-0">@footer.Text</p>
                 }
                 @if (site.Social.Count > 0)
                 {
                     <div class="social">
                         @foreach (var s in site.Social)
                         {
-                            <a href="@s.Url" target="_blank" rel="noopener noreferrer" aria-label="@s.Network"><i class="bi @s.Icon" aria-hidden="true"></i></a>
+                            <a href="@s.Url" target="_blank" rel="noopener noreferrer" aria-label="@s.Network"><i class="ph-light @s.Icon" aria-hidden="true"></i></a>
                         }
                     </div>
                 }
             </div>
             <div class="col-sm-6 col-lg-4">
-                <h2>@L["Footer.QuickLinks"]</h2>
+                <h2>@(footer.LinksTitle ?? L["Footer.QuickLinks"])</h2>
                 <ul class="footer-links">
                     @foreach (var link in Model.Links)
                     {
@@ -32,30 +32,29 @@
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-4">
-                <h2>@L["Footer.Contact"]</h2>
+                <h2>@(footer.ContactTitle ?? L["Footer.Contact"])</h2>
                 <ul class="footer-contact">
                     @if (!string.IsNullOrEmpty(site.Address))
                     {
-                        <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>@site.Address</span></li>
+                        <li><i class="ph-light ph-map-pin" aria-hidden="true"></i><span>@site.Address</span></li>
                     }
                     @if (!string.IsNullOrEmpty(site.Phone))
                     {
-                        <li><i class="bi bi-telephone" aria-hidden="true"></i><a href="tel:@site.Phone.Replace(" ", "")" class="ltr-nums">@site.Phone</a></li>
+                        <li><i class="ph-light ph-phone" aria-hidden="true"></i><a href="tel:@site.Phone.Replace(" ", "")" class="ltr-nums">@site.Phone</a></li>
                     }
                     @if (!string.IsNullOrEmpty(site.Email))
                     {
-                        <li><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:@site.Email">@site.Email</a></li>
+                        <li><i class="ph-light ph-envelope-simple" aria-hidden="true"></i><a href="mailto:@site.Email">@site.Email</a></li>
                     }
                     @if (!string.IsNullOrEmpty(site.WorkingHours))
                     {
-                        <li><i class="bi bi-clock" aria-hidden="true"></i><span>@site.WorkingHours</span></li>
+                        <li><i class="ph-light ph-clock" aria-hidden="true"></i><span>@site.WorkingHours</span></li>
                     }
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© @Clock.ToSiteTime(Clock.UtcNow).Year @site.SiteName. @L["Footer.Rights"]</span>
-            <span><a href="@Url.Site("/airspace-demo")">@L["Footer.DemoNotice"]</a></span>
+            <span>© @Clock.ToSiteTime(Clock.UtcNow).Year @(footer.Copyright ?? $"{site.SiteName}. {L["Footer.Rights"]}")</span>
         </div>
     </div>
 </footer>

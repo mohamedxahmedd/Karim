@@ -65,13 +65,13 @@ internal sealed class ContentSeeder(ApplicationDbContext db)
         {
             db.ContentPages.Add(Page(SystemPages.About, "نبذة عن المركز", "About the Center", "نبذة-عن-المركز", "about-the-center",
                 DescriptionAr, DescriptionEn,
-                Section("establishment", PageSectionLayout.Text, "النشأة", "Establishment", "bi-building",
+                Section("establishment", PageSectionLayout.Text, "النشأة", "Establishment", "ph-buildings",
                     $"<p>يستند المركز القومي لإدارة المجال الجوي في إطاره القانوني إلى <strong>القانون رقم ٢٥ لسنة ٢٠٢٢</strong>. {PendingAr}</p>",
                     $"<p>The National Airspace Management Center's legal framework references <strong>Law No. 25 of 2022</strong>. {PendingEn}</p>"),
-                Section("legal-basis", PageSectionLayout.Highlight, "الأساس القانوني", "Legal Basis", "bi-journal-text",
+                Section("legal-basis", PageSectionLayout.Highlight, "الأساس القانوني", "Legal Basis", "ph-book-open-text",
                     $"<p>المرجع القانوني: القانون رقم ٢٥ لسنة ٢٠٢٢. تُضاف هنا المواد ذات الصلة وملخصها بعد اعتمادها. {PendingAr}</p>",
                     $"<p>Legal reference: Law No. 25 of 2022. The relevant articles and their summary will be added here once approved. {PendingEn}</p>"),
-                Section("organizational-role", PageSectionLayout.Text, "الدور المؤسسي", "Organizational Role", "bi-diagram-3",
+                Section("organizational-role", PageSectionLayout.Text, "الدور المؤسسي", "Organizational Role", "ph-tree-structure",
                     $"<p>{DescriptionAr}</p><p>{PendingAr}</p>",
                     $"<p>{DescriptionEn}</p><p>{PendingEn}</p>")));
         }
@@ -80,13 +80,13 @@ internal sealed class ContentSeeder(ApplicationDbContext db)
         {
             db.ContentPages.Add(Page(SystemPages.VisionMission, "الرؤية والرسالة", "Vision & Mission", "الرؤية-والرسالة", "vision-mission",
                 "توجهات المركز الاستراتيجية.", "The Center's strategic direction.",
-                Section(SectionKeys.Vision, PageSectionLayout.Card, "الرؤية", "Vision", "bi-eye",
+                Section(SectionKeys.Vision, PageSectionLayout.Card, "الرؤية", "Vision", "ph-eye",
                     $"<p>مجال جوي أكثر أمانًا وكفاءة واستدامة. {PendingAr}</p>",
                     $"<p>A safer, more efficient and sustainable airspace. {PendingEn}</p>"),
-                Section(SectionKeys.Mission, PageSectionLayout.Card, "الرسالة", "Mission", "bi-bullseye",
+                Section(SectionKeys.Mission, PageSectionLayout.Card, "الرسالة", "Mission", "ph-target",
                     $"<p>{DescriptionAr} {PendingAr}</p>",
                     $"<p>{DescriptionEn} {PendingEn}</p>"),
-                Section("strategic-objectives", PageSectionLayout.Text, "الأهداف الاستراتيجية", "Strategic Objectives", "bi-flag",
+                Section("strategic-objectives", PageSectionLayout.Text, "الأهداف الاستراتيجية", "Strategic Objectives", "ph-flag",
                     $"<ul><li>تعزيز سلامة الحركة الجوية.</li><li>رفع كفاءة استخدام المجال الجوي وسعته.</li><li>تحقيق انسيابية تدفق الحركة الجوية.</li><li>تطوير الكوادر الوطنية المتخصصة.</li><li>دعم الاستدامة البيئية للعمليات الجوية.</li></ul><p>{PendingAr}</p>",
                     $"<ul><li>Enhance air traffic safety.</li><li>Increase airspace efficiency and capacity.</li><li>Ensure fluid air traffic flow.</li><li>Develop specialized national expertise.</li><li>Support the environmental sustainability of air operations.</li></ul><p>{PendingEn}</p>")));
         }
@@ -95,12 +95,12 @@ internal sealed class ContentSeeder(ApplicationDbContext db)
         {
             var cards = new (string Ar, string En, string Icon)[]
             {
-                ("تخطيط وتصميم المجال الجوي", "Airspace planning and design", "bi-bounding-box"),
-                ("إدارة تدفق الحركة الجوية", "Air traffic flow management", "bi-arrow-left-right"),
-                ("التنسيق مع الجهات المعنية", "Coordination with stakeholders", "bi-people"),
-                ("الدراسات الفنية والتحليل", "Technical studies and analysis", "bi-graph-up"),
-                ("تطوير الكوادر وبناء القدرات", "Capacity building and training", "bi-mortarboard"),
-                ("الخدمات المتخصصة", "Specialized services", "bi-gear"),
+                ("تخطيط وتصميم المجال الجوي", "Airspace planning and design", "ph-polygon"),
+                ("إدارة تدفق الحركة الجوية", "Air traffic flow management", "ph-path"),
+                ("التنسيق مع الجهات المعنية", "Coordination with stakeholders", "ph-users-three"),
+                ("الدراسات الفنية والتحليل", "Technical studies and analysis", "ph-chart-line-up"),
+                ("تطوير الكوادر وبناء القدرات", "Capacity building and training", "ph-graduation-cap"),
+                ("الخدمات المتخصصة", "Specialized services", "ph-gear-six"),
             };
             db.ContentPages.Add(Page(SystemPages.Responsibilities, "اختصاصات المركز", "Center Responsibilities", "اختصاصات-المركز", "responsibilities",
                 "تُعرض المجالات التالية بصورة مبدئية استنادًا إلى التعريف العام للمركز، ويُستكمل النص الرسمي للاختصاصات وفق القانون رقم ٢٥ لسنة ٢٠٢٢.",
@@ -114,16 +114,16 @@ internal sealed class ContentSeeder(ApplicationDbContext db)
             db.ContentPages.Add(Page(SystemPages.AirspaceManagement, "إدارة المجال الجوي", "Airspace Management", "إدارة-المجال-الجوي", "airspace-management",
                 "إدارة المجال الجوي هي عملية تخطيط وتنظيم استخدام المجال الجوي لتلبية احتياجات جميع المستخدمين بأعلى درجات السلامة والكفاءة.",
                 "Airspace management is the planning and organization of airspace use to meet the needs of all users with the highest levels of safety and efficiency.",
-                Section(null, PageSectionLayout.Card, "تخطيط المجال الجوي", "Airspace Planning", "bi-map",
+                Section(null, PageSectionLayout.Card, "تخطيط المجال الجوي", "Airspace Planning", "ph-map-trifold",
                     "<p>دراسة الاحتياجات الحالية والمستقبلية لمستخدمي المجال الجوي ووضع الخطط اللازمة لتلبيتها.</p>",
                     "<p>Studying the current and future needs of airspace users and developing the plans needed to meet them.</p>"),
-                Section(null, PageSectionLayout.Card, "تصميم المجال الجوي", "Airspace Design", "bi-bounding-box-circles",
+                Section(null, PageSectionLayout.Card, "تصميم المجال الجوي", "Airspace Design", "ph-intersect",
                     "<p>تصميم الهياكل والمسارات والقطاعات بما يدعم السلامة ويرفع السعة ويقلل التعقيد.</p>",
                     "<p>Designing structures, routes and sectors that support safety, increase capacity and reduce complexity.</p>"),
-                Section(null, PageSectionLayout.Card, "الاستخدام المرن للمجال الجوي", "Flexible Use of Airspace", "bi-sliders",
+                Section(null, PageSectionLayout.Card, "الاستخدام المرن للمجال الجوي", "Flexible Use of Airspace", "ph-sliders-horizontal",
                     "<p>مفهوم دولي يقوم على تخصيص المجال الجوي وفق الحاجة الفعلية وبالتنسيق بين الجهات المعنية.</p>",
                     "<p>An international concept based on allocating airspace according to actual need, in coordination with all stakeholders.</p>"),
-                Section(null, PageSectionLayout.Card, "السلامة والكفاءة والاستدامة", "Safety, Efficiency & Sustainability", "bi-shield-check",
+                Section(null, PageSectionLayout.Card, "السلامة والكفاءة والاستدامة", "Safety, Efficiency & Sustainability", "ph-shield-check",
                     "<p>تحقيق التوازن بين متطلبات السلامة وكفاءة العمليات وتقليل الأثر البيئي.</p>",
                     "<p>Balancing safety requirements, operational efficiency and reduced environmental impact.</p>")));
         }
@@ -134,39 +134,39 @@ internal sealed class ContentSeeder(ApplicationDbContext db)
                 "إدارة-تدفق-الحركة-الجوية", "air-traffic-flow-management",
                 "محتوى تعريفي بمفهوم إدارة تدفق الحركة الجوية. لا تتضمن هذه الصفحة أي وصول إلى أنظمة تشغيلية.",
                 "Informational content about the concept of air traffic flow management. This page does not provide access to any operational system.",
-                Section("what-is-atfm", PageSectionLayout.Text, "ما هي إدارة تدفق الحركة الجوية؟", "What is ATFM?", "bi-question-circle",
+                Section("what-is-atfm", PageSectionLayout.Text, "ما هي إدارة تدفق الحركة الجوية؟", "What is ATFM?", "ph-question",
                     "<p>إدارة تدفق الحركة الجوية خدمة تهدف إلى تحقيق تدفق آمن ومنظم وسريع للحركة الجوية، من خلال ضمان الاستخدام الأمثل لسعة المجال الجوي والمطارات بما يتوافق مع حجم الطلب.</p>",
                     "<p>Air traffic flow management is a service that aims to achieve a safe, orderly and expeditious flow of air traffic by ensuring that airspace and aerodrome capacity is used to the maximum extent possible and that traffic volume is compatible with the declared capacity.</p>"),
-                Section("objectives", PageSectionLayout.Card, "الأهداف", "Objectives", "bi-bullseye",
+                Section("objectives", PageSectionLayout.Card, "الأهداف", "Objectives", "ph-target",
                     "<p>الموازنة بين الطلب والسعة، وتقليل التأخيرات، ودعم سلامة العمليات.</p>",
                     "<p>Balancing demand and capacity, reducing delays and supporting operational safety.</p>"),
-                Section("benefits", PageSectionLayout.Card, "الفوائد", "Benefits", "bi-award",
+                Section("benefits", PageSectionLayout.Card, "الفوائد", "Benefits", "ph-medal",
                     "<p>تحسين القدرة على التنبؤ، وخفض استهلاك الوقود، وتقليل الانبعاثات، ورفع كفاءة التشغيل.</p>",
                     "<p>Better predictability, lower fuel burn, reduced emissions and higher operational efficiency.</p>"),
-                Section("demand-capacity", PageSectionLayout.Card, "إدارة الطلب والسعة", "Demand & Capacity Management", "bi-bar-chart",
+                Section("demand-capacity", PageSectionLayout.Card, "إدارة الطلب والسعة", "Demand & Capacity Management", "ph-chart-bar",
                     "<p>تحليل الطلب المتوقع ومقارنته بالسعة المعلنة لاتخاذ إجراءات استباقية.</p>",
                     "<p>Analysing forecast demand against declared capacity to take proactive measures.</p>"),
-                Section("flow-optimization", PageSectionLayout.Card, "تحسين تدفق الحركة", "Traffic Flow Optimization", "bi-shuffle",
+                Section("flow-optimization", PageSectionLayout.Card, "تحسين تدفق الحركة", "Traffic Flow Optimization", "ph-shuffle",
                     "<p>تطبيق حلول مثل إعادة التوجيه وتنظيم أوقات الإقلاع لتحقيق تدفق متوازن.</p>",
                     "<p>Applying solutions such as re-routing and departure-time management to achieve a balanced flow.</p>"),
-                Section("coordination", PageSectionLayout.Card, "التنسيق", "Coordination", "bi-people",
+                Section("coordination", PageSectionLayout.Card, "التنسيق", "Coordination", "ph-users-three",
                     "<p>تنسيق مستمر بين وحدات الخدمات الجوية والمطارات وشركات الطيران والجهات المعنية.</p>",
                     "<p>Continuous coordination between air navigation units, airports, airlines and other stakeholders.</p>"),
-                Section("airspace-capacity", PageSectionLayout.Card, "سعة المجال الجوي", "Airspace Capacity", "bi-speedometer2",
+                Section("airspace-capacity", PageSectionLayout.Card, "سعة المجال الجوي", "Airspace Capacity", "ph-gauge",
                     "<p>تقدير السعة الفعلية للقطاعات والمطارات وتحسينها بصورة مستدامة.</p>",
                     "<p>Assessing and sustainably improving the real capacity of sectors and aerodromes.</p>"),
-                Section("operational-efficiency", PageSectionLayout.Card, "الكفاءة التشغيلية", "Operational Efficiency", "bi-lightning-charge",
+                Section("operational-efficiency", PageSectionLayout.Card, "الكفاءة التشغيلية", "Operational Efficiency", "ph-lightning",
                     "<p>تحقيق أفضل استخدام للموارد المتاحة مع الحفاظ على أعلى مستويات السلامة.</p>",
                     "<p>Making the best use of available resources while maintaining the highest safety levels.</p>"),
-                Section("step-demand", PageSectionLayout.ProcessStep, "الطلب على الحركة الجوية", "Traffic Demand", "bi-airplane",
+                Section("step-demand", PageSectionLayout.ProcessStep, "الطلب على الحركة الجوية", "Traffic Demand", "ph-airplane-tilt",
                     "<p>رصد وتقدير حجم الحركة المتوقعة.</p>", "<p>Monitoring and forecasting expected traffic.</p>"),
-                Section("step-capacity", PageSectionLayout.ProcessStep, "تحليل السعة", "Capacity Analysis", "bi-clipboard-data",
+                Section("step-capacity", PageSectionLayout.ProcessStep, "تحليل السعة", "Capacity Analysis", "ph-clipboard-text",
                     "<p>مقارنة الطلب بالسعة المتاحة.</p>", "<p>Comparing demand with available capacity.</p>"),
-                Section("step-flow", PageSectionLayout.ProcessStep, "إدارة التدفق", "Flow Management", "bi-sliders",
+                Section("step-flow", PageSectionLayout.ProcessStep, "إدارة التدفق", "Flow Management", "ph-sliders-horizontal",
                     "<p>اختيار الإجراءات المناسبة لموازنة التدفق.</p>", "<p>Selecting suitable measures to balance the flow.</p>"),
-                Section("step-coordination", PageSectionLayout.ProcessStep, "التنسيق", "Coordination", "bi-people",
+                Section("step-coordination", PageSectionLayout.ProcessStep, "التنسيق", "Coordination", "ph-users-three",
                     "<p>التنسيق مع جميع الأطراف المعنية.</p>", "<p>Coordinating with all stakeholders.</p>"),
-                Section("step-optimized", PageSectionLayout.ProcessStep, "تدفق حركة محسَّن", "Optimized Traffic Flow", "bi-check2-circle",
+                Section("step-optimized", PageSectionLayout.ProcessStep, "تدفق حركة محسَّن", "Optimized Traffic Flow", "ph-check-circle",
                     "<p>حركة جوية آمنة ومنتظمة وفعّالة.</p>", "<p>Safe, orderly and efficient air traffic.</p>")));
         }
     }
@@ -197,9 +197,7 @@ internal sealed class ContentSeeder(ApplicationDbContext db)
         Add(MenuLocation.Header, "قيادات المركز", "Leadership", "/about/leadership", about);
         Add(MenuLocation.Header, "التشريعات واللوائح", "Legislation & Regulations", "/about/legislation", about);
         Add(MenuLocation.Header, "خدماتنا", "Services", "/services");
-        var airspace = Add(MenuLocation.Header, "إدارة المجال الجوي", "Airspace Management", "/airspace-management");
-        Add(MenuLocation.Header, "نظرة عامة", "Overview", "/airspace-management", airspace);
-        Add(MenuLocation.Header, "لوحة العرض التوضيحية", "Demo Dashboard", "/airspace-demo", airspace);
+        Add(MenuLocation.Header, "إدارة المجال الجوي", "Airspace Management", "/airspace-management");
         Add(MenuLocation.Header, "إدارة تدفق الحركة الجوية", "ATFM", "/atfm");
         var news = Add(MenuLocation.Header, "الأخبار والإعلانات", "News & Announcements", "/news");
         Add(MenuLocation.Header, "الأخبار", "News", "/news", news);
@@ -248,7 +246,6 @@ internal sealed class ContentSeeder(ApplicationDbContext db)
                 DescriptionAr = "تخطيط استباقي وتنسيق مستمر لتحقيق تدفق آمن ومنتظم وفعّال للحركة الجوية.",
                 DescriptionEn = "Proactive planning and continuous coordination for a safe, orderly and efficient flow of air traffic.",
                 PrimaryButtonTextAr = "اعرف المزيد", PrimaryButtonTextEn = "Learn more", PrimaryButtonUrl = "/atfm",
-                SecondaryButtonTextAr = "لوحة العرض التوضيحية", SecondaryButtonTextEn = "Demo dashboard", SecondaryButtonUrl = "/airspace-demo",
                 DisplayOrder = 2, IsActive = true,
             });
         }
@@ -295,10 +292,10 @@ internal sealed class ContentSeeder(ApplicationDbContext db)
         {
             var stats = new (string Ar, string En, string Value, string Icon)[]
             {
-                ("خدمات متخصصة", "Specialized services", "8", "bi-grid"),
-                ("مجالات عمل رئيسية", "Main areas of work", "6", "bi-diagram-3"),
-                ("مراحل دورة إدارة التدفق", "ATFM process stages", "5", "bi-arrow-repeat"),
-                ("سنة الإطار القانوني (القانون ٢٥)", "Legal framework year (Law 25)", "2022", "bi-journal-text"),
+                ("خدمات متخصصة", "Specialized services", "8", "ph-squares-four"),
+                ("مجالات عمل رئيسية", "Main areas of work", "6", "ph-tree-structure"),
+                ("مراحل دورة إدارة التدفق", "ATFM process stages", "5", "ph-arrows-clockwise"),
+                ("سنة الإطار القانوني (القانون ٢٥)", "Legal framework year (Law 25)", "2022", "ph-book-open-text"),
             };
             var i = 0;
             foreach (var s in stats)
@@ -309,10 +306,10 @@ internal sealed class ContentSeeder(ApplicationDbContext db)
         {
             var links = new (string Ar, string En, string Url, string Icon)[]
             {
-                ("وزارة الطيران المدني", "Ministry of Civil Aviation", "https://www.civilaviation.gov.eg", "bi-bank"),
-                ("منظمة الطيران المدني الدولي (إيكاو)", "International Civil Aviation Organization (ICAO)", "https://www.icao.int", "bi-globe"),
-                ("المنظمة الأوروبية لسلامة الملاحة الجوية", "EUROCONTROL", "https://www.eurocontrol.int", "bi-globe2"),
-                ("بوابة مصر الرقمية", "Digital Egypt portal", "https://digital.gov.eg", "bi-laptop"),
+                ("وزارة الطيران المدني", "Ministry of Civil Aviation", "https://www.civilaviation.gov.eg", "ph-bank"),
+                ("منظمة الطيران المدني الدولي (إيكاو)", "International Civil Aviation Organization (ICAO)", "https://www.icao.int", "ph-globe"),
+                ("المنظمة الأوروبية لسلامة الملاحة الجوية", "EUROCONTROL", "https://www.eurocontrol.int", "ph-globe-hemisphere-east"),
+                ("بوابة مصر الرقمية", "Digital Egypt portal", "https://digital.gov.eg", "ph-laptop"),
             };
             var i = 0;
             foreach (var l in links)
@@ -327,21 +324,21 @@ internal sealed class ContentSeeder(ApplicationDbContext db)
         if (await db.CenterServices.AnyAsync(ct)) return;
         var services = new (string Ar, string En, string SlugAr, string SlugEn, string Icon, string ShortAr, string ShortEn)[]
         {
-            ("تخطيط وتصميم المجال الجوي", "Airspace Planning & Design", "تخطيط-وتصميم-المجال-الجوي", "airspace-planning-design", "bi-bounding-box",
+            ("تخطيط وتصميم المجال الجوي", "Airspace Planning & Design", "تخطيط-وتصميم-المجال-الجوي", "airspace-planning-design", "ph-polygon",
                 "تخطيط هياكل المجال الجوي وتصميم المسارات والقطاعات بما يعزز السلامة والسعة.", "Planning airspace structures and designing routes and sectors to enhance safety and capacity."),
-            ("إدارة تدفق الحركة الجوية — ATFM", "Air Traffic Flow Management — ATFM", "إدارة-تدفق-الحركة-الجوية-atfm", "air-traffic-flow-management-atfm", "bi-arrow-left-right",
+            ("إدارة تدفق الحركة الجوية — ATFM", "Air Traffic Flow Management — ATFM", "إدارة-تدفق-الحركة-الجوية-atfm", "air-traffic-flow-management-atfm", "ph-path",
                 "موازنة الطلب على الحركة الجوية مع السعة المتاحة لتقليل التأخير ورفع الكفاءة.", "Balancing air traffic demand with available capacity to reduce delays and increase efficiency."),
-            ("دعم معلومات الطيران", "Aeronautical Information Support", "دعم-معلومات-الطيران", "aeronautical-information-support", "bi-info-circle",
+            ("دعم معلومات الطيران", "Aeronautical Information Support", "دعم-معلومات-الطيران", "aeronautical-information-support", "ph-info",
                 "دعم إعداد وتنظيم المعلومات ذات الصلة بالمجال الجوي.", "Supporting the preparation and organization of airspace-related information."),
-            ("الدراسات الفنية", "Technical Studies", "الدراسات-الفنية", "technical-studies", "bi-clipboard-data",
+            ("الدراسات الفنية", "Technical Studies", "الدراسات-الفنية", "technical-studies", "ph-clipboard-text",
                 "إعداد الدراسات الفنية والتحليلية في مجالات المجال الجوي والحركة الجوية.", "Preparing technical and analytical studies in airspace and air traffic."),
-            ("الاستشارات في مجال الطيران والمجال الجوي", "Aviation & Airspace Consulting", "الاستشارات-في-مجال-الطيران", "aviation-airspace-consulting", "bi-chat-square-text",
+            ("الاستشارات في مجال الطيران والمجال الجوي", "Aviation & Airspace Consulting", "الاستشارات-في-مجال-الطيران", "aviation-airspace-consulting", "ph-chat-centered-text",
                 "تقديم الرأي الفني والاستشاري للجهات ذات الصلة.", "Providing technical and advisory opinions to relevant entities."),
-            ("التدريب والتأهيل", "Training & Qualification", "التدريب-والتأهيل", "training-qualification", "bi-mortarboard",
+            ("التدريب والتأهيل", "Training & Qualification", "التدريب-والتأهيل", "training-qualification", "ph-graduation-cap",
                 "برامج تدريبية متخصصة لبناء القدرات الوطنية.", "Specialized training programs to build national capabilities."),
-            ("تطوير المجال الجوي", "Airspace Development", "تطوير-المجال-الجوي", "airspace-development", "bi-graph-up-arrow",
+            ("تطوير المجال الجوي", "Airspace Development", "تطوير-المجال-الجوي", "airspace-development", "ph-trend-up",
                 "مبادرات ومشروعات لتطوير المجال الجوي وفق أفضل الممارسات الدولية.", "Initiatives and projects to develop the airspace according to international best practice."),
-            ("خدمات بيانات ومعلومات الطيران", "Aviation Data & Information Services", "خدمات-بيانات-ومعلومات-الطيران", "aviation-data-information-services", "bi-database",
+            ("خدمات بيانات ومعلومات الطيران", "Aviation Data & Information Services", "خدمات-بيانات-ومعلومات-الطيران", "aviation-data-information-services", "ph-database",
                 "جمع وتحليل البيانات لدعم اتخاذ القرار.", "Collecting and analysing data to support decision-making."),
         };
         var order = 0;

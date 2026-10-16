@@ -26,6 +26,7 @@
             <div class="admin-card">
                 <field asp-for="Input.Layout" type="select" items="L.EnumOptions<PageSectionLayout>()" hint="Pages.LayoutHint" />
                 <field asp-for="Input.Icon" dir="ltr" placeholder="Admin.IconPlaceholder" hint="Admin.IconHint" />
+                <partial name="_IconPicker" model="new IconPickerModel(Model.Input.Icon)" />
                 <field asp-for="Input.Key" dir="ltr" hint="Pages.KeyHint" />
                 <field asp-for="Input.IsVisible" type="checkbox" />
                 <media-field asp-for="Input.ImageId" kind="Image" upload="SectionImageUpload" />

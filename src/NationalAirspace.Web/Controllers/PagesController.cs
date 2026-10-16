@@ -1,16 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.Extensions.Localization;
-using NationalAirspace.Application.Features.DemoAirspace;
 using NationalAirspace.Application.Features.Pages;
 using NationalAirspace.Web.Extensions;
 using NationalAirspace.Web.Localization;
+using NationalAirspace.Web.Services;
+using NationalAirspace.Application.Common;
 
 namespace NationalAirspace.Web.Controllers;
 
-/// <summary>Airspace management, ATFM, the demo dashboard and admin-created custom pages.</summary>
+/// <summary>Airspace management, ATFM and admin-created custom pages.</summary>
 [Route("{culture:culture}")]
-public sealed class PagesController(PagePublicService pages, IStringLocalizer<SharedResource> L) : PublicController
+public sealed class PagesController(PagePublicService pages) : PublicController
 {
     [HttpGet("airspace-management")]
     [OutputCache(PolicyName = ServiceCollectionExtensions.PublicCachePolicy)]
@@ -19,7 +20,6 @@ public sealed class PagesController(PagePublicService pages, IStringLocalizer<Sh
         var page = await pages.GetBySystemKeyAsync(SystemPages.AirspaceManagement, Lang, ct);
         if (page is null) return NotFound();
         Present(page);
-        ViewData["ShowDemoLink"] = true;
         return View("Page", page);
     }
 
@@ -44,21 +44,6 @@ public sealed class PagesController(PagePublicService pages, IStringLocalizer<Sh
         Present(page);
         return View("Page", page);
     }
-
-    [HttpGet("airspace-demo")]
-    [OutputCache(PolicyName = ServiceCollectionExtensions.PublicCachePolicy)]
-    public IActionResult Demo([FromServices] DemoAirspaceService demo)
-    {
-        Seo(L["Demo.Title"], L["Demo.Lead"]);
-        ViewData["Lead"] = L["Demo.Lead"].Value;
-        Breadcrumb((L["Nav.AirspaceManagement"], Url.Site("/airspace-management")), (L["Demo.Title"], null));
-        return View(demo.GetSnapshot(Lang));
-    }
-
-    /// <summary>Simulated snapshot (JSON) used by the demo dashboard to refresh itself.</summary>
-    [HttpGet("airspace-demo/data")]
-    [OutputCache(Duration = 15)]
-    public IActionResult DemoData([FromServices] DemoAirspaceService demo) => Json(demo.GetSnapshot(Lang));
 
     private void Present(PageDto page)
     {

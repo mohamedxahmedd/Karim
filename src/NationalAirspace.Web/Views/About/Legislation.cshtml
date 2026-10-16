@@ -13,7 +13,7 @@
                     <option value="@c" selected="@(Model.Category == c.ToString())">@L.Enum(c)</option>
                 }
             </select>
-            <button class="btn btn-primary" type="submit"><i class="bi bi-search" aria-hidden="true"></i> @L["Common.Search"]</button>
+            <button class="btn btn-primary" type="submit"><i class="ph-light ph-magnifying-glass" aria-hidden="true"></i> @L["Common.Search"]</button>
         </form>
         @if (Model.Items.Items.Count == 0)
         {
@@ -24,15 +24,15 @@
             foreach (var d in Model.Items.Items)
             {
                 <article class="doc-item reveal">
-                    <span class="icon-tile gold"><i class="bi bi-journal-text" aria-hidden="true"></i></span>
+                    <span class="icon-tile gold"><i class="ph-light ph-book-open-text" aria-hidden="true"></i></span>
                     <div class="flex-grow-1">
                         <div class="card-meta mb-1">
                             <span class="chip">@L.Enum(d.Category)</span>
                             @if (d.DocumentNumber is not null)
                             {
-                                <span><i class="bi bi-hash" aria-hidden="true"></i> <span class="ltr-nums">@d.DocumentNumber</span></span>
+                                <span><i class="ph-light ph-hash" aria-hidden="true"></i> <span class="ltr-nums">@d.DocumentNumber</span></span>
                             }
-                            <span><i class="bi bi-calendar3" aria-hidden="true"></i> @d.PublicationDate.DateOnlyText()</span>
+                            <span><i class="ph-light ph-calendar-blank" aria-hidden="true"></i> @d.PublicationDate.DateOnlyText()</span>
                         </div>
                         <h2>@d.Title</h2>
                         @if (d.Description is not null)
@@ -44,7 +44,7 @@
                     {
                         <div class="doc-actions">
                             <a class="btn btn-outline-primary" href="@Url.Site($"/about/legislation/{d.Id}/download")">
-                                <i class="bi bi-download" aria-hidden="true"></i> @L["Common.Download"]
+                                <i class="ph-light ph-download-simple" aria-hidden="true"></i> @L["Common.Download"]
                                 @if (d.FileSize is { } size)
                                 {
                                     <small class="ltr-nums">(@size.FileSize())</small>

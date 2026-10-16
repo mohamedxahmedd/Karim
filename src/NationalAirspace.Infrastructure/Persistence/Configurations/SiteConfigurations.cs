@@ -100,6 +100,12 @@ internal sealed class SiteSettingsConfiguration : IEntityTypeConfiguration<SiteS
         b.Property(x => x.InstagramUrl).HasMaxLength(L.Url);
         b.Property(x => x.FooterTextAr).HasMaxLength(L.Short);
         b.Property(x => x.FooterTextEn).HasMaxLength(L.Short);
+        b.Property(x => x.FooterLinksTitleAr).HasMaxLength(L.Title);
+        b.Property(x => x.FooterLinksTitleEn).HasMaxLength(L.Title);
+        b.Property(x => x.FooterContactTitleAr).HasMaxLength(L.Title);
+        b.Property(x => x.FooterContactTitleEn).HasMaxLength(L.Title);
+        b.Property(x => x.FooterCopyrightAr).HasMaxLength(L.Title);
+        b.Property(x => x.FooterCopyrightEn).HasMaxLength(L.Title);
         b.Property(x => x.DefaultMetaDescriptionAr).HasMaxLength(L.MetaDescription);
         b.Property(x => x.DefaultMetaDescriptionEn).HasMaxLength(L.MetaDescription);
     }

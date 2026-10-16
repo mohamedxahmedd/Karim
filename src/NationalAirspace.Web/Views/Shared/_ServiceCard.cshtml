@@ -1,6 +1,6 @@
 @model NationalAirspace.Application.Features.Services.ServiceCardDto
 <a class="card-namc feature-card" href="@Url.Site("/services", Model.Slug)">
-    <span class="icon-tile"><i class="bi @(Model.Icon ?? "bi-grid")" aria-hidden="true"></i></span>
+    <span class="icon-tile"><i class="ph-light @(Model.Icon ?? "ph-squares-four")" aria-hidden="true"></i></span>
     <h3>@Model.Title</h3>
     @if (Model.ShortDescription is not null)
     {

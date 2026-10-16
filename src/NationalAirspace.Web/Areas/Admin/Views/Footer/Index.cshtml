@@ -1,0 +1,72 @@
+@model NationalAirspace.Application.Features.Settings.FooterSettingsInput
+@{
+    ViewData["Title"] = L["AdminNav.Footer"];
+    ViewData["Subtitle"] = L["Footer.Admin.Subtitle"];
+    var links = ViewData["FooterLinks"] as IReadOnlyList<NationalAirspace.Application.Features.Menus.MenuAdminItem>;
+}
+<form method="post" novalidate>
+    <input type="hidden" asp-for="ConcurrencyStamp" />
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="row g-4">
+        <div class="col-xl-8">
+            <section class="admin-card">
+                <h2 class="admin-card-title">@L["Footer.Admin.About"]</h2>
+                <div class="row">
+                    <div class="col-md-6"><field asp-for="FooterTextAr" type="textarea" rows="3" /></div>
+                    <div class="col-md-6"><field asp-for="FooterTextEn" type="textarea" rows="3" /></div>
+                </div>
+            </section>
+            <section class="admin-card">
+                <h2 class="admin-card-title">@L["Footer.Admin.Headings"]</h2>
+                <div class="row">
+                    <div class="col-md-6"><field asp-for="FooterLinksTitleAr" /></div>
+                    <div class="col-md-6"><field asp-for="FooterLinksTitleEn" /></div>
+                    <div class="col-md-6"><field asp-for="FooterContactTitleAr" /></div>
+                    <div class="col-md-6"><field asp-for="FooterContactTitleEn" /></div>
+                </div>
+                <p class="form-text mb-0">@L["Footer.Admin.DefaultsHint"]</p>
+            </section>
+            <section class="admin-card">
+                <h2 class="admin-card-title">@L["Footer.Admin.Bottom"]</h2>
+                <div class="row">
+                    <div class="col-md-6"><field asp-for="FooterCopyrightAr" /></div>
+                    <div class="col-md-6"><field asp-for="FooterCopyrightEn" /></div>
+                </div>
+                <p class="form-text mb-0">@L["Footer.Admin.CopyrightHint"]</p>
+            </section>
+        </div>
+        <div class="col-xl-4">
+            <div class="admin-card admin-form-submit">
+                <button type="submit" class="btn btn-primary w-100"><i class="bi bi-check2" aria-hidden="true"></i> @L["Common.Save"]</button>
+            </div>
+            @if (links is not null)
+            {
+                <section class="admin-card">
+                    <h2 class="admin-card-title">@L["Footer.Admin.Links"]</h2>
+                    @if (links.Count == 0)
+                    {
+                        <p class="text-muted">@L["Footer.Admin.NoLinks"]</p>
+                    }
+                    else
+                    {
+                        <ul class="list-unstyled mb-3">
+                            @foreach (var link in links)
+                            {
+                                <li class="d-flex justify-content-between gap-2 py-1 @(link.IsVisible ? "" : "text-muted")">
+                                    <span>@Bilingual.Pick(link.TitleAr, link.TitleEn)</span>
+                                    <span class="small text-muted" dir="ltr">@link.Url</span>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    <a class="btn btn-outline-primary w-100" asp-controller="Menus" asp-action="Index" asp-route-location="@MenuLocation.Footer"><i class="bi bi-pencil" aria-hidden="true"></i> @L["Footer.Admin.ManageLinks"]</a>
+                </section>
+            }
+            <section class="admin-card">
+                <h2 class="admin-card-title">@L["Footer.Admin.ContactSocial"]</h2>
+                <p class="form-text">@L["Footer.Admin.ContactSocialHint"]</p>
+                <a class="btn btn-outline-secondary w-100" asp-controller="Settings" asp-action="Index"><i class="bi bi-gear" aria-hidden="true"></i> @L["AdminNav.Settings"]</a>
+            </section>
+        </div>
+    </div>
+</form>

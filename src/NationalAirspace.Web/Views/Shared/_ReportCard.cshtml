@@ -5,14 +5,14 @@
         {
             <img src="@Model.Cover.Url" alt="@Model.Cover.Alt" loading="lazy" />
         }
-        <span class="chip on-dark badge-float"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> @(Model.CategoryName ?? L["Reports.Publication"].Value)</span>
+        <span class="chip on-dark badge-float"><i class="ph-light ph-file-pdf" aria-hidden="true"></i> @(Model.CategoryName ?? L["Reports.Publication"].Value)</span>
     </div>
     <div class="card-body-namc">
         <div class="card-meta">
-            <span><i class="bi bi-calendar3" aria-hidden="true"></i> @Model.PublicationDate.DateOnlyText()</span>
+            <span><i class="ph-light ph-calendar-blank" aria-hidden="true"></i> @Model.PublicationDate.DateOnlyText()</span>
             @if (Model.FileSize is { } size)
             {
-                <span><i class="bi bi-download" aria-hidden="true"></i> <span class="ltr-nums">@size.FileSize()</span></span>
+                <span><i class="ph-light ph-download-simple" aria-hidden="true"></i> <span class="ltr-nums">@size.FileSize()</span></span>
             }
         </div>
         <h3 class="line-clamp-2">@Model.Title</h3>

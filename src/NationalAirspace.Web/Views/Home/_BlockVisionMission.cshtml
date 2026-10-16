@@ -9,7 +9,7 @@
                 {
                     <div class="col-md-6 reveal">
                         <div class="vm-card">
-                            <h3><span class="icon-tile gold"><i class="bi @(s.Icon ?? "bi-eye")" aria-hidden="true"></i></span> @s.Title</h3>
+                            <h3><span class="icon-tile gold"><i class="ph-light @(s.Icon ?? "ph-eye")" aria-hidden="true"></i></span> @s.Title</h3>
                             @if (s.ContentHtml is not null)
                             {
                                 <div class="rich-text text-muted">@Html.Raw(s.ContentHtml)</div>

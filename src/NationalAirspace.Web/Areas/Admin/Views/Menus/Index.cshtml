@@ -1,4 +1,6 @@
 @model IReadOnlyList<NationalAirspace.Application.Features.Menus.MenuAdminItem>
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService Auth
 @{
     ViewData["Title"] = L["AdminNav.Menus"];
     ViewData["Subtitle"] = L["Menus.Subtitle"];
@@ -13,6 +15,10 @@
         <li class="nav-item"><a class="nav-link @(loc == location ? "active" : "")" asp-action="Index" asp-route-location="@loc" aria-current="@(loc == location ? "page" : null)">@L.Enum(loc)</a></li>
     }
 </ul>
+@if (location == MenuLocation.Footer && (await Auth.AuthorizeAsync(User, NationalAirspace.Application.Common.Security.Permissions.Settings)).Succeeded)
+{
+    <div class="alert alert-info d-flex gap-2"><i class="bi bi-info-circle-fill" aria-hidden="true"></i><div>@L["Menus.FooterNotice"] <a asp-controller="Footer" asp-action="Index">@L["AdminNav.Footer"]</a></div></div>
+}
 @if (Model.Count == 0)
 {
     <div class="admin-table-wrap"><partial name="_TableEmpty" /></div>

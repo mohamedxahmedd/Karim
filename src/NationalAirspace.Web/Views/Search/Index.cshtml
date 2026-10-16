@@ -25,7 +25,7 @@
         <form class="filter-bar" method="get" role="search">
             <label class="visually-hidden" for="q">@L["Search.Label"]</label>
             <input id="q" class="form-control" type="search" name="q" value="@Model.Query" placeholder="@L["Search.Placeholder"]" maxlength="100" autofocus />
-            <button class="btn btn-primary" type="submit"><i class="bi bi-search" aria-hidden="true"></i> @L["Common.Search"]</button>
+            <button class="btn btn-primary" type="submit"><i class="ph-light ph-magnifying-glass" aria-hidden="true"></i> @L["Common.Search"]</button>
         </form>
         @if (string.IsNullOrEmpty(Model.Query) || Model.Query.Length < 2)
         {
@@ -41,7 +41,7 @@
             foreach (var h in Model.Hits)
             {
                 <article class="doc-item">
-                    <span class="icon-tile"><i class="bi @(h.Type switch { SearchHitType.News => "bi-newspaper", SearchHitType.Service => "bi-grid", SearchHitType.Report => "bi-file-earmark-text", SearchHitType.Training => "bi-mortarboard", SearchHitType.Announcement => "bi-megaphone", SearchHitType.Legislation => "bi-journal-text", _ => "bi-file-earmark" })" aria-hidden="true"></i></span>
+                    <span class="icon-tile"><i class="ph-light @(h.Type switch { SearchHitType.News => "ph-newspaper", SearchHitType.Service => "ph-squares-four", SearchHitType.Report => "ph-file-text", SearchHitType.Training => "ph-graduation-cap", SearchHitType.Announcement => "ph-megaphone", SearchHitType.Legislation => "ph-book-open-text", _ => "ph-file" })" aria-hidden="true"></i></span>
                     <div>
                         <div class="card-meta mb-1"><span class="chip">@L.Enum(h.Type)</span>
                             @if (h.Date is { } d)

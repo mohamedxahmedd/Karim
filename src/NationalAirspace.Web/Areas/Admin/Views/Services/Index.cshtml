@@ -17,7 +17,7 @@
                 @foreach (var x in Model.Items.Items)
                 {
                     <tr>
-                        <td><i class="bi @(x.Icon ?? "bi-grid") text-primary me-1" aria-hidden="true"></i> <a class="row-title" asp-action="Edit" asp-route-id="@x.Id">@Bilingual.Pick(x.TitleAr, x.TitleEn)</a></td>
+                        <td><i class="ph-light @(x.Icon ?? "ph-squares-four") text-primary me-1" aria-hidden="true"></i> <a class="row-title" asp-action="Edit" asp-route-id="@x.Id">@Bilingual.Pick(x.TitleAr, x.TitleEn)</a></td>
                         <td data-label="@L["Field.Status"]"><partial name="_StatusBadge" model="new StatusBadgeModel(x.Status)" /></td>
                         <td data-label="@L["Admin.Order"]">@if (!Model.Filter.HasFilter) { <partial name="_MoveButtons" model="x.Id" /> } else { @x.DisplayOrder }</td>
                         <td data-label="@L["Admin.Updated"]" class="text-muted small">@Clock.DateTimeText(x.UpdatedAtUtc)</td>

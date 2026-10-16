@@ -6,14 +6,14 @@
             <div class="col-lg-8">
                 <article class="article">
                     <div class="card-meta mb-3">
-                        <span><i class="bi bi-calendar3" aria-hidden="true"></i> <time datetime="@Clock.IsoDate(Model.PublishDateUtc)">@Clock.LongDate(Model.PublishDateUtc)</time></span>
+                        <span><i class="ph-light ph-calendar-blank" aria-hidden="true"></i> <time datetime="@Clock.IsoDate(Model.PublishDateUtc)">@Clock.LongDate(Model.PublishDateUtc)</time></span>
                         @if (Model.CategoryName is not null)
                         {
                             <a class="chip" href="@Url.Site("/news")?category=@Uri.EscapeDataString(Model.CategorySlug!)">@Model.CategoryName</a>
                         }
                         @if (Model.Author is not null)
                         {
-                            <span><i class="bi bi-person" aria-hidden="true"></i> @Model.Author</span>
+                            <span><i class="ph-light ph-user" aria-hidden="true"></i> @Model.Author</span>
                         }
                     </div>
                     @if (Model.Image is not null)

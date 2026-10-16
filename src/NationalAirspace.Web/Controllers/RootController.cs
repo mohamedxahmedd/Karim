@@ -51,7 +51,7 @@ public sealed class RootController : Controller
         string[] staticPaths =
         [
             "", "/about", "/about/vision-mission", "/about/responsibilities", "/about/structure", "/about/leadership", "/about/legislation",
-            "/services", "/airspace-management", "/airspace-demo", "/atfm", "/news", "/announcements", "/reports", "/training",
+            "/services", "/airspace-management", "/atfm", "/news", "/announcements", "/reports", "/training",
             "/media", "/media/photos", "/media/videos", "/contact",
         ];
         var basePaths = new Dictionary<SearchHitType, string>

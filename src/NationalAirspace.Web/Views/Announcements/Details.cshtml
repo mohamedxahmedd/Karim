@@ -4,7 +4,7 @@
     <div class="container container-wide">
         <article class="article">
             <div class="card-meta mb-3">
-                <span><i class="bi bi-calendar3" aria-hidden="true"></i> @Clock.LongDate(Model.PublishDateUtc)</span>
+                <span><i class="ph-light ph-calendar-blank" aria-hidden="true"></i> @Clock.LongDate(Model.PublishDateUtc)</span>
                 @if (Model.IsImportant && !Model.IsExpired)
                 {
                     <span class="chip gold">@L["Announcements.Important"]</span>
@@ -15,7 +15,7 @@
                 }
                 else if (Model.ExpiresAtUtc is { } exp)
                 {
-                    <span><i class="bi bi-hourglass-split" aria-hidden="true"></i> @L["Announcements.ValidUntil"] @Clock.LongDate(exp)</span>
+                    <span><i class="ph-light ph-hourglass-medium" aria-hidden="true"></i> @L["Announcements.ValidUntil"] @Clock.LongDate(exp)</span>
                 }
             </div>
             @if (Model.ContentHtml is not null)
@@ -25,9 +25,9 @@
             @if (Model.AttachmentName is not null)
             {
                 <div class="doc-item mt-4">
-                    <span class="icon-tile"><i class="bi bi-paperclip" aria-hidden="true"></i></span>
+                    <span class="icon-tile"><i class="ph-light ph-paperclip" aria-hidden="true"></i></span>
                     <div class="flex-grow-1"><h2>@Model.AttachmentName</h2><p class="ltr-nums">@Model.AttachmentSize?.FileSize()</p></div>
-                    <div class="doc-actions"><a class="btn btn-primary" href="@Url.Site($"/announcements/{Model.Id}/attachment")"><i class="bi bi-download" aria-hidden="true"></i> @L["Common.Download"]</a></div>
+                    <div class="doc-actions"><a class="btn btn-primary" href="@Url.Site($"/announcements/{Model.Id}/attachment")"><i class="ph-light ph-download-simple" aria-hidden="true"></i> @L["Common.Download"]</a></div>
                 </div>
             }
             <hr class="my-4" />

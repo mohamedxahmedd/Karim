@@ -56,7 +56,7 @@ public class StatisticInput
     [Required(ErrorMessage = V.Required), StringLength(200, ErrorMessage = V.MaxLength)] public string LabelAr { get; set; } = string.Empty;
     [Required(ErrorMessage = V.Required), StringLength(200, ErrorMessage = V.MaxLength)] public string LabelEn { get; set; } = string.Empty;
     [Required(ErrorMessage = V.Required), StringLength(30, ErrorMessage = V.MaxLength)] public string Value { get; set; } = string.Empty;
-    [StringLength(64, ErrorMessage = V.MaxLength), RegularExpression("^bi-[a-z0-9-]+$", ErrorMessage = "Val.Icon")] public string? Icon { get; set; }
+    [StringLength(64, ErrorMessage = V.MaxLength), IconName] public string? Icon { get; set; }
     public bool IsActive { get; set; } = true;
 }
 
@@ -67,7 +67,7 @@ public class ImportantLinkInput
     [Required(ErrorMessage = V.Required), StringLength(200, ErrorMessage = V.MaxLength)] public string TitleAr { get; set; } = string.Empty;
     [Required(ErrorMessage = V.Required), StringLength(200, ErrorMessage = V.MaxLength)] public string TitleEn { get; set; } = string.Empty;
     [Required(ErrorMessage = V.Required), StringLength(500, ErrorMessage = V.MaxLength), SafeLink] public string Url { get; set; } = string.Empty;
-    [StringLength(64, ErrorMessage = V.MaxLength), RegularExpression("^bi-[a-z0-9-]+$", ErrorMessage = "Val.Icon")] public string? Icon { get; set; }
+    [StringLength(64, ErrorMessage = V.MaxLength), IconName] public string? Icon { get; set; }
     public bool IsActive { get; set; } = true;
 }
 
